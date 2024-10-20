@@ -24,11 +24,11 @@ author:
   avatar           : "RWY_profile.jpeg"
   name             : "Robin W. Yeo"
   pronouns         : # example: "she/her"  
-  bio              : "Still beta testing"
-  location         : "Earth"
-  employer         : "Stanford University LATEST"
+  bio              : "PhD in genetics with extensive genomics and bioinformatics experience including next-generation sequencing analysis and machine learning/deep learning expertise. 15+ years of research experience including molecular biology and genetic manipulation in numerous in vitro and in vivo systems. Expert in CRISPR-Cas systems and their therapeutic applications. Strong independent and collaborative publication record in both primary research and scientific literature reviews. Passionate about genome editing, aging biology, epigenetics, and neuroscience."
+  location         : 
+  employer         : 
   uri              : # URL
-  email            : "none@example.org" 
+  email            : "robinwyeo@gmail.com" 
 
   # Academic websites
   arxiv            : # URL - Update with the correct link to your profile
