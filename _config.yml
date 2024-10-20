@@ -21,7 +21,7 @@ repository               : "academicpages/academicpages.github.io"
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "RWY_profile.jpeg"
+  avatar           : "RWY_profile.png"
   name             : "Robin W. Yeo"
   pronouns         : # example: "she/her"  
   bio              : "PhD in genetics with extensive genomics and bioinformatics experience including next-generation sequencing analysis and machine learning/deep learning expertise. 15+ years of research experience including molecular biology and genetic manipulation in numerous in vitro and in vivo systems. Expert in CRISPR-Cas systems and their therapeutic applications. Strong independent and collaborative publication record in both primary research and scientific literature reviews. Passionate about genome editing, aging biology, epigenetics, and neuroscience."
