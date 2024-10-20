@@ -24,7 +24,7 @@ author:
   avatar           : "RWY_profile.png"
   name             : "Robin W. Yeo"
   pronouns         : # example: "she/her"  
-  bio              : "PhD in genetics with extensive genomics and bioinformatics experience including next-generation sequencing analysis and machine learning/deep learning expertise. 15+ years of research experience including molecular biology and genetic manipulation in numerous in vitro and in vivo systems. Expert in CRISPR-Cas systems and their therapeutic applications. Strong independent and collaborative publication record in both primary research and scientific literature reviews. Passionate about genome editing, aging biology, epigenetics, and neuroscience."
+  bio              : "PhD in genetics with extensive wetlab+drylab experience specializing in genomics and bioinformatics research."
   location         : 
   employer         : 
   uri              : # URL
@@ -32,30 +32,30 @@ author:
 
   # Academic websites
   arxiv            : # URL - Update with the correct link to your profile
-  googlescholar    : "https://scholar.google.com/citations?user=PS_CX0AAAAAJ"
+  googlescholar    : "https://scholar.google.com/citations?user=4Fp_IowAAAAJ&hl=en"
   impactstory      : # URL
   orcid            : "http://orcid.org/yourorcidurl"
   semantic         : # URL
-  pubmed           : "https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
+  pubmed           : "https://www.ncbi.nlm.nih.gov/pubmed/?term=robin+yeo"
   researchgate     : # URL
 
   # Repositories and software development
   bitbucket        : # Username - Update with your username on the site
   codepen          : # Username
   dribbble         : # Username
-  github           : "academicpages"
+  github           : "robinwyeo"
   kaggle           : # Username  
   stackoverflow    : # User number or user number and name (i.e., use "1" or "1/jeff-atwood")    
 
   # Social media
-  bluesky          : "bsky.app" # Replace this with you Bluesky username
+  bluesky          : # Username
   facebook         : # Username
   flickr           : # Username
   foursquare       : # Username
   goodreads        : # Username
   google_plus      : # Username
   keybase          : # Username
-  instagram        : # Username
+  instagram        : "robinwyeo"
   lastfm           : # Username
   linkedin         : # Username
   mastodon         : # URL
