@@ -6,10 +6,10 @@
 
 main:
 
-  - title: "Blog Posts"
-    url: /year-archive/
+  - title: "Travel Blog"
+    url: /travel-blog/
     
-  - title: "Birding Portfolio"
+  - title: "Fun Science"
     url: /portfolio/ 
 
   - title: "Publications"
