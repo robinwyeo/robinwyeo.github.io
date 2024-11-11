@@ -7,7 +7,7 @@
 main:
 
   - title: "Travel Blog"
-    url: /travel-blog/
+    url: /year-archive/
     
   - title: "Birding Portfolio"
     url: /portfolio/ 
