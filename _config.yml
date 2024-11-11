@@ -8,7 +8,7 @@
 
 # Basic Site Settings
 locale                   : "en-US"
-title                    : "RWY - Personal Website"
+title                    : "RWY Personal Website"
 title_separator          : "-"
 name                     : &name "Your Name"
 description              : &description "personal description"
@@ -21,7 +21,7 @@ repository               : "academicpages/academicpages.github.io"
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "images/RWY_profile.png"
+  avatar           : "profile.png"
   name             : "Robin W. Yeo, PhD"
   pronouns         : # example: "she/her"  
   bio              : "Computational biologist specializing in epigenomics, protein engineering, and deep learning."
