@@ -1,6 +1,6 @@
 ---
 permalink: /
-title: "In search of science and birds TESTING"
+title: "In search of science and birds..."
 author_profile: true
 redirect_from: 
   - /about/
@@ -8,6 +8,8 @@ redirect_from:
 ---
 
  
+======
+
 
 About
 ======
