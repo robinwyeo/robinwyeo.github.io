@@ -53,12 +53,6 @@ Talks
     {% include archive-single-talk-cv.html  %}
   {% endfor %}</ul>
   
-Teaching
-======
-  <ul>{% for post in site.teaching reversed %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
-  
-Service and leadership
-======
-* Currently signed in to 43 different slack teams
+
+
+<embed src="{{ site.baseurl }}/files/robinyeo_CV_comprehensive.pdf" width="600" height="700" type='application/pdf'> 
