@@ -24,7 +24,7 @@ author:
   avatar           : "profile.png"
   name             : "Robin W. Yeo, PhD"
   pronouns         : # example: "she/her"  
-  bio              : "Computational biologist specializing in epigenomics, protein engineering, and deep learning."
+  bio              : "Biological data scientist specializing in bioinformatics, epigenomics, protein engineering, and machine learning."
   location         : "Traveling"
   employer         : # 
   uri              : # URL
@@ -34,7 +34,7 @@ author:
   arxiv            : # URL - Update with the correct link to your profile
   googlescholar    : "https://scholar.google.com/citations?user=4Fp_IowAAAAJ&hl=en"
   impactstory      : # URL
-  orcid            : "http://orcid.org/yourorcidurl"
+  orcid            : #"http://orcid.org/yourorcidurl"
   semantic         : # URL
   pubmed           : "https://www.ncbi.nlm.nih.gov/pubmed/?term=robin+yeo"
   researchgate     : # URL
