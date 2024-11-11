@@ -9,7 +9,7 @@ redirect_from:
 
 About
 ======
-After 10 years living in the Bay Area, my wife and I quit our jobs to go travel and work on some personal projects. Over the course of 2024/2025, we’ll be traveling through North America, Southeast Asia, and South America.
+My name’s Robin W. Yeo and I’m a computational genomicist specializing primarily in epigenomics, protein engineering, and deep learning. I received my BSc in bioengineering from MIT and my PhD in Genetics in the Brunet Lab at Stanford University. After 10 years living in the Bay Area, my wife and I quit our jobs to go travel and work on some personal projects. Over the course of 2024/2025, we’ll be traveling through North America, Southeast Asia, and South America.
 
 
 Research Background
