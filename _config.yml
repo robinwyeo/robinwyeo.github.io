@@ -21,12 +21,12 @@ repository               : "academicpages/academicpages.github.io"
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "RWY_profile.png"
-  name             : "Robin W. Yeo"
+  avatar           : "images/RWY_profile.png"
+  name             : "Robin W. Yeo, PhD"
   pronouns         : # example: "she/her"  
-  bio              : "PhD in genetics with extensive wetlab+drylab experience specializing in genomics and bioinformatics research."
-  location         : 
-  employer         : 
+  bio              : "Computational biologist specializing in epigenomics, protein engineering, and deep learning."
+  location         : "Traveling"
+  employer         : # 
   uri              : # URL
   email            : "robinwyeo@gmail.com" 
 
@@ -57,7 +57,7 @@ author:
   keybase          : # Username
   instagram        : "robinwyeo"
   lastfm           : # Username
-  linkedin         : # Username
+  linkedin         : "robin-w-yeo-5141b460"
   mastodon         : # URL
   medium           : # URL
   pinterest        : # Username
