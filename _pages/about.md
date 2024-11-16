@@ -13,7 +13,7 @@ redirect_from:
 
 About
 ======
-TESTING My name’s Robin Yeo and I’m a computational genomicist specializing primarily in epigenomics, protein engineering, and machine learning. I received my B.Sc. in Biological Engineering from MIT and my Ph.D. in Genetics in the Brunet Lab at Stanford University. After 10 years living in the Bay Area, my wife and I quit our jobs to go travel and work on some personal projects. Over the course of 2024/2025, we’ll be traveling through North America, Southeast Asia, and South America.
+TESTING NEW My name’s Robin Yeo and I’m a computational genomicist specializing primarily in epigenomics, protein engineering, and machine learning. I received my B.Sc. in Biological Engineering from MIT and my Ph.D. in Genetics in the Brunet Lab at Stanford University. After 10 years living in the Bay Area, my wife and I quit our jobs to go travel and work on some personal projects. Over the course of 2024/2025, we’ll be traveling through North America, Southeast Asia, and South America.
 
 
 Research Background
