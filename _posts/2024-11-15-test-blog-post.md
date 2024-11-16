@@ -1,7 +1,7 @@
 ---
-title: 'TEST BLOG POST'
+title: 'TESTING FIRST BLOG POST'
 date: 2024-11-15
-permalink: /posts/2012/08/blog-post-1/
+permalink: /posts/2024-11-15-test-blog-post
 tags:
   - cool posts
   - category1
@@ -12,6 +12,10 @@ This is a sample blog post. Lorem ipsum I can't remember the rest of lorem ipsum
 
 Headings are cool
 ======
+
+<br/>
+![Woodpecker](/images/Nov_2024_Pilleated_Woodpecker.jpg)
+
 
 You can have many headings
 ======
