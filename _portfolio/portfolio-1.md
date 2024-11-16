@@ -8,3 +8,4 @@ This is an item in your portfolio. It can be have images or nice text. If you na
 
 <br/>
 <img src=‘/images/Nov_2024_Pilleated_Woodpecker.jpg’>
+![Woodpecker](/images/Nov_2024_Pilleated_Woodpecker.jpg)
