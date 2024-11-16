@@ -8,3 +8,6 @@ Here’s an image of a Brook Salamander I took in North Carolina.
 
 <br/>
 ![Salamander](/images/Salamander.jpg)
+<br/>
+![Salamander_compressed](/images/Salamander_Compressed.jpg)
+
