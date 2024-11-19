@@ -7,6 +7,10 @@ collection: portfolio
 Here’s an image of a Brook Salamander I took in North Carolina.
 
 <br/>
+![Salamander2](/images/Salamander_5000.jpeg)
+<br/>
+![Salamander2](/images/Salamander_1800.png)
+<br/>
 ![Salamander2](/images/Salamander_506.png)
 <br/>
-![Salamander2](/images/Salamander_218.jpg)
+![Salamander2](/images/Salamander_218.jpeg)
