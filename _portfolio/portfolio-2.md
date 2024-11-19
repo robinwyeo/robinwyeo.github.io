@@ -1,6 +1,6 @@
 ---
 title: "TEST ITEM #2: Brook Salamander"
-excerpt: "Testing this out <br/><img src='/images/Salamander.jpg'>"
+excerpt: "Testing this out <br/><img src='/images/Salamander_218.jpeg'>"
 collection: portfolio
 ---
 
