@@ -19,7 +19,7 @@ Dark-eyed Junco
 ![Tufted-titmouse](/images/Portfolio-1-tufted-titmouse.jpeg)
 Tufted Titmouse
 
-My friend Neel lent me his 100-400mm telephoto lens to shoot with while traveling and I got lucky in Muskoka and managed to get a clear shot of a pilleated woodpecker as the inaugural shot with this lens!
+My friend Neel lent me his 100-400mm telephoto lens to shoot with while traveling and I got lucky in Muskoka and managed to get a clear shot of a pileated woodpecker as the inaugural shot with this lens!
 
 <br/>
 ![Woodpecker](/images/Nov_2024_Pilleated_Woodpecker.jpg)
