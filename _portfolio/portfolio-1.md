@@ -9,7 +9,7 @@ I started recording my birding life list on our honeymoon in the Caribbean in Ap
 <br/>
 ![Life-list](/images/Portfolio-1/Portfolio-1-life-list-NEW.jpeg)
 <br/>
-![Life-list](/images/Portfolio-1-life-list.jpeg){:width=“20%” }
+![Life-list](/images/Portfolio-1-life-list.jpeg){:width=“20%”}
 
 When we decided to go travel for a year, I thought it would be a good opportunity to dive into bird photography as a hobby. Here are some of my first bird shots using the Canon EOS R7 with its kit zoom lens (RF-S 18-150mm F3.5-6.3 IS STM).
 
