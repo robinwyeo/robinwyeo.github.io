@@ -9,7 +9,7 @@ I started recording my birding life list on our honeymoon in the Caribbean in Ap
 <br/>
 ![Life-list](/images/Portfolio-1-life-list.jpeg)
 <br/>
-![Life-list](/images/Portfolio-1/Portfolio-1-life-list-NEW.jpeg)
+![Life-list](/images/Portfolio-1-life-list-NEW.jpeg)
 <br/>
 ![Life-list](/images/Portfolio-1-life-list.jpeg){: width=“5%” }
 
