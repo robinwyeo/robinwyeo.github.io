@@ -8,19 +8,20 @@ I started recording my birding life list on our honeymoon in the Caribbean in Ap
 
 <br/>
 ![Life-list](/images/Portfolio-1-life-list.jpeg)
+<img src=“/images/Portfolio-1-life-list.jpeg” width=“200”>
 
-When we decided to take the plunge and go travel for a year, I thought it would be a good opportunity to dive into bird photography as a hobby. Here are some of my first bird shots using the Canon EOS R7 with its kit zoom lens (18-150mm).
+When we decided to take the plunge and go travel for a year, I thought it would be a good opportunity to dive into bird photography as a hobby. Here are some of my first bird shots using the Canon EOS R7 with its kit zoom lens (RF-S 18-150mm F3.5-6.3 IS STM).
 
 <br/>
 ![Junko](/images/Portfolio-1-junko.jpeg)
-Dark-eyed Junco
+Dark-eyed Junco _(Junco hyemalis)_ - __Great Smoky Mountains, Tennessee, USA__
 
 <br/>
 ![Tufted-titmouse](/images/Portfolio-1-tufted-titmouse.jpeg)
-Tufted Titmouse
+Tufted Titmouse _(Baeolophus bicolor)_ __Great Smoky Mountains, Tennessee, USA__
 
-My friend Neel lent me his 100-400mm telephoto lens to shoot with while traveling and I got lucky in Muskoka and managed to get a clear shot of a pileated woodpecker as the inaugural shot with this lens!
+My friend Neel lent me his telephoto lens (RF 100-400mm F5.6-8.0 IS USM) to shoot with while traveling and I got lucky in Muskoka and managed to get a clear shot of a pileated woodpecker by the lake as my inaugural shot with this lens!
 
 <br/>
 ![Woodpecker](/images/Nov_2024_Pilleated_Woodpecker.jpg)
-
+Pileated Woodpecker _(Dryocopus pileatus)_ __Lake of Bays, Ontario, Canada__
