@@ -1,6 +1,6 @@
 ---
 title: "Dipping my toes into bird photography"
-excerpt: "<br/><img src='/images/Portfolio-1/Portfolio-1-pileated-woodpecker.jpg'>"
+excerpt: "<br/><img src='/images/Portfolio-1/Portfolio-1-junco.jpeg'>"
 collection: portfolio
 ---
 
