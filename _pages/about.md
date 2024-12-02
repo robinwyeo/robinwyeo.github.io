@@ -25,6 +25,8 @@ PhD in genetics with extensive genomics and bioinformatics experience including 
 
 Protein Engineering of Epigenetic Modulators
 
+CRISPR-Cas Systems for Genetic Regulation
+
 Chromatin Accessibility of Neural Stem Cell (NSC) Aging
 
 C. Elegans Metabolism, Development, and Reproduction
