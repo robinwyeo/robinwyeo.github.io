@@ -26,6 +26,20 @@ Javan Pond-Heron _(Ardeola speciosa)_ <br/> __Prek Toal, Cambodia (11/30/2024)__
 ![Painted-Stork](/images/Portfolio-2/Painted-Stork.jpg)
 Painted Stork _(Mycteria leucocephala)_ <br/> __Prek Toal, Cambodia (11/30/2024)__
 
+<br/>
+![Lesser-Adjutant](/images/Portfolio-2/Lesser-Adjutant.jpg)
+Lesser Adjutant _(Leptoptilos javanicus)_ <br/> __Prek Toal, Cambodia (11/30/2024)__
+
+<br/>
+![Scarlet-Backed-Flowerpecker](/images/Portfolio-2/Scarlet-Backed-Flowerpecker.jpg)
+Scarlet-backed Flowerpecker _(Dicaeum cruentatum)_ <br/> __Tonle Sap Floating Village, Cambodia (11/30/2024)__
+
+<br/>
+![Ornate-Sunbird](/images/Portfolio-2/Ornate-Sunbird.jpg)
+Ornate Sunbird _(Cinnyris ornatus)_ <br/> __Tonle Sap Floating Village, Cambodia (11/30/2024)__
+
+
+
 
 
 <br/>
