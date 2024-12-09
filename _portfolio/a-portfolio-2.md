@@ -19,6 +19,16 @@ Blue-tailed Bee-eater _(Merops philippinus)_ <br/> __Prek Toal, Cambodia (11/30/
 Blue-tailed Bee-eater _(Merops philippinus)_ <br/> __Prek Toal, Cambodia (11/30/2024)__
 
 <br/>
+![Javan-Pond-Heron](/images/Portfolio-2/Javan-Pond-Heron.jpg)
+Javan Pond-Heron _(Ardeola speciosa)_ <br/> __Prek Toal, Cambodia (11/30/2024)__
+
+<br/>
+![Painted-Stork](/images/Portfolio-2/Painted-Stork.jpg)
+Painted Stork _(Mycteria leucocephala)_ <br/> __Prek Toal, Cambodia (11/30/2024)__
+
+
+
+<br/>
 ![Indochinese-Roller](/images/Portfolio-2/Indochinese-Roller.jpg)
 Indochinese Roller _(Coracias affinis)_ <br/> __Angkor Wat, Cambodia (12/3/2024)__
 
