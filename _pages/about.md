@@ -25,7 +25,7 @@ PhD in genetics with extensive genomics and bioinformatics experience including 
 
 ## Engineering CRISPR-Cas Systems for Epigenetic Regulation
 
-![NBT](/images/Research_Summary/NBT.png)
+![NBT](/images/Research_Summary/NeurIPS.png)
 <br/>
 
 Over the past decade, CRISPR has revolutionized our ability to easily and precisely edit the genome, dramatically accelerating genomic research as well as advances in translational gene therapies. More recently, this technology has been developed into next-generation tools such as CRISPRi and CRISPRa capable of regulating gene expression through epigenomic editing without causing double-stranded breaks. CRISPR-Cas systems for epigenomic editing are comprised of three modular components: the DNA-binding Cas protein, a guide RNA (gRNA) directed to a target site in the genome, and a functional peptide capable of regulating gene expression through epigenetic changes. At [EpiCRISPR Biotechnologies](https://epicrispr.com/), I had the opportunity to work on a project analyzing high-throughout screening data of peptide fragments sourced from human, viral, and archaeal genomes for their ability to modulate gene expression. Working with Dr. Giovanni A. Carosso and the Technology Development team, we discovered a host of novel hypercompact transcriptional modulators, including high-potency activators capable of mitotically stable gene activation; we further improved these therapeutic peptides through iterative rounds of rational protein engieering by leveraging machine learning models I trained to predict their biochemical and biophysical characteristics [(Biorxiv, 2023)](https://www.biorxiv.org/content/10.1101/2023.06.02.543492v4).
