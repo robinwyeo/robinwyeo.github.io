@@ -62,7 +62,13 @@ Hainan Blue Flycatcher _(Cyornis hainanus)_ <br/> __Koh Ker, Cambodia (12/6/2024
 ![Eastern-Cattle-Egret](/images/Portfolio-2/Eastern-Cattle-Egret.jpg)
 Eastern Cattle-Egret _(Ardea coromanda)_ <br/> __Bantey Srei, Cambodia (12/8/2024)__
 
+<br/>
+![Black-Headed-Bulbul](/images/Portfolio-2/Black-Headed-Bulbul.jpg)
+Black-headed Bulbul _(Microtarsus melanocephalos)_ <br/> __Kratie, Cambodia (12/12/2024)__
 
+<br/>
+![Red-Whiskered-Bulbul](/images/Portfolio-2/Red-Whiskered-Bulbul.jpg)
+Red-whiskered Bulbul _(Pycnonotus jocosus)_ <br/> __Banlung, Cambodia (12/15/2024)__
 
 
 
