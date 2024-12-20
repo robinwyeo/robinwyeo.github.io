@@ -7,10 +7,10 @@
 main:
 
   - title: "Travel Blog"
-    url: /travel-blog/
+    url: /year-archive/
     
   - title: "Bird Photography"
-    url: /bird-photography/ 
+    url: /portfolio/ 
 
   - title: "Publications"
     url: /publications/
