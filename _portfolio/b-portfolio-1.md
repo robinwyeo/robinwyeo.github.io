@@ -1,8 +1,11 @@
 ---
-title: "Dipping my toes into bird photography"
+title: "First attempts at bird photography"
 excerpt: "<br/><img src='/images/Portfolio-1/Portfolio-1-junco.jpeg'>"
 collection: portfolio
 ---
+
+<br/>
+![Birding-gear](/images/Portfolio-1/Birding-gear.jpeg)
 
 I started recording my birding life list on our honeymoon in the Caribbean in April of 2023. About a year and a half later, Sara and I have seen ~320 bird species (primarily in North America) and set a goal of reaching 1000 while we travel! We record all of our sightings using the Cornell Lab of Ornithology resources [Merlin](https://merlin.allaboutbirds.org/) and [eBird](https://ebird.org/).
 
