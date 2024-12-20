@@ -6,17 +6,17 @@
 
 main:
 
-  - title: "Travel Notes"
-    url: /year-archive/
+  - title: "Travel Blog"
+    url: /travel-blog/
     
   - title: "Bird Photography"
-    url: /portfolio/ 
+    url: /bird-photography/ 
 
   - title: "Publications"
     url: /publications/
 
   - title: "Talks/Posters"
-    url: /talks/    
+    url: /talks-posters/    
     
   - title: "CV"
     url: /cv/
