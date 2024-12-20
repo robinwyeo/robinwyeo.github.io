@@ -9,7 +9,7 @@ main:
   - title: "Travel Blog"
     url: /year-archive/
     
-  - title: "Birding Portfolio"
+  - title: "Bird Photography"
     url: /portfolio/ 
 
   - title: "Publications"
@@ -20,6 +20,3 @@ main:
     
   - title: "CV"
     url: /cv/
-    
-  - title: "Guide"
-    url: /markdown/
