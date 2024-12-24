@@ -7,10 +7,6 @@ collection: portfolio
 _The following shots were taken with my Canon EOS R7 and RF 100-400mm F5.6-8.0 IS USM lens._
 
 <br/>
-
-**Total species IDs from Cambodia: 141**
-
-<br/>
 <br/>
 ![Pied-Kingfisher](/images/Portfolio-2/Pied-Kingfisher.jpg)
 Pied Kingfisher _(Ceryle rudis)_ <br/> __Prek Toal, Cambodia (11/29/2024)__
