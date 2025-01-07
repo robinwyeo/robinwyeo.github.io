@@ -31,7 +31,7 @@ Research Background
 
 ## Engineering CRISPR-Cas Systems for Epigenetic Regulation
 
-![NBT](/images/Research_Summary/NeurIPS.png)
+![NBT](/images/Research_Summary/NeurIPS.jpeg)
 <br/>
 
 &emsp;&emsp;Over the past decade, CRISPR has revolutionized our ability to easily and precisely edit the genome, dramatically accelerating functional genomic and gene therapy research. More recently, this technology has been developed into next-generation tools such as CRISPRi and CRISPRa capable of modulating gene expression without causing double-stranded breaks by fusing functional peptides capable of epigenetic changes to nuclear-inactive Cas molecules. 
@@ -45,7 +45,7 @@ Research Background
 
 ## Neural Stem Cell (NSC) Aging
 
-![NSC_aging](/images/Research_Summary/NSC_Aging.png)
+![NSC_aging](/images/Research_Summary/NSC_Aging.jpeg)
 <br/>
 
 &emsp;&emsp;The mammalian brain contains rare populations of neural stem cells (NSCs) that are capable of activating into progenitor cells and terminally differentiating into glial cells (i.e. astrocytes, oligodendrocytes, …) and neurons. However, during aging, NSC populations markedly decline and their neurogenic ability suffers dramatically. During my PhD in Dr. Anne Brunet’s lab (Stanford University - Department of Genetics), I co-authored a review on this subject with Dr. Paloma Navarro Negredo discussing the mechanisms that regulate NSC biology during aging, focusing on metabolism, genetic regulation, and the surrounding niche, as well as emerging rejuvenation strategies [(Cell Stem Cell, 2020)](https://pubmed.ncbi.nlm.nih.gov/32726579/).
