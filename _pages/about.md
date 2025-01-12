@@ -23,7 +23,7 @@ My name’s Robin W. Yeo and I’m a biological data scientist specializing prim
 Research Background
 ======
 
-**PhD in genetics with extensive genomics and bioinformatics experience including next-generation sequencing analysis and machine learning/deep learning expertise. 15+ years of research experience including molecular biology and genetic manipulation in numerous _in vitro_ and _in vivo_ systems. Expert in CRISPR-Cas systems and their therapeutic applications. Strong independent and collaborative publication record in both primary research and scientific literature reviews. Passionate about genome editing, aging biology, epigenetics, and neuroscience.**
+**PhD in genetics with extensive genomics and bioinformatics experience including next-generation sequencing analysis and machine learning/deep learning expertise. 15+ years of research experience including molecular biology and genetic manipulation in numerous _in vitro_ and _in vivo_ systems. Expert in CRISPR-Cas systems and their therapeutic applications. Strong independent and collaborative publication record in both primary research and scientific literature reviews. Passionate about genome editing, aging biology, epigenetics, neuroscience, and computational protein engineering.**
 
 
 ## Engineering CRISPR-Cas Systems for Epigenetic Regulation

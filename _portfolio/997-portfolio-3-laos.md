@@ -32,10 +32,6 @@ Pin-striped Tit-babbler _(Mixornis gularis)_ <br/> __Don Khon, Laos (12/22/2024)
 Black-crested Bulbul _(Rubigla flaviventris)_ <br/> __Don Khon, Laos (12/22/2024)__
 
 <br/>
-![7-Muscovy-Duck](/images/Portfolio-3/7-Muscovy-Duck.jpeg)
-Muscovy Duck _(Cairina moschata)_ <br/> __Don Khon, Laos (12/22/2024)__
-
-<br/>
 ![8-Barn-Swallow](/images/Portfolio-3/8-Barn-Swallow.jpeg)
 Barn Swallow _(Hirundo rustica)_ <br/> __Vientiane, Laos (12/29/2024)__
 
@@ -46,8 +42,4 @@ Great Myna _(Acridotheres grandis)_ <br/> __Vientiane, Laos (12/29/2024)__
 <br/>
 ![10-Common-Myna](/images/Portfolio-3/10-Common-Myna.jpeg)
 Common Myna _(Acridotheres tristis)_ <br/> __Vientiane, Laos (12/29/2024)__
-
-<br/>
-![11-Sooty-Headed-Bulbul](/images/Portfolio-3/11-Sooty-Headed-Bulbul.jpeg)
-Sooty-headed Bulbul _(Pyconotus aurigaster)_ <br/> __Vang Vieng, Laos (1/2/2025)__
 
