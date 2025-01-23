@@ -87,3 +87,5 @@ Gray-throated Babbler _(Stachyris nigriceps)_ <br/> __Doi Inthanon National Park
 ![20-White-Rumped-Shama](/images/Portfolio-4/20-White-Rumped-Shama.jpeg)
 White-rumped Shama (female) _(Copsychus malabaricus)_ <br/> __Doi Inthanon National Park, Thailand (1/18/2025)__
 
+
+
