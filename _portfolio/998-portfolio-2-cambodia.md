@@ -1,6 +1,6 @@
 ---
 title: "Birds of Cambodia"
-excerpt: "<br/>![Blue-Tailed-Bee-Eater-Perched](https://drive.google.com/thumbnail?id=1IetlyLqbbc1nfeLVCQ3vkv0TqkgdBQD_&sz=w1000)”
+excerpt: “<br/>![Junko](https://drive.google.com/thumbnail?id=1S1NcoZ7i1JaRpg8vEVS-RRzRNBAK6fLD&sz=w1000)”
 collection: portfolio
 ---
 

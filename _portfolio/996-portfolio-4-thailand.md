@@ -1,13 +1,11 @@
 ---
 title: "Birds of Northern Thailand"
-excerpt: "<br/><img src='/images/Portfolio-4/1-Little-Spiderhunter.jpeg'>"
+excerpt: "<br/>![1-Little-Spiderhunter](https://drive.google.com/thumbnail?id=1zwSxAOwMAyb0bAGx5OCUTaBJIwkWa5ZQ&sz=w1000)"
 collection: portfolio
 ---
 
 <br/>
 _The following shots were taken with my Canon EOS R7 and RF 100-400mm F5.6-8.0 IS USM lens._
-
-GOOGLE DRIVE
 
 <br/>
 ![1-Little-Spiderhunter](https://drive.google.com/thumbnail?id=1zwSxAOwMAyb0bAGx5OCUTaBJIwkWa5ZQ&sz=w1000)
