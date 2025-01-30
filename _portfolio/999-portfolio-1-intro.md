@@ -4,6 +4,11 @@ excerpt: "<br/><img src='/images/Portfolio-1/Portfolio-1-junco.jpeg'>"
 collection: portfolio
 ---
 
+
+<br/>
+![Birding-gear-drive](https://drive.google.com/thumbnail?id=1Bjqh8EasQRhtt_xZUrRc8-fLUWZHlBEV&sz=w1000)
+
+
 <br/>
 ![Birding-gear](/images/Portfolio-1/Birding-gear.jpeg)
 
