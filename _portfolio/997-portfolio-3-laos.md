@@ -1,13 +1,11 @@
 ---
 title: "Birds of Laos"
-excerpt: "<br/><img src='/images/Portfolio-3/1-Chestnut-Headed-Bee-Eater.jpeg'>"
+excerpt: "<br/>![1-Chestnut-Headed-Bee-Eater](https://drive.google.com/thumbnail?id=1SWqAizR4ZjjAGF-ACUeNZssNPzblt3hp&sz=w1000)"
 collection: portfolio
 ---
 
 <br/>
 _The following shots were taken with my Canon EOS R7 and RF 100-400mm F5.6-8.0 IS USM lens._
-
-GOOGLE DRIVE
 
 <br/>
 ![1-Chestnut-Headed-Bee-Eater](https://drive.google.com/thumbnail?id=1SWqAizR4ZjjAGF-ACUeNZssNPzblt3hp&sz=w1000)
