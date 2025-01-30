@@ -4,7 +4,6 @@ excerpt: "<br/>![Junko](https://drive.google.com/thumbnail?id=1S1NcoZ7i1JaRpg8vE
 collection: portfolio
 ---
 
-
 <br/>
 ![Birding-gear](https://drive.google.com/thumbnail?id=1Bjqh8EasQRhtt_xZUrRc8-fLUWZHlBEV&sz=w1000)
 
