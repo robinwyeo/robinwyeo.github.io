@@ -1,6 +1,6 @@
 ---
 title: "First attempts at bird photography"
-excerpt: "<br/><img src=‘https://drive.google.com/thumbnail?id=1S1NcoZ7i1JaRpg8vEVS-RRzRNBAK6fLD&sz=w1000’>"
+excerpt: "<br/>![Junko](https://drive.google.com/thumbnail?id=1S1NcoZ7i1JaRpg8vEVS-RRzRNBAK6fLD&sz=w1000)"
 collection: portfolio
 ---
 
