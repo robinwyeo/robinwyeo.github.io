@@ -1,14 +1,11 @@
 ---
 title: "Birds of Cambodia"
-excerpt: "<br/>![Indochinese-Roller](https://drive.google.com/thumbnail?id=1DkiuFfEs0m1WnnQby4tBK3–2hMmyNy2&sz=w1000)
-"
+excerpt: "<br/>![Indochinese-Roller](https://drive.google.com/thumbnail?id=1DkiuFfEs0m1WnnQby4tBK3–2hMmyNy2&sz=w1000)"
 collection: portfolio
 ---
 
 <br/>
 _The following shots were taken with my Canon EOS R7 and RF 100-400mm F5.6-8.0 IS USM lens._
-
-NEW IMAGES HOSTED ON GOOGLE DRIVE
 
 <br/>
 ![Pied-Kingfisher](https://drive.google.com/thumbnail?id=1OF_s_Ic2mqd_xJ6HNzhq-CETW_MBvGVb&sz=w1000)
