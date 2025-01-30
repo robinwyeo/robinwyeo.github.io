@@ -1,6 +1,6 @@
 ---
 title: "Birds of Cambodia"
-excerpt: "<br/>![Indochinese-Roller](https://drive.google.com/thumbnail?id=1vL-BvdXWxK5bc5C8pzx6UcHow0oC93i-&sz=w1000)"
+excerpt: "<br/>![Blue-Tailed-Bee-Eater-Perched](https://drive.google.com/thumbnail?id=1IetlyLqbbc1nfeLVCQ3vkv0TqkgdBQD_&sz=w1000)”
 collection: portfolio
 ---
 
