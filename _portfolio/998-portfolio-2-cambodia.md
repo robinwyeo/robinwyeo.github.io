@@ -1,6 +1,6 @@
 ---
 title: "Birds of Cambodia"
-excerpt: “<br/>![Junko](https://drive.google.com/thumbnail?id=1S1NcoZ7i1JaRpg8vEVS-RRzRNBAK6fLD&sz=w1000)”
+excerpt: “<br/>![Indochinese-Roller](https://drive.google.com/thumbnail?id=1vL-BvdXWxK5bc5C8pzx6UcHow0oC93i-&sz=w1000)”
 collection: portfolio
 ---
 
