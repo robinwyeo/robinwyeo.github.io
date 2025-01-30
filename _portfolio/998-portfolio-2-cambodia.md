@@ -1,6 +1,6 @@
 ---
 title: "Birds of Cambodia"
-excerpt: "<br/>![Indochinese-Roller](https://drive.google.com/thumbnail?id=1DkiuFfEs0m1WnnQby4tBK3–2hMmyNy2&sz=w1000)"
+excerpt: "<br/>![Indochinese-Roller](https://drive.google.com/thumbnail?id=1vL-BvdXWxK5bc5C8pzx6UcHow0oC93i-&sz=w1000)"
 collection: portfolio
 ---
 
@@ -40,7 +40,7 @@ Scarlet-backed Flowerpecker _(Dicaeum cruentatum)_ <br/> __Tonle Sap Floating Vi
 Ornate Sunbird _(Cinnyris ornatus)_ <br/> __Tonle Sap Floating Village, Cambodia (11/30/2024)__
 
 <br/>
-![Indochinese-Roller](https://drive.google.com/thumbnail?id=1DkiuFfEs0m1WnnQby4tBK3–2hMmyNy2&sz=w1000)
+![Indochinese-Roller](https://drive.google.com/thumbnail?id=1vL-BvdXWxK5bc5C8pzx6UcHow0oC93i-&sz=w1000)
 Indochinese Roller _(Coracias affinis)_ <br/> __Angkor Wat, Cambodia (12/3/2024)__
 
 <br/>
