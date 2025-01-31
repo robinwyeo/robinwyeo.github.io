@@ -87,3 +87,23 @@ Gray-throated Babbler _(Stachyris nigriceps)_ <br/> __Doi Inthanon National Park
 ![20-White-Rumped-Shama](https://drive.google.com/thumbnail?id=1RZGrfOVO0-ERralnxGWYIQh8cv0swTbz&sz=w1000)
 White-rumped Shama (female) _(Copsychus malabaricus)_ <br/> __Doi Inthanon National Park, Thailand (1/18/2025)__
 
+<br/>
+![21-Great-Egret](https://drive.google.com/thumbnail?id=&sz=w1000)
+Great Egret _(Ardea alba)_ <br/> __Mu Ko Phetra National Park, Thailand (1/30/2025)__
+
+<br/>
+![22-Brahminy-Kite](https://drive.google.com/thumbnail?id=&sz=w1000)
+Brahminy Kite _(Haliastur indus)_ <br/> __Mu Ko Phetra National Park, Thailand (1/30/2025)__
+
+<br/>
+![23-Chestnut-Headed-Bee-eater](https://drive.google.com/thumbnail?id=&sz=w1000)
+Chestnut-headed Bee-eater _(Merops leschenaulti)_ <br/> __Mu Ko Phetra National Park, Thailand (1/31/2025)__
+
+<br/>
+![24-Oriental-Pied-Hornbill](https://drive.google.com/thumbnail?id=&sz=w1000)
+Oriental Pied-Hornbill _(Anthracoceros albirostris)_ <br/> __Mu Ko Phetra National Park, Thailand (1/31/2025)__
+
+<br/>
+![25-Green-Billed-Malkoha](https://drive.google.com/thumbnail?id=&sz=w1000)
+Green-billed Malkoha _(Phaenicophaeus tristis)_ <br/> __Mu Ko Phetra National Park, Thailand (1/31/2025)__
+
