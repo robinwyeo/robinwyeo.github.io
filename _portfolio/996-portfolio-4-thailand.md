@@ -88,22 +88,22 @@ Gray-throated Babbler _(Stachyris nigriceps)_ <br/> __Doi Inthanon National Park
 White-rumped Shama (female) _(Copsychus malabaricus)_ <br/> __Doi Inthanon National Park, Thailand (1/18/2025)__
 
 <br/>
-![21-Great-Egret](https://drive.google.com/thumbnail?id=&sz=w1000)
+![21-Great-Egret](https://drive.google.com/thumbnail?id=1v203jf5wi48rsI7RxaqP_IsZU5apdOOe&sz=w1000)
 Great Egret _(Ardea alba)_ <br/> __Mu Ko Phetra National Park, Thailand (1/30/2025)__
 
 <br/>
-![22-Brahminy-Kite](https://drive.google.com/thumbnail?id=&sz=w1000)
+![22-Brahminy-Kite](https://drive.google.com/thumbnail?id=1Nmwd96BSFth2FkAvV1_52osvHN4Fusja&sz=w1000)
 Brahminy Kite _(Haliastur indus)_ <br/> __Mu Ko Phetra National Park, Thailand (1/30/2025)__
 
 <br/>
-![23-Chestnut-Headed-Bee-eater](https://drive.google.com/thumbnail?id=&sz=w1000)
+![23-Chestnut-Headed-Bee-eater](https://drive.google.com/thumbnail?id=1wjEVsfvvI0I04y-bh89WCjR6JKUVTV-s&sz=w1000)
 Chestnut-headed Bee-eater _(Merops leschenaulti)_ <br/> __Mu Ko Phetra National Park, Thailand (1/31/2025)__
 
 <br/>
-![24-Oriental-Pied-Hornbill](https://drive.google.com/thumbnail?id=&sz=w1000)
+![24-Oriental-Pied-Hornbill](https://drive.google.com/thumbnail?id=1XtKGyNOr1kCBZ6N0yWqT-a7qNjy5ivcx&sz=w1000)
 Oriental Pied-Hornbill _(Anthracoceros albirostris)_ <br/> __Mu Ko Phetra National Park, Thailand (1/31/2025)__
 
 <br/>
-![25-Green-Billed-Malkoha](https://drive.google.com/thumbnail?id=&sz=w1000)
+![25-Green-Billed-Malkoha](https://drive.google.com/thumbnail?id=1pcSG05FYfe_Hn6KFtgWtm0Wns1sjjzxI&sz=w1000)
 Green-billed Malkoha _(Phaenicophaeus tristis)_ <br/> __Mu Ko Phetra National Park, Thailand (1/31/2025)__
 
