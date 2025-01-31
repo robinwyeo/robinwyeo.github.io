@@ -1,6 +1,6 @@
 ---
 title: "Birds of Cambodia"
-excerpt: <br/>![Indochinese-Roller](https://drive.google.com/thumbnail?id=1vL-BvdXWxK5bc5C8pzx6UcHow0oC93i-&sz=w1000)
+excerpt: ![Indochinese-Roller](https://drive.google.com/thumbnail?id=1vL-BvdXWxK5bc5C8pzx6UcHow0oC93i-&sz=w1000)
 date: 2024-12-19
 collection: portfolio
 ---
