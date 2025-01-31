@@ -1,6 +1,7 @@
 ---
 title: "Birds of Laos"
 excerpt: "<br/>![1-Chestnut-Headed-Bee-Eater](https://drive.google.com/thumbnail?id=1SWqAizR4ZjjAGF-ACUeNZssNPzblt3hp&sz=w1000)"
+date: 2025-01-09
 collection: portfolio
 ---
 
