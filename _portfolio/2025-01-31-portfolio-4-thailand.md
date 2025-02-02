@@ -2,6 +2,7 @@
 title: "Birds of Thailand"
 excerpt: "<br/>![1-Little-Spiderhunter](https://drive.google.com/thumbnail?id=1zwSxAOwMAyb0bAGx5OCUTaBJIwkWa5ZQ&sz=w1000)"
 date: 2025-01-31
+permalink: /portfolio/2025-01-31-portfolio-4-thailand
 collection: portfolio
 ---
 

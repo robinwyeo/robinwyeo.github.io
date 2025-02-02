@@ -2,6 +2,7 @@
 title: "First attempts at bird photography"
 excerpt: "<br/>![Junko](https://drive.google.com/thumbnail?id=1S1NcoZ7i1JaRpg8vEVS-RRzRNBAK6fLD&sz=w1000)"
 date: 2024-11-21
+permalink: /portfolio/2024-11-21-portfolio-1-intro
 collection: portfolio
 ---
 
