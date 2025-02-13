@@ -1,7 +1,7 @@
 ---
 title: 'A one-way ticket to Southeast Asia'
 date: 2024-11-21
-permalink: /posts/2024-11-21-blog-post-1
+permalink: /posts/2024-11-21-blog-1-packing
 tags:
   - Packing list
   - Singapore

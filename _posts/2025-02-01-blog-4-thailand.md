@@ -1,7 +1,7 @@
 ---
 title: 'Thailand - _Land of Smiles_'
 date: 2025-02-01
-permalink: /posts/2025-02-01-blog-post-4
+permalink: /posts/2025-02-01-blog-4-thailand
 tags:
   - Thailand
 ---

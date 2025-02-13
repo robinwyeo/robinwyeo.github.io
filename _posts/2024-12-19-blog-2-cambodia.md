@@ -1,7 +1,7 @@
 ---
 title: 'Cambodia - _Kingdom of Wonder_'
 date: 2024-12-19
-permalink: /posts/2024-12-19-blog-post-2
+permalink: /posts/2024-12-19-blog-2-cambodia
 tags:
   - Cambodia
 ---
