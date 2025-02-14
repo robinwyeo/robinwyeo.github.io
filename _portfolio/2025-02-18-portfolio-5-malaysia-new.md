@@ -2,7 +2,7 @@
 title: "Birds of Malaysia"
 excerpt: "<br/>![](https://drive.google.com/thumbnail?id=1PfdM680Ej64HY0xqkQ0z8EgGa_FTWWFS&sz=w1000)"
 date: 2025-02-18
-permalink: /portfolio/2025-02-18-portfolio-5-malaysia
+permalink: /portfolio/2025-02-18-portfolio-5-malaysia-new
 collection: portfolio
 ---
 
