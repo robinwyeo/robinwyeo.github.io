@@ -127,7 +127,7 @@ _Misty highland rainforest views from the trails around Fraser’s Hill_
 
 The next morning we were out birding by 8:30am to make the most of the productive morning birding hours. Within the first 30min we came across a trio of birders that were excitedly taking photos of the rare and endangered white-crowned hornbill that was hanging out extremely close by the side of the road (see [here](https://robinwyeo.github.io/portfolio/2025-02-15-portfolio-5-malaysia) for a close-up as well as more of my favorite bird shots from Fraser’s Hill). Overall we saw 29 new species in Fraser’s Hill including some absolute favorites like the super weird dusky broadbill that I’d wanted to see for ages.
 
-
+![15-Fraser’s-Hill](https://drive.google.com/thumbnail?id=1VpMQGGZNEwp_eXCc0a4QQU9b0OdNK9BO&sz=w1000)
 _Excited birders crowding around the white-crowned hornbill which was pretty unperturbed_
 
 We continued birding all morning, stopping for a masalathosai lunch before hitting the trails again in the afternoon where we hiked the 5km Telekom loop looking for more birds. One fun thing about Fraser’s Hill is that virtually everyone we ran into along the roads was also a birder and generally very friendly and eager to trade tips about where to go and what interesting species they’d seen. Besides birds, we came across 4 different species of monkey/ape while there including the amazingly acrobatic siamangs, the largest species of gibbon. We ran into the same birders (mostly Malay, British, and Chinese) multiple times over our 3 days in Fraser’s Hill and in fact ran into one British birder we’d gotten to know again a few days later 200km away birding in Taman Negara National Park!
