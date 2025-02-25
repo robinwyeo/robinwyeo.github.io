@@ -11,7 +11,7 @@ tags:
 <br/>
 
 
-2.5 weeks in Peninsular Malaysia
+2.5 weeks in peninsular Malaysia
 ======
 
 ![Travel-Map](https://drive.google.com/thumbnail?id=1rkxkNTMv7fown8BWI0v_OXSpJtwvqKfM&sz=w1000)
