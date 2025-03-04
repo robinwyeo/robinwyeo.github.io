@@ -1,5 +1,5 @@
 ---
-title: "Birds of the Andaman Coast, Southern Thailand"
+title: "Birds of the Andaman Coast"
 excerpt: "<br/>![Malkoha-Title-Bird](https://drive.google.com/thumbnail?id=1u0wKQ7NlkGBf_YRuyJ2sF6aRvU5hKR5D&sz=w1000)"
 date: 2025-03-02
 permalink: /portfolio/2025-03-02-portfolio-6-andaman-coast
