@@ -86,7 +86,7 @@ Streaked Spiderhunter _(Arachnothera magna)_ <br/> __Doi Inthanon National Park,
 Gray-throated Babbler _(Stachyris nigriceps)_ <br/> __Doi Inthanon National Park, Thailand (1/18/2025)__
 
 <br/>
-![20-White-Rumped-Shama](https://drive.google.com/thumbnail?id=1RZGrfOVO0-ERralnxGWYIQh8cv0swTbz&sz=w1000)
+![20-White-Rumped-Shama](https://drive.google.com/thumbnail?id=1-_6AD7lc99-li6CzfZeRYoCw-Wjv5oGZ&sz=w1000)
 White-rumped Shama (female) _(Copsychus malabaricus)_ <br/> __Doi Inthanon National Park, Thailand (1/18/2025)__
 
 <br/>
