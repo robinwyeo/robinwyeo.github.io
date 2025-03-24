@@ -1,6 +1,6 @@
 ---
 title: "Birds of Borneo"
-excerpt: "<br/>![Trogon-Title-Bird](https://drive.google.com/thumbnail?id=&sz=w1000)"
+excerpt: "<br/>![Trogon-Title-Bird](https://drive.google.com/thumbnail?id=1bR6nLVvYNcAwMGtPFV-u5JKhDbmMHYON&sz=w1000)"
 date: 2025-03-23
 permalink: /portfolio/2025-03-23-portfolio-7-borneo
 collection: portfolio
