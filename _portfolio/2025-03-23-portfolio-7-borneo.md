@@ -79,7 +79,7 @@ Rufous-crowned Babbler _(Malacopteron magnum)_ <br/> __Poring Hot Spring, Borneo
 
 <br/>
 ![18-Stork-billed-Kingfisher](https://drive.google.com/thumbnail?id=1FQfrL15Msb5CDSsDx11_3bNp2khoDSg2&sz=w1000)
-Stork-billed-Kingfisher _(Pelargopsis capensis)_ <br/> __Sepilok, Borneo (3/16/2025)__
+Stork-billed Kingfisher _(Pelargopsis capensis)_ <br/> __Sepilok, Borneo (3/16/2025)__
 
 <br/>
 ![19-Banded-Woodpecker](https://drive.google.com/thumbnail?id=118F0CAx8x88pS8oyERFAxVs0LcsOF_zl&sz=w1000)
