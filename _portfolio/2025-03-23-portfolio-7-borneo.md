@@ -136,12 +136,12 @@ Great Egret _(Ardea alba)_ <br/> __Kinabatangan River, Borneo (3/20/2025)__
 <br/>
 ![32-White-crowned-Forktail](https://drive.google.com/thumbnail?id=1F3qAhGmsuG_GAq0e6d1V_C4VlM9ZMMQs&sz=w1000)
 White-crowned Forktail _(Enicurus leschenaulti)_ <br/> __Danum Valley, Borneo (3/21/2025)__
-_Note: tag likely placed by field researchers operating out of Danum Valley_
+<br/> _Note: tag likely placed by field researchers operating out of Danum Valley_
 
 <br/>
 ![33-Great-Argus](https://drive.google.com/thumbnail?id=1v7wfdN1VI6k8KVaFUYSeHYyiqQxJ265f&sz=w1000)
 Great Argus _(Argusianus argus)_ <br/> __Danum Valley, Borneo (3/22/2025)__
-_Note: the Great Argus has one of the world’s most elaborate courtship rituals_
+<br/> _Note: the Great Argus has one of the world’s most elaborate courtship rituals_
 
 <br/>
 ![34-Yellow-bellied-Bulbul](https://drive.google.com/thumbnail?id=1sHt8qNTAS3XyJwWMskblD9ZD1fUGGXEM&sz=w1000)
