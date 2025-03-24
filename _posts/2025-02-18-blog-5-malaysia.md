@@ -14,7 +14,7 @@ tags:
 2.5 weeks in peninsular Malaysia
 ======
 
-![Travel-Map](https://drive.google.com/thumbnail?id=1rkxkNTMv7fown8BWI0v_OXSpJtwvqKfM&sz=w1000)
+![Travel-Map](https://drive.google.com/thumbnail?id=1JH7CEE4NxyyLFuCn_ERCV0L2S6ywCrF9&sz=w1000)
 
 From metropolitan cities and artsy towns to beaches and ancient rainforests, Malaysia has it all. As an added bonus, despite its small size, it contains about 8% of the world’s birds! We were unsure if Malaysia would make our travel list when we were planning our trip back in Canada but can now say in hindsight that it was 100% worth it [(Link to interactive map)](https://www.google.com/maps/d/u/0/embed?mid=1s5GzguMHCKb7PCvZ2N6Do5Vs2J5eXlA&ehbc=2E312F).
 
