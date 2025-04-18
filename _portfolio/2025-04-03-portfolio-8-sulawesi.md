@@ -25,9 +25,6 @@ Gray-sided Flowerpecker _(Dicaeum celebicum)_ <br/> __Tangkoko National Park, In
 ![5-Yellow-billed-Malkoha](https://drive.google.com/thumbnail?id=1pISJofzfzsaouIPrBIhpEdPh-A8JGAgD&sz=w1000)
 Yellow-billed Malkoha _(Ramphococcyx calyorhynchus)_ <br/> __Tangkoko National Park, Indonesia (3/29/2025)__
 
-![6-Finch-billed-Myna](https://drive.google.com/thumbnail?id=1lLGd6uXJaUfPo7–b75bHg-CIvzNCsxL&sz=w1000)
-Finch-billed Myna _(Scissirostrum dubium)_ <br/> __Tangkoko National Park, Indonesia (3/29/2025)__
-
 ![7-Sulawesi-Lilac-Kingfisher](https://drive.google.com/thumbnail?id=14K1dG3nw7lhAzJUG4V6Fiw9K-9WpQlAa&sz=w1000)
 Sulawesi Lilac Kingfisher _(Cittura cyanotis)_ <br/> __Tangkoko National Park, Indonesia (3/29/2025)__
 
