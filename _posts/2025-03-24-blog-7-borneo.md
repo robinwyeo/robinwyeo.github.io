@@ -87,6 +87,9 @@ One last notable species we saw was the silver leaf monkey. We spent the better 
 ![11-Bako-NP](https://drive.google.com/thumbnail?id=1S-Kx_kMgVgyuo2EMXx-peOt_u_GmJHZb&sz=w1000)
 _Juvenile silver leaf monkeys on the beaches of Bako National Park_
 
+<br/>
+<br/>
+
 
 Sabah - Kinabalu Park (March 12-16, 2025)
 ======
