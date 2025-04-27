@@ -228,14 +228,14 @@ _Sara hanging out in a hammock at Yenkoranu_
 
 Over the nest 4 days, we dove 8 times around Kri and spent our downtime either napping (its weird how exhausting diving is considering you don’t really feel like you’re exerting yourself much but it’s definitely exhausting) or, when we had the energy, snorkeling off of the Yenkoranu jetty at their house reef. Without going into too much detail, our last 4 days of diving were at:
 
-<br/> -Cape Kri _(nicer current this time compared to our first dive)_
-<br/> -Matthias Reef _(saw giant **oceanic** mantas (~2x the size of reef mantas) this time!)_
-<br/> -Chicken Reef _(forgot to take notes for this dive…)_
-<br/> -Ransiwor Reef _(first night dive!)_
-<br/> -Mioskon _(chromodoris coi, a parrotfish bit my fin…)_
-<br/> -Pulau Wai Airplane Wreck _(first wreck dive around a sunken WWII plane at 34m!)_
-<br/> -Yenkoranu Jetty _(sunset drift dive)_
-<br/> -Yenbuba Jetty _(saw a super cool camouflaged octopus)_
+<br/> **-Cape Kri** _(nicer current this time compared to our first dive)_
+<br/> **-Matthias Reef** _(saw giant oceanic mantas (~2x the size of reef mantas) this time!)_
+<br/> **-Chicken Reef** _(forgot to take notes for this dive…)_
+<br/> **-Ransiwor Reef** _(first night dive!)_
+<br/> **-Mioskon** _(chromodoris coi, a parrotfish bit my fin…)_
+<br/> **-Pulau Wai Airplane Wreck** _(first wreck dive around a sunken WWII plane at 34m!)_
+<br/> **-Yenkoranu Jetty** _(sunset drift dive)_
+<br/> **-Yenbuba Jetty** _(saw a super cool camouflaged octopus)_
 
 ![Kri-Diving-3](https://drive.google.com/thumbnail?id=1VVbIAOyanCvNVuDI6a3AH0L43N5ESMrP&sz=w1000)
 _Sara and me right before a dive_
