@@ -6,6 +6,7 @@ tags:
   - Indonesia
 ---
 
+
 ![Indonesia-Title-Page](https://drive.google.com/thumbnail?id=19DVUxCvch1l3QwXArYcFWxv-R8JFDSJA&sz=w1000)
 <br/>
 <br/>
@@ -230,7 +231,7 @@ _Sara hanging out in a hammock at Yenkoranu_
 Over the nest 4 days, we dove 8 times around Kri and spent our downtime either napping (its weird how exhausting diving is considering you don’t really feel like you’re exerting yourself much but it’s definitely exhausting) or, when we had the energy, snorkeling off of the Yenkoranu jetty at their house reef. Without going into too much detail, our last 4 days of diving were at:
 
 <br/> -Cape Kri _(nicer current this time compared to our first dive)_
-<br/> -Matthias Reef _(saw giant **oceanic** mantas (~2x the size of reef mantas) this time! Also first time using reef hooks at a manta cleaning station)_
+<br/> -Matthias Reef _(saw giant **oceanic** mantas (~2x the size of reef mantas) this time!)_
 <br/> -Chicken Reef _(forgot to take notes for this dive…)_
 <br/> -Ransiwor Reef _(first night dive!)_
 <br/> -Mioskon _(chromodoris coi, a parrotfish bit my fin…)_
