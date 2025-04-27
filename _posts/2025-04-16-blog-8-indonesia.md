@@ -218,7 +218,6 @@ We headed to a new homestay (Avin Sea Homestay) after our dives and immediately 
 Pulau Kri, Raja Ampat (April 12-16, 2025) 
 ======
 
-https://drive.google.com/file/d//view?usp=drivesdk
 ![Kri-Diving-1](https://drive.google.com/thumbnail?id=1obsmC6Mld9a3tJGmC62usGKAyIwWXfez&sz=w1000)
 _Sunset from Yenkoranu Homestay_
 
