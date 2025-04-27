@@ -6,7 +6,6 @@ tags:
   - Indonesia
 ---
 
-https://drive.google.com/file/d//view?usp=drivesdk
 ![Indonesia-Title-Page](https://drive.google.com/thumbnail?id=19DVUxCvch1l3QwXArYcFWxv-R8JFDSJA&sz=w1000)
 <br/>
 <br/>
