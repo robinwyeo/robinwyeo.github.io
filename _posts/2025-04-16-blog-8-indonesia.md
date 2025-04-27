@@ -76,7 +76,7 @@ Since we’d been enjoying Didi’s company, we arranged to do the next day’s 
 ![7-Tangkoko](https://drive.google.com/thumbnail?id=1aD4r_v8IeQUPgl-3C58q_4XiHCp2F86-&sz=w1000)
 _Black macaque_
 
-![8-Tangkoko](https://drive.google.com/thumbnail?id=1RAJ2uROBlF2Z9Oy—oJvqms135YwO3WQ&sz=w1000)
+![8-Tangkoko](https://drive.google.com/thumbnail?id=1okX0Mm5QMOfwG3CTJAfSji0gw5rqWG0T&sz=w1000)
 _Bear cuscus_
 
 ![9-Tangkoko](https://drive.google.com/thumbnail?id=1duPo8HUXlLi9ryvhwiHVJ8G1-IY7yfnF&sz=w1000)
