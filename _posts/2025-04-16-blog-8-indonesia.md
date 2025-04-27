@@ -6,7 +6,8 @@ tags:
   - Indonesia
 ---
 
-![Indonesia-Title-Page](https://drive.google.com/thumbnail?id=1obsmC6Mld9a3tJGmC62usGKAyIwWXfez&sz=w1000)
+https://drive.google.com/file/d//view?usp=drivesdk
+![Indonesia-Title-Page](https://drive.google.com/thumbnail?id=19DVUxCvch1l3QwXArYcFWxv-R8JFDSJA&sz=w1000)
 <br/>
 <br/>
 
@@ -218,8 +219,9 @@ We headed to a new homestay (Avin Sea Homestay) after our dives and immediately 
 Pulau Kri, Raja Ampat (April 12-16, 2025) 
 ======
 
-![Kri-Diving-1](https://drive.google.com/thumbnail?id=19DVUxCvch1l3QwXArYcFWxv-R8JFDSJA&sz=w1000)
-_Yenkoranu jetty_
+https://drive.google.com/file/d//view?usp=drivesdk
+![Kri-Diving-1](https://drive.google.com/thumbnail?id=1obsmC6Mld9a3tJGmC62usGKAyIwWXfez&sz=w1000)
+_Sunset from Yenkoranu Homestay_
 
 For our last 4 days in Raja Ampat, we headed back to Kri Island which is where most divers stay since it’s pretty accessible from the main island Waigeo and a short boat ride away from most of Raja Ampat’s famous dive sites. We stayed in Yenkoranu Homestay since that’s where Pak Guru works off and on as a dive guide and where our friend Stubbs spends most of his time in Raja Ampat, and they were able to get us a discount on our rooms, gear, and dive tanks.
 
@@ -228,14 +230,14 @@ _Sara hanging out in a hammock at Yenkoranu_
 
 Over the nest 4 days, we dove 8 times around Kri and spent our downtime either napping (its weird how exhausting diving is considering you don’t really feel like you’re exerting yourself much but it’s definitely exhausting) or, when we had the energy, snorkeling off of the Yenkoranu jetty at their house reef. Without going into too much detail, our last 4 days of diving were at:
 
-<br/> Cape Kri _(nicer current this time compared to our first dive)_
-<br/> Matthias Reef _(saw giant **oceanic** mantas (~2x the size of reef mantas) this time! Also first time using reef hooks at a manta cleaning station)_
-<br/> Chicken Reef _(forgot to take notes for this dive…)_
-<br/> Ransiwor Reef _(first night dive!)_
-<br/> Mioskon _(chromodoris coi, a parrotfish bit my fin…)_
-<br/> Pulau Wai Airplane Wreck _(first wreck dive around a sunken WWII plane at 34m!)_
-<br/> Yenkoranu Jetty _(sunset drift dive)_
-<br/> Yenbuba Jetty _(saw a super cool camouflaged octopus)_
+<br/> -Cape Kri _(nicer current this time compared to our first dive)_
+<br/> -Matthias Reef _(saw giant **oceanic** mantas (~2x the size of reef mantas) this time! Also first time using reef hooks at a manta cleaning station)_
+<br/> -Chicken Reef _(forgot to take notes for this dive…)_
+<br/> -Ransiwor Reef _(first night dive!)_
+<br/> -Mioskon _(chromodoris coi, a parrotfish bit my fin…)_
+<br/> -Pulau Wai Airplane Wreck _(first wreck dive around a sunken WWII plane at 34m!)_
+<br/> -Yenkoranu Jetty _(sunset drift dive)_
+<br/> -Yenbuba Jetty _(saw a super cool camouflaged octopus)_
 
 ![Kri-Diving-3](https://drive.google.com/thumbnail?id=1VVbIAOyanCvNVuDI6a3AH0L43N5ESMrP&sz=w1000)
 _Sara and me right before a dive_
