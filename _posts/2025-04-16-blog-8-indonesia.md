@@ -20,16 +20,14 @@ In the words of Douglas Adams, Indonesia _“is big. Really big. You just won’
 _North Sulawesi and Raja Ampat (red circles) in the context of all of Indonesia (colored green)_
 
 <br/>
-
-![Sulawesi-Travel-Map](https://drive.google.com/thumbnail?id=1s66318UqLoHwQ0pt4IW7L-FqgCqs7_9v&sz=w1000)
-_We spent our first week in Indonesia traveling through the northern tip of Sulawesi_
-
-<br/>
 <br/>
 
 
 Bunaken Island, North Sulawesi (March 24-27, 2025) 
 ======
+
+![Sulawesi-Travel-Map](https://drive.google.com/thumbnail?id=1s66318UqLoHwQ0pt4IW7L-FqgCqs7_9v&sz=w1000)
+_We spent our first week in Indonesia traveling through the northern tip of Sulawesi_
 
 We flew into Manado on the island of Sulawesi (Indonesia) from Kota Kinabalu (Borneo) early in the morning on March 24<sup>th</sup> and were immediately accosted outside the airport by about a dozen taxi drivers. Unlike a number of other Southeast Asian airports we’d flown into, these drivers were all pretty friendly and had reasonable prices so we hired one to take us into town so we could get a local SIM card and withdraw enough Indonesian Rupiah to tide us over for our two days on Bunaken Island which doesn’t have any ATMs. It turned out that our timing in visiting was pretty fortuitous as the last few days had been torrential in Manado and had even caused flooding, but that the rain had finally let up just in time for our visit. Immediate errands complete, we arrived at the local ferry terminal just in time to catch the daily boat out to Bunaken Island (first time it was running in 3 days due to the bead weather!).
 
