@@ -85,3 +85,9 @@ Taiwan Scimitar-Babbler _(Pomatorhinus musicus)_ <br/> __Yangmingshan National P
 ![25-Taiwan-Blue-Magpie](https://drive.google.com/thumbnail?id=12jl-UmkGPr4bpVWisXM8XX4tjOX6qZlh&sz=w1000)
 Taiwan Blue-Magpie _(Urocissa caerulea)_ <br/> __Yangmingshan National Park, Taiwan (5/17/2025)__
 
+![26-Black-Bulbul](https://drive.google.com/thumbnail?id=1BZ8k9a6s72iQJ-RojxGMVs04L2kWXLiZ&sz=w1000)
+Black Bulbul _(Hypsipetes leucocephalus)_ <br/> __Jiufen, Taiwan (5/19/2025)__
+
+![27-Black-crowned-Night-Heron](https://drive.google.com/thumbnail?id=1l-mWqI1Q0hZGFP2W4ZF7lysRWZiewxkp&sz=w1000)
+Black-crowned Night Heron _(Nycticorax nycticorax)_ <br/> __Taipei, Taiwan (5/19/2025)__
+
