@@ -40,7 +40,7 @@ Willow Tit _(Poecile montanus)_ <br/> __Mastumoto, Japan (5/25/2025)__
 ![10-Carrion-Crow](https://drive.google.com/thumbnail?id=1oMWEUJeR8NGGrZf_XHnAYoRbebtoFOm9&sz=w1000)
 Carrion Crow _(Corvus corone)_ <br/> __Mastumoto, Japan (5/26/2025)__
 
-![11-White-cheeked-Starling](https://drive.google.com/thumbnail?id=1ALz6e24hLj7oc6F—EKM6lBizInaWEN-&sz=w1000)
+![11-White-cheeked-Starling](https://drive.google.com/thumbnail?id=1syXmT2blXxH0u907l_DbCn_dJbwdyq10&sz=w1000)
 White-cheeked Starling _(Spodiopsar cineraceus)_ <br/> __Mastumoto, Japan (5/27/2025)__
 
 ![12-Eurasian-Nuthatch](https://drive.google.com/thumbnail?id=1PN3OJaYMHpP6ojJpXyMq56wcwd0_tWMJ&sz=w1000)
