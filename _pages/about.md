@@ -1,6 +1,6 @@
 ---
 permalink: /
-title: "Travel notes through Southeast Asia"
+title: "RWY - Personal Website"
 author_profile: true
 redirect_from: 
   - /about/
