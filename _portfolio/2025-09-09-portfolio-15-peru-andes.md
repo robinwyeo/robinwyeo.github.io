@@ -2,7 +2,7 @@
 title: "Birds of Peru - Andes & Sacred Valley"
 excerpt: "<br/>![Bearded-Mountaineer-Title-Bird](https://drive.google.com/thumbnail?id=1RJVHtxjnCcXVMMlga-OIAlUI3nWxntdR&sz=w1000)"
 date: 2025-09-09
-permalink: /portfolio/2025-09-09-portfolio-14-peru-coast
+permalink: /portfolio/2025-09-09-portfolio-15-peru-andes
 collection: portfolio
 ---
 
@@ -23,7 +23,7 @@ Mountain Caracara _(Daptrius megalopterus)_ <br/> __Cordillera Huayhuash, Peru (
 Blue-and-Yellow Tanager _(Rauenia bonariensis)_ <br/> __Abra Malaga, Peru (9/3/2025)__
 
 ![5-Chestnut-breasted-Mountain-Finch](https://drive.google.com/thumbnail?id=1Y_ZgzAEM8iHXvQYHnHgyTN8iqWiL9ESS&sz=w1000)
-Chestnut-breasted Mountain-Finch _(Poospizopsis caesar)_ <br/> __Abra Malaga, Peru (9/3/2025)__
+Chestnut-breasted Mountain Finch _(Poospizopsis caesar)_ <br/> __Abra Malaga, Peru (9/3/2025)__
 
 ![6-Andean-Gull](https://drive.google.com/thumbnail?id=11t8aXLersZPCseXePJAoGCLri2_8PGTp&sz=w1000)
 Andean Gull _(Chroicocephalus serranus)_ <br/> __Abra Malaga, Peru (9/3/2025)__
@@ -38,7 +38,7 @@ Urubamba Antpitta _(Grallaria occabambae)_ <br/> __Abra Malaga, Peru (9/3/2025)_
 White-rumped Hawk _(Parabuteo leucorrhous)_ <br/> __Abra Malaga, Peru (9/3/2025)__
 
 ![10-Scarlet-bellied-Mountain-Tanager](https://drive.google.com/thumbnail?id=1L1XZw8zW9Iw_iC1ykpaY4hFBgFc2XiEI&sz=w1000)
-Scarlet-bellied Mountain-Tanager _(Anisognathus igniventris)_ <br/> __Abra Malaga, Peru (9/3/2025)__
+Scarlet-bellied Mountain Tanager _(Anisognathus igniventris)_ <br/> __Abra Malaga, Peru (9/3/2025)__
 
 ![11-Andean-Guan](https://drive.google.com/thumbnail?id=1z04kD-zK-8uMngBMBlqnljPUaWsYQ-AR&sz=w1000)
 Andean Guan _(Penelope montagnii)_ <br/> __Abra Malaga, Peru (9/3/2025)__
