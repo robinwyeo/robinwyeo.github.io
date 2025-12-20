@@ -13,7 +13,7 @@ redirect_from:
 About
 ======
 
-My name’s Robin W. Yeo and I’m a biological data scientist with a background in longevity/aging research, epigenomics, and CRISPR therapeutics. I received my B.Sc. in Biological Engineering from MIT and my Ph.D. in Genetics in the Brunet Lab at Stanford University. In 2024-2025, my wife and I left the Bay Area to spend a year travel - visiting 15 countries throughout North America, Southeast Asia, and South America, and spotting nearly 1000 new bird species. We’ve recently relocated to Vancouver, BC.
+My name’s Robin W. Yeo and I’m a biological data scientist with a background in longevity/aging research, epigenomics, and CRISPR therapeutics. I received my B.Sc. in Biological Engineering from MIT and my Ph.D. in Genetics in the Brunet Lab at Stanford University. In 2024-2025, my wife and I left the Bay Area to spend a year traveling - visiting 15 countries throughout North America, Southeast Asia, and South America, and spotting nearly 1000 new bird species. We’ve recently relocated to Vancouver, BC.
 
 ![Robin_Sara_About](https://drive.google.com/thumbnail?id=1GZopkcv8_BpmCG-JNJPGcEdD-Osi4DWj&sz=w1000)
 <br/>
