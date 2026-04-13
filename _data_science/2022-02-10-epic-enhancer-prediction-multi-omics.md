@@ -12,6 +12,8 @@ permalink: /data-science/epic-enhancer-prediction-multi-omics/
 
 *Presented for EPIC (February 10, 2022). Figures below are exported from the original PowerPoint deck.*
 
+**[Download the original slides (PowerPoint)](/files/data-science/epic-enhancer-presentation-2022-02-10.pptx)**
+
 This talk walks from **what enhancers are** and **why they matter**, through **how we measure them** (genomic and functional assays), to a **practical ENCODE-based pipeline** for prioritizing candidate enhancers—and finally to a **richer multi-omics feature set** and **HepG2** examples. It ends with an honest summary of why enhancer prediction remains hard.
 
 ---
