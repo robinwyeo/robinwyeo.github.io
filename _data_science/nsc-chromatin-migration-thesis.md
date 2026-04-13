@@ -1,5 +1,5 @@
 ---
-title: "Chromatin accessibility dynamics underlie a decline in neural stem cell migratory ability with age"
+title: "Thesis Defense: Chromatin accessibility dynamics underlie a decline in neural stem cell migratory ability with age"
 date: 2020-09-15
 tags:
   - thesis
@@ -9,7 +9,7 @@ tags:
 permalink: /data-science/nsc-chromatin-migration-thesis/
 ---
 
-*Adapted from my PhD oral defense (September 15, 2020, Stanford University). Figures below are exported from the original PowerPoint deck; niche and brain illustrations retain third-party credits where noted on the slides (e.g., Lancaster University, Gonzales-Roybal *et al.*, 2013).*
+*Adapted from my PhD oral defense (September 15, 2020, Stanford University).*
 
 As populations age, understanding how adult stem cells change—and whether those changes can be modified—becomes central to neuroscience and regenerative medicine. My graduate work asked a chromatin-focused question about **neural stem cells (NSCs)** in the adult mouse brain: **how does the accessible genome remodel with age, and does that remodeling help explain why activated NSCs lose the ability to migrate?** Below is a narrative version of the defense, with the original slide figures integrated for context.
 
