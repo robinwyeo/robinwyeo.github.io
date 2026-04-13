@@ -13,6 +13,8 @@ permalink: /data-science/nsc-chromatin-migration-thesis/
 
 As populations age, understanding how adult stem cells change—and whether those changes can be modified—becomes central to neuroscience and regenerative medicine. My graduate work asked a chromatin-focused question about **neural stem cells (NSCs)** in the adult mouse brain: **how does the accessible genome remodel with age, and does that remodeling help explain why activated NSCs lose the ability to migrate?** Below is a narrative version of the defense, with the original slide figures integrated for context.
 
+> **Animations on the web.** Standard PowerPoint **slide transitions and build animations** (fades, fly-ins, click-to-reveal) are not something a static site can replay from the `.pptx` file. What *does* carry over are **embedded videos** that were stored inside the deck. Two of those are included below (Imaris tracking and an ECM migration assay). If you want the **entire talk with full slide timing**, use PowerPoint **File → Export → Create a Video**, host that `.mp4` (e.g. YouTube or cloud storage), and we can embed or link it here.
+
 ---
 
 ## The challenge of an aging brain
@@ -135,6 +137,16 @@ The defense stated two directional hypotheses: **old qNSCs might move faster tha
 
 ![Live-cell migration tracking (Imaris)](/images/data-science/thesis/live-cell-tracking-imaris.png)
 
+{::nomarkdown}
+<figure class="thesis-video">
+  <video controls playsinline preload="metadata" poster="/images/data-science/thesis/live-cell-tracking-imaris.png" style="max-width:100%;height:auto;border:1px solid #ddd;border-radius:4px;">
+    <source src="/images/data-science/thesis/migration-tracking-imaris.mp4" type="video/mp4">
+    Your browser does not support embedded video; use the still image above or open the <a href="/images/data-science/thesis/migration-tracking-imaris.mp4">MP4 file</a> directly.
+  </video>
+  <figcaption><em>Embedded slide video: migration tracking (Imaris), exported from the defense PowerPoint.</em></figcaption>
+</figure>
+{:/nomarkdown}
+
 The results matched the chromatin mirror: **aNSC migration speed decreased with age**, while **qNSCs were largely immobile in youth** but could exhibit **modest motility in old age**. In narrative terms, **aging makes activated NSCs less migratory and nudges quiescent NSCs toward a slightly more migratory regime**—a functional symmetry that parallels **opposing chromatin remodeling**.
 
 ![Migration speed and behavior: qNSCs vs. aNSCs, young vs. old](/images/data-science/thesis/migration-speed-qnsC-ansC-age.png)
@@ -153,6 +165,16 @@ Why care about **activated** migration? **Activated NSCs** display morphologies 
 Orthogonal **extracellular-matrix** assays reinforced the trend: **aging reduced how far aNSCs migrated** over **24–48 hours** in the presented experiments.
 
 ![ECM migration assay design](/images/data-science/thesis/ecm-migration-assay-overview.png)
+
+{::nomarkdown}
+<figure class="thesis-video">
+  <video controls playsinline preload="metadata" poster="/images/data-science/thesis/ecm-migration-assay-overview.png" style="max-width:100%;height:auto;border:1px solid #ddd;border-radius:4px;">
+    <source src="/images/data-science/thesis/ecm-migration-assay-video.mp4" type="video/mp4">
+    Your browser does not support embedded video; use the still image above or open the <a href="/images/data-science/thesis/ecm-migration-assay-video.mp4">MP4 file</a> directly.
+  </video>
+  <figcaption><em>Embedded slide video: ECM migration assay (from the defense PowerPoint).</em></figcaption>
+</figure>
+{:/nomarkdown}
 
 ![ECM migration: young vs. old aNSCs (0–48 h)](/images/data-science/thesis/ecm-migration-young-old-24-48h-a.png)
 ![ECM migration (continued)](/images/data-science/thesis/ecm-migration-young-old-24-48h-b.png)
