@@ -13,8 +13,6 @@ permalink: /data-science/nsc-chromatin-migration-thesis/
 
 As populations age, understanding how adult stem cells change—and whether those changes can be modified—becomes central to neuroscience and regenerative medicine. My graduate work asked a chromatin-focused question about **neural stem cells (NSCs)** in the adult mouse brain: **how does the accessible genome remodel with age, and does that remodeling help explain why activated NSCs lose the ability to migrate?** Below is a narrative version of the defense, with the original slide figures integrated for context.
 
-> **Animations on the web.** Standard PowerPoint **slide transitions and build animations** (fades, fly-ins, click-to-reveal) are not something a static site can replay from the `.pptx` file. What *does* carry over are **embedded videos** that were stored inside the deck. Two of those are included below (Imaris tracking and an ECM migration assay). If you want the **entire talk with full slide timing**, use PowerPoint **File → Export → Create a Video**, host that `.mp4` (e.g. YouTube or cloud storage), and we can embed or link it here.
-
 ---
 
 ## The challenge of an aging brain
