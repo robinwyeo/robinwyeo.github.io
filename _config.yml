@@ -223,6 +223,9 @@ collections:
   talks:
     output: true
     permalink: /:collection/:path/
+  data_science:
+    output: true
+    permalink: /data-science/:path/
 
 
 # These settings control how pages and collections are included in the site
@@ -280,6 +283,17 @@ defaults:
       layout: talk
       author_profile: true
       share: true
+  # _data_science
+  - scope:
+      path: ""
+      type: data_science
+    values:
+      layout: single
+      author_profile: true
+      read_time: true
+      comments: true
+      share: true
+      related: false
 
 
 # Sass/SCSS
