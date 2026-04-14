@@ -1,5 +1,5 @@
 ---
-title: "Principal Component Analysis (PCA)"
+title: "Principal Component Analysis (PCA) Workshop"
 date: 2022-12-08
 tags:
   - PCA
@@ -8,7 +8,7 @@ tags:
 permalink: /data-science/pca-workshop/
 ---
 
-*Originally presented at BDS Learning Seminar, December 8, 2022*
+*Originally presented at Epic Bio BDS Learning Seminar (December 8, 2022).*
 
 ---
 
