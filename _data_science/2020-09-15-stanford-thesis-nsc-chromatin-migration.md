@@ -162,85 +162,90 @@ Before diving into the analysis, I wanted to show you what the raw chromatin acc
 
 Presented above are the 5 different cell types from both young and old animals, and the y-axis of each track represents the degree of accessibility present at this locus. We can observe here that a 5’ peak, likely representing a poised transcription factor binding site is shared among cells of the NSC lineage but that the transcription start site really only gains accessibility upon activation of the NSCs.This in fact matches what is observed in our corresponding transcriptomic data in which Ascl1 becomes expressed upon activation and subsequent neuronal differentiation.
 
-## Principal component analysis separates endothelial cells, quiescent NSCs, and activated NSCs
+
+## Principal component analysis reveals both celltype and aging clusters
 
 ![PCA separates endothelial, quiescent, and activated NSC chromatin states](/images/data-science/thesis/pca-nsc-chromatin-by-cell-state.png)
 
-
-Principal component analysis separates endothelial cells, quiescent NSCs, and activated NSCs Endothelial Astrocyte / qNSC aNSC / NPC
-
-## Principal component analysis of NSC chromatin landscapes separates with age
+Principal component analysis (PCA) is a powerful visualization tool that uses unsupervised learning to reduce the dimensionality of high-dimensional datasets into something we can visualize. Applyying PCA to all 25 sorted SVZ libraries cleanly separates the celltypes into three clusters: 
+- endothelial cells
+- a quiescent subpopulation (Ast + qNSCs)
+- an activated subpopulation(aNSCs + NPCs)
 
 ![PCA separates NSC chromatin libraries by age](/images/data-science/thesis/pca-nsc-chromatin-by-age.png)
 
+By subsetting our libraries down to only the young and old qNSC and aNSC celltypes we see that PC1 separates quiescence from activation while PC3 separates young from old NSCs; this separation along PC3 implies that there are a significant number of discernable age-related changes occuring at the chromatin level in SVZ stem cell populations.
 
-Principal component analysis of NSC chromatin landscapes separates with age
 
 ## The chromatin landscape of quiescent and activated NSCs undergo opposing changes with age
 
 ![Opposing chromatin changes in quiescent vs. activated NSCs with age](/images/data-science/thesis/opposing-chromatin-qnsC-ansC-age.png)
 
-The chromatin landscape of quiescent and activated NSCs undergo opposing changes with age With age, the quiescent landscape becomes more restricted while the activated landscape becomes more permissive
-
-![Distal and intronic regions (putative enhancers) mediate opposing age-related changes](/images/data-science/thesis/distal-intronic-enhancer-regions.png)
+Surprisingly, the chromatin landscape of quiescent and activated NSCs undergo opposing changes during the aging process. With age, the quiescent landscape becomes more restricted (chromatin sites close) while the activated landscape becomes more permissive (chromatin sites open).
 
 ## Opposing chromatin changes are mediated by the same genomic elements: distal and intronic regions (containing putative enhancers)
 
-Opposing chromatin changes are mediated by the same genomic elements: distal and intronic regions (containing putative enhancers)
+![Peak annotation (promoters, introns, distal)](/images/data-science/thesis/atac-peak-genomic-distribution-b.png)
 
-![Promoter accessibility vs. gene expression across cell types and ages](/images/data-science/thesis/atac-rna-promoter-correlation.png)
+The majority of chromatin peaks in both young and old NSCs share simialr genomic annotations: accessible chromatin is typically called in regions of the genome annotated as promoters (the regulatory subunits 5' proximal to the gene body), distal (non-coding regions of the genome) or introns (non-coding regions of the genome within a gene body).
 
 ![Genomic distribution of ATAC-seq peaks in NSCs](/images/data-science/thesis/atac-peak-genomic-distribution-a.png)
-![Peak annotation (promoters, introns, distal)](/images/data-science/thesis/atac-peak-genomic-distribution-b.png)
+
+We can then subset chromatin peaks for young and old NSCs into these three categories to see whether their chromatin profiles all do an equally good job of discriminating between celltypes and age.
 
 ![Distal and intronic accessibility specifies state and age](/images/data-science/thesis/distal-intronic-specify-state-age.png)
 
+Interestingly, distal and intronic peaks easily serparate queiscence from activation, and young cells from old cells while the chromatin status of promoters is much more similar across the different libraries. This suggests that celltype-specific and age-related changes are likely to be driven by changes in non-coding regulatory units such as enhancers and insulators typically found in distal and intronic regions of the genome.
+
 ## Part 1: Conclusion
 
-
-Part 1: Conclusion -Chromatin landscapes separate NSCs by quiescent and activated states as well as age -With age, quiescent chromatin becomes more restricted while activated chromatin becomes more permissive -The majority of age-related changes occur within introns and distal regions suggesting that cis -regulatory elements (e.g. enhancers) may be responsible for age-related changes in neurogenic potential
+- Chromatin landscapes separate NSCs by quiescent and activated states as well as age\
+- With age, quiescent chromatin becomes more restricted while activated chromatin becomes more permissive
+- The majority of age-related changes occur within introns and distal regions suggesting that cis
+- regulatory elements (e.g. enhancers) may be responsible for age-related changes in neurogenic potential
 
 ---
 
 # Part 2: What cellular pathways underlie the opposing age-related changes to the NSC chromatin landscape?
 
-![Pathways enriched in opposing directions: adhesion and motility in qNSCs vs. aNSCs](/images/data-science/thesis/pathways-adhesion-qnsC-down-ansC-up.png)
-
 ## With age, qNSCs downregulate pathways involved in cellular adhesion whereas aNSCs upregulate them
 
-With age, qNSCs downregulate pathways involved in cellular adhesion whereas aNSCs upregulate them Negative regulation of cell motility cAMP-mediated signaling Neuron projection development Response to forskolin Protein localization to early endosome Canonical Wnt signaling Cell-cell adhesion (plasma membrane) Endocardial cushion morphogenesis Regulation of toll-like receptor signaling Mesoderm formation Regulation of heart contraction Regulation of cell communication Adherens junction organization Regulation of cell communication Homophilic cell adhesion (plasma membrane) Cell-cell adhesion (mediated by cadherins)
+I used DESEQ2 and EdgeR to call dynamic chromatin peaks that are differentially accessible throughout aging in the qNSC and aSNC populations. Using Gene Ontology (GO), we can perform statistical enrichment within known annotated molecular and cellular processes to get a sense of which pathawys and phenotypes are being affected throughout aging.
+
+![Pathways enriched in opposing directions: adhesion and motility in qNSCs vs. aNSCs](/images/data-science/thesis/pathways-adhesion-qnsC-down-ansC-up.png)
+
+Surprisingly, with age, qNSCs downregulate pathways involved in cellular adhesion whereas aNSCs upregulate them.
+
+Another way of visualizing this is to look at the normalized chromatin accessibility values at each of these dynamic ATAC-seq peaks as a heatmap.
 
 ![Open chromatin at adhesion loci (cadherins, integrins, MMPs)](/images/data-science/thesis/adhesion-gene-loci-accessibility.png)
 
-## With age, qNSCs downregulate accessibility in cellular adhesion chromatin loci whereas aNSCs upregulate them
+This visualization reveals not only the opposing directionality of age-related changes between quiescent and activated NSCs but also the strong enrichment of adhesion and migration pathways that are dynamically changing throughout aging in both.
 
-With age, qNSCs downregulate accessibility in cellular adhesion chromatin loci whereas aNSCs upregulate them Cadherins Integrins MMPs Cadherins Integrins MMPs
-
-![Open chromatin enriched in adhesion/migration pathways (summary panel)](/images/data-science/thesis/open-chromatin-adhesion-pathways.png)
+I then re-analyzed a publically available single cell RNA-seq (scRNA-seq) dataset published from our lab (_Dulken, Buckley, & Navarro-Negredo et al, 2019_) to verify if similar changes were observed wiwthin these cell populations during aging at the level of gene expression.
 
 ![RNA-seq concordance: adhesion programs in qNSC/ast vs. aNSC/NPC](/images/data-science/thesis/rna-seq-adhesion-expression.png)
 
-## With age, qNSCs downregulate gene expression of cellular adhesion pathways whereas aNSCs upregulate them
+Encouragingly, transcription of cellular adhesion pathways changes throughout aging in the same manner predicted by our observed chromatin changes! Throughout age, quiescent subpopulations in the SVZ transcriptionally dowwnregulate cellular adhesion pathways whereas activated subpopulations upregulate them.
 
-With age, qNSCs downregulate gene expression of cellular adhesion pathways whereas aNSCs upregulate them ( Dulken *, Buckley*, Navarro Negredo*, et al. 2019) Young Old Young Old qNSC / Ast aNSC /NPC
-
-![scRNA-seq of the young SVZ: cell adhesion gene expression across lineages](/images/data-science/thesis/scrna-adhesion-by-lineage-a.png)
-![Adhesion expression by cluster (continued)](/images/data-science/thesis/scrna-adhesion-by-lineage-b.png)
-![Adhesion expression by cluster (continued)](/images/data-science/thesis/scrna-adhesion-by-lineage-c.png)
-
-![NF1 / NFI motif enrichment (young qNSCs and old aNSCs)](/images/data-science/thesis/nf1-motif-enrichment.png)
 
 ## Motif for NF1, a regulator of cellular adhesion, is enriched in young qNSCs and old aNSCs
 
-Motif for NF1, a regulator of cellular adhesion, is enriched in young qNSCs and old aNSCs With Mahfuza Sharmin TF Motif TF Name TF Motif TF Name NF1 family of transcription factors regulates cell adhesion and cell motion
+Transcription factors (TFs) are an important subclass of proteins that bind directly to DNA sequences - typically to regulate gene expression. This is accomplished in part by only binding to specific DNA motifs that are unique to a TF or class of TFs.
 
-![NF1 motif analysis (extended panel, Kundaje lab collaboration)](/images/data-science/thesis/nf1-motif-qnsC-young-old-ansC.jpg)
+![NF1 motif](/images/data-science/thesis/nf1-motif.png)
 
-![Shared adhesion signature: young qNSCs and old aNSCs](/images/data-science/thesis/young-qnsC-old-ansC-adhesion-signature.png)
+To identify predicted TF binding within the chromatin peaks that open/close with NSC aging, I extracted the DNA sequences of these synamically accessible chromatin regions and performed statistical enrichment for DNA motifs using publically available databases. We subsequently orthogonally verified these findings in collaboration with the Kundaje lab using their deep learning foundation models.
+
+We found that the motif for NF1, a master regulator of cellular adhesion, is enriched in young qNSCs and old aNSCs suggesting that changes in accessibility might be driving upstream changes in TF binding by the NF1 family and leading to to regulatory changes in cellular adhesion during NSC aging.
+
 
 ## Part 2: Conclusion
 
-Part 2: Conclusion -Aging causes an opposite adhesion response from qNSCs and aNSCs : -With age, qNSCs lose accessibility at adhesion pathways -With age, aNSCs gain accessibility at adhesion pathways -These analyses of dynamic ATAC-seq chromatin accessibility data predict that aging impairs the ability of aNSCs to migrate
+- Aging causes an opposite adhesion response from qNSCs and aNSCs:
+   - With age, qNSCs lose accessibility at adhesion pathways
+   - With age, aNSCs gain accessibility at adhesion pathways 
+- These analyses of dynamic ATAC-seq chromatin accessibility data predict that aging impairs the ability of aNSCs to migrate
 
 ---
 
