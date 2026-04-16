@@ -9,12 +9,7 @@ tags:
 permalink: /data-science/nsc-chromatin-migration-thesis/
 ---
 
-# Chromatin accessibility dynamics underlie a decline in neural stem cell migratory ability with age
-
-![Title slide art: three profiles of heads formed from tree foliage, evoking aging from lush green through autumn color to sparse branches](/images/data-science/thesis/thesis-defense-title-trees-heads.png)
-
-_Adapted from my PhD oral defense presented to the Department of Genetics, Stanford University on September 15, 2020._
-_This project of my thesis work was published in Nature Aging as [Yeo & Zhou et al. 2013](https://www.nature.com/articles/s43587-023-00449-3)._
+_Adapted from my PhD oral defense presented to the Department of Genetics, Stanford University on September 15, 2020. Published in Nature Aging as [Yeo & Zhou et al. 2013](https://www.nature.com/articles/s43587-023-00449-3)._
 
 ---
 # Introduction
@@ -95,22 +90,21 @@ And the other is that those cells that do become proliferative tend to display a
 
 ## Mechanisms of neural stem cell aging
 
-![Transcriptional profiling of NSC aging: themes and representative studies from the defense slides](/images/data-science/thesis/nsc-aging-transcriptome-studies.png)
+![Transcriptional profiling of NSC aging: themes and representative studies from the defense slides](/images/data-science/thesis/dna-ribbon.png)
 
 So, what exactly are the cell intrinsic changes that occur to NSCs that contribute to this decline in neurogenic potential?
 
 One way to answer this question is to use next-generation sequencing technologies to profile cellular characteristics of young and old NSCs using genomic sequencing.
 
 So far, this has mostly been carried out at the transcriptional level
-- within the Brunet Lab ( Leeman 2018 ; Dulken *, Buckley*, Navarro Negredo * 2019 )
-- as well as by others ( Artegiani 2017; Basak 2018; Hochgerner 2018; Kalamakis 2019; Llorens - Bobadilla 2015; Luo 2015; Mizrak 2019; Shi 2018; Shin 2015; Zywitza 2018 )
+- within the Brunet Lab (_Leeman et al, 2018 ; Dulken, Buckley, & Navarro Negredo et al, 2019_)
+- as well as by others (_Artegiani et al, 2017; Basak et al, 2018; Hochgerner et al, 2018; Kalamakis et al, 2019; Llorens-Bobadilla et al, 2015; Luo et al, 2015; Mizrak et al, 2019; Shi et al, 2018; Shin et al, 2015; Zywitza et al, 2018_)
 
 Transcriptional studies have so far revealed mechanisms of NSC aging including changes to proteostasis, autophagy, and inflammation pathways.
 
 However transcriptional profiling really only focuses on gene expression from coding loci and misses a lot of information about regulatory features in non-coding portions of the genome.
 
-So when I joined the lab as a graduate student, I was really intrigued by this significant gap in knowledge about how the chromatin state of NSCs is affected by aging.
-
+![Transcriptional profiling of NSC aging: themes and representative studies from the defense slides](/images/data-science/thesis/dna-ribbon.png)
 
 ## The chromatin landscape defines cell state and could reveal aspects of NSC aging and provide insight into their regulation
 
@@ -124,14 +118,12 @@ This is important because how tightly packed chromatin is in certain regions spe
 
 When changes to cell identity occur, for example during aging, these physical features of the genome change, and regions can dynamically gain accessibility (or become "open") or lose accessibility (or become "closed").
 
-So we can profile this dynamically changing chromatin regions throughout aging to reveal new characteristics of stem cell aging and provide insight into their regulation. Chromatin profiling has increased sensitivity and yields insights beyond transcription: 
+So we can profile this dynamically changing chromatin regions throughout aging to reveal new characteristics of stem cell aging and provide insight into their regulation. Compared to transcriptionalo readouts, chromatin profiling has increased sensitivity and yields regulatory insights beyond transcription: 
 - presence of poised accessible loci
 - novel cis-regulatory regions (e.g. enhancers)
 - binding of regulatory transcription factors Young NSC Old NSC
 
-In a diverse number of systems, aging is accompanied by a host of epigenetic changes that affect the chromatin landscape and can result in loss of transcriptional regulation with age.
-
-This is especially important for stem cells which must ensure tight transcriptional regulation in order to maintain a pluripotent cell identity throughout natural aging.
+In a diverse number of systems, aging is accompanied by a host of epigenetic changes that affect the chromatin landscape and can result in loss of transcriptional regulation with age. This is especially important for stem cells which must ensure tight transcriptional regulation in order to maintain a pluripotent cell identity throughout natural aging.
 
 ---
 
@@ -143,38 +135,32 @@ This is especially important for stem cells which must ensure tight transcriptio
 
 To begin with, we need a way to actually isolate and subsequently characterize young and old NSCs. To do this, we used a GFAP-GFP transgenic mouse line and aged a colony of animals until they were 20-24mo old.
 
-We then sacrificed them, microdissected out the SVZ, and used a FACS gating protocol involbing CD31, GFAP, PROM1, and EGFR to isolate 5 different resident celltypes from the young and old neurogenic niche:
-- Endothelial Cells (Endo)
-- Astrocytes (Ast)
-- Quiescent NSCs (qNSC)
-- Activated NSCs (aNSC)
-- Neural Progenitor Cells (NPC)
+We then sacrificed them, microdissected out the SVZ, and used a FACS gating protocol involving CD31, GFAP, PROM1, and EGFR to isolate 5 different resident celltypes from the young and old neurogenic niche:
+
+- *Endothelial Cells (Endo)*
+- *Astrocytes (Ast)*
+- *Quiescent NSCs (qNSC)*
+- *Activated NSCs (aNSC)*
+- *Neural Progenitor Cells (NPC)*
 
 ![FACS / sorting readouts (continued)](/images/data-science/thesis/svz-sorting-strategy-b.png)
 
-## ATAC-seq: a tool to assess chromatin accessibility (Buenrostro *et al.*, 2013)
+## ATAC-seq: a tool to assess chromatin accessibility
 
 ![ATAC-seq for chromatin accessibility in rare populations *in vivo* (Buenrostro *et al.*, 2013)](/images/data-science/thesis/atac-seq-overview.png)
 
-Near the beginning of my time in graduate school, Jason Buenrostro developed a novel assay to profile chromatin accessibility that had high sensitivity with a very low input cell number (Buenrostro et al., 2013), making it ideally suited for profiling rare populations of _ex vivo_ NSCs.
+Near the beginning of my time in graduate school, Jason Buenrostro developed a novel assay to profile chromatin accessibility that had high sensitivity with a very low input cell number (_Buenrostro et al., 2013_), making it ideally suited for profiling rare populations of _ex vivo_ NSCs.
 
 Briefly, after cell sorting and genomic DNA isolation, a Tn5 transposase is added to the DNA which simultaneously transposes open chromatin regions and inserts amplification barcodes. Subsequent DNA amplification by PCR and DNA sequencing then allows us to charcaterize open regions of the genome.
 
 
 ## The pro-neural *Ascl1* locus displays differential chromatin accessibility upon NSC activation
 
-![ATAC-seq accessibility at the Ascl1 locus by cell type and age, including Endothelial, Astrocyte, qNSC, aNSC, NPC, and annotations](./images/ascl1-locus-accessibility-screenshot.jpg)
+![ATAC-seq accessibility at the Ascl1 locus by cell type and age, including Endothelial, Astrocyte, qNSC, aNSC, NPC, and annotations](/images/data-science/thesis/ascl1-locus-accessibility-screenshot.png)
 
-The pro-neural Ascl1 locus displays differential chromatin accessibility upon NSC activation Young Old Young Old Young Old Young Old Young Old 3’ 5’ Ascl1
+Before diving into the analysis, I wanted to show you what the raw chromatin accessibility signaling track looks like at the neurogenic locus _Ascl1_, a gene required for neuronal differentiation.
 
-
-Before diving into the analysis, I wanted to show you what the raw chromatin accessibility signaling track looks like at the neurogenic locus Ascl1, which is required for neuronal differentiation.
-
-Presented here are the 5 different cell types from both young and old animals, and the y-axis of each track represents the degree of accessibility present at this locus.
-
-We can observe here that a 5’ peak, likely representing a poised transcription factor binding site is shared among cells of the NSC lineage but that the transcription start site really only gains accessibility upon activation of the NSCs.
-
-This in fact matches what is observed in our corresponding transcriptomic data in which Ascl1 becomes expressed upon activation and subsequent neuronal differentiation.
+Presented above are the 5 different cell types from both young and old animals, and the y-axis of each track represents the degree of accessibility present at this locus. We can observe here that a 5’ peak, likely representing a poised transcription factor binding site is shared among cells of the NSC lineage but that the transcription start site really only gains accessibility upon activation of the NSCs.This in fact matches what is observed in our corresponding transcriptomic data in which Ascl1 becomes expressed upon activation and subsequent neuronal differentiation.
 
 ## Principal component analysis separates endothelial cells, quiescent NSCs, and activated NSCs
 
