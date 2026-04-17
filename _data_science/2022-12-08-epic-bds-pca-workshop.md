@@ -8,7 +8,7 @@ tags:
 permalink: /data-science/pca-workshop/
 ---
 
-*Originally presented at Epic Bio BDS Learning Seminar (December 8, 2022).*
+*Adapted from my oral presentation at Epic Bio BDS Learning Seminar (December 8, 2022).*
 
 ---
 

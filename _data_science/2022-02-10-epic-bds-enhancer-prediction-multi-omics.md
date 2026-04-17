@@ -10,7 +10,7 @@ tags:
 permalink: /data-science/epic-enhancer-prediction-multi-omics/
 ---
 
-*Originally presented at Epic Bio BDS Learning Seminar (February 10, 2022)*
+*Adapted from my oral presentation at Epic Bio BDS Learning Seminar (February 10, 2022)*
 
 ---
 
