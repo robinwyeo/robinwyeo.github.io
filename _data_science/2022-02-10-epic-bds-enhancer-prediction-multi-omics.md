@@ -12,164 +12,260 @@ permalink: /data-science/epic-enhancer-prediction-multi-omics/
 
 *Originally presented at Epic Bio BDS Learning Seminar (February 10, 2022)*
 
-**[Download the original slides (PowerPoint)](/files/data-science/epic-enhancer-presentation-2022-02-10.pptx)**
+## Enhancer prediction through multi-omics integration
 
-This talk walks from **what enhancers are** and **why they matter**, through **how we measure them** (genomic and functional assays), to a **practical ENCODE-based pipeline** for prioritizing candidate enhancers—and finally to a **richer multi-omics feature set** and **HepG2** examples. It ends with an honest summary of why enhancer prediction remains hard.
+Robin W. Yeo, PhD  
+Biological Data Scientist
 
 ---
 
 ## What are enhancers?
 
-**Transcriptional enhancers** are *cis*-regulatory DNA elements that help control **when and where genes are expressed**. Nucleated cells share the same genome but adopt distinct lineages during development through **differential epigenetic regulation**. Each cell type expresses a characteristic gene program even though the core transcriptional machinery (e.g., RNA polymerase II) is broadly shared and recruited to promoters near transcription start sites (TSSs).
+---
 
-That machinery is often **not sufficient** on its own: distal **cis-regulatory elements**, including **enhancers**, provide additional regulatory logic. Enhancers harbor **short DNA motifs** that bind **sequence-specific transcription factors (TFs)**. TF occupancy helps recruit **co-activators and co-repressors**, tuning gene expression in a **cell-type-specific** way.
+## Basic biology of transcriptional enhancers
 
-![Concept slide: identical genomes, differential regulation, and cis-regulatory elements](/images/data-science/epic-enhancer-2022/cis-regulatory-enhancer-overview.png)
+Nucleated cells contain identical genomes yet differentiate into multiple cellular lineages during development through differential epigenetic regulation.
 
-### Common characteristics
+Different cell types have differential gene expression profiles despite all possessing (and expressing) identical transcriptional machinery (e.g. RNA Polymerase II, etc) which is recruited to core promoters around the TSS.
 
-Enhancers tend to share several features (none of which is perfectly diagnostic on its own):
+Transcriptional machinery is often insufficient to drive gene expression in the absence of more distal functional DNA regions known as cis-regulatory elements.
 
-- **Non-coding** sequence enriched for **TF binding motifs**
-- Can lie at **any distance**—sometimes **megabases**—from the TSS they regulate, which complicates mapping enhancer–target relationships
-- **Open chromatin** with **nucleosome depletion** at the active core
-- Flanking nucleosomes often carry characteristic histone modifications such as **H3K4me1** and **H3K27ac**
-- Activity is often **orientation-independent**
-- Often show **elevated evolutionary conservation** relative to neutrally evolving background
+Cis-regulatory elements, such as enhancers, contain short DNA motifs that act as binding sites for sequence-specific transcription factors (TFs).
+
+TF binding to enhancers serve to recruit co-activators/co-repressors that drive differential gene expression in a cell-type specific manner.
+
+![Figure from slides: basic biology of transcriptional enhancers](/images/data-science/epic-enhancer-2022/cis-regulatory-enhancer-overview.png)
+
+---
+
+## Characteristics of transcriptional enhancers
+
+Enhancers share a set of common characteristics:
+
+DNA sequence is non-coding and contains TF binding motifs.
+
+Located at any distance (up to megabases away) from their TSS making identification challenging.
+
+DNA is accessible and devoid of nucleosomes.
+
+Nucleosomes around enhancer contain specific post-translational modifications (H3K4me1 and H3K27ac).
+
+Enhancer activity is independent of sequence orientation.
+
+Exhibit higher evolutionary conservation than background sequences.
+
+![Figure from slides: characteristics of transcriptional enhancers](/images/data-science/epic-enhancer-2022/cis-regulatory-enhancer-overview.png)
 
 ---
 
 ## Why do we care about enhancers?
 
-Enhancers are bound and regulated in a **cell-type-specific** and **spatiotemporally restricted** manner, making them central to **lineage specification** and **development**. Many enhancers remain **poorly annotated**, yet they matter for **development**, **evolution**, and **disease**.
+Enhancers are bound/regulated by TFs in a highly celltype-specific and spatiotemporally-specific manner allowing them to drive cellular lineage specification and development.
 
-A large fraction of **GWAS** and disease-associated variants fall in **distal non-coding** sequence—often in putative enhancers—so these regions are plausible **therapeutic** or **allele-specific engineering** targets. Because enhancers can coordinate **regulatory hubs** or **gene families**, modulating a single element can in principle reshape expression programs in a **cell-type-biased** way.
+Vast majority of enhancers remain unknown but contribute key roles in development, evolution, and disease.
 
-![Examples from the slides linking enhancers, SNPs, and globin expression contexts](/images/data-science/epic-enhancer-2022/disease-snps-globin-expression-panel-a.png)
-![Continued: regulatory and expression context](/images/data-science/epic-enhancer-2022/disease-snps-globin-expression-panel-b.png)
-![Continued](/images/data-science/epic-enhancer-2022/disease-snps-globin-expression-panel-c.png)
-![Continued](/images/data-science/epic-enhancer-2022/disease-snps-globin-expression-panel-d.png)
-![Continued](/images/data-science/epic-enhancer-2022/disease-snps-globin-expression-panel-e.png)
+Many disease-associated SNPs occur in distal non-coding enhancers making them potential therapeutic targets.
 
----
+Targeting enhancers with SNPs can achieve allele-specific gene activation.
 
-## How are enhancers identified experimentally?
+Enhancers can regulate entire gene families or regulatory hubs making them attractive targets if there is a therapeutic desire to modulate entire gene families in a celltype-specific manner.
 
-Approaches split broadly into **genomic (correlative)** methods and **functional (causal)** assays.
+HEK293T(no B-globin expression)
 
-### Genomic methods
+K562(constitutive B-globin expression)
 
-Because enhancer activity depends on **TF binding**, **ChIP-seq** against a TF of interest is a standard way to nominate occupied regions. **Open chromatin** assays—**DNase-seq** or **ATAC-seq**—highlight nucleosome-depleted, TF-accessible DNA. **ChIP-seq for histone marks** such as **H3K4me1** and **H3K27ac** is widely used to annotate putative active or poised enhancers; as Shlyueva, Stampfel, and Stark note, histone-based prediction is now **routine** in genome annotation and **agrees reasonably well** with activity assays—while still being imperfect.
-
-![Genomic modalities: TF ChIP, accessibility, and histone marks](/images/data-science/epic-enhancer-2022/genomic-methods-chip-atac-histone.png)
-
-**The target-gene problem:** accessibility and histone peaks alone rarely say **which promoter** an enhancer contacts. **3D genome** methods help. **ChIA-PET** and **HiChIP** combine **chromatin conformation capture** with **ChIP** so that one simultaneously learns **protein binding** and **spatial proximity**. Common pull-downs include **Pol II**, **cohesin (e.g., Rad21)**, **Mediator (e.g., Med1)**, and **H3K27ac**.
-
-![Enhancer–promoter proximity via ChIA-PET / HiChIP (concept)](/images/data-science/epic-enhancer-2022/chia-pet-hichip-enhancer-promoter.png)
-
-![Example: overlapping accessible peaks with Pol II ChIA-PET contacts](/images/data-science/epic-enhancer-2022/pol2-chiapet-atac-looping-example.png)
-
-In practice, **ChIA-PET/HiChIP coverage is still limited** for many cell types, so enhancer–gene maps from 3D alone can be **sparse**.
-
-**ChromHMM** integrates multiple histone marks across tissues to assign **chromatin states** genome-wide—including states enriched for regulatory elements.
-
-![ChromHMM state definitions (slide overview)](/images/data-science/epic-enhancer-2022/chromhmm-states-overview.png)
-![ChromHMM / browser-style context](/images/data-science/epic-enhancer-2022/chromhmm-genome-browser-example.png)
-
-### Functional methods
-
-The **gold standard** test of enhancer activity is to place a candidate sequence **upstream of a minimal promoter** driving a reporter (e.g., **GFP**) and ask whether expression increases—often in **transgenic** models in developmental biology. That definition is powerful but **low throughput** for genome-wide surveys.
-
-**Massively parallel reporter assays (MPRAs)** and **STARR-seq** scale enhancer testing by linking **candidate fragments** to **barcoded reporters**, transducing a cell type of interest, and using **sequencing** as a readout of activity. Limitations include **non-native chromatin context**, use of a **generic minimal promoter** rather than the endogenous target promoter, and dependence on **efficient delivery** in chosen cell types.
-
-![Reporter-based enhancer identification (concept)](/images/data-science/epic-enhancer-2022/reporter-gfp-enhancer-assay.png)
-
-![MPRA / STARR-seq style genome-wide screening (slide figure)](/images/data-science/epic-enhancer-2022/mpra-starr-genome-wide-screening.jpg)
-
-**CRISPR-based** tools can recruit activators, repressors, or machinery to **endogenous loci**, or insert reporters into defined chromatin states, to probe **native** regulatory function.
-
-![CRISPR-based interrogation of endogenous enhancers (slide figure)](/images/data-science/epic-enhancer-2022/crispr-endogenous-enhancer-reporter.png)
+![Panel from slides](/images/data-science/epic-enhancer-2022/disease-snps-globin-expression-panel-a.png)
+![Panel from slides](/images/data-science/epic-enhancer-2022/disease-snps-globin-expression-panel-b.png)
+![Panel from slides](/images/data-science/epic-enhancer-2022/disease-snps-globin-expression-panel-c.png)
+![Panel from slides](/images/data-science/epic-enhancer-2022/disease-snps-globin-expression-panel-d.png)
+![Panel from slides](/images/data-science/epic-enhancer-2022/disease-snps-globin-expression-panel-e.png)
 
 ---
 
-## A simple ENCODE-based enhancer prioritization pipeline
+## How are enhancers experimentally identified?
 
-The deck outlines a **practical filter chain** using public **ENCODE** data:
+Genomic methods
 
-**Data types**
-
-- **RNA-seq** (expression context)
-- **ATAC-seq** or **DNase-seq** (accessibility)
-- **H3K27ac ChIP-seq** (active enhancer-associated mark)
-- **p300 ChIP-seq** (co-activator associated with enhancer function)
-- **18-state ChromHMM** annotations
-
-**Steps (conceptual)**
-
-1. Define candidate regions as **ATAC/DNase peaks** that are **intronic** or **distal/intergenic** (excluding purely promoter-proximal noise if desired).
-2. Require overlap with ChromHMM states annotated as **enhancer-like** within the 18-state model.
-3. Require overlap with **H3K27ac** peaks.
-4. To improve odds of linking to a gene, optionally restrict to candidates within a **≤10 kb** window of a TSS (a pragmatic heuristic—not a biological universal).
+Functional methods
 
 ---
 
-## Case study: *SERPINA1*—where are the enhancers?
+## How are enhancers experimentally identified?
 
-The slides walk a **locus-specific** example with stacked tracks (accessibility, histones, TF/co-activator data, ChromHMM). One note emphasized in the deck: **H3K27ac** signal often **dips at the summit** of an accessibility peak, consistent with **nucleosome depletion** at the TF-accessible core.
+**Genomic methods**
 
-![*SERPINA1* locus: multi-track view (slide 1)](/images/data-science/epic-enhancer-2022/serpina1-enhancer-tracks-1.png)
-![*SERPINA1* locus: H3K27ac depletion at peak summits (slide callout)](/images/data-science/epic-enhancer-2022/serpina1-enhancer-tracks-h3k27ac-note.png)
-
----
-
-## Shared vs. cell-type-specific enhancers (K562 and Jurkat)
-
-Comparing **K562** and **Jurkat** illustrates **shared** regulatory elements versus **lineage-restricted** ones—useful when thinking about which predictions transfer across cell types.
-
-![Shared enhancers between K562 and Jurkat](/images/data-science/epic-enhancer-2022/shared-enhancers-k562-jurkat.png)
-![Cell-type-specific enhancer patterns](/images/data-science/epic-enhancer-2022/cell-type-specific-enhancers-k562-jurkat.png)
+Functional methods
 
 ---
 
-## Why prediction is still messy
+## Genomic methods for enhancer identification
 
-Shlyueva, Stampfel, and Stark summarize the tension well (quoted on the slides):
+Since enhancer function is dependent upon TF binding, ChIP-seq against a known TF is a common way to identify enhancers via identification of TF binding sites.
 
-> “Enhancers and their activity states cannot be reliably predicted from their DNA sequences or from chromatin features, nor can the important parts of the sequence of an enhancer be easily identified.”
+Since active enhancers are depleted of nucleosomes and contain accessible chromatin to be permissive to TF binding, DNAse-seq or ATAC-seq can be used to identify accessible DNA regions.
 
-> “Given the widespread use of histone modifications to predict enhancers, it is interesting that there is **no consensus** about which marks should be used. […] Generally, the rules used to predict enhancers seem to be driven by the availability of data sets.”
+Nucleosomes flanking enhancers carry specific, characteristic post-translational modifications which can be identified using ChIP-seq against histone marks (H3K4me1 and H3K27ac).
 
-> “None of the known histone modifications correlates perfectly with enhancer activity, and even combinations of marks are not perfect predictors.”
+“The predictions of enhancers using histone marks is now widely used, for example, in the annotation of genome-wide functional elements by individual groups and international consortia, and it agrees well with enhancer activity assays.” (Shlyueva, Stampfel, & Stark)
 
-The honest takeaway: **integrate multiple lines of evidence**, know the **limits of each assay**, and treat predictions as **hypotheses** to test functionally when it matters.
-
----
-
-## Expanding the feature set for *in silico* prediction
-
-A richer panel of public data can include, in addition to the simple pipeline above:
-
-- **H3K4me1** ChIP-seq  
-- **Med1** (Mediator) and **Rad21** (cohesin) ChIP-seq  
-- **POL2RA ChIA-PET** (Pol II–linked loops)  
-- **hg38 20-way PhastCons** conservation  
-- **H3K27me3** as a **negative** context mark (active enhancers typically should not sit in dense Polycomb domains)
-
-![Integrated feature panel (slide schematic)](/images/data-science/epic-enhancer-2022/multi-omics-enhancer-prediction-features.png)
+![Figure from slides: genomic methods](/images/data-science/epic-enhancer-2022/genomic-methods-chip-atac-histone.png)
 
 ---
 
-## HepG2 enhancer identification (examples)
+## Genomic methods for enhancer identification
 
-The deck closes with **HepG2** examples applying the integrated view—browser-style panels tying accessibility, marks, and state calls together.
+Problem: The above methods give no indication of which gene is being regulated by an enhancer!
 
-![HepG2 example (panel 1)](/images/data-science/epic-enhancer-2022/hepg2-enhancer-prediction-1.png)
-![HepG2 example (panel 2)](/images/data-science/epic-enhancer-2022/hepg2-enhancer-prediction-2.png)
-![HepG2 example (panel 3)](/images/data-science/epic-enhancer-2022/hepg2-enhancer-prediction-3.png)
+Enhancers are physically brought into close spatial proximity with their target promoters to regulate gene expression. This can be exploited to identify enhancers and enhancer-gene relationships.
+
+ChIA-PET and HiChIP essentially couple chromatin conformation capture technology (e.g. 3C,4C,5C,Hi-C) and ChIP-seq to identify enhancer-promoter interactions.
+
+These technologies simultaneously identify binding sites for proteins involved in the transcriptional machinery (via ChIP) and spatial proximity contacts (via Hi-C).
+
+Common targets include:
+
+Pol II
+
+Cohesin
+
+Mediator
+
+H3K27ac
+
+![Figure from slides: ChIA-PET and HiChIP](/images/data-science/epic-enhancer-2022/chia-pet-hichip-enhancer-promoter.png)
 
 ---
 
-## Closing
+## Example: Enhancer-promoter looping with RNA Polymerase II
 
-Enhancer biology sits at the intersection of **genetics**, **epigenomics**, **3D genome structure**, and **functional genomics**. Public consortia such as **ENCODE** make it possible to build **transparent, reproducible filters**—but **no shortcut** replaces careful interpretation and, when stakes are high, **direct functional tests**.
+Co-localization of accessible chromatin peaks (ATAC-seq) with POL2RA ChIA-PET can predict enhancer-promoter loops.
 
+HOWEVER, ChIA-PET/HiChIP datasets are pretty scarce making this an unreliable strategy.
+
+![Figure from slides: ATAC-seq and POL2RA ChIA-PET](/images/data-science/epic-enhancer-2022/pol2-chiapet-atac-looping-example.png)
+
+---
+
+## ChromHMM: Integrating multiple histone marks across diverse tissues into to annotate chromatin states genome-wide
+
+![Figure from slides: ChromHMM states](/images/data-science/epic-enhancer-2022/chromhmm-states-overview.png)
+![Figure from slides: ChromHMM in genome context](/images/data-science/epic-enhancer-2022/chromhmm-genome-browser-example.png)
+
+---
+
+## How are enhancers experimentally identified?
+
+Genomic methods
+
+**Functional methods**
+
+---
+
+## Functional methods for enhancer identification
+
+Image-based enhancer identification:
+
+DNA regions can be tested for for their ability to activate or enhance transcription by cloning the DNA region upstream from a minimal core promoter driving GFP.
+
+This activity, independent of the enhancer’s native sequence context, is the defining property of enhancers and is used as the gold standard in enhancer prediction.
+
+Image-based enhancer identification is frequently used in developmental biology to identify enhancers that drive lineage-specific cellular differentiation.
+
+Since these image-based enhancer identification experiments require generation of transgenic animals, they are not suitable for genome-wide enhancer screens.
+
+Genomics-based methods indirectly predict enhancer regions based on specific known properties of cis-regulatory elements but these DNA sequences can also be directly tested for enhancer activity.
+
+![Figure from slides: reporter-based enhancer identification](/images/data-science/epic-enhancer-2022/reporter-gfp-enhancer-assay.png)
+
+---
+
+## Functional methods for enhancer identification
+
+Genome-wide functional enhancer screening:
+
+Genome-wide enhancer testing can be accomplished with modern methods such as MPRAs (massively parallel reporter assays) or STARR-seq (self-transcribing active regulatory region sequencing).
+
+Plasmid libraries containing putative enhancer regions upstream of a minimal promoter driving unique barcodes can be introduced to a celltype of interest and deep sequencing of barcodes can be used as readout of enhancer activity.
+
+However, these techniques have several limitations:
+
+lack of native chromatin context
+
+use of general promoter (instead of enhancer-specific promoter)
+
+only applicable to certain celltypes that can be efficiently transduced
+
+![Figure from slides: MPRA / STARR-seq](/images/data-science/epic-enhancer-2022/mpra-starr-genome-wide-screening.jpg)
+
+---
+
+## Manipulation of endogeneous enhancer activity
+
+The CRISPR-Cas platform can be used to recruit transcription factors, transcriptional machinery, and/or co-activators to any locus in the genome to interrogate endogeneous enhancer activity (Figure A).
+
+Reporter genes can selectively be inserted into enhancers in different chromatin states to assess functional activity (Figure B).
+
+![Figure from slides: CRISPR-based interrogation of endogenous enhancers](/images/data-science/epic-enhancer-2022/crispr-endogenous-enhancer-reporter.png)
+
+---
+
+## How can we predict functional enhancers in silico?
+
+---
+
+## Developing a simple pipeline for enhancer identification using publicly available ENCODE data
+
+**Datasets:**
+
+Downloaded publicly available datasets from ENCODE:
+
+- RNA-seq (gene expression)
+- ATAC-seq/DNAse-seq (chromatin accessibility)
+- H3K27ac ChIP-seq (enhancer activation histone mark)
+- *p300 ChIP-seq (TF involved in enhancer-mediated transcription)*
+- 18 state ChromHMM annotation
+
+**Pipeline:**
+
+- First, I identified a large set of potential enhancers by looking at accessible chromatin peaks that are either intronic or distal/intergenic
+- I then subset this list to only include peaks that overlap one of the 5 ”enhancer” annotations in the 18-state ChromHMM profile
+- I further subset this list to only include peaks that overlap H3K27ac ChIP-seq peaks
+- To maximize odds of correct enhancer-gene annotations, I then exclude any putative enhancer further than 10 kB from a TSS
+
+---
+
+## Predicting enhancers is not straightforward
+
+“Enhancers and their activity states cannot be reliably predicted from their DNA sequences or from chromatin features, nor can the important parts of the sequence of an enhancer be easily identified.”
+
+“Given the widespread use of histone modifications to predict enhancers, it is interesting that there is no consensus about which marks should be used. […] Generally, the rules used to predict enhancers seem to be driven by the availability of data sets.”
+
+“None of the known histone modifications correlates perfectly with enhancer activity, and even combinations of marks are not perfect predictors.”
+
+(Shlyueva, Stampfel, & Stark)
+
+---
+
+## Including all possible data sources for enhancer prediction
+
+**Datasets:**
+
+Downloaded publicly available datasets from ENCODE:
+
+- 18 state ChromHMM annotation
+- ATAC-seq (chromatin accessibility)
+- H3K27ac ChIP-seq (enhancer histone mark)
+- H3K4me1 ChIP-seq (enhancer histone mark)
+- p300 ChIP-seq (histone acetyltransferase mark)
+- Med1 ChIP-seq (Mediator – enhancer-promoter contact mark)
+- Rad21 ChIP-seq (Cohesin – enhancer-promoter contact mark)
+- POL2RA ChiA-PET (RNA Polymerase II – enhancer-promoter looping)
+- hg38 20-way PhastCon scores (evolutionary conservation)
+- H3K27me3 (enhancers should not carry this mark)
+
+---
+
+## Including all possible data sources for enhancer prediction
+
+![Figure from slides: integrated data sources for enhancer prediction](/images/data-science/epic-enhancer-2022/multi-omics-enhancer-prediction-features.png)
