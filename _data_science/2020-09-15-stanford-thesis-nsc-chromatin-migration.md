@@ -127,6 +127,7 @@ In a diverse number of systems, aging is accompanied by a host of epigenetic cha
 
 ---
 
+
 # Part 1: What does chromatin profiling reveal about NSC populations throughout aging?
 
 ## Sorting cell populations from the young and old SVZ
@@ -249,17 +250,22 @@ We found that the motif for NF1, a master regulator of cellular adhesion, is enr
 
 ---
 
+
 # Part 3: Can we experimentally validate the prediction that aging affects NSC adhesion and migration?
 
+In order to experimentally validate the prior genomic predictions, I designed an experiment to sort out live NSCs to study their adhesive and migratory properties.
+
 ![Hypotheses for qNSC vs. aNSC migration with age](/images/data-science/thesis/migration-hypotheses-in-vitro.png)
+
+Briefly, I microdissected the SVZ out of young and old brains, dissociated them and cultured them in the appropriate growth factors to induce quiescence or activation. I then used flow cytometry to sort 1000 cells per well on PDL-coated ImageLock plates which were then imaged continuously over the course of 24-28 hours in a tissue culture incubator.
 
 Based on age-related chromatin changes, I predict:
 - old qNSCs to move faster than young qNSCs
 - old aNSCs to move slower than young qNSCs 
 
-![Live-cell migration tracking (Imaris)](/images/data-science/thesis/live-cell-tracking-imaris.png)
+## Quantifying NSC migratory capability in vitro with real-time imaging
 
-## Quantifying NSC migratory capability in vitro using Imaris
+I used the tracking software Imaris to analyze and quantify video of qNSCs and aNSCs migrating on PDL-coated plates.
 
 {::nomarkdown}
 <figure class="thesis-video">
@@ -267,11 +273,13 @@ Based on age-related chromatin changes, I predict:
     <source src="/images/data-science/thesis/migration-tracking-imaris.mp4" type="video/mp4">
     Your browser does not support embedded video; use the still image above or open the <a href="/images/data-science/thesis/migration-tracking-imaris.mp4">MP4 file</a> directly.
   </video>
-  <figcaption><em>Embedded slide video: migration tracking (Imaris), exported from the defense PowerPoint.</em></figcaption>
+  <figcaption><em>Migration tracking of activated NSCs using real-time imaging.</em></figcaption>
 </figure>
 {:/nomarkdown}
 
 ## With age, qNSCs functionally become more migratory whereas aNSCs become less migratory 
+
+By extracting and calculating velocities for each NSC continuously imaged, we quan quantify the migratory properties of NSC subpopulations from the SVZ and determine how aging affects their migratory potential and speed.
 
 ![Migration speed and behavior: qNSCs vs. aNSCs, young vs. old](/images/data-science/thesis/migration-speed-qnsC-ansC-age.png)
 
@@ -284,13 +292,14 @@ Based on age-related chromatin changes, I predict:
 
 ![Regenerative context: activated NSCs, migration, and repair](/images/data-science/thesis/activated-nsc-regenerative-context-a.png)
 
-- Upon activation, NSCs display morphological signs of motility
-- Activated NSCs mobilize and differentiate to generate newborn neurons throughout life and to repair acute injury
-- The age-related impairment in aNSC motility suggests that old aNSCs have impaired neurogenic/regenerative potential
-- Mechanisms underlying impaired migration in old aNSCs could reveal novel regenerative targets to improve old brain health Quiescent Activated
+As one can see from the above confocal microscopy images of quiescent and activated NSCs cultured in vitro, qNSCs and aNSCs have markedly different morphologies. Upon activation, NSCs display morphological signs of motility such as lamellipodia & filopodia. These morphological differences are inherent to their different functions in the niche as aNSCs are required to mobilize out of the niche as they differentiate to generate newborn neurons throughout life and to repair acute injury.
+
+The age-related impairment in aNSC motility suggests that old aNSCs have impaired neurogenic/regenerative potential as they may be unable to properly mobilize out of the neurogenic niche and properly differentiate into neurons or glial cells. Thus the mechanisms underlying impaired migration in old aNSCs represent potentially therapeutically important novel regenerative targets to improve old brain health.
 
 
 ## An orthogonal assay measures aNSC migration through extracellular matrix
+
+Due to the highly _in vitro_ nature of the prior migration assay, I designed an orthogonal experiment to analyze the migratory capability of young vs old aNSCs in which a cluster of aNSCs are imaged as they migrate through 3-dimensional extracellular matrix (EXM) to better simulate physiological migration conditions.
 
 {::nomarkdown}
 <figure class="thesis-video">
@@ -298,33 +307,39 @@ Based on age-related chromatin changes, I predict:
     <source src="/images/data-science/thesis/migration-assay-video.mp4" type="video/mp4">
     Your browser does not support embedded video; use the still image above or open the <a href="/images/data-science/thesis/migration-assay-video.mp4">MP4 file</a> directly.
   </video>
-  <figcaption><em>Embedded slide video: ECM migration assay (from the defense PowerPoint).</em></figcaption>
+  <figcaption><em>ECM migration assay.</em></figcaption>
 </figure>
 {:/nomarkdown}
 
-
-## Aging decreases the migratory ability of aNSCs
+We can then quantify the area and distance migrated by these aNSC clusters to determine how aging impacts migratory potential.
 
 ![ECM migration: young vs. old aNSCs (0–48 h)](/images/data-science/thesis/ecm-migration-young-old-24-48h-a.png)
 ![ECM migration (continued)](/images/data-science/thesis/ecm-migration-young-old-24-48h-b.png)
 
+As before, I observed a statistically significant decrease in the migratory ability of old aNSCs compared to young aNSCs through ECM supporting our prior findings that aging impairs migration in the activated NSC subpopulation.
+
 
 ## Using Förster resonance energy transfer (FRET) sensors to study NSC biophysics
 
+I next wanted to better understand and visualize the biomechanical underpinnings of this decreased migratory potential observed in old aNSCs so I initiated a collaboration with the Alex Dunn's group in Stanford's Chemical Engineering Department.
+
 ![FRET sensor diagram](/images/data-science/thesis/fret-overview.png)
+
+The Dunn Lab had developed molecular force sensors that ingeniously leveraged Förster resonance energy transfer (FRET) upon binding wwith extracellular integrin heterodimers (which mediate focal adhesions) to directly quantify binding force with the substrate through fluorescence.
 
 ![FRET / RGD sensor and actin stress fibers](/images/data-science/thesis/fret-actin-stress-fibers-a.png)
 
+By sparsely seeding aNSCs onto these molecular force sensors, we were then able to use confocal microscopy to visualize and quantify how aNSCs adhere to their substrate. FRET analysis revealed that focal adhesions and actin stress fibers co-localize at leading and lagging ends of aNSCs and become dysregulated with age.
 
-FRET analysis reveals that focal adhesions and actin stress fibers co-localize at leading and lagging ends of aNSCs; this could be an important mechanism that gets dysregulated with age.
-
-## With age, aNSCs exhibit increased staining for vinculin, a focal adhesion protein
-
-![Vinculin staining in old aNSCs (*in vitro*)](/images/data-science/thesis/vinculin-staining-old-ansC-in-vitro.png)
 
 ## With age, aNSCs exhibit increased staining for vinculin, a focal adhesion protein, *in vivo*
 
-![Vinculin in the SVZ *in vivo* (Ki67, GFAP, DAPI)](/images/data-science/thesis/vinculin-in-vivo-svz.jpg)
+Since the above experiments were all performed with _in vitro_ aNSCs, I wanted to confirm that there was evidence of age-related changes in cellular adhesion _in vivo_.
+
+![Vinculin staining in old aNSCs (*in vitro*)](/images/data-science/thesis/vinculin-staining-old-ansC-in-vivo.png)
+
+To do this, we cryosectioned whole young and old brains and then performed immunohistochemical staining of sections containing the SVZ neurogenic niche for Vinculin, a key focal adhesion protein. We then quantified the strength of vinculin staining specifically in aNSCs and confirmed that there was a slight but statistically significant increase in the focal adhesion strength of old aNSCs to their niche, consistent with their decreased migratory ability.
+
 
 ## Part 3: Conclusion
 
@@ -334,19 +349,22 @@ FRET analysis reveals that focal adhesions and actin stress fibers co-localize a
 
 ---
 
+
 # Part 4: Can chromatin changes in old aNSCs reveal a molecular target for rejuvenation?
+
+Now that we'd experimentally confirmed that old aNSCs exhibit decreased migratory ability as predicted by chromatin and transcriptomic profiling, I wanted to return to the differential chromatin landscape of old aNSCs to mine it for targets to reverse these age-related changes that may be mediating their declining neurogenic potential.
 
 ## Chromatin peaks that open up in old aNSCs are enriched for upstream regulators of ROCK
 
 ![Pathway enrichment linking old aNSC open chromatin to ROCK-related programs](/images/data-science/thesis/rock-pathway-enrichment-old-ansC-a.png)
-![Upstream regulator summary (continued)](/images/data-science/thesis/rock-pathway-enrichment-old-ansC-b.png)
 
-
-## Testing the effects of ROCK inhibition on aNSC migration
+I re-analyzed the chromatin peaks that become accessible in old aNSCs and found that many of them were related to G⍺12/13 signaling, a primary intracellular pathway used by G protein-couipled receptors (CPVRs) to regulate the cytoskeleton, cell shape, and motility. A key downstream effector of this pathway is Rho-associated protein kinase (ROCK), a serine/threonine kinase acting downstream of the RhoA GTPase and regulates actomyosin cytoskeleton contractility.
 
 ![ROCK / Y-27632 context across cell types (from defense slides)](/images/data-science/thesis/rock-inhibition-literature-context.png)
 
-ROCK is a master regulator of cytoskeletal dynamics. Conflicting studies of ROCK inhibition with the small molecule Y-27632 have been shown to:
+Since ROCK is a master regulator of cytoskeletal dynamics, I dug into the literature to determine if we could target it directly in aNSCs.
+
+Conflicting studies of ROCK inhibition with the small molecule Y-27632 have been shown to:
 - boost migration (myoblasts (_Goetsch et al., 2014_), gliomas (_Salhia et al., 2005, Chen et al., 2014_), microglia (_Fu et al., 2018_), and fibroblasts (_Kiltti et al., 2015_))
 - impair migration (dendritic cells (_Rudolph et al., 2016_), keratinocytes (_Srinivasan et al., 2019_), and medulloblastoma cells (_Dyberg et al., 2020_)) 
 
@@ -355,19 +373,22 @@ The question remains: how does ROCK inhibition affect aNSC migration?
 
 ## Inhibition of ROCK (via Y-27632 administration) improves old aNSC migration
 
+Given our genomic prediction from chromatin profiling, I decided to target ROCK with the small molecule inhibitor Y-27632. I treated both young and old aNSCs _in vitro_ with this compound and continuously imaged them over the course of 2 days to quantify their migratory velocity.
+
 ![Y-27632 improves old aNSC migration](/images/data-science/thesis/y27632-rescue-migration-a.png)
 
+Inhibition of ROCK by Y-27632 drastically improved migratory speed in both young and old aNSCs in this experiment.
 
 ![Migration time course with Y-27632 (converted from slide figure)](/images/data-science/thesis/y27632-migration-timeline.png)
 
-Old aNSC + Y-27632 Inhibition of ROCK (via Y-27632 administration) improves old aNSC migration
+We then repeated our second functional migration assay, testing how ROCK inhibition affects migration through ECM. Interestingly, in this assay, Y-27632 administration had no impact on young aNSCs but did rescue the age-related decline in migration exhibited by old aNSCs, bringiung up distance migrated back to a youthful status.
 
 
 ## Inhibition of ROCK (via Y-27632 administration) eliminates actin stress fibers
 
 ![ROCK inhibition reduces actin stress fibers](/images/data-science/thesis/rock-inhibition-stress-fibers.png)
 
-Elimination of actin stress fibers could be a cellular mechanism by which ROCK inhibition improves migration in old aNSCs Inhibition of ROCK (via Y-27632 administration) eliminates actin stress fibers
+To gain a better insight into what intracellular changes may be mediating the Y-27632-dependent change in migration, we performed immunohistochemistry on old aNSCs +/- treatment and quantified their F-actin stress fibers finding a near total elimination of stress fibers in old aNSCs when ROCK is inhibited. This suggests that elimination of actin stress fibers could be a cellular mechanism by which ROCK inhibition improves migration in old aNSCs.
 
 
 ## Part 4: Conclusion
@@ -393,10 +414,3 @@ Elimination of actin stress fibers could be a cellular mechanism by which ROCK i
 - Recapitulate age-related decline in aNSC migration in vivo
 - Explore the effects of impaired old aNSC migration and ROCK in stroke and TBI models 
 
-## Chromatin accessibility dynamics underlie a decline in neural stem cell migratory ability with age
-
-Quiescent NSCs Activated NSCs Glia Neurons
-
-## Acknowledgments
-
-Anne Brunet NSC Team: Matthew Buckley Jackie Butterfield Ben Dulken Katja Hebestreit Chloe Kashiwagi Subheksha Kc Dena Leeman Paloma Navarro Tyson Ruetz Lucy Xu Xiaoai Zhao Olivia Zhou Funding: Stanford Graduate Fellowship (SGF) Genentech Graduate Fellowship Stanford Genome Training Program (SGTP) Aaron Daugherty Anshul Kundaje Mahfuza Sharmin Alex Dunn Steven Tan Brian Zhong Jonathan Long Entire Brunet Lab (A-TEAM) Thesis Committee: Michael Bassik Anshul Kundaje Julien Sage Tony Wyss-Coray
