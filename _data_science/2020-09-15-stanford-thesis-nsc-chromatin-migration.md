@@ -43,7 +43,7 @@ One particularly exciting prospective avenue of research in this area involves h
 ## Neural stem cells (NSCs) reside in a complex niche: the sub-ventricular zone (SVZ)
 
 ![Neural stem cells (NSCs) reside in a complex niche: the sub-ventricular zone (SVZ)](/images/data-science/thesis/nsc-svz-niche-navarro-yeo-2020.png)
-_Source: _Navarro Negredo\* and Yeo\* (2020)_
+_Source: Navarro Negredo\* and Yeo\* (2020)_
 
 Incredibly, it was not until relatively recently that it was accepted that neurons can develop during adulthood. However we now know that there exist specialized brain regions that contain populations of rare adult neural stem cells known as neurogenic niches. One such neurogenic niche that we investigate in the Brunet Lab is known as the sub-ventricular zone (SVZ) and lines the lateral ventricles of both hemispheres.
 
