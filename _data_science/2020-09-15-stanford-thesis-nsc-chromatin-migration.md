@@ -9,7 +9,9 @@ tags:
 permalink: /data-science/nsc-chromatin-migration-thesis/
 ---
 
-_Adapted from my oral PhD defense presented to my thesis committee at Stanford University, Department of Genetics on September 15, 2020. Published in Nature Aging as [Yeo & Zhou et al. 2023](https://www.nature.com/articles/s43587-023-00449-3)._
+_Adapted from my oral PhD defense presented to my thesis committee at Stanford University, Department of Genetics on September 15, 2020._
+
+_Published in Nature Aging as [Yeo & Zhou et al. 2023](https://www.nature.com/articles/s43587-023-00449-3)._
 
 ---
 # Introduction
@@ -29,9 +31,9 @@ _Source: Ortman et al. (2014)_
 
 ## Aging is the single greatest risk factor for cognitive decline and neurodegenerative disease
 
-![Prevalence (%) of Alzheimer’s disease, stroke, vascular dementia, and Parkinson’s disease versus age (years); lines rise with age, especially after ~80 (thesis defense slide)](/images/data-science/thesis/neurodegenerative-prevalence-by-age.png)
-
 Aging is the single greatest risk factor for a host of devastating pathologies including cardiovascular disease, cancer, and neurodegenerative disease.
+
+![Prevalence (%) of Alzheimer’s disease, stroke, vascular dementia, and Parkinson’s disease versus age (years); lines rise with age, especially after ~80 (thesis defense slide)](/images/data-science/thesis/neurodegenerative-prevalence-by-age.png)
 
 As you can see in the above plot, as a population ages so too does the prevalence of Alzheimer's Disease, stroke, dementia, and Parkinson's Disease (to name only a few age-related brain diseases).
 
