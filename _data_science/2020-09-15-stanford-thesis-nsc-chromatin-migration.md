@@ -21,17 +21,15 @@ _Source: Psychology Today_
 
 ## Changing demographics: an aging population
 
-One of my primary motivations in continuing to investigate the field of aging biology after my undergraduate work in the field stemmed from the fact that we are globally experiencing an unprecedented demographic shift in population age.
-
-More and more of the global population is becoming increasingly geriatric, and in the next 30 years, the geriatric population within the US will double.
+We - as a global societey - are undergoing an unprecedented demographic shift in population age. More and more of the global population is becoming increasingly geriatric, and in the next 30 years, the elderly population within the US will double.
 
 ![Aging and demographic context (slides adapted from public sources in the original deck)](/images/data-science/thesis/ortman.png)
 _Source: Ortman et al. (2014)_
 
+Given that aging is the single greatest risk factor for a host of devastating pathologies including cardiovascular disease, cancer, and neurodegenerative disease, the global demographic shift we are experiencing presents us with a myriad of public health challenges.
+
 
 ## Aging is the single greatest risk factor for cognitive decline and neurodegenerative disease
-
-Aging is the single greatest risk factor for a host of devastating pathologies including cardiovascular disease, cancer, and neurodegenerative disease.
 
 ![Prevalence (%) of Alzheimer’s disease, stroke, vascular dementia, and Parkinson’s disease versus age (years); lines rise with age, especially after ~80 (thesis defense slide)](/images/data-science/thesis/neurodegenerative-prevalence-by-age.png)
 
@@ -87,18 +85,14 @@ So far, this has mostly been carried out at the transcriptional level
 - within the Brunet Lab (_Leeman et al, 2018 ; Dulken, Buckley, & Navarro Negredo et al, 2019_)
 - as well as by others (_Artegiani et al, 2017; Basak et al, 2018; Hochgerner et al, 2018; Kalamakis et al, 2019; Llorens-Bobadilla et al, 2015; Luo et al, 2015; Mizrak et al, 2019; Shi et al, 2018; Shin et al, 2015; Zywitza et al, 2018_)
 
-Transcriptional studies have thus far revealed a number of mechanisms of NSC aging including changes to proteostasis, autophagy, and inflammation pathways.
-
-However transcriptional profiling really only focuses on gene expression from coding loci and misses critical information about regulatory features in non-coding portions of the genome.
+Transcriptional studies have thus far revealed a number of mechanisms of NSC aging including changes to proteostasis, autophagy, and inflammation pathways. However transcriptional profiling really only focuses on gene expression from coding loci and misses critical information about regulatory features in non-coding portions of the genome.
 
 
 ## The chromatin landscape defines cell state and could reveal aspects of NSC aging and provide insight into their regulation
 
 What exactly is chromatin landscape and what can changes to chromatin states reveal about stem cell aging in the brain?
 
-Very briefly, chromatin is the complex of DNA and regulatory proteins (see diagram below) that physically determine the accessibility and activity of specific genetic loci.
-
-This is important because how tightly packed chromatin is in certain regions specifies, to a large degree, cell identity and cell state by physically determining genetic regulation.
+Very briefly, chromatin is the complex of DNA and regulatory proteins (see diagram below) that physically determine the accessibility and activity of specific genetic loci. This is important because how tightly packed chromatin is in certain regions specifies, to a large degree, cell identity and cell state by physically determining genetic regulation.
 
 ![Chromatin profiling complements transcription: cell state, enhancers, and TF binding (concept slide)](/images/data-science/thesis/chromatin-landscape-young-old-nsc.png)
 _Source: Klemm, S. L., Shipony, Z., & Greenleaf, W. J. (2019)_
@@ -187,7 +181,7 @@ Based on the above, we can then subset chromatin peaks for young and old NSCs in
 
 ![Distal and intronic accessibility specifies state and age](/images/data-science/thesis/distal-intronic-specify-state-age.png)
 
-Interestingly, distal and intronic peaks easily serparate queiscence from activation, and young cells from old cells while the chromatin status of promoters is much more similar across the different libraries. This suggests that celltype-specific and age-related changes are likely to be driven by changes in non-coding regulatory units such as enhancers and insulators typically found in distal and intronic regions of the genome.
+Interestingly, distal and intronic peaks easily serparate quiescence from activation, and young cells from old cells while the chromatin status of promoters is much more similar across the different libraries. This suggests that celltype-specific and age-related changes are likely to be driven by changes in non-coding regulatory units such as enhancers and insulators typically found in distal and intronic regions of the genome.
 
 ## Part 1: Conclusion
 

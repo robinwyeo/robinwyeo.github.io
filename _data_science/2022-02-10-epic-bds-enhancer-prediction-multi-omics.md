@@ -16,21 +16,20 @@ permalink: /data-science/epic-enhancer-prediction-multi-omics/
 
 ## Basic biology of transcriptional enhancers
 
-![Figure from slides: basic biology of transcriptional enhancers](/images/data-science/epic-enhancer-2022/cis-regulatory-enhancer-overview.png)
-
 Nucleated cells contain identical genomes yet differentiate into multiple cellular lineages during development through differential epigenetic regulation. These different cell types have differential gene expression profiles despite all possessing (and expressing) identical transcriptional machinery (e.g. RNA Polymerase II, etc) which is recruited to core promoters around the TSS. The downstream differences in cellular transcriptional profiles are possible because transcriptional machinery alone is often insufficient to drive gene expression in the absence of more distal functional DNA regions known as cis-regulatory elements.
 
 ![Panel from slides](/images/data-science/epic-enhancer-2022/disease-snps-globin-expression-panel-b.png)
+_Source: Corces et al., 2016_
 
-As one can see from the above heatmaps (_Corces et al., 2016) depicting the chromatin accessibility profiles of haematopoeitic lineage cells at either promoters or distal DNA sites, it is the chromatin profiles at distal non-coding regulatory sites that largely specifies lineage instead of the chromatin profiles at promoter sequences. 
+As one can see from the above heatmaps (_Corces et al., 2016_) depicting the chromatin accessibility profiles of haematopoeitic lineage cells at either promoters or distal DNA sites, it is the chromatin profiles at distal non-coding regulatory sites that largely specifies lineage instead of the chromatin profiles at promoter sequences. 
 
 These distal regulatory sites contain cis-regulatory elements, such as enhancers, which have short DNA motifs that act as binding sites for sequence-specific transcription factors (TFs). TF binding to enhancers serve to recruit co-activators/co-repressors that drive differential gene expression in a cell-type specific manner.
 
----
 
 ## Characteristics of transcriptional enhancers
 
 ![Figure from slides: characteristics of transcriptional enhancers](/images/data-science/epic-enhancer-2022/cis-regulatory-enhancer-overview.png)
+_Source: Field & Adelman, 2020_
 
 Enhancers share a set of common characteristics:
 - DNA sequence is non-coding and contains TF binding motifs.
@@ -40,7 +39,6 @@ Enhancers share a set of common characteristics:
 - Enhancer activity is independent of sequence orientation.
 - Exhibit higher evolutionary conservation than background sequences.
 
----
 
 ## Why do we care about enhancers?
 
@@ -48,7 +46,6 @@ Enhancers are bound/regulated by TFs in a highly celltype-specific and spatiotem
 
 From a therapuetics perspective, enhancers can regulate entire gene families or regulatory hubs making them attractive targets if there is a therapeutic desire to modulate entire gene families in a celltype-specific manner. Additionally many disease-associated SNPs occur in distal non-coding enhancers making them potential therapeutic targets.
 
----
 
 ## Genomic methods for enhancer identification
 
@@ -61,8 +58,6 @@ Since active enhancers are depleted of nucleosomes and contain accessible chroma
 Nucleosomes flanking enhancers carry specific, characteristic post-translational modifications which can be identified using **ChIP-seq against histone marks (H3K4me1 and H3K27ac)**.
 
 “The predictions of enhancers using histone marks is now widely used, for example, in the annotation of genome-wide functional elements by individual groups and international consortia, and it agrees well with enhancer activity assays.” (_Shlyueva, Stampfel, & Stark_)
-
----
 
 **Problem: The above methods give no indication of which gene is being regulated by an enhancer!**
 
@@ -80,7 +75,6 @@ Common targets include:
 - Mediator
 - H3K27ac
 
----
 
 ## Example: Enhancer-promoter looping with RNA Polymerase II
 
@@ -90,7 +84,6 @@ Co-localization of accessible chromatin peaks (ATAC-seq) with POL2RA ChIA-PET ca
 
 HOWEVER, ChIA-PET/HiChIP datasets are pretty scarce making this an unreliable strategy.
 
----
 
 ## ChromHMM: Integrating multiple histone marks across diverse tissues into to annotate chromatin states genome-wide
 
@@ -102,14 +95,11 @@ ChromHMM is a technique developed in Manolis Kellis' lab at MIT ([Ernst & Kellis
 
 ![Figure from slides: ChromHMM in genome context](/images/data-science/epic-enhancer-2022/chromhmm-genome-browser-example.png)
 
----
-
 
 ## Functional methods for enhancer identification
 
 Genomics-based methods indirectly predict enhancer regions based on specific known properties of cis-regulatory elements but these DNA sequences can also be directly tested for enhancer activity.
 
----
 
 **Image-based enhancer identification**
 
@@ -123,7 +113,6 @@ Image-based enhancer identification is frequently used in developmental biology 
 
 Since these image-based enhancer identification experiments require generation of transgenic animals, they are not suitable for genome-wide enhancer screens.
 
----
 
 **Genome-wide functional enhancer screening**
 
@@ -138,11 +127,8 @@ However, these techniques have several limitations:
 - use of general promoter (instead of enhancer-specific promoter)
 -0 only applicable to certain celltypes that can be efficiently transduced
 
----
 
 ## How can we predict functional enhancers in silico?
-
----
 
 I'll now walk through how to computationally develop a simple pipeline for enhancer identification using publicly available ENCODE data.
 
