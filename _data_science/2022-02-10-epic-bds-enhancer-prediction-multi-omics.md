@@ -1,5 +1,5 @@
 ---
-title: "Enhancer prediction through multi-omics integration"
+title: "Transcriptional enhancer prediction through multi-omics integration"
 date: 2022-02-10
 tags:
   - enhancers

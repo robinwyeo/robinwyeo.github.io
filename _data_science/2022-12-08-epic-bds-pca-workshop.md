@@ -23,6 +23,7 @@ Two common techniques in unsupervised learning are:
 - **Clustering techniques** (hierarchical clustering, k-means clustering, etc.)
 
 ![Supervised vs. Unsupervised Learning](/images/data-science/pca/supervised_unsupervised.png)
+_Source: An Introduction to Statistical Learning (James, Witten, Hastie, and Tibshirani, 2013)_
 
 ---
 
@@ -41,26 +42,27 @@ The most common applications of PCA are:
 - Feature generation through dimensionality reduction
 
 ![PCA Concept](/images/data-science/pca/pca_concept.png)
+_Source: An Introduction to Statistical Learning (James, Witten, Hastie, and Tibshirani, 2013)_
 
 ---
 
 ## Why PCA? Visualizing High-Dimensional Data
 
-We can easily visualize 150 datapoints with 2 features using a 2D scatterplot. Increasing dimensionality to 3 features, we can still use a 3D scatterplot. But what about 4 features? Or *n* >> 4 features? It becomes impossible to spatially visualize high-dimensional data.
+We can easily visualize 150 datapoints with 2 features using a 2D scatterplot. Increasing dimensionality to 3 features, we can still use a 3D scatterplot. But what about 4 features? Or *p* >> 4 features? Since we live and evolved in 3 spatial dimensions, it becomes exceedingly challenging to spatially visualize high-dimensional data with *p* >> 4.
 
 ![2D and 3D visualization](/images/data-science/pca/scatter_2d.png)
 
-With such high-dimensional data, a natural question is: **are all features/dimensions equally informative?**
+With such high-dimensional data, one natural question is: **are all features/dimensions equally informative?**
 
-There often exist redundant features that are highly correlative with other features -- they don't actually add much new information. The **manifold hypothesis** states that high-dimensional datasets that occur in the real world lie along low-dimensional latent manifolds.
+There often exist redundant features that are highly correlative with other features -- they don't actually add much new information.
 
-One natural way of visualizing high-dimensional data is to find a low-dimensional representation of the data that captures most of the information present.
+One natural way of visualizing high-dimensional data is to find a low-dimensional representation of the data that captures most of the information present. In fact, the **manifold hypothesis** states that high-dimensional datasets that occur in the real world lie along low-dimensional latent manifolds.
 
 ---
 
 ## Workshop: Exploring the Iris Dataset in R
 
-The built-in R **iris** dataset is a classic tutorial for data exploration. It contains 150 observations of 3 flower species (*setosa*, *versicolor*, *virginica*) with 4 features: Sepal Length, Sepal Width, Petal Length, and Petal Width.
+The built-in R **iris** dataset is a classic tutorial for data exploration (often used in introductiory workshops teaching R). It contains 150 observations of 3 flower species (*setosa*, *versicolor*, *virginica*) with 4 features: Sepal Length, Sepal Width, Petal Length, and Petal Width. here we'll use it to explore a simple case of applying Principal Component Analysis.
 
 ![Iris flower species](/images/data-science/pca/iris_flower.png)
 
@@ -68,7 +70,7 @@ Since there are 4 features, we can't directly visualize the global properties of
 
 ### Exploring pairwise relationships
 
-We can explore pairs of variables and plot them in 2D. For example, maybe we hypothesize there exists a relationship between width and length of sepals and petals:
+Well, since there are only 4 features, we can explore pairs of variables and plot each possible pairwise combination in 2D. For example, maybe we hypothesize there exists a relationship between width and length of sepals and petals respectively:
 
 ```r
 library(ggplot2)
@@ -88,7 +90,7 @@ ggplot(iris, aes(x = Petal.Length, y = Petal.Width)) +
 
 ![Petal scatter](/images/data-science/pca/iris_petal_scatter.png)
 
-We can see a relationship between petal length and width but not much structure in the sepal measurements. However, we haven't learned anything about which species are globally most similar. Let's color by species:
+We can see a relationship between petal length and width but not much structure in the sepal measurements. However, we haven't learned anything about which species are globally most similar. Let's now add color by species to the plot:
 
 ```r
 ggplot(iris, aes(x = Petal.Length, y = Petal.Width, color = Species)) +
@@ -108,13 +110,12 @@ There are nice statistical functions that automate this process for us (e.g. `gg
 ```r
 library(GGally)
 
-ggpairs(iris, columns = 1:4, aes(color = Species, alpha = 0.5)) +
-  theme_minimal()
+ggpairs(iris, columns = 1:4, aes(color = Species, alpha = 0.5)) + theme_minimal()
 ```
 
 ![Iris ggpairs](/images/data-science/pca/iris_ggpairs.png)
 
-This works great for 4 features -- we get a nice summary of how the different features relate to one another, requiring \(\binom{4}{2} = 6\) scatterplots. However, the number of plots needed grows combinatorially with features (e.g. 10 features requires 45 plots, 100 features requires 4,950 plots).
+This works great for 4 features -- we get a nice summary of how the different features relate to one another, requiring \(\left(\begin{array}{c}4\\2\end{array}\right) = 6\) scatterplots. However, the number of plots needed grows combinatorially with features (e.g. 10 features requires 45 plots, 100 features requires 4,950 plots).
 
 ### PCA to the rescue
 
