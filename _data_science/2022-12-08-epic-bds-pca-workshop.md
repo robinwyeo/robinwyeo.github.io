@@ -195,16 +195,19 @@ For the iris dataset, PC1 explains 73.0% and PC2 explains 22.9% of the total var
 **Statistically**, principal component loading vectors are directions in feature space along which data varies the most. **Geometrically**, principal components provide low-dimensional surfaces that are **closest** to the datapoints.
 
 ![Geometric interpretation: 3D data with projection plane](/images/data-science/pca/geometric_3d.png)
-
-![Projected onto 2D](/images/data-science/pca/geometric_projection.png)
+_Source: An Introduction to Statistical Learning (James, Witten, Hastie, and Tibshirani, 2013)_
 
 Computing the first two principal components defines the plane closest to our data (minimizing the Euclidean squared distance). When the original data are projected onto this plane, we retain the global features that distinguish the groups and are able to visualize them in a lower dimension.
 
+![Projected onto 2D](/images/data-science/pca/geometric_projection.png)
+_Source: An Introduction to Statistical Learning (James, Witten, Hastie, and Tibshirani, 2013)_
 ---
 
 ## Mathematical Walkthrough: Student Grades Example
 
-*Adapted from [The Mathematics Behind Principal Component Analysis](https://towardsdatascience.com/the-mathematics-behind-principal-component-analysis-fff2d7f4b643)*
+Now we'll go step-by-step through a hands-on example on how to compute principal components from a small dataset of the academic grades of 5 students in 3 classes.
+
+_Adapted from the example given in [The Mathematics Behind Principal Component Analysis](https://medium.com/data-science/the-mathematics-behind-principal-component-analysis-fff2d7f4b643)_
 
 **Goal:** Transform a given dataset **X** of dimension *p* to an alternative dataset **Y** of smaller dimension *k*.
 
@@ -237,7 +240,7 @@ We compute the covariance of two variables using the standard formula:
 
 ![Covariance formula](/images/data-science/pca/cov_formula.png)
 
-![Covariance computation](/images/data-science/pca/cov_matrix.png)
+This yields the following covariance matrix:
 
 ![Covariance result](/images/data-science/pca/cov_result.png)
 
@@ -278,11 +281,9 @@ To reduce our 3-dimensional data to 2-dimensional PC space, we construct the mat
 
 ### Step 6: Project onto the new basis
 
-We use the eigenvector matrix **W** (3&times;2) to transform our original data **A** (5&times;3) onto PC space:
+We use the eigenvector matrix **W** (3&times;2) to transform our original data **A** (5&times;3) onto 2-dimensional PC space:
 
-![Projection result](/images/data-science/pca/projection_result.png)
-
-Let's verify this in R:
+Let's now compute this using R so we can visualize the result:
 
 ```r
 grades <- matrix(c(90, 60, 90,
@@ -311,7 +312,7 @@ ggplot(proj_df, aes(x = PC1, y = PC2, label = Student)) +
   theme_minimal()
 ```
 
-![Student grades PCA projection](/images/data-science/pca/grades_pca_plot.png)
+![Student grades PCA projection](/images/data-science/pca/pca-student-grades.png)
 
 PC1 captures 57.5% and PC2 captures 39.7% of the variance, together accounting for **97.2%** of the information in the original 3D data.
 
@@ -319,33 +320,72 @@ PC1 captures 57.5% and PC2 captures 39.7% of the variance, together accounting f
 
 ## PCA in Scientific Applications
 
-PCA is extremely widely used for visualizing high-dimensional biological data. Here are two examples from the genomics literature.
+PCA is an extremely useful and widely used tool for visualizing high-dimensional biological data. 
+
+Below I'll share two examples from literature.
 
 ### ATAC-seq data (~100K features)
 
-ATAC-seq (Assay for Transposase-Accessible Chromatin using sequencing) measures chromatin accessibility across the genome. PCA is routinely used to visualize relationships between libraries with ~100,000 accessibility peaks as features.
+In my main thesis project from grad school, I investigated how the chromatin accessibility landscape of different sub-populations of the neural stem cell lineage changed with age in mice. 
 
 ![ATAC-seq PCA examples](/images/data-science/pca/atacseq_1.png)
 
+To do this, I generated 2-3 ATAC-seq (Assay for Transposase-Accessible Chromatin using sequencing) libraries for each young vs old cell populaton to measure genome-wide chromatin accessibility (yielding >100,000 different genomic sites with chromatin accessibility values per library). One of the first statistical visualizations I performed on these datasets was PCA to get a sense of the global similarities and differences between the overall chromatin ladnscape of different celltypes and ages. As you can see below, this global PCA shows distinct clustering of endothelial cells away from the NSC lineage along PC1 and then of proliferating NSCs (aNSCs and NPCs) from non-proliferating subpopulations of this lineage (astrocytes and qNSCs) along PC2.
+
 ![ATAC-seq PCA examples](/images/data-science/pca/atacseq_2.png)
+
+You may have noticed that the above PCA doesn't differentiate young from old libraries. This is not because differences between young and old chromatin landscapes within a celltype don't exist but instead simply because the huge differences in genome accessibility between any two celltypes overwhelms the relatively subtle chromatin changes that are seen with age.
+
+However, we can generate another PCA restricted this time to only young vs old qNSCs and aNSCs (the main celltypes of interest in my paper):
 
 ![ATAC-seq PCA examples](/images/data-science/pca/atacseq_3.png)
 
+We now see that PC1 (explaining 32.58% of variance) separates aNSCs from qNSCs and that PC3 (explaining 8.87% of variance) separates libraries generated from young vs old neurogenic niches.
+
+
 ### Genome-wide SNP data (~500K features)
 
-PCA of genome-wide single nucleotide polymorphisms (SNPs) can reveal population structure and ancestry. With ~500,000 SNP features per individual, PCA compresses this information into interpretable 2D projections.
-
-![Genome-wide SNP PCA examples](/images/data-science/pca/snp_1.png)
+One of the most visually impressive examples of PCA that I've come across in the field of genomics can be found in Carlos Bustamante's paper "[Genes mirror grography within Europe](https://www.nature.com/articles/nature07331)" published in Nature in 2008. In this paper, they characterized genetic variation in a sample of 3,000 European individuals genotyped at over half a million variable DNA sites (single nucleotide polymorphisms (SNPs)) in the human genome. With ~500,000 SNP features per individual, the authors then performed PCA to compress this information into interpretable 2D projections:
 
 ![Genome-wide SNP PCA examples](/images/data-science/pca/snp_2.png)
 
+Remarkably, the resulting 2D PCA projection clusters individual genomesw with distance metrics reminescent of geopgrahical separation. As the authors write in their abstract: _"Despite low average levels of genetic differentiation among Europeans, we find a close correspondence between genetic and geographic distances; indeed, a geographical map of Europe arises naturally as an efficient two-dimensional summary of genetic variation in Europeans."_
+
 ![Genome-wide SNP PCA examples](/images/data-science/pca/snp_3.png)
+
+
+---
+
+## Dimensionality Reduction: Amino Acid Descriptors
+
+Beyond visualization, PCA is also a powerful tool for **feature engineering** through dimensionality reduction.
+
+![VHSE table](/images/data-science/pca/vhse_table.png)
+
+**VHSE** (Vectors of Hydrophobic, Steric, and Electronic properties by principal components) is a great example. VHSE is a 8-dimensional vector embedding that can be used to describe the standard 20 amino acids that amke up all proteins in an information-rich way.
+
+To do this, the authors first gathered data on 50 physicochemical features for the 20 naturally occurring amino acids:
+- 18 hydrophobic properties
+- 17 steric properties
+- 15 electronic properties
+
+While this is descriptive, it's not very concise, and many of these features are likely redundant (e.g. do we really need 18 different values to describe the hydrophobicity of an amino acid?).
+
+The authors performed 3 separate principal component analyses, reducing dimensionality from **50 to 8**:
+- Hydrophobic properties: 18 &rarr; 2 (capturing 74.33% variance)
+- Steric properties: 17 &rarr; 2 (capturing 78.68% variance)
+- Electronic properties: 15 &rarr; 4 (capturing 77.97% variance)
+
+![VHSE PCA](/images/data-science/pca/vhse_pca.png)
+
+So, by using PCA, they dramatically reduced the number of dimensions needed to describe amino acid properties from 50 to 8 while retaining the majority of the information.
+
 
 ---
 
 ## PCA vs. t-SNE and UMAP
 
-Two popular dimensionality reduction and visualization techniques that are very commonly used in single-cell RNA-seq are:
+While this writeup is specifiocally on the toipic of PCA, I wanted to bring up two other visualization tools that have become increasingly popular in the field of genomics, especially when dealing with single cell RNA-seq datasets:
 - **t-SNE** (t-distributed Stochastic Neighbor Embedding)
 - **UMAP** (Uniform Manifold Approximation and Projection for Dimension Reduction)
 
@@ -356,36 +396,12 @@ PCA is one natural approach for dimensionality reduction and visualization, but 
 Both t-SNE and UMAP are **neighbor graph algorithms** that attempt to preserve local relationships between data -- making them great at defining cell clusters and identifying heterogeneity in single-cell data.
 
 ![Comparison of PCA, t-SNE, and UMAP on single-cell data](/images/data-science/pca/pca_tsne_umap_comparison.png)
+_Source: Liu et al., 2020_
 
 Key differences:
 - **PCA**: Linear; distances in PCA plots have quantitative meaning; great for bulk data
 - **t-SNE**: Non-linear; preserves local structure; distances between clusters are not meaningful
 - **UMAP**: Non-linear; preserves both local and some global structure; faster than t-SNE
-
----
-
-## Dimensionality Reduction: Amino Acid Descriptors
-
-Beyond visualization, PCA is also powerful for **feature engineering** through dimensionality reduction.
-
-**VHSE** (Vectors of Hydrophobic, Steric, and Electronic properties by principal components) is a great example. The authors gathered 50 physicochemical features for the 20 naturally occurring amino acids:
-- 18 hydrophobic properties
-- 17 steric properties
-- 15 electronic properties
-
-While this is descriptive, it's not very concise, and many of these features are likely redundant (do we really need 18 different values to describe the hydrophobicity of an amino acid?).
-
-The authors performed 3 separate principal component analyses, reducing dimensionality from **50 to 8**:
-- Hydrophobic properties: 18 &rarr; 2 (capturing 74.33% variance)
-- Steric properties: 17 &rarr; 2 (capturing 78.68% variance)
-- Electronic properties: 15 &rarr; 4 (capturing 77.97% variance)
-
-![VHSE table](/images/data-science/pca/vhse_table.png)
-
-![VHSE PCA](/images/data-science/pca/vhse_pca.png)
-
-By using PCA, they dramatically reduced the number of dimensions needed to describe amino acid properties from 50 to 8 while retaining the majority of the information.
-
 ---
 
 ## Benefits and Limitations of PCA
