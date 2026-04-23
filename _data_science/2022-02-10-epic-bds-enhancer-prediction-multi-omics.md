@@ -19,6 +19,7 @@ permalink: /data-science/epic-enhancer-prediction-multi-omics/
 Nucleated cells contain identical genomes yet differentiate into multiple cellular lineages during development through differential epigenetic regulation. These different cell types have differential gene expression profiles despite all possessing (and expressing) identical transcriptional machinery (e.g. RNA Polymerase II, etc) which is recruited to core promoters around the TSS. The downstream differences in cellular transcriptional profiles are possible because transcriptional machinery alone is often insufficient to drive gene expression in the absence of more distal functional DNA regions known as cis-regulatory elements.
 
 ![Panel from slides](/images/data-science/epic-enhancer-2022/disease-snps-globin-expression-panel-b.png)
+<br>
 _Source: Corces et al., 2016_
 
 As one can see from the above heatmaps (_Corces et al., 2016_) depicting the chromatin accessibility profiles of haematopoeitic lineage cells at either promoters or distal DNA sites, it is the chromatin profiles at distal non-coding regulatory sites that largely specifies lineage instead of the chromatin profiles at promoter sequences. 
@@ -50,6 +51,7 @@ From a therapuetics perspective, enhancers can regulate entire gene families or 
 ## Genomic methods for enhancer identification
 
 ![Figure from slides: genomic methods](/images/data-science/epic-enhancer-2022/genomic-methods-chip-atac-histone.png)
+_Source: Dixon et al., 2016_
 
 Since enhancer function is dependent upon TF binding, **ChIP-seq against a known TF** is a common way to identify enhancers via identification of TF binding sites.
 
@@ -66,6 +68,7 @@ Enhancers are physically brought into close spatial proximity with their target 
 **ChIA-PET and HiChIP** essentially couple chromatin conformation capture technology (e.g. 3C,4C,5C,Hi-C) and ChIP-seq to identify enhancer-promoter interactions.
 
 ![Figure from slides: ChIA-PET and HiChIP](/images/data-science/epic-enhancer-2022/chia-pet-hichip-enhancer-promoter.png)
+_Source: Dekker et al., 2013_
 
 These technologies simultaneously identify binding sites for proteins involved in the transcriptional machinery (via ChIP) and spatial proximity contacts (via Hi-C).
 
@@ -90,11 +93,12 @@ HOWEVER, ChIA-PET/HiChIP datasets are pretty scarce making this an unreliable st
 One attractive strategy to identify enhancers _in silico_ is to use the publicly available ChromHMM profiles on ENCODE.
 
 ![Figure from slides: ChromHMM states](/images/data-science/epic-enhancer-2022/chromhmm-states-overview.png)
+_Source: Ernst & Kellis, 2012_
 
 ChromHMM is a technique developed in Manolis Kellis' lab at MIT ([Ernst & Kellis, 2012](https://pmc.ncbi.nlm.nih.gov/articles/PMC3577932/)) that integrates multiple histone marks via ChIP-seq and applies a multivariate Hidden Markov Model to produce a chromatin state annotation to binned bps across the entire genome.
 
 ![Figure from slides: ChromHMM in genome context](/images/data-science/epic-enhancer-2022/chromhmm-genome-browser-example.png)
-
+_Source: Ernst & Kellis, 2012_
 
 ## Functional methods for enhancer identification
 
@@ -104,6 +108,7 @@ Genomics-based methods indirectly predict enhancer regions based on specific kno
 **Image-based enhancer identification**
 
 ![Figure from slides: reporter-based enhancer identification](/images/data-science/epic-enhancer-2022/reporter-gfp-enhancer-assay.png)
+_Source: Daugherty<sup>*</sup> & Yeo<sup>*</sup>, 2013_
 
 DNA regions can be tested for for their ability to activate or enhance transcription by cloning the DNA region upstream from a minimal core promoter driving GFP.
 
@@ -119,6 +124,7 @@ Since these image-based enhancer identification experiments require generation o
 Genome-wide enhancer testing can be accomplished with modern methods such as **MPRAs (massively parallel reporter assays)** or **STARR-seq (self-transcribing active regulatory region sequencing)**.
 
 ![Figure from slides: MPRA / STARR-seq](/images/data-science/epic-enhancer-2022/mpra-starr-genome-wide-screening.jpg)
+_Source: Claussnitzer et al., 2020_
 
 Plasmid libraries containing putative enhancer regions upstream of a minimal promoter driving unique barcodes can be introduced to a celltype of interest and deep sequencing of barcodes can be used as readout of enhancer activity.
 
