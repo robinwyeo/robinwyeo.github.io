@@ -115,11 +115,13 @@ ggpairs(iris, columns = 1:4, aes(color = Species, alpha = 0.5)) + theme_minimal(
 
 ![Iris ggpairs](/images/data-science/pca/iris_ggpairs.png)
 
-This works great for 4 features -- we get a nice summary of how the different features relate to one another, requiring \(\left(\begin{array}{c}4\\2\end{array}\right) = 6\) scatterplots. However, the number of plots needed grows combinatorially with features (e.g. 10 features requires 45 plots, 100 features requires 4,950 plots).
+This works great for 4 features -- we get a nice summary of how the different features relate to one another, requiring $ \binom{4}{2} $ scatterplots. However, the number of plots needed grows combinatorially with features (e.g. 10 features requires 45 plots, 100 features requires 4,950 plots).
 
 ### PCA to the rescue
 
-What we need is a statistical tool that captures as much global information as possible about the relationship between these 4 features and allows us to visualize them in **2D**. **This is exactly what PCA does.**
+What we need is a statistical tool that captures as much global information as possible about the relationship between these 4 features and allows us to visualize them in **2D**. 
+
+**This is exactly what PCA does.** Below we compute the PCA of this 4-dimensional dataset and visualize it in R.
 
 ```r
 iris_pca <- prcomp(iris[, 1:4], center = TRUE, scale. = TRUE)
@@ -148,7 +150,7 @@ We now have a **2-dimensional projection** of a 4-dimensional feature space. The
 
 ## How Does PCA Work?
 
-PCA attempts to find a low-dimensional representation of the data that captures as much information about the features as possible.
+PCA attempts to find a low-dimensional representation of the data that captures as much information about the features as possible .
 
 The idea is that *n* observations live in *p*-dimensional space, but not all of these dimensions are equally informative. PCA distills these *p* dimensions down to *L* dimensions where the new dimensions are **linear combinations of the originals** constructed to capture as much possible variation in the *n* observations as possible.
 
@@ -161,6 +163,7 @@ Z<sub>1</sub> = &phi;<sub>11</sub>X<sub>1</sub> + &phi;<sub>21</sub>X<sub>2</sub
 that has the **largest variance**. The coefficients &phi;<sub>11</sub>, &phi;<sub>21</sub>, ..., &phi;<sub>p1</sub> are called the **loadings** of the first principal component.
 
 ![PC1 and PC2 on population vs. ad spending data](/images/data-science/pca/pc_population_adspend.png)
+_Source: An Introduction to Statistical Learning (James, Witten, Hastie, and Tibshirani, 2013)_
 
 In the example above, we are looking at population size and ad spending for 100 cities (*n* = 100, *p* = 2). The first principal component Z<sub>1</sub> = 0.839X<sub>1</sub> + 0.544X<sub>2</sub> is along the solid green line (the direction of largest variance). The **second principal component** Z<sub>2</sub> is the linear combination that has maximal variance out of all linear combinations that are **uncorrelated** with Z<sub>1</sub>: Z<sub>2</sub> = 0.544X<sub>1</sub> - 0.839X<sub>2</sub> (the dotted blue line, perpendicular to PC1).
 
@@ -186,15 +189,10 @@ ggplot(scree_df, aes(x = PC, y = Variance)) +
 
 For the iris dataset, PC1 explains 73.0% and PC2 explains 22.9% of the total variance -- together they capture **95.9%** of the total variance, providing a very accurate 2D representation of the 4D data.
 
-![USA Arrests: biplot and scree plot](/images/data-science/pca/usarrests_biplot.png)
-
-![USA Arrests: scree plot](/images/data-science/pca/usarrests_scree.png)
-
-In the USA Arrests dataset, PC1 (constructed primarily from Rape, Assault, and Murder numbers) explains 62% of the data while PC2 (driven mostly by urban proportion) explains 25% -- projecting these 4D data onto PC1 and PC2 captures 87% of the total variance.
 
 ### Geometric interpretation
 
-Statistically, principal component loading vectors are directions in feature space along which data varies the most. **Geometrically**, principal components provide low-dimensional surfaces that are **closest** to the datapoints.
+**Statistically**, principal component loading vectors are directions in feature space along which data varies the most. **Geometrically**, principal components provide low-dimensional surfaces that are **closest** to the datapoints.
 
 ![Geometric interpretation: 3D data with projection plane](/images/data-science/pca/geometric_3d.png)
 
