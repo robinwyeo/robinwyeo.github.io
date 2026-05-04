@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
-"""CLT notebook → Jekyll-friendly Markdown: inline math \\(...\\), images, cleanup."""
+"""CLT notebook → Jekyll-friendly Markdown.
+
+Notebook (.ipynb) keeps GitHub/Jupyter-friendly ``$...$`` inline math. Exported
+``.md`` is transformed for Kramdown/MathJax: ``$`` → ``\\(``, bracket fixes,
+then ``\\\\(`` / ``\\\\)`` so Jekyll does not strip delimiters.
+"""
 from __future__ import annotations
 
 import json
@@ -43,6 +48,51 @@ DICE_NEW = (
     "increasingly bell-shaped (normal) curve for large $n$.\n"
     "- Below, static figures show representative behavior at several values of $n$."
 )
+
+
+def paren_inline_to_dollar(text: str) -> str:
+    r"""Turn ``\(...\)`` into ``$...$`` for notebook readability; leave ``$$`` blocks."""
+    out: list[str] = []
+    i = 0
+    n = len(text)
+    while i < n:
+        if text.startswith("$$", i):
+            j = text.find("$$", i + 2)
+            if j < 0:
+                out.append(text[i])
+                i += 1
+                continue
+            out.append(text[i : j + 2])
+            i = j + 2
+        elif text.startswith("\\(", i) and not text.startswith("\\\\(", i):
+            j = i + 2
+            found = False
+            while j < n - 1:
+                if text[j] == "\\" and text[j + 1] == ")":
+                    inner = text[i + 2 : j]
+                    out.append("$" + inner + "$")
+                    i = j + 2
+                    found = True
+                    break
+                j += 1
+            if not found:
+                out.append(text[i])
+                i += 1
+        else:
+            out.append(text[i])
+            i += 1
+    return "".join(out)
+
+
+def simplify_notebook_math_notation(text: str) -> str:
+    """Readable expectation / variance notation in ``$...$`` for GitHub preview."""
+    text = text.replace(
+        "$\\mu = E\\text{[}X_{i}\\text{]}$", "$\\mu = E[X_i]$"
+    )
+    text = text.replace(
+        "$E\\text{[}|X|\\text{]} = \\infty$", "$E[|X|] = \\infty$"
+    )
+    return text
 
 
 def dollar_inline_to_paren(text: str) -> str:
@@ -110,15 +160,15 @@ def kramdown_inline_math_fixes(s: str) -> str:
     return s
 
 
-def fix_markdown_prose(text: str) -> str:
-    """Notebook / nbconvert output: single \\(. Kramdown needs \\\\( in .md for MathJax."""
-    return kramdown_inline_math_fixes(dollar_inline_to_paren(text))
+def jekyll_math_from_nbconvert_markdown(text: str) -> str:
+    """nbconvert ``$`` / ``\\(`` prose → Kramdown-safe MathJax delimiters in ``.md``."""
+    return double_mjx_delimiters(kramdown_inline_math_fixes(dollar_inline_to_paren(text)))
 
 
 def process_outside_code_fences(md: str) -> str:
     parts = md.split("```")
     for i in range(0, len(parts), 2):
-        parts[i] = double_mjx_delimiters(fix_markdown_prose(parts[i]))
+        parts[i] = jekyll_math_from_nbconvert_markdown(parts[i])
     return "```".join(parts)
 
 
@@ -137,6 +187,7 @@ def _set_cell_source(cell: dict, text: str) -> None:
 
 
 def fix_notebook() -> None:
+    """Keep ``$...$`` inline math in the ipynb (GitHub/Jupyter); do not apply Jekyll escapes."""
     nb = json.loads(NB.read_text(encoding="utf-8"))
     for cell in nb["cells"]:
         if cell["cell_type"] != "markdown":
@@ -144,7 +195,9 @@ def fix_notebook() -> None:
         text = _cell_to_str(cell)
         text = text.replace(INTRO_OLD, INTRO_NEW)
         text = text.replace(DICE_OLD, DICE_NEW)
-        _set_cell_source(cell, fix_markdown_prose(text))
+        text = paren_inline_to_dollar(text)
+        text = simplify_notebook_math_notation(text)
+        _set_cell_source(cell, text)
     NB.write_text(json.dumps(nb, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
 
