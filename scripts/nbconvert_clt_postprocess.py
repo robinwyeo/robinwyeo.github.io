@@ -73,6 +73,30 @@ def dollar_inline_to_paren(text: str) -> str:
     return "".join(out)
 
 
+def double_mjx_delimiters(s: str) -> str:
+    """Kramdown treats \\ ( as literal '(': emit \\\\( so HTML still contains \\(."""
+    out: list[str] = []
+    i = 0
+    n = len(s)
+    while i < n:
+        if s.startswith("\\\\(", i):
+            out.append("\\\\(")
+            i += 3
+        elif s.startswith("\\(", i):
+            out.append("\\\\(")
+            i += 2
+        elif s.startswith("\\\\)", i):
+            out.append("\\\\)")
+            i += 3
+        elif s.startswith("\\)", i):
+            out.append("\\\\)")
+            i += 2
+        else:
+            out.append(s[i])
+            i += 1
+    return "".join(out)
+
+
 def kramdown_inline_math_fixes(s: str) -> str:
     """Avoid [ ] inside \\(...\\) being parsed as Markdown links."""
     s = s.replace(
@@ -87,13 +111,14 @@ def kramdown_inline_math_fixes(s: str) -> str:
 
 
 def fix_markdown_prose(text: str) -> str:
+    """Notebook / nbconvert output: single \\(. Kramdown needs \\\\( in .md for MathJax."""
     return kramdown_inline_math_fixes(dollar_inline_to_paren(text))
 
 
 def process_outside_code_fences(md: str) -> str:
     parts = md.split("```")
     for i in range(0, len(parts), 2):
-        parts[i] = fix_markdown_prose(parts[i])
+        parts[i] = double_mjx_delimiters(fix_markdown_prose(parts[i]))
     return "```".join(parts)
 
 

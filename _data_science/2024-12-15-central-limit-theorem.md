@@ -32,10 +32,10 @@ Note: in writing this blog post I relied heavily on the excellent textbook **A F
 
 ## 1) Formal Statement of CLT
 
-Let \(X_1, X_2, \dots, X_n\) be **independent and identically distributed** (i.i.d.) random variables drawn from *any* distribution with:
+Let \\(X_1, X_2, \dots, X_n\\) be **independent and identically distributed** (i.i.d.) random variables drawn from *any* distribution with:
 
-- finite mean \(\mu = E\text{[}X_{i}\text{]}\)
-- finite variance \(\sigma^2 = \text{Var}(X_{i}) > 0\)
+- finite mean \\(\mu = E\text{[}X_{i}\text{]}\\)
+- finite variance \\(\sigma^2 = \text{Var}(X_{i}) > 0\\)
 
 Define the sample mean:
 
@@ -47,7 +47,7 @@ Then the CLT states that the **standardized** sample mean converges in distribut
 
 $$\boxed{\frac{\bar{X}_n - \mu}{\sigma \, / \, \sqrt{n}} \;\xrightarrow{\;d\;}\; \mathcal{N}(0,\,1) \quad \text{as } n \to \infty}$$
 
-That is, for \(-\infty < a < \infty\),
+That is, for \\(-\infty < a < \infty\\),
 
 $$\boxed{
 P\left(
@@ -61,7 +61,7 @@ $$
 ### Key requirements
 
 1. **Independence.** The probability of any outcome for one observation does not depend on the outcomes of the others.
-2. **Finite variance.** If \(\sigma^2 = \infty\) (e.g. the Cauchy distribution), the CLT does not apply and sample means do *not* become normal.
+2. **Finite variance.** If \\(\sigma^2 = \infty\\) (e.g. the Cauchy distribution), the CLT does not apply and sample means do *not* become normal.
 
 Notice what is **not** required: the population does not need to be continuous, symmetric, unimodal, or anywhere close to normal. That generality is what makes the CLT so powerful.
 
@@ -216,7 +216,7 @@ def clt_interactive_plot(
 
 ## 2.1) Rolling dice (Discrete Uniform Distribution)
 
-Let's start by imagining a probablistic experiment involving a fair 6-sided die. A single roll produces one of \(\{1,2,3,4,5,6\}\) with equal probability \(1/6\). This distribution is:
+Let's start by imagining a probablistic experiment involving a fair 6-sided die. A single roll produces one of \\(\{1,2,3,4,5,6\}\\) with equal probability \\(1/6\\). This distribution is:
 
 - **Discrete** (only six values)
 - **Uniform**
@@ -227,7 +227,7 @@ $$\mu = \frac{1+2+3+4+5+6}{6} = 3.5$$
 
 $$\sigma^2 = \frac{1}{6}\sum_{k=1}^{6}(k - 3.5)^2 = \frac{35}{12} \approx 2.917$$
 
-So, this discrete uniform distribution has mean 3.5 and variance 2.917. The then CLT predicts that the distribution of \(\bar{X}_n\) (the mean of \(n\) rolls) will be approximately normal (with distribution \(\mathcal{N}(3.5,\; 2.917/n)\)) for large \(n\).
+So, this discrete uniform distribution has mean 3.5 and variance 2.917. The then CLT predicts that the distribution of \\(\bar{X}_n\\) (the mean of \\(n\\) rolls) will be approximately normal (with distribution \\(\mathcal{N}(3.5,\; 2.917/n)\\)) for large \\(n\\).
 
 What's amazing about the CLT is that despite the fact that the value of a dice roll is given by a uniform distribution, the distribution of its **sample mean** (as n grows large) is normal!
 
@@ -238,8 +238,8 @@ Let's now plot a simulation of n repeated rolls of a six-sided die to develop so
 - We model rolling a die n times, and repeat this for many repeated trials (50,000 in this simulation).
 - For each trial, we calculates the mean of n die rolls.
 - We then visualize the distribution of these sample means as n changes, showing how it approaches a normal distribution as n gets larger.
-- The interactive plot in the notebook lets you adjust \(n\) and watch the sample means transition from the original uniform distribution (\(n=1\)) to an increasingly bell-shaped (normal) curve for large \(n\).
-- Below, static figures show representative behavior at several values of \(n\).
+- The interactive plot in the notebook lets you adjust \\(n\\) and watch the sample means transition from the original uniform distribution (\\(n=1\\)) to an increasingly bell-shaped (normal) curve for large \\(n\\).
+- Below, static figures show representative behavior at several values of \\(n\\).
 
 
 
@@ -258,7 +258,7 @@ clt_interactive_plot(
 )
 ```
 
-Another way to see the convergence is to overlay smooth kernel density estimates (KDEs) for several values of \(n\) on a single axis. This makes it easy to watch the distribution tighten and reshape itself into a bell curve.
+Another way to see the convergence is to overlay smooth kernel density estimates (KDEs) for several values of \\(n\\) on a single axis. This makes it easy to watch the distribution tighten and reshape itself into a bell curve.
 
 
 
@@ -292,12 +292,12 @@ plt.show()
 
 **What to notice:**
 
-- At \(n = 1\) the histogram is flat — the raw uniform distribution.
-- At \(n = 3\) the bell curve begins to appear though with clear discrete values (since its simply the convolution of 3 uniform distributions).
-- At \(n = 10\) there is a recognizable bell curve shape though not perfectly normal.
-- At \(n = 30\) the fit to the theoretical normal (dashed line) distribution is nearly perfect.
+- At \\(n = 1\\) the histogram is flat — the raw uniform distribution.
+- At \\(n = 3\\) the bell curve begins to appear though with clear discrete values (since its simply the convolution of 3 uniform distributions).
+- At \\(n = 10\\) there is a recognizable bell curve shape though not perfectly normal.
+- At \\(n = 30\\) the fit to the theoretical normal (dashed line) distribution is nearly perfect.
 
-Because the die is symmetric, convergence is fast (as seen above with convergence occuring by \(n = 30\) ). In the next section we'll explore a distribution that is far from symmetric, and see how well the CLT handles that.
+Because the die is symmetric, convergence is fast (as seen above with convergence occuring by \\(n = 30\\) ). In the next section we'll explore a distribution that is far from symmetric, and see how well the CLT handles that.
 
 
 ---
@@ -318,17 +318,17 @@ $$
 
 Exponential distributions have the following properties:
 
-- **Continuous** (for \(x \geq 0\))
+- **Continuous** (for \\(x \geq 0\\))
 - **Heavily right-skewed** (most waits are short, but a few are very long - see PDF plot below)
 
 
-To simplify things for an example below, let's set \(\lambda = 1\). Then the probability density function \(f(x)\) and cumulative distribution function \(F(a)\) simplify to:
+To simplify things for an example below, let's set \\(\lambda = 1\\). Then the probability density function \\(f(x)\\) and cumulative distribution function \\(F(a)\\) simplify to:
 
 $$f(x) = e^{-x}, \quad x \geq 0, \qquad \mu = 1, \qquad \sigma = 1$$
 
 $$F(a) = 1 - e^{-a}, \quad a \geq 0$$
 
-Now let's plot \(f(x)\) and \(F(a)\) for our exponential distribution with \(\lambda = 1\).
+Now let's plot \\(f(x)\\) and \\(F(a)\\) for our exponential distribution with \\(\lambda = 1\\).
 
 
 
@@ -391,17 +391,17 @@ clt_interactive_plot(
 )
 ```
 
-Setting \(n=1\), we recapitulate the probability density function of the exponential distribution (which is obviously not normal). As we increase our sample size \(n\), the histogram looks increasingly like a normal bell curve which is shifted slightly to the left (due to the left-handed skew of exponential distributions). As \(n\) gets ioncreasingly large, the CLT demonstrates that the sample mean distrbituion does indeed converge to a standard normal curve.
+Setting \\(n=1\\), we recapitulate the probability density function of the exponential distribution (which is obviously not normal). As we increase our sample size \\(n\\), the histogram looks increasingly like a normal bell curve which is shifted slightly to the left (due to the left-handed skew of exponential distributions). As \\(n\\) gets ioncreasingly large, the CLT demonstrates that the sample mean distrbituion does indeed converge to a standard normal curve.
 
 
 ### Normality checks
 
-Now let's perform two different checks for normality at three different increasing values of \(n\):
+Now let's perform two different checks for normality at three different increasing values of \\(n\\):
 - generating Q-Q plots
 - fitting the empirical CDF to the normal CDF
 
 
-First let's add **Q-Q plots** for \(n = 5\), \(n = 30\), and \(n = 100\) for a more empirical evaluation of whether these distributions at different \(n\) values are truly normal. Q-Q plots are used to assess if an empirical distribution matches a theoretical normal distribution (often used in science to evaluate if a particular stasticial significant test that requires normality, such as a t-test, is appropriate for a given dataset). If the distributions of the sample mean at \(n = 5\), \(n = 30\), and \(n = 100\) are truly normal, the points will lie on a straight line in the below Q-Q plots.
+First let's add **Q-Q plots** for \\(n = 5\\), \\(n = 30\\), and \\(n = 100\\) for a more empirical evaluation of whether these distributions at different \\(n\\) values are truly normal. Q-Q plots are used to assess if an empirical distribution matches a theoretical normal distribution (often used in science to evaluate if a particular stasticial significant test that requires normality, such as a t-test, is appropriate for a given dataset). If the distributions of the sample mean at \\(n = 5\\), \\(n = 30\\), and \\(n = 100\\) are truly normal, the points will lie on a straight line in the below Q-Q plots.
 
 
 
@@ -467,12 +467,12 @@ plt.show()
 
 **What to notice:**
 
-- At \(n = 1\) the histogram is the raw exponential — a sharp spike near zero with a long right tail.
-- At \(n = 5\) the skew is still visible but softening.
-- At \(n = 30\) the histogram is convincingly bell-shaped, and the Q-Q plot is close to linear with only mild deviation in the tails.
-- At \(n = 100\) the normal fit is excellent though the Q-Q plot still displays some mild deviation in the tails.
+- At \\(n = 1\\) the histogram is the raw exponential — a sharp spike near zero with a long right tail.
+- At \\(n = 5\\) the skew is still visible but softening.
+- At \\(n = 30\\) the histogram is convincingly bell-shaped, and the Q-Q plot is close to linear with only mild deviation in the tails.
+- At \\(n = 100\\) the normal fit is excellent though the Q-Q plot still displays some mild deviation in the tails.
 
-Because the exponential distribution has a skewness of 2, it takes a larger \(n\) to reach normality compared to the symmetric die. This is a general pattern: **the more skewed or heavy-tailed the population, the more samples you need for CLT to hold**.
+Because the exponential distribution has a skewness of 2, it takes a larger \\(n\\) to reach normality compared to the symmetric die. This is a general pattern: **the more skewed or heavy-tailed the population, the more samples you need for CLT to hold**.
 
 
 ---
@@ -481,13 +481,13 @@ Because the exponential distribution has a skewness of 2, it takes a larger \(n\
 
 To really stress-test the CLT, let's construct a distribution that is deliberately weird — **bimodal, asymmetric, and with unequal spread in each mode**.
 
-Define \(X\) as a mixture:
+Define \\(X\\) as a mixture:
 
 $$X \sim 0.3\;\mathcal{N}(-4,\, 1) \;+\; 0.7\;\mathcal{N}(5,\, 4)$$
 
 ### Deriving the population moments
 
-For a mixture \(X = \begin{cases} Y_1 & \text{with prob } p \\ Y_2 & \text{with prob } 1-p \end{cases}\) where \(p = 0.3\), \(Y_1 \sim \mathcal{N}(\mu_1, \sigma_1^2)\), \(Y_2 \sim \mathcal{N}(\mu_2, \sigma_2^2)\):
+For a mixture \\(X = \begin{cases} Y_1 & \text{with prob } p \\ Y_2 & \text{with prob } 1-p \end{cases}\\) where \\(p = 0.3\\), \\(Y_1 \sim \mathcal{N}(\mu_1, \sigma_1^2)\\), \\(Y_2 \sim \mathcal{N}(\mu_2, \sigma_2^2)\\):
 
 We can calculate the mean and variance as follows:
 
@@ -575,7 +575,7 @@ clt_interactive_plot(
 
 Now let's introduce a new quantitative check for normality: the **Shapiro-Wilk test** which tests the null hypothesis that a sample comes from a normally distributed population. If the p-value is large (commonly above 0.05), we do not have enough evidence to reject normality, suggesting the data are consistent with a normal distribution. A small p-value indicates the data are unlikely to be normal.
 
-Lety's use Python's *stats* package to calculate the Shapiro-Wilk test for increasing \(n\) below.
+Lety's use Python's *stats* package to calculate the Shapiro-Wilk test for increasing \\(n\\) below.
 
 
 
@@ -603,7 +603,7 @@ for n in [2, 5, 10, 30, 50, 100, 250, 500]:
       500                 0.647815   ≈ normal
 
 
-As you can see above, the Shapiro-Wilk test tells us that with increasing \(n\), the distribution of the sample mean does indeed become normal.
+As you can see above, the Shapiro-Wilk test tells us that with increasing \\(n\\), the distribution of the sample mean does indeed become normal.
 
 
 ---
@@ -612,11 +612,11 @@ As you can see above, the Shapiro-Wilk test tells us that with increasing \(n\),
 
 Everything above relied on the population having **finite variance**. What happens when that condition is violated?
 
-The **Cauchy distribution** (equivalently, a \(t\)-distribution with 1 degree of freedom) has PDF:
+The **Cauchy distribution** (equivalently, a \\(t\\)-distribution with 1 degree of freedom) has PDF:
 
 $$f(x) = \frac{1}{\pi(1 + x^2)}$$
 
-Its tails are so heavy that neither the mean nor the variance exist (\(E\text{[}|X|\text{]} = \infty\)). Remarkably, the distribution of the sample mean of \(n\) Cauchy draws is *itself* Cauchy — no matter how large \(n\) is!
+Its tails are so heavy that neither the mean nor the variance exist (\\(E\text{[}|X|\text{]} = \infty\\)). Remarkably, the distribution of the sample mean of \\(n\\) Cauchy draws is *itself* Cauchy — no matter how large \\(n\\) is!
 
 
 
@@ -658,8 +658,8 @@ plt.show()
 
 **What to notice:**
 
-- The histograms look essentially the same for \(n = 1\), \(n = 10\), \(n = 100\), and even \(n = 1000\).
-- The (blue dashed) Cauchy distribution nicely fits every histogram and the distribution of the sample mean does **not** converge to the (red dashed) normal distribution as \(n\) grows.
+- The histograms look essentially the same for \\(n = 1\\), \\(n = 10\\), \\(n = 100\\), and even \\(n = 1000\\).
+- The (blue dashed) Cauchy distribution nicely fits every histogram and the distribution of the sample mean does **not** converge to the (red dashed) normal distribution as \\(n\\) grows.
 
 
 ---
@@ -670,16 +670,16 @@ We tested the Central Limit Theorem against three very different distributions:
 
 | Simulation | Distribution | Key property | Convergence speed |
 |---|---|---|---|
-| 1 | Discrete uniform (die) | Symmetric, discrete, flat | Fast (\(n \approx 5\) already looks normal) |
-| 2 | Exponential | Continuous, heavily right-skewed | Moderate (\(n \approx 30\) needed) |
-| 3 | Bimodal mixture | Two modes, asymmetric, wide | Moderate-to-slow (\(n \approx 30\text{–}50\)) |
+| 1 | Discrete uniform (die) | Symmetric, discrete, flat | Fast (\\(n \approx 5\\) already looks normal) |
+| 2 | Exponential | Continuous, heavily right-skewed | Moderate (\\(n \approx 30\\) needed) |
+| 3 | Bimodal mixture | Two modes, asymmetric, wide | Moderate-to-slow (\\(n \approx 30\text{–}50\\)) |
 
-In all three cases we see that the CLT holds: sample means became approximately normal as \(n\) grew. In contrast, simulating a Cauchy distribution (which violates the finite variance requirement of the CLT) showed us that its sample means never become normal no matter how large \(n\) gets.
+In all three cases we see that the CLT holds: sample means became approximately normal as \\(n\\) grew. In contrast, simulating a Cauchy distribution (which violates the finite variance requirement of the CLT) showed us that its sample means never become normal no matter how large \\(n\\) gets.
 
 ### Practical implications
 
-- **Confidence intervals** (\(\bar{x} \pm z^* \sigma / \sqrt{n}\)) work because the CLT guarantees that \(\bar{X}_n\) is approximately normal.
-- **Hypothesis tests** (z-tests, t-tests for large \(n\)) rely on the same guarantee.
+- **Confidence intervals** (\\(\bar{x} \pm z^* \sigma / \sqrt{n}\\)) work because the CLT guarantees that \\(\bar{X}_n\\) is approximately normal.
+- **Hypothesis tests** (z-tests, t-tests for large \\(n\\)) rely on the same guarantee.
 - **Polling and survey sampling**: the margin of error in an election poll is a direct application of the CLT.
 - **A/B testing**: when you compare conversion rates between two groups, the CLT justifies using a normal approximation for the difference in proportions.
 
