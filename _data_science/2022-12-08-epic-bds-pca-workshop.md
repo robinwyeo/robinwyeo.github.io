@@ -251,6 +251,8 @@ Key observations about the covariance matrix:
 
 ### Step 4: Compute eigenvalues and eigenvectors
 
+Now comes the fun part! Thinking about **eigenvectors/eigenvalues** may sound intimidating because the name seems complicated but they are in fact deeply intuitive features of a vector space. When you understand how they work and what they represent, you'll find that they are some of the most beautiful representations in linear algebra.
+
 Intuitively, an **eigenvector** is a vector whose direction remains unchanged when a linear transformation is applied to it.
 
 **Definition:** Let **A** be a square matrix, **v** a vector, and &lambda; a scalar that satisfies **Av** = &lambda;**v**, then &lambda; is an **eigenvalue** associated with eigenvector **v** of **A**.
@@ -320,9 +322,7 @@ PC1 captures 57.5% and PC2 captures 39.7% of the variance, together accounting f
 
 ## PCA in Scientific Applications
 
-PCA is an extremely useful and widely used tool for visualizing high-dimensional biological data. 
-
-Below I'll share two examples from literature.
+PCA is an extremely useful and widely used tool for visualizing high-dimensional biological data. Below I'll share two examples from literature.
 
 ### ATAC-seq data (~100K features)
 
