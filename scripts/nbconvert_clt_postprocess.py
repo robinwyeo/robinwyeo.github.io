@@ -9,9 +9,12 @@ from __future__ import annotations
 
 import ast
 import html
+import io
 import json
+import keyword
 import math
 import re
+import tokenize
 import shutil
 import subprocess
 import sys
@@ -27,7 +30,6 @@ NB = (
 MD = REPO / "_data_science" / "2024-12-15-central-limit-theorem.md"
 IMG_DIR = REPO / "images" / "data-science" / "central-limit-theorem"
 NB_FILES = REPO / "_data_science" / "2024-12-15-central-limit-theorem_files"
-CLT_JS_SRC = REPO / "_data_science" / "central-limit-theorem" / "clt-interactive.js"
 SETUP_TAG = "setup"
 
 INTRO_NEW = (
@@ -448,7 +450,7 @@ def _interactive_embed_html(config: dict[str, str | int | float], idx: int) -> s
         "  var existing = document.querySelector('script[data-clt-interactive-loader=\"true\"]');\n"
         "  if (!existing) {\n"
         "    existing = document.createElement('script');\n"
-        "    existing.src = '/_data_science/central-limit-theorem/clt-interactive.js';\n"
+        "    existing.src = '/assets/js/clt-interactive.js';\n"
         "    existing.defer = true;\n"
         "    existing.setAttribute('data-clt-interactive-loader', 'true');\n"
         "    document.head.appendChild(existing);\n"
@@ -480,14 +482,133 @@ def replace_interactive_plot_blocks(md: str) -> str:
     return pattern.sub(_repl, md)
 
 
+def _builtin_names() -> set[str]:
+    import builtins
+
+    return {n for n in dir(builtins) if not n.startswith("_")}
+
+
+def _fstring_token_types() -> frozenset[int]:
+    if getattr(tokenize, "FSTRING_START", None) is None:
+        return frozenset()
+    return frozenset(
+        {
+            tokenize.FSTRING_START,
+            tokenize.FSTRING_MIDDLE,
+            tokenize.FSTRING_END,
+        }
+    )
+
+
+def _highlight_python_for_jekyll(code: str) -> str:
+    """Same wrapper Rouge uses for `` ```python `` so site SCSS applies."""
+
+    def wrap_body(inner: str) -> str:
+        return (
+            '<div class="language-python highlighter-rouge">'
+            '<div class="highlight"><pre class="highlight"><code>'
+            f"{inner}</code></pre></div></div>"
+        )
+
+    text = code.replace("\r\n", "\n")
+    if not text.endswith("\n"):
+        text += "\n"
+
+    builtins = _builtin_names()
+    fstring_types = _fstring_token_types()
+    punct_ops = set("()[]{}:,.;@")
+
+    def op_class(op: str) -> str:
+        return "p" if op in punct_ops else "o"
+
+    lines = text.splitlines(keepends=True)
+    line_starts: list[int] = []
+    acc = 0
+    for line in lines:
+        line_starts.append(acc)
+        acc += len(line)
+
+    def pos_index(line: int, col: int) -> int:
+        return line_starts[line - 1] + col
+
+    out: list[str] = []
+    prev_idx = 0
+
+    def span(cls: str, piece: str) -> None:
+        out.append(f'<span class="{cls}">{html.escape(piece, quote=False)}</span>')
+
+    readline = io.StringIO(text).readline
+    after_def = False
+    after_class = False
+    try:
+        for tok in tokenize.generate_tokens(readline):
+            t = tok.type
+            s = tok.string
+            if t in (tokenize.ENDMARKER, tokenize.NL, tokenize.DEDENT):
+                continue
+            if t == tokenize.ENCODING:
+                continue
+
+            start_i = pos_index(tok.start[0], tok.start[1])
+            if start_i > prev_idx:
+                out.append(html.escape(text[prev_idx:start_i], quote=False))
+            end_i = pos_index(tok.end[0], tok.end[1])
+            prev_idx = end_i
+
+            if t == tokenize.NAME:
+                if after_def:
+                    span("nf", s)
+                    after_def = False
+                elif after_class:
+                    span("nc", s)
+                    after_class = False
+                elif keyword.iskeyword(s):
+                    span("k", s)
+                    if s == "def":
+                        after_def = True
+                    elif s == "class":
+                        after_class = True
+                elif s in ("True", "False", "None"):
+                    span("kc", s)
+                elif s in builtins:
+                    span("nb", s)
+                else:
+                    span("n", s)
+            elif t == tokenize.NUMBER:
+                span("mi", s)
+            elif t == tokenize.STRING:
+                span("s2", s)
+            elif t in fstring_types:
+                span("s2", s)
+            elif t == tokenize.COMMENT:
+                span("c1", s)
+            elif t == tokenize.OP:
+                span(op_class(s), s)
+            elif t == tokenize.NEWLINE:
+                out.append("\n")
+            elif t == tokenize.INDENT:
+                out.append(html.escape(s, quote=False))
+            elif t == tokenize.ERRORTOKEN:
+                out.append(html.escape(s, quote=False))
+            else:
+                out.append(html.escape(s, quote=False))
+    except (tokenize.TokenError, SyntaxError):
+        return wrap_body(html.escape(text.rstrip("\n"), quote=False))
+
+    if prev_idx < len(text):
+        out.append(html.escape(text[prev_idx:], quote=False))
+
+    return wrap_body("".join(out))
+
+
 def _setup_wrapper_block(code: str, idx: int) -> str:
-    escaped = html.escape(code, quote=False)
+    highlighted = _highlight_python_for_jekyll(code)
     return (
         f'<div class="setup-code-collapsible" data-setup-code-id="{idx}">\n'
         '  <button class="setup-code-toggle" type="button" aria-expanded="false">'
         "Show setup code</button>\n"
         '  <div class="setup-code-body" hidden>\n'
-        f'    <pre><code class="language-python">{escaped}</code></pre>\n'
+        f"    {highlighted}\n"
         "  </div>\n"
         "</div>"
     )
@@ -521,10 +642,10 @@ def wrap_tagged_setup_code_blocks(md: str, tagged_sources: list[str]) -> str:
 
     setup_assets = (
         "<style>\n"
-        ".setup-code-collapsible { position: relative; margin: 1.2rem 0; border: 1px solid #d8dee4; border-radius: 10px; background: #fff; }\n"
-        ".setup-code-toggle { position: absolute; top: 0.55rem; right: 0.55rem; z-index: 1; border: 1px solid #c9d1d9; border-radius: 8px; background: #f6f8fa; color: #24292f; padding: 0.2rem 0.55rem; font-size: 0.82rem; cursor: pointer; }\n"
-        ".setup-code-body { padding-top: 2.35rem; }\n"
-        ".setup-code-body pre { margin: 0; border-radius: 0 0 10px 10px; }\n"
+        ".setup-code-collapsible { position: relative; margin: 1.2rem 0; }\n"
+        ".setup-code-toggle { position: absolute; top: 0.55rem; right: 0.55rem; z-index: 2; border: 1px solid #c9d1d9; border-radius: 8px; background: #f6f8fa; color: #24292f; padding: 0.2rem 0.55rem; font-size: 0.82rem; cursor: pointer; }\n"
+        ".setup-code-collapsible .highlighter-rouge { margin-bottom: 0; }\n"
+        ".setup-code-collapsible .highlighter-rouge:before { display: none; }\n"
         "</style>\n"
         "<script>\n"
         "(function() {\n"
@@ -564,34 +685,6 @@ def wrap_tagged_setup_code_blocks(md: str, tagged_sources: list[str]) -> str:
     return setup_assets + out
 
 
-def inject_static_plot_images(md: str) -> str:
-    """Append static plot image embeds after matplotlib code fences."""
-    image_names = [
-        "2024-12-15-central-limit-theorem_11_0.png",  # KDE overlay (dice)
-        "2024-12-15-central-limit-theorem_15_0.png",  # Exponential PDF/CDF
-        "2024-12-15-central-limit-theorem_22_0.png",  # Exponential QQ plots
-        "2024-12-15-central-limit-theorem_24_0.png",  # Exponential ECDF vs CDF
-        "2024-12-15-central-limit-theorem_28_0.png",  # Bimodal population PDF
-        "2024-12-15-central-limit-theorem_35_0.png",  # Cauchy means failure case
-    ]
-    static_plot_cursor = 0
-    pattern = re.compile(r"```python\n(.*?)\n```", re.DOTALL)
-
-    def _repl(match: re.Match[str]) -> str:
-        nonlocal static_plot_cursor
-        if static_plot_cursor >= len(image_names):
-            return match.group(0)
-        code = match.group(1)
-        if "plt.show()" not in code or "clt_plotly_interactive(" in code:
-            return match.group(0)
-        image_name = image_names[static_plot_cursor]
-        static_plot_cursor += 1
-        image_md = f"\n\n![Static plot](/images/data-science/central-limit-theorem/{image_name})"
-        return match.group(0) + image_md
-
-    return pattern.sub(_repl, md)
-
-
 def patch_md_file() -> None:
     raw = MD.read_text(encoding="utf-8")
     setup_sources = tagged_code_sources(SETUP_TAG)
@@ -609,12 +702,11 @@ def patch_md_file() -> None:
         "/images/data-science/central-limit-theorem/",
     )
     raw = raw.replace(
-        "/assets/js/clt-interactive.js",
         "/_data_science/central-limit-theorem/clt-interactive.js",
+        "/assets/js/clt-interactive.js",
     )
     raw = replace_interactive_plot_blocks(raw)
     raw = wrap_tagged_setup_code_blocks(raw, setup_sources)
-    raw = inject_static_plot_images(raw)
     raw = re.sub(
         r"\n```\n\n\n    VBox\(children=\(IntSlider\(value=30, continuous_update=False, description='Sample size n', layout=Layout\(width='…\n\n\n",
         "\n```\n\n",

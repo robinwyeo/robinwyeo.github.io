@@ -1,15 +1,15 @@
 ---
-title: "Interactive exploration of the Central Limit Theorem"
+title: "An introduction to the Central Limit Theorem"
 date: 2024-12-15
 tags:
   - Central Limit Theorem
 permalink: /data-science/central-limit-theorem/
 ---
 <style>
-.setup-code-collapsible { position: relative; margin: 1.2rem 0; border: 1px solid #d8dee4; border-radius: 10px; background: #fff; }
-.setup-code-toggle { position: absolute; top: 0.55rem; right: 0.55rem; z-index: 1; border: 1px solid #c9d1d9; border-radius: 8px; background: #f6f8fa; color: #24292f; padding: 0.2rem 0.55rem; font-size: 0.82rem; cursor: pointer; }
-.setup-code-body { padding-top: 2.35rem; }
-.setup-code-body pre { margin: 0; border-radius: 0 0 10px 10px; }
+.setup-code-collapsible { position: relative; margin: 1.2rem 0; }
+.setup-code-toggle { position: absolute; top: 0.55rem; right: 0.55rem; z-index: 2; border: 1px solid #c9d1d9; border-radius: 8px; background: #f6f8fa; color: #24292f; padding: 0.2rem 0.55rem; font-size: 0.82rem; cursor: pointer; }
+.setup-code-collapsible .highlighter-rouge { margin-bottom: 0; }
+.setup-code-collapsible .highlighter-rouge:before { display: none; }
 </style>
 <script>
 (function() {
@@ -40,12 +40,12 @@ permalink: /data-science/central-limit-theorem/
 }());
 </script>
 
-*Jupyter notebook exploring the Central Limit Theorem.*
+# ![CLT title image](./robinwyeo.github.io/images/data-science/central-limit-theorem/IllustrationCentralTheorem.png)
 
 ---
 
 
-# An introduction to the Central Limit Theorem - 
+# The Central Limit Theorem (CLT)
 
 The **Central Limit Therorem (CLT)** is my favorite theorem in probability theory and among my favorite theorems in mathematics. Loosely put, the CLT states that the sum of a large number of independent random variables is approximately normally distributed. As a consequence, the CLT helps explain the remarkable observation that the empirical frequencies of so many natural populations exhibit a normal (bell-shaped) curve.
 
@@ -55,7 +55,7 @@ In this notebook we will:
 
 1. State the theorem precisely and unpack its equation.
 2. Run three progressively more exotic simulations that demonstrate how the CLT works.
-3. Show a case where the CLT fails to build intuition about its requirements.
+3. Illustrate a case where the CLT failsin order to build intuition about its requirements.
 
 Note: in writing this blog post I relied heavily on the excellent textbook A First Course in Probability by Sheldon Ross as well as my course notes from undergraduate and graduate probability classes (specifically MIT 18.440, Stanford STATS116, and Stanford STATS200)
 
@@ -69,13 +69,13 @@ Let \\(X_1, X_2, \dots, X_n\\) be **independent and identically distributed (i.i
 - finite mean \\(\mu = E\text{[}X_{i}\text{]}\\)
 - finite variance \\(\sigma^2 = \text{Var}(X_{i}) > 0\\)
 
-Define the **sample mean**:
+Define the sample mean:
 
 $$
 \bar{X}_n = \frac{X_1 + X_2 + \dots + X_n}{n} = \frac{1}{n}\sum_{i=1}^{n} X_i
 $$
 
-Then **the CLT states that the standardized sample mean converges in distribution to a standard normal distribution**:
+**Then the CLT states that the standardized sample mean converges in distribution to a standard normal distribution**:
 
 $$\boxed{\frac{\bar{X}_n - \mu}{\sigma \, / \, \sqrt{n}} \;\xrightarrow{\;d\;}\; \mathcal{N}(0,\,1) \quad \text{as } n \to \infty}$$
 
@@ -92,13 +92,13 @@ $$
 
 ### Key requirements
 
-1. **Independence.** The probability of any outcome for one observation does not depend on the outcomes of the others.
-2. **Finite mean+variance.** If \\(\sigma^2 = \infty\\) or \\(\mu = \infty\\), the CLT does not apply and sample means do *not* become normal.
+1. **Independence:** The probability of any outcome for one observation does not depend on the outcomes of the others.
+2. **Finite mean+variance:** If \\(\sigma^2 = \infty\\) or \\(\mu = \infty\\), the CLT does not apply and sample means do *not* become normal.
 
-What makes the CLT so powerful is how general it is in its requirements. The underlying distributions sampled can literally be *anything* as long as they are i.i.d. with finite mean and variance. Unuderlying populations need not be continuous, symmetric, unimodal, or anywhere close to normal and yet we are able to confidently say that sampling with large enough \\(n\\) gives us a normal bell curve. That generality is what makes the CLT so powerful.
+What makes the CLT so powerful is how general it is in its requirements. The underlying distributions sampled can literally be *anything* as long as they are i.i.d. with finite mean and variance. Underlying populations need not be continuous, symmetric, unimodal, or anywhere close to normal and yet we can confidently say that sampling with large enough \\(n\\) gives us a normal bell curve. That generality is what makes the CLT so powerful.
 
 
-In layman's terms, the above tells us that:
+In layman's terms, the above equations tell us that:
 
 > *When you average enough independent observations, the distribution of that average is approximately normal — no matter how the original data was distributed.*
 
@@ -112,48 +112,49 @@ In layman's terms, the above tells us that:
 <div class="setup-code-collapsible" data-setup-code-id="1">
   <button class="setup-code-toggle" type="button" aria-expanded="false">Show setup code</button>
   <div class="setup-code-body" hidden>
-    <pre><code class="language-python">import numpy as np
-import matplotlib.pyplot as plt
-from scipy import stats
-import seaborn as sns
-import plotly.graph_objects as go
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="n">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="k">import</span> <span class="n">matplotlib</span><span class="p">.</span><span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="k">from</span> <span class="n">scipy</span> <span class="k">import</span> <span class="n">stats</span>
+<span class="k">import</span> <span class="n">seaborn</span> <span class="k">as</span> <span class="n">sns</span>
+<span class="k">import</span> <span class="n">plotly</span><span class="p">.</span><span class="n">graph_objects</span> <span class="k">as</span> <span class="n">go</span>
 
-np.random.seed(42)
-sns.set_theme(style="whitegrid", font_scale=1.1)
-PALETTE = sns.color_palette("mako", 6)
-%matplotlib inline
+<span class="n">np</span><span class="p">.</span><span class="n">random</span><span class="p">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">sns</span><span class="p">.</span><span class="n">set_theme</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s2">"whitegrid"</span><span class="p">,</span> <span class="n">font_scale</span><span class="o">=</span><span class="mi">1.1</span><span class="p">)</span>
+<span class="n">PALETTE</span> <span class="o">=</span> <span class="n">sns</span><span class="p">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s2">"mako"</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+<span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
 
-def plot_clt_grid(
-    sample_sizes,
-    sample_fn,
-    pop_mean,
-    pop_std,
-    num_trials=10_000,
-    suptitle="",
-    raw_label="Raw population",
-):
-    """Draw histograms of sample-mean distributions for each sample size."""
-    ncols = len(sample_sizes)
-    fig, axes = plt.subplots(1, ncols, figsize=(5 * ncols, 4.5))
-    axes = [axes] if ncols == 1 else axes
+<span class="k">def</span> <span class="nf">plot_clt_grid</span><span class="p">(</span>
+    <span class="n">sample_sizes</span><span class="p">,</span>
+    <span class="n">sample_fn</span><span class="p">,</span>
+    <span class="n">pop_mean</span><span class="p">,</span>
+    <span class="n">pop_std</span><span class="p">,</span>
+    <span class="n">num_trials</span><span class="o">=</span><span class="mi">10_000</span><span class="p">,</span>
+    <span class="n">suptitle</span><span class="o">=</span><span class="s2">""</span><span class="p">,</span>
+    <span class="n">raw_label</span><span class="o">=</span><span class="s2">"Raw population"</span><span class="p">,</span>
+<span class="p">)</span><span class="p">:</span>
+    <span class="s2">"""Draw histograms of sample-mean distributions for each sample size."""</span>
+    <span class="n">ncols</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">sample_sizes</span><span class="p">)</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="p">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">ncols</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span> <span class="o">*</span> <span class="n">ncols</span><span class="p">,</span> <span class="mi">4.5</span><span class="p">)</span><span class="p">)</span>
+    <span class="n">axes</span> <span class="o">=</span> <span class="p">[</span><span class="n">axes</span><span class="p">]</span> <span class="k">if</span> <span class="n">ncols</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">else</span> <span class="n">axes</span>
 
-    for ax, n, color in zip(axes, sample_sizes, PALETTE):
-        means = np.mean([sample_fn(n) for _ in range(num_trials)], axis=1)
-        ax.hist(
-            means, bins=60, density=True, alpha=0.65,
-            color=color, edgecolor="white", linewidth=0.4,
-        )
-        se = pop_std / np.sqrt(n)
-        x = np.linspace(means.min(), means.max(), 300)
-        ax.plot(x, stats.norm.pdf(x, pop_mean, se), "k--", lw=2, label="CLT normal")
-        ax.set_title(raw_label if n == 1 else f"n = {n}", fontweight="bold")
-        ax.set_xlabel("Sample mean")
-        if ax is axes[0]: ax.set_ylabel("Density")
-        ax.legend(fontsize=9)
+    <span class="k">for</span> <span class="n">ax</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">color</span> <span class="k">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">axes</span><span class="p">,</span> <span class="n">sample_sizes</span><span class="p">,</span> <span class="n">PALETTE</span><span class="p">)</span><span class="p">:</span>
+        <span class="n">means</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">mean</span><span class="p">(</span><span class="p">[</span><span class="n">sample_fn</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="k">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_trials</span><span class="p">)</span><span class="p">]</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">ax</span><span class="p">.</span><span class="n">hist</span><span class="p">(</span>
+            <span class="n">means</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="k">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mi">0.65</span><span class="p">,</span>
+            <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s2">"white"</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">0.4</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">se</span> <span class="o">=</span> <span class="n">pop_std</span> <span class="o">/</span> <span class="n">np</span><span class="p">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">means</span><span class="p">.</span><span class="nb">min</span><span class="p">(</span><span class="p">)</span><span class="p">,</span> <span class="n">means</span><span class="p">.</span><span class="nb">max</span><span class="p">(</span><span class="p">)</span><span class="p">,</span> <span class="mi">300</span><span class="p">)</span>
+        <span class="n">ax</span><span class="p">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">stats</span><span class="p">.</span><span class="n">norm</span><span class="p">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">pop_mean</span><span class="p">,</span> <span class="n">se</span><span class="p">)</span><span class="p">,</span> <span class="s2">"k--"</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"CLT normal"</span><span class="p">)</span>
+        <span class="n">ax</span><span class="p">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">raw_label</span> <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">else</span> <span class="s2">f"</span><span class="s2">n = </span><span class="p">{</span><span class="n">n</span><span class="p">}</span><span class="s2">"</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s2">"bold"</span><span class="p">)</span>
+        <span class="n">ax</span><span class="p">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">"Sample mean"</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">ax</span> <span class="k">is</span> <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="p">:</span> <span class="n">ax</span><span class="p">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">"Density"</span><span class="p">)</span>
+        <span class="n">ax</span><span class="p">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">9</span><span class="p">)</span>
 
-    fig.suptitle(suptitle, fontsize=15, fontweight="bold", y=1.03)
-    fig.tight_layout()
-    plt.show()</code></pre>
+    <span class="n">fig</span><span class="p">.</span><span class="n">suptitle</span><span class="p">(</span><span class="n">suptitle</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s2">"bold"</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">1.03</span><span class="p">)</span>
+    <span class="n">fig</span><span class="p">.</span><span class="n">tight_layout</span><span class="p">(</span><span class="p">)</span>
+    <span class="n">plt</span><span class="p">.</span><span class="n">show</span><span class="p">(</span><span class="p">)</span>
+</code></pre></div></div>
   </div>
 </div>
 
@@ -161,84 +162,85 @@ def plot_clt_grid(
 <div class="setup-code-collapsible" data-setup-code-id="2">
   <button class="setup-code-toggle" type="button" aria-expanded="false">Show setup code</button>
   <div class="setup-code-body" hidden>
-    <pre><code class="language-python">def _sample_means_for_n(distribution, n, trials, rng):
-    if distribution == "dice":
-        return rng.integers(1, 7, size=(trials, n)).mean(axis=1)
-    if distribution == "exponential":
-        return rng.exponential(1.0, (trials, n)).mean(axis=1)
-    if distribution == "mixture":
-        mask = rng.random((trials, n)) &lt; 0.7
-        return np.where(mask, rng.normal(5.0, 2.0, (trials, n)), rng.normal(-4.0, 1.0, (trials, n))).mean(axis=1)
-    raise ValueError(f"Unknown distribution: {distribution}")
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">_sample_means_for_n</span><span class="p">(</span><span class="n">distribution</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">trials</span><span class="p">,</span> <span class="n">rng</span><span class="p">)</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">distribution</span> <span class="o">==</span> <span class="s2">"dice"</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">rng</span><span class="p">.</span><span class="n">integers</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">trials</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span><span class="p">)</span><span class="p">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">distribution</span> <span class="o">==</span> <span class="s2">"exponential"</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">rng</span><span class="p">.</span><span class="n">exponential</span><span class="p">(</span><span class="mi">1.0</span><span class="p">,</span> <span class="p">(</span><span class="n">trials</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span><span class="p">)</span><span class="p">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">distribution</span> <span class="o">==</span> <span class="s2">"mixture"</span><span class="p">:</span>
+        <span class="n">mask</span> <span class="o">=</span> <span class="n">rng</span><span class="p">.</span><span class="n">random</span><span class="p">(</span><span class="p">(</span><span class="n">trials</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0.7</span>
+        <span class="k">return</span> <span class="n">np</span><span class="p">.</span><span class="n">where</span><span class="p">(</span><span class="n">mask</span><span class="p">,</span> <span class="n">rng</span><span class="p">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">5.0</span><span class="p">,</span> <span class="mi">2.0</span><span class="p">,</span> <span class="p">(</span><span class="n">trials</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span><span class="p">)</span><span class="p">,</span> <span class="n">rng</span><span class="p">.</span><span class="n">normal</span><span class="p">(</span><span class="o">-</span><span class="mi">4.0</span><span class="p">,</span> <span class="mi">1.0</span><span class="p">,</span> <span class="p">(</span><span class="n">trials</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span><span class="p">)</span><span class="p">)</span><span class="p">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">raise</span> <span class="nb">ValueError</span><span class="p">(</span><span class="s2">f"</span><span class="s2">Unknown distribution: </span><span class="p">{</span><span class="n">distribution</span><span class="p">}</span><span class="s2">"</span><span class="p">)</span>
 
-def clt_plotly_interactive(
-    distribution,
-    pop_mean,
-    pop_std,
-    title,
-    raw_label="Single draw (n = 1)",
-    n_default=1,
-    n_values=None,
-    trials=10000,
-    seed=42,
-    bar_color="rgba(53, 120, 160, 0.68)",
-    hist_bins=180,
-):
-    """Render interactive Plotly slider for CLT sample-mean distributions."""
-    n_values = sorted({int(n) for n in (n_values or range(1, 121)) if int(n) &gt;= 1})
-    if not n_values:
-        raise ValueError("n_values must contain at least one positive integer")
-    n_default = min(n_values, key=lambda x: abs(x - int(n_default)))
-    rng = np.random.default_rng(seed)
+<span class="k">def</span> <span class="nf">clt_plotly_interactive</span><span class="p">(</span>
+    <span class="n">distribution</span><span class="p">,</span>
+    <span class="n">pop_mean</span><span class="p">,</span>
+    <span class="n">pop_std</span><span class="p">,</span>
+    <span class="n">title</span><span class="p">,</span>
+    <span class="n">raw_label</span><span class="o">=</span><span class="s2">"Single draw (n = 1)"</span><span class="p">,</span>
+    <span class="n">n_default</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+    <span class="n">n_values</span><span class="o">=</span><span class="k">None</span><span class="p">,</span>
+    <span class="n">trials</span><span class="o">=</span><span class="mi">10000</span><span class="p">,</span>
+    <span class="n">seed</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span>
+    <span class="n">bar_color</span><span class="o">=</span><span class="s2">"rgba(53, 120, 160, 0.68)"</span><span class="p">,</span>
+    <span class="n">hist_bins</span><span class="o">=</span><span class="mi">180</span><span class="p">,</span>
+<span class="p">)</span><span class="p">:</span>
+    <span class="s2">"""Render interactive Plotly slider for CLT sample-mean distributions."""</span>
+    <span class="n">n_values</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="p">{</span><span class="nb">int</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="k">for</span> <span class="n">n</span> <span class="k">in</span> <span class="p">(</span><span class="n">n_values</span> <span class="k">or</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">121</span><span class="p">)</span><span class="p">)</span> <span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">1</span><span class="p">}</span><span class="p">)</span>
+    <span class="k">if</span> <span class="k">not</span> <span class="n">n_values</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="nb">ValueError</span><span class="p">(</span><span class="s2">"n_values must contain at least one positive integer"</span><span class="p">)</span>
+    <span class="n">n_default</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">n_values</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">abs</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="nb">int</span><span class="p">(</span><span class="n">n_default</span><span class="p">)</span><span class="p">)</span><span class="p">)</span>
+    <span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">random</span><span class="p">.</span><span class="n">default_rng</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
 
-    x_min, x_max = pop_mean - 4.5 * pop_std, pop_mean + 4.5 * pop_std
-    x_grid = np.linspace(x_min, x_max, 240)
+    <span class="n">x_min</span><span class="p">,</span> <span class="n">x_max</span> <span class="o">=</span> <span class="n">pop_mean</span> <span class="o">-</span> <span class="mi">4.5</span> <span class="o">*</span> <span class="n">pop_std</span><span class="p">,</span> <span class="n">pop_mean</span> <span class="o">+</span> <span class="mi">4.5</span> <span class="o">*</span> <span class="n">pop_std</span>
+    <span class="n">x_grid</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">x_min</span><span class="p">,</span> <span class="n">x_max</span><span class="p">,</span> <span class="mi">240</span><span class="p">)</span>
 
-    payload = {}
-    for n in n_values:
-        means = _sample_means_for_n(distribution, n, trials, rng)
-        hist_y, edges = np.histogram(means, bins=hist_bins, range=(x_min, x_max), density=True)
-        hist_x = (edges[:-1] + edges[1:]) / 2
-        se = pop_std / np.sqrt(n)
-        payload[n] = (hist_x, hist_y, stats.norm.pdf(x_grid, pop_mean, se))
-    y_max = max(max(hist_y.max(), norm_y.max()) for _, (_, hist_y, norm_y) in payload.items()) * 1.1
+    <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span><span class="p">}</span>
+    <span class="k">for</span> <span class="n">n</span> <span class="k">in</span> <span class="n">n_values</span><span class="p">:</span>
+        <span class="n">means</span> <span class="o">=</span> <span class="n">_sample_means_for_n</span><span class="p">(</span><span class="n">distribution</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">trials</span><span class="p">,</span> <span class="n">rng</span><span class="p">)</span>
+        <span class="n">hist_y</span><span class="p">,</span> <span class="n">edges</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">histogram</span><span class="p">(</span><span class="n">means</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">hist_bins</span><span class="p">,</span> <span class="nb">range</span><span class="o">=</span><span class="p">(</span><span class="n">x_min</span><span class="p">,</span> <span class="n">x_max</span><span class="p">)</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="k">True</span><span class="p">)</span>
+        <span class="n">hist_x</span> <span class="o">=</span> <span class="p">(</span><span class="n">edges</span><span class="p">[</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">edges</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="p">]</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+        <span class="n">se</span> <span class="o">=</span> <span class="n">pop_std</span> <span class="o">/</span> <span class="n">np</span><span class="p">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+        <span class="n">payload</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">hist_x</span><span class="p">,</span> <span class="n">hist_y</span><span class="p">,</span> <span class="n">stats</span><span class="p">.</span><span class="n">norm</span><span class="p">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x_grid</span><span class="p">,</span> <span class="n">pop_mean</span><span class="p">,</span> <span class="n">se</span><span class="p">)</span><span class="p">)</span>
+    <span class="n">y_max</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">hist_y</span><span class="p">.</span><span class="nb">max</span><span class="p">(</span><span class="p">)</span><span class="p">,</span> <span class="n">norm_y</span><span class="p">.</span><span class="nb">max</span><span class="p">(</span><span class="p">)</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="p">(</span><span class="n">_</span><span class="p">,</span> <span class="n">hist_y</span><span class="p">,</span> <span class="n">norm_y</span><span class="p">)</span> <span class="k">in</span> <span class="n">payload</span><span class="p">.</span><span class="n">items</span><span class="p">(</span><span class="p">)</span><span class="p">)</span> <span class="o">*</span> <span class="mi">1.1</span>
 
-    h0x, h0y, n0y = payload[n_default]
-    label0 = raw_label if n_default == 1 else f"n = {n_default}"
+    <span class="n">h0x</span><span class="p">,</span> <span class="n">h0y</span><span class="p">,</span> <span class="n">n0y</span> <span class="o">=</span> <span class="n">payload</span><span class="p">[</span><span class="n">n_default</span><span class="p">]</span>
+    <span class="n">label0</span> <span class="o">=</span> <span class="n">raw_label</span> <span class="k">if</span> <span class="n">n_default</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">else</span> <span class="s2">f"</span><span class="s2">n = </span><span class="p">{</span><span class="n">n_default</span><span class="p">}</span><span class="s2">"</span>
 
-    fig = go.Figure([
-        go.Bar(x=h0x, y=h0y, name="Simulated sample means", marker_color=bar_color, opacity=0.75),
-        go.Scatter(x=x_grid, y=n0y, mode="lines", name="CLT normal approximation",
-                   line=dict(color="black", dash="dash", width=2)),
-    ])
+    <span class="n">fig</span> <span class="o">=</span> <span class="n">go</span><span class="p">.</span><span class="n">Figure</span><span class="p">(</span><span class="p">[</span>
+        <span class="n">go</span><span class="p">.</span><span class="n">Bar</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">h0x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">h0y</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">"Simulated sample means"</span><span class="p">,</span> <span class="n">marker_color</span><span class="o">=</span><span class="n">bar_color</span><span class="p">,</span> <span class="n">opacity</span><span class="o">=</span><span class="mi">0.75</span><span class="p">)</span><span class="p">,</span>
+        <span class="n">go</span><span class="p">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x_grid</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">n0y</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">"lines"</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">"CLT normal approximation"</span><span class="p">,</span>
+                   <span class="n">line</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">"black"</span><span class="p">,</span> <span class="n">dash</span><span class="o">=</span><span class="s2">"dash"</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span><span class="p">)</span><span class="p">,</span>
+    <span class="p">]</span><span class="p">)</span>
 
-    frames = [go.Frame(
-                name=str(n),
-                data=[go.Bar(x=hx, y=hy), go.Scatter(x=x_grid, y=ny)],
-                layout=go.Layout(
-                    title_text=f"{title} ({raw_label if n == 1 else f'n = {n}'})"))
-              for n, (hx, hy, ny) in payload.items()]
+    <span class="n">frames</span> <span class="o">=</span> <span class="p">[</span><span class="n">go</span><span class="p">.</span><span class="n">Frame</span><span class="p">(</span>
+                <span class="n">name</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="p">,</span>
+                <span class="n">data</span><span class="o">=</span><span class="p">[</span><span class="n">go</span><span class="p">.</span><span class="n">Bar</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">hx</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">hy</span><span class="p">)</span><span class="p">,</span> <span class="n">go</span><span class="p">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x_grid</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">ny</span><span class="p">)</span><span class="p">]</span><span class="p">,</span>
+                <span class="n">layout</span><span class="o">=</span><span class="n">go</span><span class="p">.</span><span class="n">Layout</span><span class="p">(</span>
+                    <span class="n">title_text</span><span class="o">=</span><span class="s2">f"</span><span class="p">{</span><span class="n">title</span><span class="p">}</span><span class="s2"> (</span><span class="p">{</span><span class="n">raw_label</span> <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">else</span> <span class="s2">f'</span><span class="s2">n = </span><span class="p">{</span><span class="n">n</span><span class="p">}</span><span class="s2">'</span><span class="p">}</span><span class="s2">)</span><span class="s2">"</span><span class="p">)</span><span class="p">)</span>
+              <span class="k">for</span> <span class="n">n</span><span class="p">,</span> <span class="p">(</span><span class="n">hx</span><span class="p">,</span> <span class="n">hy</span><span class="p">,</span> <span class="n">ny</span><span class="p">)</span> <span class="k">in</span> <span class="n">payload</span><span class="p">.</span><span class="n">items</span><span class="p">(</span><span class="p">)</span><span class="p">]</span>
 
-    steps = [dict(method="animate", args=[[str(n)], {"frame": {"duration": 0, "redraw": True}, "mode": "immediate"}], label=str(n))
-             for n in n_values]
+    <span class="n">steps</span> <span class="o">=</span> <span class="p">[</span><span class="nb">dict</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s2">"animate"</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">[</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="p">]</span><span class="p">,</span> <span class="p">{</span><span class="s2">"frame"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"duration"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">"redraw"</span><span class="p">:</span> <span class="k">True</span><span class="p">}</span><span class="p">,</span> <span class="s2">"mode"</span><span class="p">:</span> <span class="s2">"immediate"</span><span class="p">}</span><span class="p">]</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="p">)</span>
+             <span class="k">for</span> <span class="n">n</span> <span class="k">in</span> <span class="n">n_values</span><span class="p">]</span>
 
-    fig.frames = frames
-    fig.update_layout(
-        title=f"{title} ({label0})",
-        xaxis_title="Sample mean",
-        yaxis_title="Density",
-        yaxis=dict(range=[0, y_max]),
-        bargap=0,
-        template="plotly_white",
-        sliders=[dict(
-            active=n_values.index(n_default),
-            currentvalue={"prefix": "Sample size n: "},
-            pad={"t": 20},
-            steps=steps,
-        )],
-        height=480,
-    )
-    fig.show()</code></pre>
+    <span class="n">fig</span><span class="p">.</span><span class="n">frames</span> <span class="o">=</span> <span class="n">frames</span>
+    <span class="n">fig</span><span class="p">.</span><span class="n">update_layout</span><span class="p">(</span>
+        <span class="n">title</span><span class="o">=</span><span class="s2">f"</span><span class="p">{</span><span class="n">title</span><span class="p">}</span><span class="s2"> (</span><span class="p">{</span><span class="n">label0</span><span class="p">}</span><span class="s2">)</span><span class="s2">"</span><span class="p">,</span>
+        <span class="n">xaxis_title</span><span class="o">=</span><span class="s2">"Sample mean"</span><span class="p">,</span>
+        <span class="n">yaxis_title</span><span class="o">=</span><span class="s2">"Density"</span><span class="p">,</span>
+        <span class="n">yaxis</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="nb">range</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">y_max</span><span class="p">]</span><span class="p">)</span><span class="p">,</span>
+        <span class="n">bargap</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+        <span class="n">template</span><span class="o">=</span><span class="s2">"plotly_white"</span><span class="p">,</span>
+        <span class="n">sliders</span><span class="o">=</span><span class="p">[</span><span class="nb">dict</span><span class="p">(</span>
+            <span class="n">active</span><span class="o">=</span><span class="n">n_values</span><span class="p">.</span><span class="n">index</span><span class="p">(</span><span class="n">n_default</span><span class="p">)</span><span class="p">,</span>
+            <span class="n">currentvalue</span><span class="o">=</span><span class="p">{</span><span class="s2">"prefix"</span><span class="p">:</span> <span class="s2">"Sample size n: "</span><span class="p">}</span><span class="p">,</span>
+            <span class="n">pad</span><span class="o">=</span><span class="p">{</span><span class="s2">"t"</span><span class="p">:</span> <span class="mi">20</span><span class="p">}</span><span class="p">,</span>
+            <span class="n">steps</span><span class="o">=</span><span class="n">steps</span><span class="p">,</span>
+        <span class="p">)</span><span class="p">]</span><span class="p">,</span>
+        <span class="n">height</span><span class="o">=</span><span class="mi">480</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">fig</span><span class="p">.</span><span class="n">show</span><span class="p">(</span><span class="p">)</span>
+</code></pre></div></div>
   </div>
 </div>
 
@@ -259,7 +261,7 @@ $$\sigma^2 = \frac{1}{6}\sum_{k=1}^{6}(k - 3.5)^2 = \frac{35}{12} \approx 2.917$
 
 So, this discrete uniform distribution has mean 3.5 and variance 2.917. The CLT predicts that the distribution of \\(\bar{X}_n\\) (the mean of \\(n\\) rolls) will be approximately normal with distribution \\(\mathcal{N}(3.5,\; 2.917/n)\\) for large \\(n\\).
 
-What's amazing about the CLT is that despite the fact that the value of a dice roll is given by a uniform distribution, the distribution of its **sample mean** (as n grows large) is normal!
+What's amazing about the CLT is that despite the fact that the value of a dice roll is given by a discrete uniform distribution, the distribution of its **sample mean** (as \\(n\\) grows large) is normal!
 
 
 ### Simulation
@@ -288,7 +290,7 @@ Let's now plot a simulation where we roll a six-sided die \\(n\\) times to devel
   var existing = document.querySelector('script[data-clt-interactive-loader="true"]');
   if (!existing) {
     existing = document.createElement('script');
-    existing.src = '/_data_science/central-limit-theorem/clt-interactive.js';
+    existing.src = '/assets/js/clt-interactive.js';
     existing.defer = true;
     existing.setAttribute('data-clt-interactive-loader', 'true');
     document.head.appendChild(existing);
@@ -331,8 +333,6 @@ fig.tight_layout()
 plt.show()
 ```
 
-![Static plot](/images/data-science/central-limit-theorem/2024-12-15-central-limit-theorem_11_0.png)
-
 
     
 ![png](/images/data-science/central-limit-theorem/2024-12-15-central-limit-theorem_11_0.png)
@@ -341,10 +341,10 @@ plt.show()
 
 **What to notice:**
 
-- At \\(n = 1\\) the histogram is flat — this is the raw uniform distribution of rolling a single die.
-- At \\(n = 3\\) the bell curve begins to appear though with clear discrete values (since its simply the convolution of 3 uniform distributions).
-- At \\(n = 10\\) there is a recognizable bell curve shape though not perfectly normal.
-- At \\(n = 30\\) the fit to the theoretical normal (dashed line) distribution is nearly perfect.
+- At \\(n = 1\\), the histogram is flat — this is the raw uniform distribution of rolling a single die.
+- At \\(n = 3\\), the bell curve begins to appear though with clear discrete values (since it's simply the convolution of 3 uniform distributions).
+- At \\(n = 10\\), there is a recognizable bell curve shape though not perfectly normal.
+- At \\(n = 30\\), the fit to the theoretical normal (dashed line) distribution is nearly perfect.
 
 Because the die is symmetric, convergence is fast (as seen above with convergence occuring by \\(n=30\\)). In the next section we'll explore a distribution that is far from symmetric, and see how well the CLT handles that.
 
@@ -406,8 +406,6 @@ plt.tight_layout()
 plt.show()
 ```
 
-![Static plot](/images/data-science/central-limit-theorem/2024-12-15-central-limit-theorem_15_0.png)
-
 
     
 ![png](/images/data-science/central-limit-theorem/2024-12-15-central-limit-theorem_15_0.png)
@@ -442,7 +440,7 @@ Now that we've gone over the basics of exponential distributions, let's see how 
   var existing = document.querySelector('script[data-clt-interactive-loader="true"]');
   if (!existing) {
     existing = document.createElement('script');
-    existing.src = '/_data_science/central-limit-theorem/clt-interactive.js';
+    existing.src = '/assets/js/clt-interactive.js';
     existing.defer = true;
     existing.setAttribute('data-clt-interactive-loader', 'true');
     document.head.appendChild(existing);
@@ -456,14 +454,14 @@ Now that we've gone over the basics of exponential distributions, let's see how 
 
 
 
-Setting \\(n=1\\), we recapitulate the probability density function of the exponential distribution (which is obviously not normal). As we increase our sample size \\(n\\), the histogram looks increasingly like a normal bell curve which is shifted slightly to the left (due to the left-handed skew of exponential distributions). As \\(n\\) gets increasingly large, the CLT demonstrates that the sample mean distrbituion does indeed converge to a standard normal curve.
+Setting \\(n=1\\), we recapitulate the probability density function of the exponential distribution (which is obviously not normal). As we increase our sample size \\(n\\), the histogram looks increasingly like a normal bell curve which is shifted slightly to the left (due to the exponential distribution's asymetry). As \\(n\\) gets increasingly large, the CLT demonstrates that the sample mean distrbituion does indeed converge to a standard normal curve.
 
 
 ### Normality checks
 
 Now let's perform two different checks for normality at three different increasing values of \\(n\\):
-- generating Q-Q plots
-- fitting the empirical CDF to the theoretical normal CDF
+- **generating Q-Q plots**
+- **fitting the empirical CDF to the theoretical normal CDF**
 
 
 First let's add Q-Q plots for \\(n = 5\\), \\(n = 30\\), and \\(n = 100\\) for a more empirical evaluation of whether these distributions at different \\(n\\) values are truly normal. Q-Q plots are used to assess if an empirical distribution matches a theoretical normal distribution (often used in science to evaluate if a particular stasticial significant test that requires normality, such as a t-test, is appropriate for a given dataset). If the distributions of the sample mean at \\(n = 5\\), \\(n = 30\\), and \\(n = 100\\) are truly normal, the points will lie on a straight line in the below Q-Q plots.
@@ -486,8 +484,6 @@ fig.suptitle("Normality Check for Exponential Sample Means", fontsize=14, fontwe
 fig.tight_layout()
 plt.show()
 ```
-
-![Static plot](/images/data-science/central-limit-theorem/2024-12-15-central-limit-theorem_22_0.png)
 
 
     
@@ -530,8 +526,6 @@ fig.tight_layout()
 plt.show()
 ```
 
-![Static plot](/images/data-science/central-limit-theorem/2024-12-15-central-limit-theorem_24_0.png)
-
 
     
 ![png](/images/data-science/central-limit-theorem/2024-12-15-central-limit-theorem_24_0.png)
@@ -540,10 +534,9 @@ plt.show()
 
 **What to notice:**
 
-- At \\(n = 1\\) the histogram is the raw exponential — a sharp spike near zero with a long right tail.
-- At \\(n = 5\\) the skew is still visible but softening.
-- At \\(n = 30\\) the histogram is convincingly bell-shaped, and the Q-Q plot is close to linear with only mild deviation in the tails.
-- At \\(n = 100\\) the normal fit is excellent though the Q-Q plot still displays some mild deviation in the tails.
+- At \\(n = 5\\), the CDFs are clearly not perflectly overlapping and we observe a good amount of skew in the Q-Q plot tails.
+- At \\(n = 30\\), the histogram is convincingly bell-shaped, and the Q-Q plot is close to linear with only mild deviation in the tails.
+- At \\(n = 100\\), the normal fit is excellent though the Q-Q plot still displays some mild deviation in the tails.
 
 Because the exponential distribution has a skewness of 2, it takes a larger \\(n\\) to reach normality compared to the symmetric die. This is a general pattern: **the more skewed or heavy-tailed the population, the more samples you need for CLT to hold**.
 
@@ -628,8 +621,6 @@ fig.tight_layout()
 plt.show()
 ```
 
-![Static plot](/images/data-science/central-limit-theorem/2024-12-15-central-limit-theorem_28_0.png)
-
 
     
 ![png](/images/data-science/central-limit-theorem/2024-12-15-central-limit-theorem_28_0.png)
@@ -657,7 +648,7 @@ Now let's take sample means.
   var existing = document.querySelector('script[data-clt-interactive-loader="true"]');
   if (!existing) {
     existing = document.createElement('script');
-    existing.src = '/_data_science/central-limit-theorem/clt-interactive.js';
+    existing.src = '/assets/js/clt-interactive.js';
     existing.defer = true;
     existing.setAttribute('data-clt-interactive-loader', 'true');
     document.head.appendChild(existing);
@@ -696,10 +687,16 @@ for n in [2, 5, 10, 30, 50, 100, 250, 500]:
         2                 0.000000   not yet normal
         5                 0.000000   not yet normal
        10                 0.000003   not yet normal
+
+
        30                 0.000011   not yet normal
        50                 0.008947   not yet normal
       100                 0.133341   ≈ normal
+
+
       250                 0.080117   ≈ normal
+
+
       500                 0.647815   ≈ normal
 
 
@@ -716,7 +713,9 @@ The **Cauchy distribution** (equivalently, a \\(t\\)-distribution with 1 degree 
 
 $$f(x) = \frac{1}{\pi(1 + x^2)}$$
 
-Its tails are so heavy that neither the mean nor the variance exist (\\(E\text{[}|X|\text{]} = \infty\\)). Remarkably, the distribution of the sample mean of \\(n\\) Cauchy draws is *itself* Cauchy (not normal) — no matter how large \\(n\\) is!
+Its tails are so heavy that neither the mean nor the variance exist (\\(E\text{[}|X|\text{]} = \infty\\)).
+
+Remarkably, the distribution of the sample mean of \\(n\\) Cauchy draws is *itself* Cauchy (not normal)—no matter how large \\(n\\) is!
 
 
 
@@ -750,8 +749,6 @@ fig.tight_layout()
 plt.show()
 ```
 
-![Static plot](/images/data-science/central-limit-theorem/2024-12-15-central-limit-theorem_35_0.png)
-
 
     
 ![png](/images/data-science/central-limit-theorem/2024-12-15-central-limit-theorem_35_0.png)
@@ -768,19 +765,21 @@ plt.show()
 
 ## Conclusion
 
-My goal in writing this was to introduce the reader to the Central Limit Theorem (CLT) and deepen my own intuition for it by trying to break it down for a general audience. To do this I walked us through three very different examples to demonstrate that the CLT holds regardless of underlying distributions as long as its key requirements were met:
+My goal in writing this post was to introduce the reader to the Central Limit Theorem (CLT) and deepen my own intuition for it by trying to break it down through a series of increasingly complex examples:
 
 | Simulation | Distribution | Key property | Convergence speed |
 |---|---|---|---|
-| 1 | Discrete uniform (die) | Symmetric, discrete, flat | Fast (\\(n \approx 5\\) already looks normal) |
-| 2 | Exponential | Continuous, heavily right-skewed | Moderate (\\(n \approx 30\\) needed) |
-| 3 | Bimodal mixture | Two modes, asymmetric, wide | Moderate-to-slow (\\(n \approx 30\text{–}50\\)) |
+| 1 | Discrete uniform (die) | Symmetric, discrete, flat | Fast |
+| 2 | Exponential | Continuous, heavily right-skewed | Moderate |
+| 3 | Bimodal mixture | Two modes, asymmetric, wide | Moderate-to-slow |
 
 In all three cases we see that the CLT holds: sample means became approximately normal as \\(n\\) grew. In contrast, simulating a Cauchy distribution (which violates the finite variance requirement of the CLT) showed us that its sample means never become normal no matter how large \\(n\\) gets.
 
-I want to emphasize that one of the main reasons that scientists/statisticans care about the CLT is that it gives us access to an entire toolbox of statistical tests and tricks that only operate on normal distributions - the CLT allows us to use this toolbox to analyze sampling distributions for the vast majority of natural phenomena.
+I want to emphasize that one of the main reasons that scientists/statisticans care about the CLT is that it gives us access to an entire toolbox of statistical tests and tricks that only operate on normal distributions - the CLT allows us to use this toolbox to analyze sampling distributions for a mind-boggling number of natural phenomena and treat them as (approximately) normal!
 
 ### Practical implications
+
+As a last thought, I wanted to list a few real-world examples of statistical applications that rely directly on the CLT:
 
 - **Confidence intervals** (\\(\bar{x} \pm z^* \sigma / \sqrt{n}\\)) work because the CLT guarantees that \\(\bar{X}_n\\) is approximately normal.
 - **Hypothesis tests** (z-tests, t-tests for large \\(n\\)) rely on the same guarantee.
