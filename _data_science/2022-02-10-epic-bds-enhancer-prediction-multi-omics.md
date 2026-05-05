@@ -11,7 +11,6 @@ permalink: /data-science/epic-enhancer-prediction-multi-omics/
 ---
 
 ![Title](/images/data-science/epic-enhancer-2022/Enhancer_Title_Image.png)
-_Source: Field & Adelman, 2020_
 
 *Adapted from my oral presentation at Epic Bio BDS Learning Seminar (February 10, 2022)*
 

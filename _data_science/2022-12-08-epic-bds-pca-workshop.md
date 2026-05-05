@@ -9,8 +9,6 @@ permalink: /data-science/pca-workshop/
 ---
 
 ![PCA Concept](/images/data-science/pca/pca_concept.png)
-<br>
-_Source: An Introduction to Statistical Learning (James, Witten, Hastie, and Tibshirani, 2013)_
 
 *Adapted from my oral presentation at Epic Bio BDS Learning Seminar (December 8, 2022).*
 

@@ -11,9 +11,7 @@ permalink: /data-science/nsc-chromatin-migration-thesis/
 
 ![Title Image](/images/data-science/thesis/NSC-Thesis-title-image.png)
 
-_Adapted from my oral PhD defense presented to my thesis committee at Stanford University, Department of Genetics on September 15, 2020._
-
-_Published in Nature Aging as [Yeo & Zhou et al. 2023](https://www.nature.com/articles/s43587-023-00449-3)._
+_Adapted from my oral PhD defense presented to my thesis committee at Stanford University, Department of Genetics on September 15, 2020. Published in Nature Aging as [Yeo & Zhou et al. 2023](https://www.nature.com/articles/s43587-023-00449-3)._
 
 ---
 # Introduction
