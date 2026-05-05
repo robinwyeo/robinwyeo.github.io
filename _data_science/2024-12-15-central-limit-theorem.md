@@ -1,37 +1,3 @@
-<style>
-.setup-code-collapsible { position: relative; margin: 1.2rem 0; border: 1px solid #d8dee4; border-radius: 10px; background: #fff; }
-.setup-code-toggle { position: absolute; top: 0.55rem; right: 0.55rem; z-index: 1; border: 1px solid #c9d1d9; border-radius: 8px; background: #f6f8fa; color: #24292f; padding: 0.2rem 0.55rem; font-size: 0.82rem; cursor: pointer; }
-.setup-code-body { padding-top: 2.35rem; }
-.setup-code-body pre { margin: 0; border-radius: 0 0 10px 10px; }
-</style>
-<script>
-(function() {
-  function wireSetupToggles(root) {
-    root.querySelectorAll('.setup-code-toggle').forEach(function(btn) {
-      if (btn.dataset.bound === '1') return;
-      btn.dataset.bound = '1';
-      btn.addEventListener('click', function() {
-        var body = btn.parentElement.querySelector('.setup-code-body');
-        var isOpen = !body.hasAttribute('hidden');
-        if (isOpen) {
-          body.setAttribute('hidden', 'hidden');
-          btn.setAttribute('aria-expanded', 'false');
-          btn.textContent = 'Show setup code';
-        } else {
-          body.removeAttribute('hidden');
-          btn.setAttribute('aria-expanded', 'true');
-          btn.textContent = 'Hide setup code';
-        }
-      });
-    });
-  }
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', function() { wireSetupToggles(document); });
-  } else {
-    wireSetupToggles(document);
-  }
-}());
-</script>
 ---
 title: "Interactive exploration of the Central Limit Theorem"
 date: 2024-12-15
@@ -45,39 +11,37 @@ permalink: /data-science/central-limit-theorem/
 ---
 
 
-# Diving into the Central Limit Theorem
+# An introduction to the Central Limit Theorem - 
 
-My main reason in writing this script was to better understand the **Central Limit Therorem** (CLT) and to develop a better intuition about its implications.
+The **Central Limit Therorem (CLT)** is certainly my favorite theorem in probability theory and among my favorite theorems in mathematics. Loosely put, the CLT states that the sum of a large number of independent random variables is approximately normally distributed. As a consequence, the CLT helps explain the remarkable observation that the empirical frequencies of so many natural populations exhibit a normal (bell-shaped) curve.
 
-The CLT is certainly my favorite theorem in all of probability theory and among my favorite theorems in mathematics. Loosely put, the CLT states that the sum of a large number of independent random variables is approximately normally distributed. As a consequence, the CLT helps explain the remarkable observation that the empirical frequencies of so many natural populations exhibit a normal (bell-shaped) curve.
-
-I find it at once deceptively simple and extremely profound; its application allows us to probabilistically evaluate an absurd number of natural phenomena and it's worth diving into.
+I find it at once deceptively simple and extremely profound; its application allows us to effectively use normality (along with all its handy statistical tools) to probablistically evaluate an absurd number of natural phenomena and it's worth diving into.
 
 In this notebook we will:
 
 1. State the theorem precisely and unpack its equation.
-2. Run three progressively more exotic simulations that demonstrate the CLT in action.
-3. Show a case where the CLT **fails**, to build intuition about its requirements.
+2. Run three progressively more exotic simulations that demonstrate how the CLT works.
+3. Show a case where the CLT fails to build intuition about its requirements.
 
-Note: in writing this blog post I relied heavily on the excellent textbook **A First Course in Probability by Sheldon Ross** as well as my course notes from undergraduate and graduate probability classes (specifically MIT 18.440, Stanford STATS116, and Stanford STATS200)
+Note: in writing this blog post I relied heavily on the excellent textbook A First Course in Probability by Sheldon Ross as well as my course notes from undergraduate and graduate probability classes (specifically MIT 18.440, Stanford STATS116, and Stanford STATS200)
 
 
 ---
 
 ## 1) Formal Statement of CLT
 
-Let \\(X_1, X_2, \dots, X_n\\) be **independent and identically distributed** (i.i.d.) random variables drawn from *any* distribution with:
+Let \\(X_1, X_2, \dots, X_n\\) be **independent and identically distributed (i.i.d.)** random variables drawn from *any* distribution with:
 
 - finite mean \\(\mu = E\text{[}X_{i}\text{]}\\)
 - finite variance \\(\sigma^2 = \text{Var}(X_{i}) > 0\\)
 
-Define the sample mean:
+Define the **sample mean**:
 
 $$
 \bar{X}_n = \frac{X_1 + X_2 + \dots + X_n}{n} = \frac{1}{n}\sum_{i=1}^{n} X_i
 $$
 
-Then the CLT states that the **standardized** sample mean converges in distribution to a standard normal distribution:
+Then **the CLT states that the standardized sample mean converges in distribution to a standard normal distribution**:
 
 $$\boxed{\frac{\bar{X}_n - \mu}{\sigma \, / \, \sqrt{n}} \;\xrightarrow{\;d\;}\; \mathcal{N}(0,\,1) \quad \text{as } n \to \infty}$$
 
@@ -95,9 +59,9 @@ $$
 ### Key requirements
 
 1. **Independence.** The probability of any outcome for one observation does not depend on the outcomes of the others.
-2. **Finite variance.** If \\(\sigma^2 = \infty\\) (e.g. the Cauchy distribution), the CLT does not apply and sample means do *not* become normal.
+2. **Finite mean+variance.** If \\(\sigma^2 = \infty\\) or \\(\mu = \infty\\), the CLT does not apply and sample means do *not* become normal.
 
-Notice what is **not** required: the population does not need to be continuous, symmetric, unimodal, or anywhere close to normal. That generality is what makes the CLT so powerful.
+What makes the CLT so powerful is how general it is in its requirements. The underlying distributions sampled can literally be *anything* as long as they are i.i.d. with finite mean and variance. Unuderlying populations need not be continuous, symmetric, unimodal, or anywhere close to normal and yet we are able to confidently say that sampling with large enough \\(n\\) gives us a normal bell curve. That generality is what makes the CLT so powerful.
 
 
 In layman's terms, the above tells us that:
@@ -111,21 +75,16 @@ In layman's terms, the above tells us that:
 
 
 
-<div class="setup-code-collapsible" data-setup-code-id="1">
-  <button class="setup-code-toggle" type="button" aria-expanded="false">Show setup code</button>
-  <div class="setup-code-body" hidden>
-    <pre><code class="language-python">import numpy as np
+```python
+import numpy as np
 import matplotlib.pyplot as plt
 from scipy import stats
 import seaborn as sns
-import plotly.graph_objects as go
-from IPython.display import display
 
 np.random.seed(42)
 sns.set_theme(style="whitegrid", font_scale=1.1)
 PALETTE = sns.color_palette("mako", 6)
 %matplotlib inline
-
 
 def plot_clt_grid(
     sample_sizes,
@@ -139,54 +98,38 @@ def plot_clt_grid(
     """Draw histograms of sample-mean distributions for each sample size."""
     ncols = len(sample_sizes)
     fig, axes = plt.subplots(1, ncols, figsize=(5 * ncols, 4.5))
-    if ncols == 1:
-        axes = [axes]
+    axes = [axes] if ncols == 1 else axes
 
     for ax, n, color in zip(axes, sample_sizes, PALETTE):
-        means = np.array([sample_fn(n).mean() for _ in range(num_trials)])
+        means = np.mean([sample_fn(n) for _ in range(num_trials)], axis=1)
         ax.hist(
-            means,
-            bins=60,
-            density=True,
-            alpha=0.65,
-            color=color,
-            edgecolor="white",
-            linewidth=0.4,
+            means, bins=60, density=True, alpha=0.65,
+            color=color, edgecolor="white", linewidth=0.4,
         )
         se = pop_std / np.sqrt(n)
         x = np.linspace(means.min(), means.max(), 300)
         ax.plot(x, stats.norm.pdf(x, pop_mean, se), "k--", lw=2, label="CLT normal")
         ax.set_title(raw_label if n == 1 else f"n = {n}", fontweight="bold")
         ax.set_xlabel("Sample mean")
-        ax.set_ylabel("Density" if ax is axes[0] else "")
+        if ax is axes[0]: ax.set_ylabel("Density")
         ax.legend(fontsize=9)
 
     fig.suptitle(suptitle, fontsize=15, fontweight="bold", y=1.03)
     fig.tight_layout()
-    plt.show()</code></pre>
-  </div>
-</div>
+    plt.show()
+```
 
 
-<div class="setup-code-collapsible" data-setup-code-id="2">
-  <button class="setup-code-toggle" type="button" aria-expanded="false">Show setup code</button>
-  <div class="setup-code-body" hidden>
-    <pre><code class="language-python">def _sample_means_for_n(distribution, n, trials, rng):
+```python
+def _sample_means_for_n(distribution, n, trials, rng):
     if distribution == "dice":
         return rng.integers(1, 7, size=(trials, n)).mean(axis=1)
-
     if distribution == "exponential":
-        return rng.exponential(scale=1.0, size=(trials, n)).mean(axis=1)
-
+        return rng.exponential(1.0, (trials, n)).mean(axis=1)
     if distribution == "mixture":
-        choose_right = rng.random((trials, n)) &lt; 0.7
-        left = rng.normal(-4.0, 1.0, size=(trials, n))
-        right = rng.normal(5.0, 2.0, size=(trials, n))
-        samples = np.where(choose_right, right, left)
-        return samples.mean(axis=1)
-
+        mask = rng.random((trials, n)) < 0.7
+        return np.where(mask, rng.normal(5.0, 2.0, (trials, n)), rng.normal(-4.0, 1.0, (trials, n))).mean(axis=1)
     raise ValueError(f"Unknown distribution: {distribution}")
-
 
 def clt_plotly_interactive(
     distribution,
@@ -201,86 +144,43 @@ def clt_plotly_interactive(
     bar_color="rgba(53, 120, 160, 0.68)",
     hist_bins=120,
 ):
-    """Render a Plotly slider for CLT sample-mean distributions."""
-    if n_values is None:
-        n_values = list(range(1, 121))
-
-    n_values = sorted(set(int(n) for n in n_values if int(n) &gt;= 1))
+    """Render interactive Plotly slider for CLT sample-mean distributions."""
+    n_values = sorted({int(n) for n in (n_values or range(1, 121)) if int(n) >= 1})
     if not n_values:
         raise ValueError("n_values must contain at least one positive integer")
-
     n_default = min(n_values, key=lambda x: abs(x - int(n_default)))
     rng = np.random.default_rng(seed)
 
-    # Shared x-range wide enough for all n values
-    x_min = pop_mean - 4.5 * pop_std
-    x_max = pop_mean + 4.5 * pop_std
+    x_min, x_max = pop_mean - 4.5 * pop_std, pop_mean + 4.5 * pop_std
     x_grid = np.linspace(x_min, x_max, 240)
 
-    frame_payload = {}
+    payload = {}
     for n in n_values:
         means = _sample_means_for_n(distribution, n, trials, rng)
-        hist_y, hist_edges = np.histogram(
-            means, bins=hist_bins, range=(x_min, x_max), density=True
-        )
-        hist_x = 0.5 * (hist_edges[:-1] + hist_edges[1:])
-
+        hist_y, edges = np.histogram(means, bins=hist_bins, range=(x_min, x_max), density=True)
+        hist_x = (edges[:-1] + edges[1:]) / 2
         se = pop_std / np.sqrt(n)
-        normal_y = stats.norm.pdf(x_grid, loc=pop_mean, scale=se)
-        frame_payload[n] = (hist_x, hist_y, normal_y)
+        payload[n] = (hist_x, hist_y, stats.norm.pdf(x_grid, pop_mean, se))
+    y_max = max(max(hist_y.max(), norm_y.max()) for _, (_, hist_y, norm_y) in payload.items()) * 1.1
 
-    max_density = max(
-        float(max(hist_y.max(), normal_y.max()))
-        for _, (_, hist_y, normal_y) in frame_payload.items()
-    )
-    y_max = max_density * 1.1
-
-    h0x, h0y, n0y = frame_payload[n_default]
+    h0x, h0y, n0y = payload[n_default]
     label0 = raw_label if n_default == 1 else f"n = {n_default}"
 
-    fig = go.Figure(
-        data=[
-            go.Bar(
-                x=h0x,
-                y=h0y,
-                name="Simulated sample means",
-                marker_color=bar_color,
-                opacity=0.75,
-            ),
-            go.Scatter(
-                x=x_grid,
-                y=n0y,
-                mode="lines",
-                name="CLT normal approximation",
-                line=dict(color="black", dash="dash", width=2),
-            ),
-        ]
-    )
+    fig = go.Figure([
+        go.Bar(x=h0x, y=h0y, name="Simulated sample means", marker_color=bar_color, opacity=0.75),
+        go.Scatter(x=x_grid, y=n0y, mode="lines", name="CLT normal approximation",
+                   line=dict(color="black", dash="dash", width=2)),
+    ])
 
-    frames = []
-    steps = []
-    for n in n_values:
-        hx, hy, ny = frame_payload[n]
-        frames.append(
-            go.Frame(
+    frames = [go.Frame(
                 name=str(n),
-                data=[
-                    go.Bar(x=hx, y=hy),
-                    go.Scatter(x=x_grid, y=ny),
-                ],
+                data=[go.Bar(x=hx, y=hy), go.Scatter(x=x_grid, y=ny)],
                 layout=go.Layout(
-                    title_text=f"{title} ({raw_label if n == 1 else f'n = {n}'})"
-                ),
-            )
-        )
+                    title_text=f"{title} ({raw_label if n == 1 else f'n = {n}'})"))
+              for n, (hx, hy, ny) in payload.items()]
 
-        steps.append(
-            dict(
-                method="animate",
-                args=[[str(n)], {"frame": {"duration": 0, "redraw": True}, "mode": "immediate"}],
-                label=str(n),
-            )
-        )
+    steps = [dict(method="animate", args=[[str(n)], {"frame": {"duration": 0, "redraw": True}, "mode": "immediate"}], label=str(n))
+             for n in n_values]
 
     fig.frames = frames
     fig.update_layout(
@@ -290,19 +190,16 @@ def clt_plotly_interactive(
         yaxis=dict(range=[0, y_max]),
         bargap=0,
         template="plotly_white",
-        sliders=[
-            dict(
-                active=n_values.index(n_default),
-                currentvalue={"prefix": "Sample size n: "},
-                pad={"t": 20},
-                steps=steps,
-            )
-        ],
+        sliders=[dict(
+            active=n_values.index(n_default),
+            currentvalue={"prefix": "Sample size n: "},
+            pad={"t": 20},
+            steps=steps,
+        )],
         height=480,
     )
-    fig.show()</code></pre>
-  </div>
-</div>
+    fig.show()
+```
 
 ---
 
