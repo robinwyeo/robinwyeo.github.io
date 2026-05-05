@@ -1,3 +1,37 @@
+<style>
+.setup-code-collapsible { position: relative; margin: 1.2rem 0; border: 1px solid #d8dee4; border-radius: 10px; background: #fff; }
+.setup-code-toggle { position: absolute; top: 0.55rem; right: 0.55rem; z-index: 1; border: 1px solid #c9d1d9; border-radius: 8px; background: #f6f8fa; color: #24292f; padding: 0.2rem 0.55rem; font-size: 0.82rem; cursor: pointer; }
+.setup-code-body { padding-top: 2.35rem; }
+.setup-code-body pre { margin: 0; border-radius: 0 0 10px 10px; }
+</style>
+<script>
+(function() {
+  function wireSetupToggles(root) {
+    root.querySelectorAll('.setup-code-toggle').forEach(function(btn) {
+      if (btn.dataset.bound === '1') return;
+      btn.dataset.bound = '1';
+      btn.addEventListener('click', function() {
+        var body = btn.parentElement.querySelector('.setup-code-body');
+        var isOpen = !body.hasAttribute('hidden');
+        if (isOpen) {
+          body.setAttribute('hidden', 'hidden');
+          btn.setAttribute('aria-expanded', 'false');
+          btn.textContent = 'Show setup code';
+        } else {
+          body.removeAttribute('hidden');
+          btn.setAttribute('aria-expanded', 'true');
+          btn.textContent = 'Hide setup code';
+        }
+      });
+    });
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function() { wireSetupToggles(document); });
+  } else {
+    wireSetupToggles(document);
+  }
+}());
+</script>
 ---
 title: "Interactive exploration of the Central Limit Theorem"
 date: 2024-12-15
@@ -13,9 +47,9 @@ permalink: /data-science/central-limit-theorem/
 
 # An introduction to the Central Limit Theorem - 
 
-The **Central Limit Therorem (CLT)** is certainly my favorite theorem in probability theory and among my favorite theorems in mathematics. Loosely put, the CLT states that the sum of a large number of independent random variables is approximately normally distributed. As a consequence, the CLT helps explain the remarkable observation that the empirical frequencies of so many natural populations exhibit a normal (bell-shaped) curve.
+The **Central Limit Therorem (CLT)** is my favorite theorem in probability theory and among my favorite theorems in mathematics. Loosely put, the CLT states that the sum of a large number of independent random variables is approximately normally distributed. As a consequence, the CLT helps explain the remarkable observation that the empirical frequencies of so many natural populations exhibit a normal (bell-shaped) curve.
 
-I find it at once deceptively simple and extremely profound; its application allows us to effectively use normality (along with all its handy statistical tools) to probablistically evaluate an absurd number of natural phenomena and it's worth diving into.
+It's at once deceptively simple and extremely profound; its application allows us to effectively use normality (along with all its handy statistical tools) to probablistically evaluate an absurd number of natural phenomena and it's worth diving into.
 
 In this notebook we will:
 
@@ -75,8 +109,10 @@ In layman's terms, the above tells us that:
 
 
 
-```python
-import numpy as np
+<div class="setup-code-collapsible" data-setup-code-id="1">
+  <button class="setup-code-toggle" type="button" aria-expanded="false">Show setup code</button>
+  <div class="setup-code-body" hidden>
+    <pre><code class="language-python">import numpy as np
 import matplotlib.pyplot as plt
 from scipy import stats
 import seaborn as sns
@@ -116,18 +152,21 @@ def plot_clt_grid(
 
     fig.suptitle(suptitle, fontsize=15, fontweight="bold", y=1.03)
     fig.tight_layout()
-    plt.show()
-```
+    plt.show()</code></pre>
+  </div>
+</div>
 
 
-```python
-def _sample_means_for_n(distribution, n, trials, rng):
+<div class="setup-code-collapsible" data-setup-code-id="2">
+  <button class="setup-code-toggle" type="button" aria-expanded="false">Show setup code</button>
+  <div class="setup-code-body" hidden>
+    <pre><code class="language-python">def _sample_means_for_n(distribution, n, trials, rng):
     if distribution == "dice":
         return rng.integers(1, 7, size=(trials, n)).mean(axis=1)
     if distribution == "exponential":
         return rng.exponential(1.0, (trials, n)).mean(axis=1)
     if distribution == "mixture":
-        mask = rng.random((trials, n)) < 0.7
+        mask = rng.random((trials, n)) &lt; 0.7
         return np.where(mask, rng.normal(5.0, 2.0, (trials, n)), rng.normal(-4.0, 1.0, (trials, n))).mean(axis=1)
     raise ValueError(f"Unknown distribution: {distribution}")
 
@@ -145,7 +184,7 @@ def clt_plotly_interactive(
     hist_bins=120,
 ):
     """Render interactive Plotly slider for CLT sample-mean distributions."""
-    n_values = sorted({int(n) for n in (n_values or range(1, 121)) if int(n) >= 1})
+    n_values = sorted({int(n) for n in (n_values or range(1, 121)) if int(n) &gt;= 1})
     if not n_values:
         raise ValueError("n_values must contain at least one positive integer")
     n_default = min(n_values, key=lambda x: abs(x - int(n_default)))
@@ -198,17 +237,18 @@ def clt_plotly_interactive(
         )],
         height=480,
     )
-    fig.show()
-```
+    fig.show()</code></pre>
+  </div>
+</div>
 
 ---
 
 ## 2.1) Rolling dice (Discrete Uniform Distribution)
 
-Let's start by imagining a probablistic experiment involving a fair 6-sided die. A single roll produces one of \\(\{1,2,3,4,5,6\}\\) with equal probability \\(1/6\\). This distribution is:
+Let's start by imagining a simple probablistic experiment involving a fair 6-sided die. A single roll produces one of \\(\{1,2,3,4,5,6\}\\) with equal probability \\(1/6\\). This distribution is:
 
 - **Discrete** (only six values)
-- **Uniform**
+- **Uniform** (each value is equally likely)
 
 The first and second population moments are:
 
@@ -216,19 +256,19 @@ $$\mu = \frac{1+2+3+4+5+6}{6} = 3.5$$
 
 $$\sigma^2 = \frac{1}{6}\sum_{k=1}^{6}(k - 3.5)^2 = \frac{35}{12} \approx 2.917$$
 
-So, this discrete uniform distribution has mean 3.5 and variance 2.917. The then CLT predicts that the distribution of \\(\bar{X}_n\\) (the mean of \\(n\\) rolls) will be approximately normal (with distribution \\(\mathcal{N}(3.5,\; 2.917/n)\\)) for large \\(n\\).
+So, this discrete uniform distribution has mean 3.5 and variance 2.917. The CLT predicts that the distribution of \\(\bar{X}_n\\) (the mean of \\(n\\) rolls) will be approximately normal with distribution \\(\mathcal{N}(3.5,\; 2.917/n)\\) for large \\(n\\).
 
 What's amazing about the CLT is that despite the fact that the value of a dice roll is given by a uniform distribution, the distribution of its **sample mean** (as n grows large) is normal!
 
 
 ### Simulation
 
-Let's now plot a simulation of n repeated rolls of a six-sided die to develop some intuition about the Central Limit Theorem (CLT).
-- We model rolling a die n times, and repeat this for many repeated trials.
-- For each trial, we calculate the mean of n die rolls.
-- We then visualize the distribution of these sample means as n changes, showing how it approaches a normal distribution as n gets larger.
+Let's now plot a simulation where we roll a six-sided die \\(n\\) times to develop some intuition about the Central Limit Theorem (CLT).
+- We model rolling a die \\(n\\) times, and repeat this for many repeated trials.
+- For each trial, we calculate the mean of \\(n\\) die rolls.
+- We then visualize the distribution of these sample means with different values of \\(n\\), showing how it approaches a normal distribution as \\(n\\) gets larger.
 - The interactive plot below lets you adjust \\(n\\) and watch the sample means transition from the original uniform distribution (\\(n=1\\)) to an increasingly bell-shaped (normal) curve for large \\(n\\).
-- Below, static figures show representative behavior at several values of \\(n\\).
+- Start at \\(n=1\\) and try slowly increasing \\(n\\) with the slider below to see how the distribution changes with large \\(n\\).
 
 
 
@@ -237,7 +277,7 @@ Let's now plot a simulation of n repeated rolls of a six-sided die to develop so
 (function(){
   function renderWidget(){
     if (window.renderCLTInteractivePlot) {
-      window.renderCLTInteractivePlot("clt-interactive-dice-1", { distribution: "dice", popMean: 3.5, popStd: 1.707825127659933, title: "CLT with Dice Rolls (Discrete Uniform)", rawLabel: "Single roll (n = 1)", nDefault: 1, seed: 42, trials: 2500, fillColor: "rgba(53, 120, 160, 0.68)" });
+      window.renderCLTInteractivePlot("clt-interactive-dice-1", { distribution: "dice", popMean: 3.5, popStd: 1.707825127659933, title: "CLT with Dice Rolls (Discrete Uniform)", rawLabel: "Single roll (n = 1)", nDefault: 1, seed: 42, trials: 50000, fillColor: "rgba(53, 120, 160, 0.68)" });
     }
   }
   if (window.renderCLTInteractivePlot) {
@@ -247,7 +287,7 @@ Let's now plot a simulation of n repeated rolls of a six-sided die to develop so
   var existing = document.querySelector('script[data-clt-interactive-loader="true"]');
   if (!existing) {
     existing = document.createElement('script');
-    existing.src = '/assets/js/clt-interactive.js';
+    existing.src = '/_data_science/central-limit-theorem/clt-interactive.js';
     existing.defer = true;
     existing.setAttribute('data-clt-interactive-loader', 'true');
     document.head.appendChild(existing);
@@ -287,6 +327,12 @@ ax.legend(title="Sample size", fontsize=9, title_fontsize=10)
 fig.tight_layout()
 plt.show()
 ```
+
+![Static plot](/images/data-science/central-limit-theorem/2024-12-15-central-limit-theorem_11_0.png)
+
+![Static plot](/images/data-science/central-limit-theorem/2024-12-15-central-limit-theorem_11_0.png)
+
+![Static plot](/images/data-science/central-limit-theorem/2024-12-15-central-limit-theorem_11_0.png)
 
 **What to notice:**
 
@@ -355,6 +401,12 @@ plt.tight_layout()
 plt.show()
 ```
 
+![Static plot](/images/data-science/central-limit-theorem/2024-12-15-central-limit-theorem_15_0.png)
+
+![Static plot](/images/data-science/central-limit-theorem/2024-12-15-central-limit-theorem_15_0.png)
+
+![Static plot](/images/data-science/central-limit-theorem/2024-12-15-central-limit-theorem_15_0.png)
+
 Interpretation of the Plots:
 
 - **Left Plot (PDF):** This shows the probability density function (PDF) of the exponential distribution with λ = 1. For continuous distributions, the PDF provides the relative probability that the random variable would be equal to at that point; note that the PDF of any exact value is always zero and that it's the *area under the curve* (equivalent to the CDF) over an interval that actually gives probabilities. For our exponential distribution, the high PDF value at low x values indicates that very short wait times are much more probable than long ones, but there exists a right-sided tail of long wait times with increasingly low probabilities.
@@ -373,7 +425,7 @@ Now that we've gone over the basics of exponential distributions, let's see how 
 (function(){
   function renderWidget(){
     if (window.renderCLTInteractivePlot) {
-      window.renderCLTInteractivePlot("clt-interactive-exponential-2", { distribution: "exponential", popMean: 1.0, popStd: 1.0, title: "CLT with Exponential Distribution (Wait Times)", rawLabel: "Single draw (n = 1)", nDefault: 1, seed: 84, trials: 2500, fillColor: "rgba(47, 150, 130, 0.68)" });
+      window.renderCLTInteractivePlot("clt-interactive-exponential-2", { distribution: "exponential", popMean: 1.0, popStd: 1.0, title: "CLT with Exponential Distribution (Wait Times)", rawLabel: "Single draw (n = 1)", nDefault: 1, seed: 84, trials: 50000, fillColor: "rgba(47, 150, 130, 0.68)" });
     }
   }
   if (window.renderCLTInteractivePlot) {
@@ -383,7 +435,7 @@ Now that we've gone over the basics of exponential distributions, let's see how 
   var existing = document.querySelector('script[data-clt-interactive-loader="true"]');
   if (!existing) {
     existing = document.createElement('script');
-    existing.src = '/assets/js/clt-interactive.js';
+    existing.src = '/_data_science/central-limit-theorem/clt-interactive.js';
     existing.defer = true;
     existing.setAttribute('data-clt-interactive-loader', 'true');
     document.head.appendChild(existing);
@@ -426,6 +478,12 @@ fig.tight_layout()
 plt.show()
 ```
 
+![Static plot](/images/data-science/central-limit-theorem/2024-12-15-central-limit-theorem_22_0.png)
+
+![Static plot](/images/data-science/central-limit-theorem/2024-12-15-central-limit-theorem_22_0.png)
+
+![Static plot](/images/data-science/central-limit-theorem/2024-12-15-central-limit-theorem_22_0.png)
+
 Now let's compare the empirical CDF of the sample means directly against the theoretical normal CDF. Where the two curves overlap, the CLT approximation is working well.
 
 
@@ -460,6 +518,12 @@ fig.suptitle("Empirical vs. Theoretical Normal CDF — Exponential Means",
 fig.tight_layout()
 plt.show()
 ```
+
+![Static plot](/images/data-science/central-limit-theorem/2024-12-15-central-limit-theorem_24_0.png)
+
+![Static plot](/images/data-science/central-limit-theorem/2024-12-15-central-limit-theorem_24_0.png)
+
+![Static plot](/images/data-science/central-limit-theorem/2024-12-15-central-limit-theorem_24_0.png)
 
 **What to notice:**
 
@@ -538,6 +602,12 @@ fig.tight_layout()
 plt.show()
 ```
 
+![Static plot](/images/data-science/central-limit-theorem/2024-12-15-central-limit-theorem_28_0.png)
+
+![Static plot](/images/data-science/central-limit-theorem/2024-12-15-central-limit-theorem_28_0.png)
+
+![Static plot](/images/data-science/central-limit-theorem/2024-12-15-central-limit-theorem_28_0.png)
+
 This is decidedly not bell-shaped — we've constructed a distribution with two humps of different heights and different widths.
 
 Now let's take sample means.
@@ -549,7 +619,7 @@ Now let's take sample means.
 (function(){
   function renderWidget(){
     if (window.renderCLTInteractivePlot) {
-      window.renderCLTInteractivePlot("clt-interactive-mixture-3", { distribution: "mixture", popMean: 2.3, popStd: 4.484417464955732, title: "CLT with the Bizarre Bimodal Mixture", rawLabel: "Single draw (n = 1)", nDefault: 1, seed: 126, trials: 2500, fillColor: "rgba(124, 95, 165, 0.68)" });
+      window.renderCLTInteractivePlot("clt-interactive-mixture-3", { distribution: "mixture", popMean: 2.3, popStd: 4.484417464955732, title: "CLT with the Bizarre Bimodal Mixture", rawLabel: "Single draw (n = 1)", nDefault: 1, seed: 126, trials: 50000, fillColor: "rgba(124, 95, 165, 0.68)" });
     }
   }
   if (window.renderCLTInteractivePlot) {
@@ -559,7 +629,7 @@ Now let's take sample means.
   var existing = document.querySelector('script[data-clt-interactive-loader="true"]');
   if (!existing) {
     existing = document.createElement('script');
-    existing.src = '/assets/js/clt-interactive.js';
+    existing.src = '/_data_science/central-limit-theorem/clt-interactive.js';
     existing.defer = true;
     existing.setAttribute('data-clt-interactive-loader', 'true');
     document.head.appendChild(existing);
@@ -637,6 +707,12 @@ fig.suptitle("Cauchy Sample Means — The CLT Does NOT Apply", fontsize=15, font
 fig.tight_layout()
 plt.show()
 ```
+
+![Static plot](/images/data-science/central-limit-theorem/2024-12-15-central-limit-theorem_35_0.png)
+
+![Static plot](/images/data-science/central-limit-theorem/2024-12-15-central-limit-theorem_35_0.png)
+
+![Static plot](/images/data-science/central-limit-theorem/2024-12-15-central-limit-theorem_35_0.png)
 
 **What to notice:**
 

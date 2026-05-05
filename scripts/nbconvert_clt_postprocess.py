@@ -28,7 +28,6 @@ MD = REPO / "_data_science" / "2024-12-15-central-limit-theorem.md"
 IMG_DIR = REPO / "images" / "data-science" / "central-limit-theorem"
 NB_FILES = REPO / "_data_science" / "2024-12-15-central-limit-theorem_files"
 CLT_JS_SRC = REPO / "_data_science" / "central-limit-theorem" / "clt-interactive.js"
-CLT_JS_DEST = REPO / "assets" / "js" / "clt-interactive.js"
 SETUP_TAG = "setup"
 
 INTRO_NEW = (
@@ -201,6 +200,37 @@ def _normalize_python_source(source: str) -> str:
     return source.replace("\r\n", "\n").strip("\n")
 
 
+def _setup_fallback_sources(nb: dict, max_cells: int = 2) -> list[str]:
+    """Fallback: first ``max_cells`` code cells under the ``## Setup`` heading."""
+    cells = nb.get("cells", [])
+    setup_heading_idx: int | None = None
+    for idx, cell in enumerate(cells):
+        if cell.get("cell_type") != "markdown":
+            continue
+        text = _cell_to_str(cell)
+        if "## Setup" in text:
+            setup_heading_idx = idx
+            break
+    if setup_heading_idx is None:
+        return []
+
+    setup_sources: list[str] = []
+    for cell in cells[setup_heading_idx + 1 :]:
+        cell_type = cell.get("cell_type")
+        if cell_type == "markdown":
+            text = _cell_to_str(cell).strip()
+            # Stop once we reach the next substantial section heading.
+            if text.startswith("#") and "Setup" not in text:
+                break
+            continue
+        if cell_type != "code":
+            continue
+        setup_sources.append(_normalize_python_source(_cell_to_str(cell)))
+        if len(setup_sources) >= max_cells:
+            break
+    return setup_sources
+
+
 def tagged_code_sources(tag: str) -> list[str]:
     nb = json.loads(NB.read_text(encoding="utf-8"))
     tagged: list[str] = []
@@ -211,7 +241,9 @@ def tagged_code_sources(tag: str) -> list[str]:
         if tag not in tags:
             continue
         tagged.append(_normalize_python_source(_cell_to_str(cell)))
-    return tagged
+    if tagged:
+        return tagged
+    return _setup_fallback_sources(nb)
 
 
 def fix_notebook() -> None:
@@ -257,13 +289,6 @@ def sync_images() -> None:
     for p in NB_FILES.glob("*.png"):
         shutil.copy2(p, IMG_DIR / p.name)
     shutil.rmtree(NB_FILES, ignore_errors=True)
-
-
-def sync_interactive_js() -> None:
-    if not CLT_JS_SRC.is_file():
-        return
-    CLT_JS_DEST.parent.mkdir(parents=True, exist_ok=True)
-    shutil.copy2(CLT_JS_SRC, CLT_JS_DEST)
 
 
 def _numeric_ast_value(node: ast.AST) -> float:
@@ -423,7 +448,7 @@ def _interactive_embed_html(config: dict[str, str | int | float], idx: int) -> s
         "  var existing = document.querySelector('script[data-clt-interactive-loader=\"true\"]');\n"
         "  if (!existing) {\n"
         "    existing = document.createElement('script');\n"
-        "    existing.src = '/assets/js/clt-interactive.js';\n"
+        "    existing.src = '/_data_science/central-limit-theorem/clt-interactive.js';\n"
         "    existing.defer = true;\n"
         "    existing.setAttribute('data-clt-interactive-loader', 'true');\n"
         "    document.head.appendChild(existing);\n"
@@ -533,6 +558,34 @@ def wrap_tagged_setup_code_blocks(md: str, tagged_sources: list[str]) -> str:
     return setup_assets + out
 
 
+def inject_static_plot_images(md: str) -> str:
+    """Append static plot image embeds after matplotlib code fences."""
+    image_names = [
+        "2024-12-15-central-limit-theorem_11_0.png",  # KDE overlay (dice)
+        "2024-12-15-central-limit-theorem_15_0.png",  # Exponential PDF/CDF
+        "2024-12-15-central-limit-theorem_22_0.png",  # Exponential QQ plots
+        "2024-12-15-central-limit-theorem_24_0.png",  # Exponential ECDF vs CDF
+        "2024-12-15-central-limit-theorem_28_0.png",  # Bimodal population PDF
+        "2024-12-15-central-limit-theorem_35_0.png",  # Cauchy means failure case
+    ]
+    static_plot_cursor = 0
+    pattern = re.compile(r"```python\n(.*?)\n```", re.DOTALL)
+
+    def _repl(match: re.Match[str]) -> str:
+        nonlocal static_plot_cursor
+        if static_plot_cursor >= len(image_names):
+            return match.group(0)
+        code = match.group(1)
+        if "plt.show()" not in code or "clt_plotly_interactive(" in code:
+            return match.group(0)
+        image_name = image_names[static_plot_cursor]
+        static_plot_cursor += 1
+        image_md = f"\n\n![Static plot](/images/data-science/central-limit-theorem/{image_name})"
+        return match.group(0) + image_md
+
+    return pattern.sub(_repl, md)
+
+
 def patch_md_file() -> None:
     raw = MD.read_text(encoding="utf-8")
     setup_sources = tagged_code_sources(SETUP_TAG)
@@ -549,8 +602,13 @@ def patch_md_file() -> None:
         "2024-12-15-central-limit-theorem_files/",
         "/images/data-science/central-limit-theorem/",
     )
+    raw = raw.replace(
+        "/assets/js/clt-interactive.js",
+        "/_data_science/central-limit-theorem/clt-interactive.js",
+    )
     raw = replace_interactive_plot_blocks(raw)
     raw = wrap_tagged_setup_code_blocks(raw, setup_sources)
+    raw = inject_static_plot_images(raw)
     raw = re.sub(
         r"\n```\n\n\n    VBox\(children=\(IntSlider\(value=30, continuous_update=False, description='Sample size n', layout=Layout\(width='…\n\n\n",
         "\n```\n\n",
@@ -569,7 +627,6 @@ def main(argv: list[str]) -> int:
     fix_notebook()
     run_nbconvert()
     sync_images()
-    sync_interactive_js()
     patch_md_file()
     return 0
 

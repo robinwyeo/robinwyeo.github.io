@@ -258,7 +258,7 @@
         '<div class="clt-widget">',
         '  <div class="clt-widget__controls">',
         '    <label for="' + containerId + '-slider"><strong>Sample size n:</strong> <span id="' + containerId + '-value"></span></label>',
-        '    <input id="' + containerId + '-slider" type="range" min="1" max="1000" step="1">',
+        '    <input id="' + containerId + '-slider" type="range" min="1" max="250" step="1">',
         '    <span id="' + containerId + '-status" class="clt-widget__status"></span>',
         '  </div>',
         '  <div class="clt-widget__canvas-wrap"><canvas id="' + containerId + '-canvas"></canvas></div>',
