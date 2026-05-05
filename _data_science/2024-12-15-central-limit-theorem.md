@@ -128,7 +128,7 @@ def plot_clt_grid(
     sample_fn,
     pop_mean,
     pop_std,
-    num_trials=50_000,
+    num_trials=10_000,
     suptitle="",
     raw_label="Raw population",
 ):
@@ -179,10 +179,10 @@ def clt_plotly_interactive(
     raw_label="Single draw (n = 1)",
     n_default=1,
     n_values=None,
-    trials=50000,
+    trials=10000,
     seed=42,
     bar_color="rgba(53, 120, 160, 0.68)",
-    hist_bins=120,
+    hist_bins=180,
 ):
     """Render interactive Plotly slider for CLT sample-mean distributions."""
     n_values = sorted({int(n) for n in (n_values or range(1, 121)) if int(n) &gt;= 1})
@@ -278,7 +278,7 @@ Let's now plot a simulation where we roll a six-sided die \\(n\\) times to devel
 (function(){
   function renderWidget(){
     if (window.renderCLTInteractivePlot) {
-      window.renderCLTInteractivePlot("clt-interactive-dice-1", { distribution: "dice", popMean: 3.5, popStd: 1.707825127659933, title: "CLT with Dice Rolls (Discrete Uniform)", rawLabel: "Single roll (n = 1)", nDefault: 1, seed: 42, trials: 50000, fillColor: "rgba(53, 120, 160, 0.68)" });
+      window.renderCLTInteractivePlot("clt-interactive-dice-1", { distribution: "dice", popMean: 3.5, popStd: 1.707825127659933, title: "CLT with Dice Rolls (Discrete Uniform)", rawLabel: "Single roll (n = 1)", nDefault: 1, seed: 42, trials: 10000, fillColor: "rgba(53, 120, 160, 0.68)" });
     }
   }
   if (window.renderCLTInteractivePlot) {
@@ -432,7 +432,7 @@ Now that we've gone over the basics of exponential distributions, let's see how 
 (function(){
   function renderWidget(){
     if (window.renderCLTInteractivePlot) {
-      window.renderCLTInteractivePlot("clt-interactive-exponential-2", { distribution: "exponential", popMean: 1.0, popStd: 1.0, title: "CLT with Exponential Distribution (Wait Times)", rawLabel: "Single draw (n = 1)", nDefault: 1, seed: 84, trials: 50000, fillColor: "rgba(47, 150, 130, 0.68)" });
+      window.renderCLTInteractivePlot("clt-interactive-exponential-2", { distribution: "exponential", popMean: 1.0, popStd: 1.0, title: "CLT with Exponential Distribution (Wait Times)", rawLabel: "Single draw (n = 1)", nDefault: 1, seed: 84, trials: 10000, fillColor: "rgba(47, 150, 130, 0.68)" });
     }
   }
   if (window.renderCLTInteractivePlot) {
@@ -647,7 +647,7 @@ Now let's take sample means.
 (function(){
   function renderWidget(){
     if (window.renderCLTInteractivePlot) {
-      window.renderCLTInteractivePlot("clt-interactive-mixture-3", { distribution: "mixture", popMean: 2.3, popStd: 4.484417464955732, title: "CLT with the Bizarre Bimodal Mixture", rawLabel: "Single draw (n = 1)", nDefault: 1, seed: 126, trials: 50000, fillColor: "rgba(124, 95, 165, 0.68)" });
+      window.renderCLTInteractivePlot("clt-interactive-mixture-3", { distribution: "mixture", popMean: 2.3, popStd: 4.484417464955732, title: "CLT with the Bizarre Bimodal Mixture", rawLabel: "Single draw (n = 1)", nDefault: 1, seed: 126, trials: 10000, fillColor: "rgba(124, 95, 165, 0.68)" });
     }
   }
   if (window.renderCLTInteractivePlot) {
