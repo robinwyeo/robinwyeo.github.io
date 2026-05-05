@@ -40,7 +40,7 @@ permalink: /data-science/central-limit-theorem/
 }());
 </script>
 
-# ![CLT title image](./robinwyeo.github.io/images/data-science/central-limit-theorem/IllustrationCentralTheorem.png)
+# ![CLT title image](/images/data-science/central-limit-theorem/IllustrationCentralTheorem.png)
 
 ---
 
