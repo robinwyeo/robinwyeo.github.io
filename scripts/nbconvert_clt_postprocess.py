@@ -555,6 +555,12 @@ def wrap_tagged_setup_code_blocks(md: str, tagged_sources: list[str]) -> str:
         "}());\n"
         "</script>\n"
     )
+    # Jekyll only recognizes YAML front matter at the very start of the file.
+    if out.startswith("---"):
+        fm_end = out.find("\n---\n", 3)
+        if fm_end != -1:
+            split_at = fm_end + 5
+            return out[:split_at] + setup_assets + out[split_at:]
     return setup_assets + out
 
 

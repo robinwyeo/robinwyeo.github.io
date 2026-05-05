@@ -1,3 +1,10 @@
+---
+title: "Interactive exploration of the Central Limit Theorem"
+date: 2024-12-15
+tags:
+  - Central Limit Theorem
+permalink: /data-science/central-limit-theorem/
+---
 <style>
 .setup-code-collapsible { position: relative; margin: 1.2rem 0; border: 1px solid #d8dee4; border-radius: 10px; background: #fff; }
 .setup-code-toggle { position: absolute; top: 0.55rem; right: 0.55rem; z-index: 1; border: 1px solid #c9d1d9; border-radius: 8px; background: #f6f8fa; color: #24292f; padding: 0.2rem 0.55rem; font-size: 0.82rem; cursor: pointer; }
@@ -32,13 +39,6 @@
   }
 }());
 </script>
----
-title: "Interactive exploration of the Central Limit Theorem"
-date: 2024-12-15
-tags:
-  - Central Limit Theorem
-permalink: /data-science/central-limit-theorem/
----
 
 *Jupyter notebook exploring the Central Limit Theorem.*
 
@@ -786,7 +786,4 @@ I want to emphasize that one of the main reasons that scientists/statisticans ca
 - **Hypothesis tests** (z-tests, t-tests for large \\(n\\)) rely on the same guarantee.
 - **Polling and survey sampling**: the margin of error in an election poll is a direct application of the CLT.
 - **A/B testing**: when you compare conversion rates between two groups, the CLT justifies using a normal approximation for the difference in proportions.
-
-
-
 
