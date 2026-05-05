@@ -10,6 +10,9 @@ tags:
 permalink: /data-science/epic-enhancer-prediction-multi-omics/
 ---
 
+![Title](/images/data-science/epic-enhancer-2022/Enhancer_Title_Image.png)
+_Source: Field & Adelman, 2020_
+
 *Adapted from my oral presentation at Epic Bio BDS Learning Seminar (February 10, 2022)*
 
 ---
@@ -30,7 +33,7 @@ These distal regulatory sites contain cis-regulatory elements, such as enhancers
 ## Characteristics of transcriptional enhancers
 
 ![Figure from slides: characteristics of transcriptional enhancers](/images/data-science/epic-enhancer-2022/cis-regulatory-enhancer-overview.png)
-_Source: Field & Adelman, 2020_
+_Source: Shlyueva, Stampfel, and Stark, 2014_
 
 Enhancers share a set of common characteristics:
 - DNA sequence is non-coding and contains TF binding motifs.
