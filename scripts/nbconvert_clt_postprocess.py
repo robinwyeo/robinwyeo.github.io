@@ -677,10 +677,21 @@ def wrap_tagged_setup_code_blocks(md: str, tagged_sources: list[str]) -> str:
         "</script>\n"
     )
     # Jekyll only recognizes YAML front matter at the very start of the file.
+    # Insert setup assets *after* a leading teaser image (if any) so the site
+    # excerpt (first \\n\\n-separated block) stays the image for archive listings.
+    teaser_after_fm = re.compile(
+        r"^(?:[ \t]*\n)*!\[[^\]]*\]\([^)]+\)(?:[ \t]*\n)+", re.MULTILINE
+    )
+
     if out.startswith("---"):
         fm_end = out.find("\n---\n", 3)
         if fm_end != -1:
             split_at = fm_end + 5
+            rest = out[split_at:]
+            m = teaser_after_fm.match(rest)
+            if m:
+                insert_at = split_at + m.end()
+                return out[:insert_at] + setup_assets + out[insert_at:]
             return out[:split_at] + setup_assets + out[split_at:]
     return setup_assets + out
 

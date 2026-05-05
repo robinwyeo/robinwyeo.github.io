@@ -5,6 +5,9 @@ tags:
   - Central Limit Theorem
 permalink: /data-science/central-limit-theorem/
 ---
+
+![CLT title image](/images/data-science/central-limit-theorem/IllustrationCentralTheorem.png)
+
 <style>
 .setup-code-collapsible { position: relative; margin: 1.2rem 0; }
 .setup-code-toggle { position: absolute; top: 0.55rem; right: 0.55rem; z-index: 2; border: 1px solid #c9d1d9; border-radius: 8px; background: #f6f8fa; color: #24292f; padding: 0.2rem 0.55rem; font-size: 0.82rem; cursor: pointer; }
@@ -39,8 +42,6 @@ permalink: /data-science/central-limit-theorem/
   }
 }());
 </script>
-
-![CLT title image](/images/data-science/central-limit-theorem/IllustrationCentralTheorem.png)
 
 ---
 
