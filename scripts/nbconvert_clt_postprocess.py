@@ -8,6 +8,7 @@ then ``\\\\(`` / ``\\\\)`` so Jekyll does not strip delimiters.
 from __future__ import annotations
 
 import ast
+import html
 import json
 import math
 import re
@@ -28,6 +29,7 @@ IMG_DIR = REPO / "images" / "data-science" / "central-limit-theorem"
 NB_FILES = REPO / "_data_science" / "2024-12-15-central-limit-theorem_files"
 CLT_JS_SRC = REPO / "_data_science" / "central-limit-theorem" / "clt-interactive.js"
 CLT_JS_DEST = REPO / "assets" / "js" / "clt-interactive.js"
+SETUP_TAG = "setup"
 
 INTRO_NEW = (
     "*Jupyter notebook exploring the Central Limit Theorem. "
@@ -193,6 +195,23 @@ def _set_cell_source(cell: dict, text: str) -> None:
     if not lines[-1].endswith("\n"):
         lines[-1] += "\n"
     cell["source"] = lines
+
+
+def _normalize_python_source(source: str) -> str:
+    return source.replace("\r\n", "\n").strip("\n")
+
+
+def tagged_code_sources(tag: str) -> list[str]:
+    nb = json.loads(NB.read_text(encoding="utf-8"))
+    tagged: list[str] = []
+    for cell in nb["cells"]:
+        if cell.get("cell_type") != "code":
+            continue
+        tags = cell.get("metadata", {}).get("tags", [])
+        if tag not in tags:
+            continue
+        tagged.append(_normalize_python_source(_cell_to_str(cell)))
+    return tagged
 
 
 def fix_notebook() -> None:
@@ -436,8 +455,87 @@ def replace_interactive_plot_blocks(md: str) -> str:
     return pattern.sub(_repl, md)
 
 
+def _setup_wrapper_block(code: str, idx: int) -> str:
+    escaped = html.escape(code, quote=False)
+    return (
+        f'<div class="setup-code-collapsible" data-setup-code-id="{idx}">\n'
+        '  <button class="setup-code-toggle" type="button" aria-expanded="false">'
+        "Show setup code</button>\n"
+        '  <div class="setup-code-body" hidden>\n'
+        f'    <pre><code class="language-python">{escaped}</code></pre>\n'
+        "  </div>\n"
+        "</div>"
+    )
+
+
+def wrap_tagged_setup_code_blocks(md: str, tagged_sources: list[str]) -> str:
+    if not tagged_sources:
+        return md
+
+    pattern = re.compile(r"```python\n(.*?)\n```", re.DOTALL)
+    tagged_normalized = [_normalize_python_source(src) for src in tagged_sources]
+    setup_cursor = 0
+    wrapped_count = 0
+
+    def _repl(match: re.Match[str]) -> str:
+        nonlocal setup_cursor, wrapped_count
+        if setup_cursor >= len(tagged_normalized):
+            return match.group(0)
+
+        code = match.group(1)
+        if _normalize_python_source(code) != tagged_normalized[setup_cursor]:
+            return match.group(0)
+
+        setup_cursor += 1
+        wrapped_count += 1
+        return _setup_wrapper_block(code, wrapped_count)
+
+    out = pattern.sub(_repl, md)
+    if wrapped_count == 0:
+        return out
+
+    setup_assets = (
+        "<style>\n"
+        ".setup-code-collapsible { position: relative; margin: 1.2rem 0; border: 1px solid #d8dee4; border-radius: 10px; background: #fff; }\n"
+        ".setup-code-toggle { position: absolute; top: 0.55rem; right: 0.55rem; z-index: 1; border: 1px solid #c9d1d9; border-radius: 8px; background: #f6f8fa; color: #24292f; padding: 0.2rem 0.55rem; font-size: 0.82rem; cursor: pointer; }\n"
+        ".setup-code-body { padding-top: 2.35rem; }\n"
+        ".setup-code-body pre { margin: 0; border-radius: 0 0 10px 10px; }\n"
+        "</style>\n"
+        "<script>\n"
+        "(function() {\n"
+        "  function wireSetupToggles(root) {\n"
+        "    root.querySelectorAll('.setup-code-toggle').forEach(function(btn) {\n"
+        "      if (btn.dataset.bound === '1') return;\n"
+        "      btn.dataset.bound = '1';\n"
+        "      btn.addEventListener('click', function() {\n"
+        "        var body = btn.parentElement.querySelector('.setup-code-body');\n"
+        "        var isOpen = !body.hasAttribute('hidden');\n"
+        "        if (isOpen) {\n"
+        "          body.setAttribute('hidden', 'hidden');\n"
+        "          btn.setAttribute('aria-expanded', 'false');\n"
+        "          btn.textContent = 'Show setup code';\n"
+        "        } else {\n"
+        "          body.removeAttribute('hidden');\n"
+        "          btn.setAttribute('aria-expanded', 'true');\n"
+        "          btn.textContent = 'Hide setup code';\n"
+        "        }\n"
+        "      });\n"
+        "    });\n"
+        "  }\n"
+        "  if (document.readyState === 'loading') {\n"
+        "    document.addEventListener('DOMContentLoaded', function() { wireSetupToggles(document); });\n"
+        "  } else {\n"
+        "    wireSetupToggles(document);\n"
+        "  }\n"
+        "}());\n"
+        "</script>\n"
+    )
+    return setup_assets + out
+
+
 def patch_md_file() -> None:
     raw = MD.read_text(encoding="utf-8")
+    setup_sources = tagged_code_sources(SETUP_TAG)
     if raw.startswith("---"):
         end = raw.find("\n---\n", 3)
         if end != -1:
@@ -452,6 +550,7 @@ def patch_md_file() -> None:
         "/images/data-science/central-limit-theorem/",
     )
     raw = replace_interactive_plot_blocks(raw)
+    raw = wrap_tagged_setup_code_blocks(raw, setup_sources)
     raw = re.sub(
         r"\n```\n\n\n    VBox\(children=\(IntSlider\(value=30, continuous_update=False, description='Sample size n', layout=Layout\(width='…\n\n\n",
         "\n```\n\n",

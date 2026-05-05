@@ -1,3 +1,37 @@
+<style>
+.setup-code-collapsible { position: relative; margin: 1.2rem 0; border: 1px solid #d8dee4; border-radius: 10px; background: #fff; }
+.setup-code-toggle { position: absolute; top: 0.55rem; right: 0.55rem; z-index: 1; border: 1px solid #c9d1d9; border-radius: 8px; background: #f6f8fa; color: #24292f; padding: 0.2rem 0.55rem; font-size: 0.82rem; cursor: pointer; }
+.setup-code-body { padding-top: 2.35rem; }
+.setup-code-body pre { margin: 0; border-radius: 0 0 10px 10px; }
+</style>
+<script>
+(function() {
+  function wireSetupToggles(root) {
+    root.querySelectorAll('.setup-code-toggle').forEach(function(btn) {
+      if (btn.dataset.bound === '1') return;
+      btn.dataset.bound = '1';
+      btn.addEventListener('click', function() {
+        var body = btn.parentElement.querySelector('.setup-code-body');
+        var isOpen = !body.hasAttribute('hidden');
+        if (isOpen) {
+          body.setAttribute('hidden', 'hidden');
+          btn.setAttribute('aria-expanded', 'false');
+          btn.textContent = 'Show setup code';
+        } else {
+          body.removeAttribute('hidden');
+          btn.setAttribute('aria-expanded', 'true');
+          btn.textContent = 'Hide setup code';
+        }
+      });
+    });
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function() { wireSetupToggles(document); });
+  } else {
+    wireSetupToggles(document);
+  }
+}());
+</script>
 ---
 title: "Interactive exploration of the Central Limit Theorem"
 date: 2024-12-15
@@ -6,7 +40,7 @@ tags:
 permalink: /data-science/central-limit-theorem/
 ---
 
-*Jupyter notebook exploring the Central Limit Theorem. The website version uses browser-native JavaScript charts for the interactive sliders, while the notebook source keeps the Python simulation code used for the static figures.*
+*Jupyter notebook exploring the Central Limit Theorem.*
 
 ---
 
@@ -77,8 +111,10 @@ In layman's terms, the above tells us that:
 
 
 
-```python
-import numpy as np
+<div class="setup-code-collapsible" data-setup-code-id="1">
+  <button class="setup-code-toggle" type="button" aria-expanded="false">Show setup code</button>
+  <div class="setup-code-body" hidden>
+    <pre><code class="language-python">import numpy as np
 import matplotlib.pyplot as plt
 from scipy import stats
 import seaborn as sns
@@ -127,12 +163,15 @@ def plot_clt_grid(
 
     fig.suptitle(suptitle, fontsize=15, fontweight="bold", y=1.03)
     fig.tight_layout()
-    plt.show()
-```
+    plt.show()</code></pre>
+  </div>
+</div>
 
 
-```python
-def _sample_means_for_n(distribution, n, trials, rng):
+<div class="setup-code-collapsible" data-setup-code-id="2">
+  <button class="setup-code-toggle" type="button" aria-expanded="false">Show setup code</button>
+  <div class="setup-code-body" hidden>
+    <pre><code class="language-python">def _sample_means_for_n(distribution, n, trials, rng):
     if distribution == "dice":
         return rng.integers(1, 7, size=(trials, n)).mean(axis=1)
 
@@ -140,7 +179,7 @@ def _sample_means_for_n(distribution, n, trials, rng):
         return rng.exponential(scale=1.0, size=(trials, n)).mean(axis=1)
 
     if distribution == "mixture":
-        choose_right = rng.random((trials, n)) < 0.7
+        choose_right = rng.random((trials, n)) &lt; 0.7
         left = rng.normal(-4.0, 1.0, size=(trials, n))
         right = rng.normal(5.0, 2.0, size=(trials, n))
         samples = np.where(choose_right, right, left)
@@ -157,7 +196,7 @@ def clt_plotly_interactive(
     raw_label="Single draw (n = 1)",
     n_default=1,
     n_values=None,
-    trials=2500,
+    trials=50000,
     seed=42,
     bar_color="rgba(53, 120, 160, 0.68)",
     hist_bins=120,
@@ -166,7 +205,7 @@ def clt_plotly_interactive(
     if n_values is None:
         n_values = list(range(1, 121))
 
-    n_values = sorted(set(int(n) for n in n_values if int(n) >= 1))
+    n_values = sorted(set(int(n) for n in n_values if int(n) &gt;= 1))
     if not n_values:
         raise ValueError("n_values must contain at least one positive integer")
 
@@ -261,8 +300,9 @@ def clt_plotly_interactive(
         ],
         height=480,
     )
-    fig.show()
-```
+    fig.show()</code></pre>
+  </div>
+</div>
 
 ---
 
@@ -322,8 +362,6 @@ Let's now plot a simulation of n repeated rolls of a six-sided die to develop so
 }());
 </script>
 
-
-
 Another way to see the convergence is to overlay smooth kernel density estimates (KDEs) for several values of \\(n\\) on a single axis. This makes it easy to watch the distribution tighten and reshape itself into a bell curve.
 
 
@@ -352,12 +390,6 @@ ax.legend(title="Sample size", fontsize=9, title_fontsize=10)
 fig.tight_layout()
 plt.show()
 ```
-
-
-    
-![png](/images/data-science/central-limit-theorem/2024-12-15-central-limit-theorem_11_0.png)
-    
-
 
 **What to notice:**
 
@@ -426,12 +458,6 @@ plt.tight_layout()
 plt.show()
 ```
 
-
-    
-![png](/images/data-science/central-limit-theorem/2024-12-15-central-limit-theorem_15_0.png)
-    
-
-
 Interpretation of the Plots:
 
 - **Left Plot (PDF):** This shows the probability density function (PDF) of the exponential distribution with λ = 1. For continuous distributions, the PDF provides the relative probability that the random variable would be equal to at that point; note that the PDF of any exact value is always zero and that it's the *area under the curve* (equivalent to the CDF) over an interval that actually gives probabilities. For our exponential distribution, the high PDF value at low x values indicates that very short wait times are much more probable than long ones, but there exists a right-sided tail of long wait times with increasingly low probabilities.
@@ -472,8 +498,6 @@ Now that we've gone over the basics of exponential distributions, let's see how 
 }());
 </script>
 
-
-
 Setting \\(n=1\\), we recapitulate the probability density function of the exponential distribution (which is obviously not normal). As we increase our sample size \\(n\\), the histogram looks increasingly like a normal bell curve which is shifted slightly to the left (due to the left-handed skew of exponential distributions). As \\(n\\) gets ioncreasingly large, the CLT demonstrates that the sample mean distrbituion does indeed converge to a standard normal curve.
 
 
@@ -504,12 +528,6 @@ fig.suptitle("Normality Check for Exponential Sample Means", fontsize=14, fontwe
 fig.tight_layout()
 plt.show()
 ```
-
-
-    
-![png](/images/data-science/central-limit-theorem/2024-12-15-central-limit-theorem_22_0.png)
-    
-
 
 Now let's compare the empirical CDF of the sample means directly against the theoretical normal CDF. Where the two curves overlap, the CLT approximation is working well.
 
@@ -545,12 +563,6 @@ fig.suptitle("Empirical vs. Theoretical Normal CDF — Exponential Means",
 fig.tight_layout()
 plt.show()
 ```
-
-
-    
-![png](/images/data-science/central-limit-theorem/2024-12-15-central-limit-theorem_24_0.png)
-    
-
 
 **What to notice:**
 
@@ -612,11 +624,6 @@ def sample_mixture(n):
     )
 ```
 
-    Mixture mean  μ = 2.3
-    Mixture var   σ² = 20.11
-    Mixture std   σ = 4.4844
-
-
 
 ```python
 x_grid = np.linspace(-10, 14, 500)
@@ -633,12 +640,6 @@ ax.legend()
 fig.tight_layout()
 plt.show()
 ```
-
-
-    
-![png](/images/data-science/central-limit-theorem/2024-12-15-central-limit-theorem_28_0.png)
-    
-
 
 This is decidedly not bell-shaped — we've constructed a distribution with two humps of different heights and different widths.
 
@@ -673,8 +674,6 @@ Now let's take sample means.
 }());
 </script>
 
-
-
 ### Normality Check
 
 Now let's introduce a new quantitative check for normality: the **Shapiro-Wilk test** which tests the null hypothesis that a sample comes from a normally distributed population. If the p-value is large (commonly above 0.05), we do not have enough evidence to reject normality, suggesting the data are consistent with a normal distribution. A small p-value indicates the data are unlikely to be normal.
@@ -694,18 +693,6 @@ for n in [2, 5, 10, 30, 50, 100, 250, 500]:
     tag = "≈ normal" if p_val > 0.05 else "not yet normal"
     print(f"{n:>5}   {p_val:>22.6f}   {tag}")
 ```
-
-        n     Shapiro-Wilk p-value   Interpretation
-    ----------------------------------------------------------
-        2                 0.000000   not yet normal
-        5                 0.000000   not yet normal
-       10                 0.000003   not yet normal
-       30                 0.000011   not yet normal
-       50                 0.008947   not yet normal
-      100                 0.133341   ≈ normal
-      250                 0.080117   ≈ normal
-      500                 0.647815   ≈ normal
-
 
 As you can see above, the Shapiro-Wilk test tells us that with increasing \\(n\\), the distribution of the sample mean does indeed become normal.
 
@@ -753,12 +740,6 @@ fig.suptitle("Cauchy Sample Means — The CLT Does NOT Apply", fontsize=15, font
 fig.tight_layout()
 plt.show()
 ```
-
-
-    
-![png](/images/data-science/central-limit-theorem/2024-12-15-central-limit-theorem_35_0.png)
-    
-
 
 **What to notice:**
 
