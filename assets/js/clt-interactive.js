@@ -126,8 +126,8 @@
 
   function simulate(config, n) {
     var rng = seededRandom((config.seed || 1) + n * 1009);
-    var trials = config.trials || 10000;
-    var maxTrials = config.maxTrials || 3000;
+    var trials = config.trials || 5000;
+    var maxTrials = config.maxTrials || 5000;
     if (trials > maxTrials) {
       trials = maxTrials;
     }

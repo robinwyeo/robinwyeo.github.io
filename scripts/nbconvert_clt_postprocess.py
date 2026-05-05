@@ -342,7 +342,7 @@ def _default_interactive_config(distribution: str) -> dict[str, str | int | floa
             "rawLabel": "Single roll (n = 1)",
             "nDefault": 1,
             "seed": 42,
-            "trials": 2500,
+            "trials": 5000,
             "fillColor": "rgba(53, 120, 160, 0.68)",
         },
         "exponential": {
@@ -352,7 +352,7 @@ def _default_interactive_config(distribution: str) -> dict[str, str | int | floa
             "rawLabel": "Single draw (n = 1)",
             "nDefault": 1,
             "seed": 84,
-            "trials": 2500,
+            "trials": 5000,
             "fillColor": "rgba(47, 150, 130, 0.68)",
         },
         "mixture": {
@@ -362,7 +362,7 @@ def _default_interactive_config(distribution: str) -> dict[str, str | int | floa
             "rawLabel": "Single draw (n = 1)",
             "nDefault": 1,
             "seed": 126,
-            "trials": 2500,
+            "trials": 5000,
             "fillColor": "rgba(124, 95, 165, 0.68)",
         },
     }
@@ -696,8 +696,33 @@ def wrap_tagged_setup_code_blocks(md: str, tagged_sources: list[str]) -> str:
     return setup_assets + out
 
 
+def dedent_nbconvert_table_output(text: str) -> str:
+    """Remove nbconvert's 4-space indent before stdout so ``|`` tables parse as GFM."""
+    lines = text.splitlines(keepends=True)
+    out: list[str] = []
+    i = 0
+    n = len(lines)
+    prefix = "    |"
+    while i < n:
+        if lines[i].startswith(prefix):
+            j = i
+            while j < n and lines[j].startswith(prefix):
+                j += 1
+            if j - i >= 3:
+                for k in range(i, j):
+                    out.append(lines[k][4:])
+            else:
+                out.extend(lines[i:j])
+            i = j
+            continue
+        out.append(lines[i])
+        i += 1
+    return "".join(out)
+
+
 def patch_md_file() -> None:
     raw = MD.read_text(encoding="utf-8")
+    raw = dedent_nbconvert_table_output(raw)
     setup_sources = tagged_code_sources(SETUP_TAG)
     if raw.startswith("---"):
         end = raw.find("\n---\n", 3)

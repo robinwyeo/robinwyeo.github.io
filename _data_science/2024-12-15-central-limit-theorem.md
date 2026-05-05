@@ -42,7 +42,6 @@ permalink: /data-science/central-limit-theorem/
   }
 }());
 </script>
-
 ---
 
 
@@ -129,7 +128,7 @@ In layman's terms, the above equations tell us that:
     <span class="n">sample_fn</span><span class="p">,</span>
     <span class="n">pop_mean</span><span class="p">,</span>
     <span class="n">pop_std</span><span class="p">,</span>
-    <span class="n">num_trials</span><span class="o">=</span><span class="mi">10_000</span><span class="p">,</span>
+    <span class="n">num_trials</span><span class="o">=</span><span class="mi">5_000</span><span class="p">,</span>
     <span class="n">suptitle</span><span class="o">=</span><span class="s2">""</span><span class="p">,</span>
     <span class="n">raw_label</span><span class="o">=</span><span class="s2">"Raw population"</span><span class="p">,</span>
 <span class="p">)</span><span class="p">:</span>
@@ -181,7 +180,7 @@ In layman's terms, the above equations tell us that:
     <span class="n">raw_label</span><span class="o">=</span><span class="s2">"Single draw (n = 1)"</span><span class="p">,</span>
     <span class="n">n_default</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
     <span class="n">n_values</span><span class="o">=</span><span class="k">None</span><span class="p">,</span>
-    <span class="n">trials</span><span class="o">=</span><span class="mi">10000</span><span class="p">,</span>
+    <span class="n">trials</span><span class="o">=</span><span class="mi">5000</span><span class="p">,</span>
     <span class="n">seed</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span>
     <span class="n">bar_color</span><span class="o">=</span><span class="s2">"rgba(53, 120, 160, 0.68)"</span><span class="p">,</span>
     <span class="n">hist_bins</span><span class="o">=</span><span class="mi">180</span><span class="p">,</span>
@@ -281,7 +280,7 @@ Let's now plot a simulation where we roll a six-sided die \\(n\\) times to devel
 (function(){
   function renderWidget(){
     if (window.renderCLTInteractivePlot) {
-      window.renderCLTInteractivePlot("clt-interactive-dice-1", { distribution: "dice", popMean: 3.5, popStd: 1.707825127659933, title: "CLT with Dice Rolls (Discrete Uniform)", rawLabel: "Single roll (n = 1)", nDefault: 1, seed: 42, trials: 10000, fillColor: "rgba(53, 120, 160, 0.68)" });
+      window.renderCLTInteractivePlot("clt-interactive-dice-1", { distribution: "dice", popMean: 3.5, popStd: 1.707825127659933, title: "CLT with Dice Rolls (Discrete Uniform)", rawLabel: "Single roll (n = 1)", nDefault: 1, seed: 42, trials: 5000, fillColor: "rgba(53, 120, 160, 0.68)" });
     }
   }
   if (window.renderCLTInteractivePlot) {
@@ -431,7 +430,7 @@ Now that we've gone over the basics of exponential distributions, let's see how 
 (function(){
   function renderWidget(){
     if (window.renderCLTInteractivePlot) {
-      window.renderCLTInteractivePlot("clt-interactive-exponential-2", { distribution: "exponential", popMean: 1.0, popStd: 1.0, title: "CLT with Exponential Distribution (Wait Times)", rawLabel: "Single draw (n = 1)", nDefault: 1, seed: 84, trials: 10000, fillColor: "rgba(47, 150, 130, 0.68)" });
+      window.renderCLTInteractivePlot("clt-interactive-exponential-2", { distribution: "exponential", popMean: 1.0, popStd: 1.0, title: "CLT with Exponential Distribution (Wait Times)", rawLabel: "Single draw (n = 1)", nDefault: 1, seed: 84, trials: 5000, fillColor: "rgba(47, 150, 130, 0.68)" });
     }
   }
   if (window.renderCLTInteractivePlot) {
@@ -535,7 +534,7 @@ plt.show()
 
 **What to notice:**
 
-- At \\(n = 5\\), the CDFs are clearly not perflectly overlapping and we observe a good amount of skew in the Q-Q plot tails.
+- At \\(n = 5\\), the CDFs are clearly not perfectly overlapping and we observe a good amount of skew in the Q-Q plot tails.
 - At \\(n = 30\\), the histogram is convincingly bell-shaped, and the Q-Q plot is close to linear with only mild deviation in the tails.
 - At \\(n = 100\\), the normal fit is excellent though the Q-Q plot still displays some mild deviation in the tails.
 
@@ -639,7 +638,7 @@ Now let's take sample means.
 (function(){
   function renderWidget(){
     if (window.renderCLTInteractivePlot) {
-      window.renderCLTInteractivePlot("clt-interactive-mixture-3", { distribution: "mixture", popMean: 2.3, popStd: 4.484417464955732, title: "CLT with the Bizarre Bimodal Mixture", rawLabel: "Single draw (n = 1)", nDefault: 1, seed: 126, trials: 10000, fillColor: "rgba(124, 95, 165, 0.68)" });
+      window.renderCLTInteractivePlot("clt-interactive-mixture-3", { distribution: "mixture", popMean: 2.3, popStd: 4.484417464955732, title: "CLT with the Bizarre Bimodal Mixture", rawLabel: "Single draw (n = 1)", nDefault: 1, seed: 126, trials: 5000, fillColor: "rgba(124, 95, 165, 0.68)" });
     }
   }
   if (window.renderCLTInteractivePlot) {
@@ -667,38 +666,38 @@ Now let's take sample means.
 
 Next we'll introduce a new quantitative check for normality: the **Shapiro-Wilk test** which tests the null hypothesis that a sample comes from a normally distributed population. If the p-value is large (commonly above 0.05), we do not have enough evidence to reject normality, suggesting the data are consistent with a normal distribution. A small p-value indicates the data are unlikely to be normal.
 
-Lety's use Python's *stats* package to calculate the Shapiro-Wilk test for increasing \\(n\\) below.
+Let's use Python's *stats* package to calculate the Shapiro-Wilk test for increasing \\(n\\) below.
 
 
 
 ```python
 np.random.seed(5)
-print(f"{'n':>5}   {'Shapiro-Wilk p-value':>22}   Interpretation")
-print("-" * 58)
-
+rows = []
 for n in [2, 5, 10, 30, 50, 100, 250, 500]:
     means = np.array([sample_mixture(n).mean() for _ in range(5_000)])
     _, p_val = stats.shapiro(means)
     tag = "≈ normal" if p_val > 0.05 else "not yet normal"
-    print(f"{n:>5}   {p_val:>22.6f}   {tag}")
+    rows.append((n, p_val, tag))
+
+lines = [
+    "| n | Shapiro-Wilk p-value | Interpretation |",
+    "|---:|---:|---|",
+]
+for n, p_val, tag in rows:
+    lines.append(f"| {n} | {p_val:.6f} | {tag} |")
+print("\n".join(lines))
 ```
 
-        n     Shapiro-Wilk p-value   Interpretation
-    ----------------------------------------------------------
-        2                 0.000000   not yet normal
-        5                 0.000000   not yet normal
-       10                 0.000003   not yet normal
-
-
-       30                 0.000011   not yet normal
-       50                 0.008947   not yet normal
-      100                 0.133341   ≈ normal
-
-
-      250                 0.080117   ≈ normal
-
-
-      500                 0.647815   ≈ normal
+| n | Shapiro-Wilk p-value | Interpretation |
+|---:|---:|---|
+| 2 | 0.000000 | not yet normal |
+| 5 | 0.000000 | not yet normal |
+| 10 | 0.000003 | not yet normal |
+| 30 | 0.000011 | not yet normal |
+| 50 | 0.008947 | not yet normal |
+| 100 | 0.133341 | ≈ normal |
+| 250 | 0.080117 | ≈ normal |
+| 500 | 0.647815 | ≈ normal |
 
 
 As you can see above, the Shapiro-Wilk test tells us that with increasing \\(n\\), the distribution of the sample mean does indeed become normal.
@@ -714,7 +713,7 @@ The **Cauchy distribution** (equivalently, a \\(t\\)-distribution with 1 degree 
 
 $$f(x) = \frac{1}{\pi(1 + x^2)}$$
 
-Its tails are so heavy that neither the mean nor the variance exist (\\(E\text{[}|X|\text{]} = \infty\\)).
+Its tails are so heavy that neither the mean nor the variance exist (\\(E[\lvert X \rvert] = \infty\\)).
 
 Remarkably, the distribution of the sample mean of \\(n\\) Cauchy draws is *itself* Cauchy (not normal)—no matter how large \\(n\\) is!
 
