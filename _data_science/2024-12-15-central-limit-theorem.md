@@ -116,6 +116,7 @@ In layman's terms, the above tells us that:
 import matplotlib.pyplot as plt
 from scipy import stats
 import seaborn as sns
+import plotly.graph_objects as go
 
 np.random.seed(42)
 sns.set_theme(style="whitegrid", font_scale=1.1)
@@ -299,7 +300,9 @@ Let's now plot a simulation where we roll a six-sided die \\(n\\) times to devel
 }());
 </script>
 
-Another way to see the convergence is to overlay smooth kernel density estimates (KDEs) for several values of \\(n\\) on a single axis. This makes it easy to watch the distribution tighten and reshape itself into a bell curve.
+
+
+Another way to visualize this convergence is to overlay smooth kernel density estimates (KDEs) for several values of \\(n\\) on a single axis. This makes it easy to watch the distribution tighten and reshape itself into a bell curve.
 
 
 
@@ -330,18 +333,20 @@ plt.show()
 
 ![Static plot](/images/data-science/central-limit-theorem/2024-12-15-central-limit-theorem_11_0.png)
 
-![Static plot](/images/data-science/central-limit-theorem/2024-12-15-central-limit-theorem_11_0.png)
 
-![Static plot](/images/data-science/central-limit-theorem/2024-12-15-central-limit-theorem_11_0.png)
+    
+![png](/images/data-science/central-limit-theorem/2024-12-15-central-limit-theorem_11_0.png)
+    
+
 
 **What to notice:**
 
-- At \\(n = 1\\) the histogram is flat — the raw uniform distribution.
+- At \\(n = 1\\) the histogram is flat — this is the raw uniform distribution of rolling a single die.
 - At \\(n = 3\\) the bell curve begins to appear though with clear discrete values (since its simply the convolution of 3 uniform distributions).
 - At \\(n = 10\\) there is a recognizable bell curve shape though not perfectly normal.
 - At \\(n = 30\\) the fit to the theoretical normal (dashed line) distribution is nearly perfect.
 
-Because the die is symmetric, convergence is fast (as seen above with convergence occuring by \\(n = 30\\) ). In the next section we'll explore a distribution that is far from symmetric, and see how well the CLT handles that.
+Because the die is symmetric, convergence is fast (as seen above with convergence occuring by \\(n=30\\)). In the next section we'll explore a distribution that is far from symmetric, and see how well the CLT handles that.
 
 
 ---
@@ -354,7 +359,7 @@ This is a classic example in many introductory statistics textbooks that can be 
 
 $$\boxed{f(x) = \lambda e^{- \lambda x}, \quad x \geq 0}$$
 
-Thus, the cumulative distribution function F(a) of an exponential random variable is given by:
+The cumulative distribution function F(a) of an exponential random variable is given by:
 
 $$
 F(a) = P(X \leq a) = \int_{0}^{a} \lambda e^{-\lambda x}\,dx = 1 - e^{-\lambda a}, \quad a \geq 0
@@ -366,7 +371,7 @@ Exponential distributions have the following properties:
 - **Heavily right-skewed** (most waits are short, but a few are very long - see PDF plot below)
 
 
-To simplify things for an example below, let's set \\(\lambda = 1\\). Then the probability density function \\(f(x)\\) and cumulative distribution function \\(F(a)\\) simplify to:
+To simplify things for an example below, let's set parameter \\(\lambda = 1\\). Then the probability density function \\(f(x)\\) and cumulative distribution function \\(F(a)\\) simplify to:
 
 $$f(x) = e^{-x}, \quad x \geq 0, \qquad \mu = 1, \qquad \sigma = 1$$
 
@@ -403,9 +408,11 @@ plt.show()
 
 ![Static plot](/images/data-science/central-limit-theorem/2024-12-15-central-limit-theorem_15_0.png)
 
-![Static plot](/images/data-science/central-limit-theorem/2024-12-15-central-limit-theorem_15_0.png)
 
-![Static plot](/images/data-science/central-limit-theorem/2024-12-15-central-limit-theorem_15_0.png)
+    
+![png](/images/data-science/central-limit-theorem/2024-12-15-central-limit-theorem_15_0.png)
+    
+
 
 Interpretation of the Plots:
 
@@ -447,17 +454,19 @@ Now that we've gone over the basics of exponential distributions, let's see how 
 }());
 </script>
 
-Setting \\(n=1\\), we recapitulate the probability density function of the exponential distribution (which is obviously not normal). As we increase our sample size \\(n\\), the histogram looks increasingly like a normal bell curve which is shifted slightly to the left (due to the left-handed skew of exponential distributions). As \\(n\\) gets ioncreasingly large, the CLT demonstrates that the sample mean distrbituion does indeed converge to a standard normal curve.
+
+
+Setting \\(n=1\\), we recapitulate the probability density function of the exponential distribution (which is obviously not normal). As we increase our sample size \\(n\\), the histogram looks increasingly like a normal bell curve which is shifted slightly to the left (due to the left-handed skew of exponential distributions). As \\(n\\) gets increasingly large, the CLT demonstrates that the sample mean distrbituion does indeed converge to a standard normal curve.
 
 
 ### Normality checks
 
 Now let's perform two different checks for normality at three different increasing values of \\(n\\):
 - generating Q-Q plots
-- fitting the empirical CDF to the normal CDF
+- fitting the empirical CDF to the theoretical normal CDF
 
 
-First let's add **Q-Q plots** for \\(n = 5\\), \\(n = 30\\), and \\(n = 100\\) for a more empirical evaluation of whether these distributions at different \\(n\\) values are truly normal. Q-Q plots are used to assess if an empirical distribution matches a theoretical normal distribution (often used in science to evaluate if a particular stasticial significant test that requires normality, such as a t-test, is appropriate for a given dataset). If the distributions of the sample mean at \\(n = 5\\), \\(n = 30\\), and \\(n = 100\\) are truly normal, the points will lie on a straight line in the below Q-Q plots.
+First let's add Q-Q plots for \\(n = 5\\), \\(n = 30\\), and \\(n = 100\\) for a more empirical evaluation of whether these distributions at different \\(n\\) values are truly normal. Q-Q plots are used to assess if an empirical distribution matches a theoretical normal distribution (often used in science to evaluate if a particular stasticial significant test that requires normality, such as a t-test, is appropriate for a given dataset). If the distributions of the sample mean at \\(n = 5\\), \\(n = 30\\), and \\(n = 100\\) are truly normal, the points will lie on a straight line in the below Q-Q plots.
 
 
 
@@ -480,9 +489,11 @@ plt.show()
 
 ![Static plot](/images/data-science/central-limit-theorem/2024-12-15-central-limit-theorem_22_0.png)
 
-![Static plot](/images/data-science/central-limit-theorem/2024-12-15-central-limit-theorem_22_0.png)
 
-![Static plot](/images/data-science/central-limit-theorem/2024-12-15-central-limit-theorem_22_0.png)
+    
+![png](/images/data-science/central-limit-theorem/2024-12-15-central-limit-theorem_22_0.png)
+    
+
 
 Now let's compare the empirical CDF of the sample means directly against the theoretical normal CDF. Where the two curves overlap, the CLT approximation is working well.
 
@@ -521,9 +532,11 @@ plt.show()
 
 ![Static plot](/images/data-science/central-limit-theorem/2024-12-15-central-limit-theorem_24_0.png)
 
-![Static plot](/images/data-science/central-limit-theorem/2024-12-15-central-limit-theorem_24_0.png)
 
-![Static plot](/images/data-science/central-limit-theorem/2024-12-15-central-limit-theorem_24_0.png)
+    
+![png](/images/data-science/central-limit-theorem/2024-12-15-central-limit-theorem_24_0.png)
+    
+
 
 **What to notice:**
 
@@ -539,15 +552,23 @@ Because the exponential distribution has a skewness of 2, it takes a larger \\(n
 
 ## 2.3 A Custom Bimodal Mixture ("Weird" Distribution)
 
-To really stress-test the CLT, let's construct a distribution that is deliberately weird — **bimodal, asymmetric, and with unequal spread in each mode**.
+In this last example, I want to construct a distribution that is deliberately weird — **bimodal, asymmetric, and with unequal spread in each mode** to stress test the CLT.
 
-Define \\(X\\) as a mixture:
+Define \\(X\\) as a mixture of two normal distributions such that:
 
 $$X \sim 0.3\;\mathcal{N}(-4,\, 1) \;+\; 0.7\;\mathcal{N}(5,\, 4)$$
 
 ### Deriving the population moments
 
-For a mixture \\(X = \begin{cases} Y_1 & \text{with prob } p \\ Y_2 & \text{with prob } 1-p \end{cases}\\) where \\(p = 0.3\\), \\(Y_1 \sim \mathcal{N}(\mu_1, \sigma_1^2)\\), \\(Y_2 \sim \mathcal{N}(\mu_2, \sigma_2^2)\\):
+For a mixture distribution:  
+$$
+    X =
+    \begin{cases}
+        Y_1 & \text{with probability}\ p \\
+        Y_2 & \text{with probability}\ 1-p
+    \end{cases}
+$$
+where \\(p = 0.3\\), \\(Y_1 \sim \mathcal{N}(\mu_1, \sigma_1^2)\\), and \\(Y_2 \sim \mathcal{N}(\mu_2, \sigma_2^2)\\):
 
 We can calculate the mean and variance as follows:
 
@@ -555,9 +576,9 @@ $$\mu = p\,\mu_1 + (1-p)\,\mu_2 = 0.3(-4) + 0.7(5) = -1.2 + 3.5 = 2.3$$
 
 $$\sigma^2 = \underbrace{p\,\sigma_1^2 + (1-p)\,\sigma_2^2}_{\text{within-component}} + \underbrace{p(1-p)(\mu_1 - \mu_2)^2}_{\text{between-component}} = 0.3(1) + 0.7(4) + 0.3 \times 0.7 \times (-4-5)^2 = 0.3 + 2.8 + 17.01 = 20.11$$
 
-Even though this is a weird-looking bimodal distrubution we've built, recall from the introduction that the only two key requirements for the CLT to hold are **independence** and **finite variance**, both of which are satisfied by our above constructed mixture.
+Even though this is a weird-looking bimodal distribution we've built, recall from the introduction that the only two key requirements for the CLT to hold are **independence** and **finite mean+variance**, both of which are satisfied by our above constructed mixture.
 
-Now let's see what this distribution looks like and convince ourselves that the CLT can still pull sample means toward a normal distrbution.
+Now let's see what this distribution looks like and convince ourselves that the CLT can still pull sample means toward a normal distrbution for large \\(n\\).
 
 
 
@@ -585,6 +606,11 @@ def sample_mixture(n):
     )
 ```
 
+    Mixture mean  μ = 2.3
+    Mixture var   σ² = 20.11
+    Mixture std   σ = 4.4844
+
+
 
 ```python
 x_grid = np.linspace(-10, 14, 500)
@@ -604,11 +630,13 @@ plt.show()
 
 ![Static plot](/images/data-science/central-limit-theorem/2024-12-15-central-limit-theorem_28_0.png)
 
-![Static plot](/images/data-science/central-limit-theorem/2024-12-15-central-limit-theorem_28_0.png)
 
-![Static plot](/images/data-science/central-limit-theorem/2024-12-15-central-limit-theorem_28_0.png)
+    
+![png](/images/data-science/central-limit-theorem/2024-12-15-central-limit-theorem_28_0.png)
+    
 
-This is decidedly not bell-shaped — we've constructed a distribution with two humps of different heights and different widths.
+
+This is obviously far from our normal bell-shaped curve — we've constructed a distribution with two humps of different heights and different widths.
 
 Now let's take sample means.
 
@@ -641,9 +669,11 @@ Now let's take sample means.
 }());
 </script>
 
+
+
 ### Normality Check
 
-Now let's introduce a new quantitative check for normality: the **Shapiro-Wilk test** which tests the null hypothesis that a sample comes from a normally distributed population. If the p-value is large (commonly above 0.05), we do not have enough evidence to reject normality, suggesting the data are consistent with a normal distribution. A small p-value indicates the data are unlikely to be normal.
+Next we'll introduce a new quantitative check for normality: the **Shapiro-Wilk test** which tests the null hypothesis that a sample comes from a normally distributed population. If the p-value is large (commonly above 0.05), we do not have enough evidence to reject normality, suggesting the data are consistent with a normal distribution. A small p-value indicates the data are unlikely to be normal.
 
 Lety's use Python's *stats* package to calculate the Shapiro-Wilk test for increasing \\(n\\) below.
 
@@ -661,6 +691,18 @@ for n in [2, 5, 10, 30, 50, 100, 250, 500]:
     print(f"{n:>5}   {p_val:>22.6f}   {tag}")
 ```
 
+        n     Shapiro-Wilk p-value   Interpretation
+    ----------------------------------------------------------
+        2                 0.000000   not yet normal
+        5                 0.000000   not yet normal
+       10                 0.000003   not yet normal
+       30                 0.000011   not yet normal
+       50                 0.008947   not yet normal
+      100                 0.133341   ≈ normal
+      250                 0.080117   ≈ normal
+      500                 0.647815   ≈ normal
+
+
 As you can see above, the Shapiro-Wilk test tells us that with increasing \\(n\\), the distribution of the sample mean does indeed become normal.
 
 
@@ -674,7 +716,7 @@ The **Cauchy distribution** (equivalently, a \\(t\\)-distribution with 1 degree 
 
 $$f(x) = \frac{1}{\pi(1 + x^2)}$$
 
-Its tails are so heavy that neither the mean nor the variance exist (\\(E\text{[}|X|\text{]} = \infty\\)). Remarkably, the distribution of the sample mean of \\(n\\) Cauchy draws is *itself* Cauchy — no matter how large \\(n\\) is!
+Its tails are so heavy that neither the mean nor the variance exist (\\(E\text{[}|X|\text{]} = \infty\\)). Remarkably, the distribution of the sample mean of \\(n\\) Cauchy draws is *itself* Cauchy (not normal) — no matter how large \\(n\\) is!
 
 
 
@@ -710,9 +752,11 @@ plt.show()
 
 ![Static plot](/images/data-science/central-limit-theorem/2024-12-15-central-limit-theorem_35_0.png)
 
-![Static plot](/images/data-science/central-limit-theorem/2024-12-15-central-limit-theorem_35_0.png)
 
-![Static plot](/images/data-science/central-limit-theorem/2024-12-15-central-limit-theorem_35_0.png)
+    
+![png](/images/data-science/central-limit-theorem/2024-12-15-central-limit-theorem_35_0.png)
+    
+
 
 **What to notice:**
 
@@ -724,7 +768,7 @@ plt.show()
 
 ## Conclusion
 
-We tested the Central Limit Theorem against three very different distributions:
+My goal in writing this was to introduce the reader to the Central Limit Theorem (CLT) and deepen my own intuition for it by trying to break it down for a general audience. To do this I walked us through three very different examples to demonstrate that the CLT holds regardless of underlying distributions as long as its key requirements were met:
 
 | Simulation | Distribution | Key property | Convergence speed |
 |---|---|---|---|
@@ -734,10 +778,15 @@ We tested the Central Limit Theorem against three very different distributions:
 
 In all three cases we see that the CLT holds: sample means became approximately normal as \\(n\\) grew. In contrast, simulating a Cauchy distribution (which violates the finite variance requirement of the CLT) showed us that its sample means never become normal no matter how large \\(n\\) gets.
 
+I want to emphasize that one of the main reasons that scientists/statisticans care about the CLT is that it gives us access to an entire toolbox of statistical tests and tricks that only operate on normal distributions - the CLT allows us to use this toolbox to analyze sampling distributions for the vast majority of natural phenomena.
+
 ### Practical implications
 
 - **Confidence intervals** (\\(\bar{x} \pm z^* \sigma / \sqrt{n}\\)) work because the CLT guarantees that \\(\bar{X}_n\\) is approximately normal.
 - **Hypothesis tests** (z-tests, t-tests for large \\(n\\)) rely on the same guarantee.
 - **Polling and survey sampling**: the margin of error in an election poll is a direct application of the CLT.
 - **A/B testing**: when you compare conversion rates between two groups, the CLT justifies using a normal approximation for the difference in proportions.
+
+
+
 
