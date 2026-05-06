@@ -118,7 +118,7 @@ ggpairs(iris, columns = 1:4, aes(color = Species, alpha = 0.5)) + theme_minimal(
 
 ![Iris ggpairs](/images/data-science/pca/iris_ggpairs.png)
 
-This works great for 4 features -- we get a nice summary of how the different features relate to one another, requiring $ \binom{4}{2} $ scatterplots. However, the number of plots needed grows combinatorially with features (e.g. 10 features requires 45 plots, 100 features requires 4,950 plots).
+This works great for 4 features -- we get a nice summary of how the different features relate to one another, requiring $\binom{4}{2}$ scatterplots. However, the number of plots needed grows combinatorially with features (e.g. 10 features requires 45 plots, 100 features requires 4,950 plots).
 
 ### PCA to the rescue
 
@@ -405,6 +405,7 @@ Key differences:
 - **PCA**: Linear; distances in PCA plots have quantitative meaning; great for bulk data
 - **t-SNE**: Non-linear; preserves local structure; distances between clusters are not meaningful
 - **UMAP**: Non-linear; preserves both local and some global structure; faster than t-SNE
+
 ---
 
 ## Benefits and Limitations of PCA
