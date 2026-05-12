@@ -1,0 +1,278 @@
+{
+  "Struthioniformes": {
+    "color": "#E63946",
+    "n_species": 2,
+    "english": "Ostriches",
+    "label": "Struthioniformes — Ostriches (2 sp)"
+  },
+  "Casuariiformes": {
+    "color": "#F4A261",
+    "n_species": 4,
+    "english": "Cassowaries & emus",
+    "label": "Casuariiformes — Cassowaries & emus (4 sp)"
+  },
+  "Apterygiformes": {
+    "color": "#2A9D8F",
+    "n_species": 5,
+    "english": "Kiwis",
+    "label": "Apterygiformes — Kiwis (5 sp)"
+  },
+  "Rheiformes": {
+    "color": "#457B9D",
+    "n_species": 2,
+    "english": "Rheas",
+    "label": "Rheiformes — Rheas (2 sp)"
+  },
+  "Tinamiformes": {
+    "color": "#6A4C93",
+    "n_species": 46,
+    "english": "Tinamous",
+    "label": "Tinamiformes — Tinamous (46 sp)"
+  },
+  "Anseriformes": {
+    "color": "#F72585",
+    "n_species": 176,
+    "english": "Ducks, geese & swans",
+    "label": "Anseriformes — Ducks, geese & swans (176 sp)"
+  },
+  "Galliformes": {
+    "color": "#4CC9F0",
+    "n_species": 307,
+    "english": "Gamebirds (pheasants, quail, turkeys…)",
+    "label": "Galliformes — Gamebirds (pheasants, quail, turkeys…) (307 sp)"
+  },
+  "Phoenicopteriformes": {
+    "color": "#06D6A0",
+    "n_species": 6,
+    "english": "Flamingos",
+    "label": "Phoenicopteriformes — Flamingos (6 sp)"
+  },
+  "Podicipediformes": {
+    "color": "#FB8500",
+    "n_species": 22,
+    "english": "Grebes",
+    "label": "Podicipediformes — Grebes (22 sp)"
+  },
+  "Musophagiformes": {
+    "color": "#3A86FF",
+    "n_species": 23,
+    "english": "Turacos",
+    "label": "Musophagiformes — Turacos (23 sp)"
+  },
+  "Otidiformes": {
+    "color": "#FF006E",
+    "n_species": 26,
+    "english": "Bustards",
+    "label": "Otidiformes — Bustards (26 sp)"
+  },
+  "Cuculiformes": {
+    "color": "#8338EC",
+    "n_species": 156,
+    "english": "Cuckoos & allies",
+    "label": "Cuculiformes — Cuckoos & allies (156 sp)"
+  },
+  "Mesitornithiformes": {
+    "color": "#FFBE0B",
+    "n_species": 3,
+    "english": "Mesites",
+    "label": "Mesitornithiformes — Mesites (3 sp)"
+  },
+  "Pterocliformes": {
+    "color": "#38B000",
+    "n_species": 16,
+    "english": "Sandgrouse",
+    "label": "Pterocliformes — Sandgrouse (16 sp)"
+  },
+  "Columbiformes": {
+    "color": "#D00000",
+    "n_species": 350,
+    "english": "Pigeons & doves",
+    "label": "Columbiformes — Pigeons & doves (350 sp)"
+  },
+  "Opisthocomiformes": {
+    "color": "#023E8A",
+    "n_species": 1,
+    "english": "Hoatzin",
+    "label": "Opisthocomiformes — Hoatzin (1 sp)"
+  },
+  "Gruiformes": {
+    "color": "#9B2226",
+    "n_species": 185,
+    "english": "Cranes, rails & coots",
+    "label": "Gruiformes — Cranes, rails & coots (185 sp)"
+  },
+  "Charadriiformes": {
+    "color": "#AE2012",
+    "n_species": 392,
+    "english": "Shorebirds, gulls & auks",
+    "label": "Charadriiformes — Shorebirds, gulls & auks (392 sp)"
+  },
+  "Eurypygiformes": {
+    "color": "#CA6702",
+    "n_species": 2,
+    "english": "Sunbittern & kagu",
+    "label": "Eurypygiformes — Sunbittern & kagu (2 sp)"
+  },
+  "Phaethontiformes": {
+    "color": "#EE9B00",
+    "n_species": 3,
+    "english": "Tropicbirds",
+    "label": "Phaethontiformes — Tropicbirds (3 sp)"
+  },
+  "Gaviiformes": {
+    "color": "#94D2BD",
+    "n_species": 5,
+    "english": "Loons / divers",
+    "label": "Gaviiformes — Loons / divers (5 sp)"
+  },
+  "Sphenisciformes": {
+    "color": "#0A9396",
+    "n_species": 19,
+    "english": "Penguins",
+    "label": "Sphenisciformes — Penguins (19 sp)"
+  },
+  "Procellariiformes": {
+    "color": "#005F73",
+    "n_species": 146,
+    "english": "Albatrosses, petrels & shearwaters",
+    "label": "Procellariiformes — Albatrosses, petrels & shearwaters (146 sp)"
+  },
+  "Ciconiiformes": {
+    "color": "#D62828",
+    "n_species": 20,
+    "english": "Storks, herons & ibises",
+    "label": "Ciconiiformes — Storks, herons & ibises (20 sp)"
+  },
+  "Suliformes": {
+    "color": "#F77F00",
+    "n_species": 54,
+    "english": "Cormorants, boobies & frigatebirds",
+    "label": "Suliformes — Cormorants, boobies & frigatebirds (54 sp)"
+  },
+  "Pelecaniformes": {
+    "color": "#FCBF49",
+    "n_species": 120,
+    "english": "Pelicans, herons & ibises",
+    "label": "Pelecaniformes — Pelicans, herons & ibises (120 sp)"
+  },
+  "Caprimulgiformes": {
+    "color": "#84A98C",
+    "n_species": 98,
+    "english": "Nightjars, nighthawks & allies",
+    "label": "Caprimulgiformes — Nightjars, nighthawks & allies (98 sp)"
+  },
+  "Steatornithiformes": {
+    "color": "#52B788",
+    "n_species": 1,
+    "english": "Oilbird",
+    "label": "Steatornithiformes — Oilbird (1 sp)"
+  },
+  "Nyctibiiformes": {
+    "color": "#2D6A4F",
+    "n_species": 7,
+    "english": "Potoos",
+    "label": "Nyctibiiformes — Potoos (7 sp)"
+  },
+  "Podargiformes": {
+    "color": "#40916C",
+    "n_species": 16,
+    "english": "Frogmouths",
+    "label": "Podargiformes — Frogmouths (16 sp)"
+  },
+  "Aegotheliformes": {
+    "color": "#74C69D",
+    "n_species": 10,
+    "english": "Owlet-nightjars",
+    "label": "Aegotheliformes — Owlet-nightjars (10 sp)"
+  },
+  "Apodiformes": {
+    "color": "#74B3CE",
+    "n_species": 472,
+    "english": "Swifts & hummingbirds",
+    "label": "Apodiformes — Swifts & hummingbirds (472 sp)"
+  },
+  "Strigiformes": {
+    "color": "#508CA4",
+    "n_species": 245,
+    "english": "Owls",
+    "label": "Strigiformes — Owls (245 sp)"
+  },
+  "Cathartiformes": {
+    "color": "#5C5C8A",
+    "n_species": 7,
+    "english": "New World vultures",
+    "label": "Cathartiformes — New World vultures (7 sp)"
+  },
+  "Accipitriformes": {
+    "color": "#6B4226",
+    "n_species": 252,
+    "english": "Hawks, eagles & relatives",
+    "label": "Accipitriformes — Hawks, eagles & relatives (252 sp)"
+  },
+  "Coliiformes": {
+    "color": "#A7754D",
+    "n_species": 6,
+    "english": "Mousebirds",
+    "label": "Coliiformes — Mousebirds (6 sp)"
+  },
+  "Leptosomiformes": {
+    "color": "#CE796B",
+    "n_species": 1,
+    "english": "Cuckoo-roller",
+    "label": "Leptosomiformes — Cuckoo-roller (1 sp)"
+  },
+  "Trogoniformes": {
+    "color": "#C18C5D",
+    "n_species": 47,
+    "english": "Trogons & quetzals",
+    "label": "Trogoniformes — Trogons & quetzals (47 sp)"
+  },
+  "Bucerotiformes": {
+    "color": "#43AA8B",
+    "n_species": 75,
+    "english": "Hornbills & hoopoes",
+    "label": "Bucerotiformes — Hornbills & hoopoes (75 sp)"
+  },
+  "Coraciiformes": {
+    "color": "#577590",
+    "n_species": 185,
+    "english": "Kingfishers, bee-eaters & rollers",
+    "label": "Coraciiformes — Kingfishers, bee-eaters & rollers (185 sp)"
+  },
+  "Galbuliformes": {
+    "color": "#E9C46A",
+    "n_species": 55,
+    "english": "Jacamars & puffbirds",
+    "label": "Galbuliformes — Jacamars & puffbirds (55 sp)"
+  },
+  "Piciformes": {
+    "color": "#264653",
+    "n_species": 385,
+    "english": "Woodpeckers, barbets & toucans",
+    "label": "Piciformes — Woodpeckers, barbets & toucans (385 sp)"
+  },
+  "Cariamiformes": {
+    "color": "#2B9348",
+    "n_species": 2,
+    "english": "Seriemas",
+    "label": "Cariamiformes — Seriemas (2 sp)"
+  },
+  "Falconiformes": {
+    "color": "#80B918",
+    "n_species": 65,
+    "english": "Falcons & caracaras",
+    "label": "Falconiformes — Falcons & caracaras (65 sp)"
+  },
+  "Psittaciformes": {
+    "color": "#FF9F1C",
+    "n_species": 406,
+    "english": "Parrots & cockatoos",
+    "label": "Psittaciformes — Parrots & cockatoos (406 sp)"
+  },
+  "Passeriformes": {
+    "color": "#FFBF69",
+    "n_species": 6705,
+    "english": "Perching birds / songbirds",
+    "label": "Passeriformes — Perching birds / songbirds (6,705 sp)"
+  }
+}

@@ -1,0 +1,2522 @@
+{
+  "Struthionidae": {
+    "order": "Struthioniformes",
+    "color": "#E63946",
+    "n_species": 2,
+    "n_genera": 1,
+    "order_english": "Ostriches",
+    "family_english": "Ostriches",
+    "tooltip": "Order: Struthioniformes (Ostriches)\nFamily: Struthionidae (Ostriches)\nGenera: 1\nSpecies: 2",
+    "label": "Struthionidae"
+  },
+  "Casuariidae": {
+    "order": "Casuariiformes",
+    "color": "#F4A261",
+    "n_species": 4,
+    "n_genera": 2,
+    "order_english": "Cassowaries & emus",
+    "family_english": "Emu and Cassowaries",
+    "tooltip": "Order: Casuariiformes (Cassowaries & emus)\nFamily: Casuariidae (Emu and Cassowaries)\nGenera: 2\nSpecies: 4",
+    "label": "Casuariidae"
+  },
+  "Apterygidae": {
+    "order": "Apterygiformes",
+    "color": "#2A9D8F",
+    "n_species": 5,
+    "n_genera": 1,
+    "order_english": "Kiwis",
+    "family_english": "Kiwis",
+    "tooltip": "Order: Apterygiformes (Kiwis)\nFamily: Apterygidae (Kiwis)\nGenera: 1\nSpecies: 5",
+    "label": "Apterygidae"
+  },
+  "Rheidae": {
+    "order": "Rheiformes",
+    "color": "#457B9D",
+    "n_species": 2,
+    "n_genera": 1,
+    "order_english": "Rheas",
+    "family_english": "Rheas",
+    "tooltip": "Order: Rheiformes (Rheas)\nFamily: Rheidae (Rheas)\nGenera: 1\nSpecies: 2",
+    "label": "Rheidae"
+  },
+  "Tinamidae": {
+    "order": "Tinamiformes",
+    "color": "#6A4C93",
+    "n_species": 46,
+    "n_genera": 9,
+    "order_english": "Tinamous",
+    "family_english": "Tinamous",
+    "tooltip": "Order: Tinamiformes (Tinamous)\nFamily: Tinamidae (Tinamous)\nGenera: 9\nSpecies: 46",
+    "label": "Tinamidae"
+  },
+  "Anhimidae": {
+    "order": "Anseriformes",
+    "color": "#F72585",
+    "n_species": 3,
+    "n_genera": 2,
+    "order_english": "Ducks, geese & swans",
+    "family_english": "Screamers",
+    "tooltip": "Order: Anseriformes (Ducks, geese & swans)\nFamily: Anhimidae (Screamers)\nGenera: 2\nSpecies: 3",
+    "label": "Anhimidae"
+  },
+  "Anseranatidae": {
+    "order": "Anseriformes",
+    "color": "#F72585",
+    "n_species": 1,
+    "n_genera": 1,
+    "order_english": "Ducks, geese & swans",
+    "family_english": "Magpie Goose",
+    "tooltip": "Order: Anseriformes (Ducks, geese & swans)\nFamily: Anseranatidae (Magpie Goose)\nGenera: 1\nSpecies: 1",
+    "label": "Anseranatidae"
+  },
+  "Anatidae": {
+    "order": "Anseriformes",
+    "color": "#F72585",
+    "n_species": 172,
+    "n_genera": 53,
+    "order_english": "Ducks, geese & swans",
+    "family_english": "Ducks, Swans, and Geese",
+    "tooltip": "Order: Anseriformes (Ducks, geese & swans)\nFamily: Anatidae (Ducks, Swans, and Geese)\nGenera: 53\nSpecies: 172",
+    "label": "Anatidae"
+  },
+  "Megapodiidae": {
+    "order": "Galliformes",
+    "color": "#4CC9F0",
+    "n_species": 21,
+    "n_genera": 7,
+    "order_english": "Gamebirds (pheasants, quail, turkeys…)",
+    "family_english": "Megapodes",
+    "tooltip": "Order: Galliformes (Gamebirds (pheasants, quail, turkeys…))\nFamily: Megapodiidae (Megapodes)\nGenera: 7\nSpecies: 21",
+    "label": "Megapodiidae"
+  },
+  "Cracidae": {
+    "order": "Galliformes",
+    "color": "#4CC9F0",
+    "n_species": 57,
+    "n_genera": 11,
+    "order_english": "Gamebirds (pheasants, quail, turkeys…)",
+    "family_english": "Guans, Curassows, and Chachalacas",
+    "tooltip": "Order: Galliformes (Gamebirds (pheasants, quail, turkeys…))\nFamily: Cracidae (Guans, Curassows, and Chachalacas)\nGenera: 11\nSpecies: 57",
+    "label": "Cracidae"
+  },
+  "Numididae": {
+    "order": "Galliformes",
+    "color": "#4CC9F0",
+    "n_species": 8,
+    "n_genera": 4,
+    "order_english": "Gamebirds (pheasants, quail, turkeys…)",
+    "family_english": "Guineafowl",
+    "tooltip": "Order: Galliformes (Gamebirds (pheasants, quail, turkeys…))\nFamily: Numididae (Guineafowl)\nGenera: 4\nSpecies: 8",
+    "label": "Numididae"
+  },
+  "Odontophoridae": {
+    "order": "Galliformes",
+    "color": "#4CC9F0",
+    "n_species": 34,
+    "n_genera": 10,
+    "order_english": "Gamebirds (pheasants, quail, turkeys…)",
+    "family_english": "New World Quail",
+    "tooltip": "Order: Galliformes (Gamebirds (pheasants, quail, turkeys…))\nFamily: Odontophoridae (New World Quail)\nGenera: 10\nSpecies: 34",
+    "label": "Odontophoridae"
+  },
+  "Phasianidae": {
+    "order": "Galliformes",
+    "color": "#4CC9F0",
+    "n_species": 187,
+    "n_genera": 54,
+    "order_english": "Gamebirds (pheasants, quail, turkeys…)",
+    "family_english": "Partridges, Pheasants, Grouse, and Allies",
+    "tooltip": "Order: Galliformes (Gamebirds (pheasants, quail, turkeys…))\nFamily: Phasianidae (Partridges, Pheasants, Grouse, and Allies)\nGenera: 54\nSpecies: 187",
+    "label": "Phasianidae"
+  },
+  "Phoenicopteridae": {
+    "order": "Phoenicopteriformes",
+    "color": "#06D6A0",
+    "n_species": 6,
+    "n_genera": 3,
+    "order_english": "Flamingos",
+    "family_english": "Flamingos",
+    "tooltip": "Order: Phoenicopteriformes (Flamingos)\nFamily: Phoenicopteridae (Flamingos)\nGenera: 3\nSpecies: 6",
+    "label": "Phoenicopteridae"
+  },
+  "Podicipedidae": {
+    "order": "Podicipediformes",
+    "color": "#FB8500",
+    "n_species": 22,
+    "n_genera": 6,
+    "order_english": "Grebes",
+    "family_english": "Grebes",
+    "tooltip": "Order: Podicipediformes (Grebes)\nFamily: Podicipedidae (Grebes)\nGenera: 6\nSpecies: 22",
+    "label": "Podicipedidae"
+  },
+  "Musophagidae": {
+    "order": "Musophagiformes",
+    "color": "#3A86FF",
+    "n_species": 23,
+    "n_genera": 5,
+    "order_english": "Turacos",
+    "family_english": "Turacos",
+    "tooltip": "Order: Musophagiformes (Turacos)\nFamily: Musophagidae (Turacos)\nGenera: 5\nSpecies: 23",
+    "label": "Musophagidae"
+  },
+  "Otididae": {
+    "order": "Otidiformes",
+    "color": "#FF006E",
+    "n_species": 26,
+    "n_genera": 12,
+    "order_english": "Bustards",
+    "family_english": "Bustards",
+    "tooltip": "Order: Otidiformes (Bustards)\nFamily: Otididae (Bustards)\nGenera: 12\nSpecies: 26",
+    "label": "Otididae"
+  },
+  "Cuculidae": {
+    "order": "Cuculiformes",
+    "color": "#8338EC",
+    "n_species": 156,
+    "n_genera": 36,
+    "order_english": "Cuckoos & allies",
+    "family_english": "Cuckoos",
+    "tooltip": "Order: Cuculiformes (Cuckoos & allies)\nFamily: Cuculidae (Cuckoos)\nGenera: 36\nSpecies: 156",
+    "label": "Cuculidae"
+  },
+  "Mesitornithidae": {
+    "order": "Mesitornithiformes",
+    "color": "#FFBE0B",
+    "n_species": 3,
+    "n_genera": 2,
+    "order_english": "Mesites",
+    "family_english": "Mesites",
+    "tooltip": "Order: Mesitornithiformes (Mesites)\nFamily: Mesitornithidae (Mesites)\nGenera: 2\nSpecies: 3",
+    "label": "Mesitornithidae"
+  },
+  "Pteroclidae": {
+    "order": "Pterocliformes",
+    "color": "#38B000",
+    "n_species": 16,
+    "n_genera": 2,
+    "order_english": "Sandgrouse",
+    "family_english": "Sandgrouse",
+    "tooltip": "Order: Pterocliformes (Sandgrouse)\nFamily: Pteroclidae (Sandgrouse)\nGenera: 2\nSpecies: 16",
+    "label": "Pteroclidae"
+  },
+  "Columbidae": {
+    "order": "Columbiformes",
+    "color": "#D00000",
+    "n_species": 350,
+    "n_genera": 52,
+    "order_english": "Pigeons & doves",
+    "family_english": "Doves and Pigeons",
+    "tooltip": "Order: Columbiformes (Pigeons & doves)\nFamily: Columbidae (Doves and Pigeons)\nGenera: 52\nSpecies: 350",
+    "label": "Columbidae"
+  },
+  "Opisthocomidae": {
+    "order": "Opisthocomiformes",
+    "color": "#023E8A",
+    "n_species": 1,
+    "n_genera": 1,
+    "order_english": "Hoatzin",
+    "family_english": "Hoatzin",
+    "tooltip": "Order: Opisthocomiformes (Hoatzin)\nFamily: Opisthocomidae (Hoatzin)\nGenera: 1\nSpecies: 1",
+    "label": "Opisthocomidae"
+  },
+  "Psophiidae": {
+    "order": "Gruiformes",
+    "color": "#9B2226",
+    "n_species": 3,
+    "n_genera": 1,
+    "order_english": "Cranes, rails & coots",
+    "family_english": "Trumpeters",
+    "tooltip": "Order: Gruiformes (Cranes, rails & coots)\nFamily: Psophiidae (Trumpeters)\nGenera: 1\nSpecies: 3",
+    "label": "Psophiidae"
+  },
+  "Aramidae": {
+    "order": "Gruiformes",
+    "color": "#9B2226",
+    "n_species": 1,
+    "n_genera": 1,
+    "order_english": "Cranes, rails & coots",
+    "family_english": "Limpkin",
+    "tooltip": "Order: Gruiformes (Cranes, rails & coots)\nFamily: Aramidae (Limpkin)\nGenera: 1\nSpecies: 1",
+    "label": "Aramidae"
+  },
+  "Gruidae": {
+    "order": "Gruiformes",
+    "color": "#9B2226",
+    "n_species": 15,
+    "n_genera": 4,
+    "order_english": "Cranes, rails & coots",
+    "family_english": "Cranes",
+    "tooltip": "Order: Gruiformes (Cranes, rails & coots)\nFamily: Gruidae (Cranes)\nGenera: 4\nSpecies: 15",
+    "label": "Gruidae"
+  },
+  "Heliornithidae": {
+    "order": "Gruiformes",
+    "color": "#9B2226",
+    "n_species": 3,
+    "n_genera": 3,
+    "order_english": "Cranes, rails & coots",
+    "family_english": "Finfoots",
+    "tooltip": "Order: Gruiformes (Cranes, rails & coots)\nFamily: Heliornithidae (Finfoots)\nGenera: 3\nSpecies: 3",
+    "label": "Heliornithidae"
+  },
+  "Sarothruridae": {
+    "order": "Gruiformes",
+    "color": "#9B2226",
+    "n_species": 15,
+    "n_genera": 3,
+    "order_english": "Cranes, rails & coots",
+    "family_english": "Flufftails",
+    "tooltip": "Order: Gruiformes (Cranes, rails & coots)\nFamily: Sarothruridae (Flufftails)\nGenera: 3\nSpecies: 15",
+    "label": "Sarothruridae"
+  },
+  "Rallidae": {
+    "order": "Gruiformes",
+    "color": "#9B2226",
+    "n_species": 148,
+    "n_genera": 38,
+    "order_english": "Cranes, rails & coots",
+    "family_english": "Rails, Gallinules, and Coots",
+    "tooltip": "Order: Gruiformes (Cranes, rails & coots)\nFamily: Rallidae (Rails, Gallinules, and Coots)\nGenera: 38\nSpecies: 148",
+    "label": "Rallidae"
+  },
+  "Pluvianellidae": {
+    "order": "Charadriiformes",
+    "color": "#AE2012",
+    "n_species": 1,
+    "n_genera": 1,
+    "order_english": "Shorebirds, gulls & auks",
+    "family_english": "Magellanic Plover",
+    "tooltip": "Order: Charadriiformes (Shorebirds, gulls & auks)\nFamily: Pluvianellidae (Magellanic Plover)\nGenera: 1\nSpecies: 1",
+    "label": "Pluvianellidae"
+  },
+  "Chionidae": {
+    "order": "Charadriiformes",
+    "color": "#AE2012",
+    "n_species": 2,
+    "n_genera": 1,
+    "order_english": "Shorebirds, gulls & auks",
+    "family_english": "Sheathbills",
+    "tooltip": "Order: Charadriiformes (Shorebirds, gulls & auks)\nFamily: Chionidae (Sheathbills)\nGenera: 1\nSpecies: 2",
+    "label": "Chionidae"
+  },
+  "Burhinidae": {
+    "order": "Charadriiformes",
+    "color": "#AE2012",
+    "n_species": 10,
+    "n_genera": 3,
+    "order_english": "Shorebirds, gulls & auks",
+    "family_english": "Thick-knees and Stone-curlews",
+    "tooltip": "Order: Charadriiformes (Shorebirds, gulls & auks)\nFamily: Burhinidae (Thick-knees and Stone-curlews)\nGenera: 3\nSpecies: 10",
+    "label": "Burhinidae"
+  },
+  "Pluvianidae": {
+    "order": "Charadriiformes",
+    "color": "#AE2012",
+    "n_species": 1,
+    "n_genera": 1,
+    "order_english": "Shorebirds, gulls & auks",
+    "family_english": "Egyptian Plover",
+    "tooltip": "Order: Charadriiformes (Shorebirds, gulls & auks)\nFamily: Pluvianidae (Egyptian Plover)\nGenera: 1\nSpecies: 1",
+    "label": "Pluvianidae"
+  },
+  "Recurvirostridae": {
+    "order": "Charadriiformes",
+    "color": "#AE2012",
+    "n_species": 9,
+    "n_genera": 3,
+    "order_english": "Shorebirds, gulls & auks",
+    "family_english": "Stilts and Avocets",
+    "tooltip": "Order: Charadriiformes (Shorebirds, gulls & auks)\nFamily: Recurvirostridae (Stilts and Avocets)\nGenera: 3\nSpecies: 9",
+    "label": "Recurvirostridae"
+  },
+  "Ibidorhynchidae": {
+    "order": "Charadriiformes",
+    "color": "#AE2012",
+    "n_species": 1,
+    "n_genera": 1,
+    "order_english": "Shorebirds, gulls & auks",
+    "family_english": "Ibisbill",
+    "tooltip": "Order: Charadriiformes (Shorebirds, gulls & auks)\nFamily: Ibidorhynchidae (Ibisbill)\nGenera: 1\nSpecies: 1",
+    "label": "Ibidorhynchidae"
+  },
+  "Haematopodidae": {
+    "order": "Charadriiformes",
+    "color": "#AE2012",
+    "n_species": 12,
+    "n_genera": 1,
+    "order_english": "Shorebirds, gulls & auks",
+    "family_english": "Oystercatchers",
+    "tooltip": "Order: Charadriiformes (Shorebirds, gulls & auks)\nFamily: Haematopodidae (Oystercatchers)\nGenera: 1\nSpecies: 12",
+    "label": "Haematopodidae"
+  },
+  "Charadriidae": {
+    "order": "Charadriiformes",
+    "color": "#AE2012",
+    "n_species": 69,
+    "n_genera": 12,
+    "order_english": "Shorebirds, gulls & auks",
+    "family_english": "Plovers and Lapwings",
+    "tooltip": "Order: Charadriiformes (Shorebirds, gulls & auks)\nFamily: Charadriidae (Plovers and Lapwings)\nGenera: 12\nSpecies: 69",
+    "label": "Charadriidae"
+  },
+  "Pedionomidae": {
+    "order": "Charadriiformes",
+    "color": "#AE2012",
+    "n_species": 1,
+    "n_genera": 1,
+    "order_english": "Shorebirds, gulls & auks",
+    "family_english": "Plains-wanderer",
+    "tooltip": "Order: Charadriiformes (Shorebirds, gulls & auks)\nFamily: Pedionomidae (Plains-wanderer)\nGenera: 1\nSpecies: 1",
+    "label": "Pedionomidae"
+  },
+  "Thinocoridae": {
+    "order": "Charadriiformes",
+    "color": "#AE2012",
+    "n_species": 4,
+    "n_genera": 2,
+    "order_english": "Shorebirds, gulls & auks",
+    "family_english": "Seedsnipes",
+    "tooltip": "Order: Charadriiformes (Shorebirds, gulls & auks)\nFamily: Thinocoridae (Seedsnipes)\nGenera: 2\nSpecies: 4",
+    "label": "Thinocoridae"
+  },
+  "Rostratulidae": {
+    "order": "Charadriiformes",
+    "color": "#AE2012",
+    "n_species": 3,
+    "n_genera": 2,
+    "order_english": "Shorebirds, gulls & auks",
+    "family_english": "Painted-Snipes",
+    "tooltip": "Order: Charadriiformes (Shorebirds, gulls & auks)\nFamily: Rostratulidae (Painted-Snipes)\nGenera: 2\nSpecies: 3",
+    "label": "Rostratulidae"
+  },
+  "Jacanidae": {
+    "order": "Charadriiformes",
+    "color": "#AE2012",
+    "n_species": 8,
+    "n_genera": 6,
+    "order_english": "Shorebirds, gulls & auks",
+    "family_english": "Jacanas",
+    "tooltip": "Order: Charadriiformes (Shorebirds, gulls & auks)\nFamily: Jacanidae (Jacanas)\nGenera: 6\nSpecies: 8",
+    "label": "Jacanidae"
+  },
+  "Scolopacidae": {
+    "order": "Charadriiformes",
+    "color": "#AE2012",
+    "n_species": 98,
+    "n_genera": 15,
+    "order_english": "Shorebirds, gulls & auks",
+    "family_english": "Sandpipers and Allies",
+    "tooltip": "Order: Charadriiformes (Shorebirds, gulls & auks)\nFamily: Scolopacidae (Sandpipers and Allies)\nGenera: 15\nSpecies: 98",
+    "label": "Scolopacidae"
+  },
+  "Turnicidae": {
+    "order": "Charadriiformes",
+    "color": "#AE2012",
+    "n_species": 18,
+    "n_genera": 2,
+    "order_english": "Shorebirds, gulls & auks",
+    "family_english": "Buttonquail",
+    "tooltip": "Order: Charadriiformes (Shorebirds, gulls & auks)\nFamily: Turnicidae (Buttonquail)\nGenera: 2\nSpecies: 18",
+    "label": "Turnicidae"
+  },
+  "Dromadidae": {
+    "order": "Charadriiformes",
+    "color": "#AE2012",
+    "n_species": 1,
+    "n_genera": 1,
+    "order_english": "Shorebirds, gulls & auks",
+    "family_english": "Crab-Plover",
+    "tooltip": "Order: Charadriiformes (Shorebirds, gulls & auks)\nFamily: Dromadidae (Crab-Plover)\nGenera: 1\nSpecies: 1",
+    "label": "Dromadidae"
+  },
+  "Glareolidae": {
+    "order": "Charadriiformes",
+    "color": "#AE2012",
+    "n_species": 17,
+    "n_genera": 4,
+    "order_english": "Shorebirds, gulls & auks",
+    "family_english": "Coursers and Pratincoles",
+    "tooltip": "Order: Charadriiformes (Shorebirds, gulls & auks)\nFamily: Glareolidae (Coursers and Pratincoles)\nGenera: 4\nSpecies: 17",
+    "label": "Glareolidae"
+  },
+  "Stercorariidae": {
+    "order": "Charadriiformes",
+    "color": "#AE2012",
+    "n_species": 7,
+    "n_genera": 1,
+    "order_english": "Shorebirds, gulls & auks",
+    "family_english": "Jaegers and Skuas",
+    "tooltip": "Order: Charadriiformes (Shorebirds, gulls & auks)\nFamily: Stercorariidae (Jaegers and Skuas)\nGenera: 1\nSpecies: 7",
+    "label": "Stercorariidae"
+  },
+  "Alcidae": {
+    "order": "Charadriiformes",
+    "color": "#AE2012",
+    "n_species": 25,
+    "n_genera": 11,
+    "order_english": "Shorebirds, gulls & auks",
+    "family_english": "Auks, Puffins, and Murres",
+    "tooltip": "Order: Charadriiformes (Shorebirds, gulls & auks)\nFamily: Alcidae (Auks, Puffins, and Murres)\nGenera: 11\nSpecies: 25",
+    "label": "Alcidae"
+  },
+  "Laridae": {
+    "order": "Charadriiformes",
+    "color": "#AE2012",
+    "n_species": 105,
+    "n_genera": 23,
+    "order_english": "Shorebirds, gulls & auks",
+    "family_english": "Skimmers, Noddies, Terns, and Gulls",
+    "tooltip": "Order: Charadriiformes (Shorebirds, gulls & auks)\nFamily: Laridae (Skimmers, Noddies, Terns, and Gulls)\nGenera: 23\nSpecies: 105",
+    "label": "Laridae"
+  },
+  "Eurypygidae": {
+    "order": "Eurypygiformes",
+    "color": "#CA6702",
+    "n_species": 1,
+    "n_genera": 1,
+    "order_english": "Sunbittern & kagu",
+    "family_english": "Sunbittern",
+    "tooltip": "Order: Eurypygiformes (Sunbittern & kagu)\nFamily: Eurypygidae (Sunbittern)\nGenera: 1\nSpecies: 1",
+    "label": "Eurypygidae"
+  },
+  "Rhynochetidae": {
+    "order": "Eurypygiformes",
+    "color": "#CA6702",
+    "n_species": 1,
+    "n_genera": 1,
+    "order_english": "Sunbittern & kagu",
+    "family_english": "Kagu",
+    "tooltip": "Order: Eurypygiformes (Sunbittern & kagu)\nFamily: Rhynochetidae (Kagu)\nGenera: 1\nSpecies: 1",
+    "label": "Rhynochetidae"
+  },
+  "Phaethontidae": {
+    "order": "Phaethontiformes",
+    "color": "#EE9B00",
+    "n_species": 3,
+    "n_genera": 1,
+    "order_english": "Tropicbirds",
+    "family_english": "Tropicbirds",
+    "tooltip": "Order: Phaethontiformes (Tropicbirds)\nFamily: Phaethontidae (Tropicbirds)\nGenera: 1\nSpecies: 3",
+    "label": "Phaethontidae"
+  },
+  "Gaviidae": {
+    "order": "Gaviiformes",
+    "color": "#94D2BD",
+    "n_species": 5,
+    "n_genera": 1,
+    "order_english": "Loons / divers",
+    "family_english": "Loons",
+    "tooltip": "Order: Gaviiformes (Loons / divers)\nFamily: Gaviidae (Loons)\nGenera: 1\nSpecies: 5",
+    "label": "Gaviidae"
+  },
+  "Spheniscidae": {
+    "order": "Sphenisciformes",
+    "color": "#0A9396",
+    "n_species": 19,
+    "n_genera": 6,
+    "order_english": "Penguins",
+    "family_english": "Penguins",
+    "tooltip": "Order: Sphenisciformes (Penguins)\nFamily: Spheniscidae (Penguins)\nGenera: 6\nSpecies: 19",
+    "label": "Spheniscidae"
+  },
+  "Diomedeidae": {
+    "order": "Procellariiformes",
+    "color": "#005F73",
+    "n_species": 20,
+    "n_genera": 4,
+    "order_english": "Albatrosses, petrels & shearwaters",
+    "family_english": "Albatrosses",
+    "tooltip": "Order: Procellariiformes (Albatrosses, petrels & shearwaters)\nFamily: Diomedeidae (Albatrosses)\nGenera: 4\nSpecies: 20",
+    "label": "Diomedeidae"
+  },
+  "Oceanitidae": {
+    "order": "Procellariiformes",
+    "color": "#005F73",
+    "n_species": 10,
+    "n_genera": 5,
+    "order_english": "Albatrosses, petrels & shearwaters",
+    "family_english": "Southern Storm Petrels",
+    "tooltip": "Order: Procellariiformes (Albatrosses, petrels & shearwaters)\nFamily: Oceanitidae (Southern Storm Petrels)\nGenera: 5\nSpecies: 10",
+    "label": "Oceanitidae"
+  },
+  "Hydrobatidae": {
+    "order": "Procellariiformes",
+    "color": "#005F73",
+    "n_species": 18,
+    "n_genera": 1,
+    "order_english": "Albatrosses, petrels & shearwaters",
+    "family_english": "Northern Storm Petrels",
+    "tooltip": "Order: Procellariiformes (Albatrosses, petrels & shearwaters)\nFamily: Hydrobatidae (Northern Storm Petrels)\nGenera: 1\nSpecies: 18",
+    "label": "Hydrobatidae"
+  },
+  "Procellariidae": {
+    "order": "Procellariiformes",
+    "color": "#005F73",
+    "n_species": 98,
+    "n_genera": 16,
+    "order_english": "Albatrosses, petrels & shearwaters",
+    "family_english": "Petrels, Shearwaters, and Diving Petrels",
+    "tooltip": "Order: Procellariiformes (Albatrosses, petrels & shearwaters)\nFamily: Procellariidae (Petrels, Shearwaters, and Diving Petrels)\nGenera: 16\nSpecies: 98",
+    "label": "Procellariidae"
+  },
+  "Ciconiidae": {
+    "order": "Ciconiiformes",
+    "color": "#D62828",
+    "n_species": 20,
+    "n_genera": 6,
+    "order_english": "Storks, herons & ibises",
+    "family_english": "Storks",
+    "tooltip": "Order: Ciconiiformes (Storks, herons & ibises)\nFamily: Ciconiidae (Storks)\nGenera: 6\nSpecies: 20",
+    "label": "Ciconiidae"
+  },
+  "Fregatidae": {
+    "order": "Suliformes",
+    "color": "#F77F00",
+    "n_species": 5,
+    "n_genera": 1,
+    "order_english": "Cormorants, boobies & frigatebirds",
+    "family_english": "Frigatebirds",
+    "tooltip": "Order: Suliformes (Cormorants, boobies & frigatebirds)\nFamily: Fregatidae (Frigatebirds)\nGenera: 1\nSpecies: 5",
+    "label": "Fregatidae"
+  },
+  "Sulidae": {
+    "order": "Suliformes",
+    "color": "#F77F00",
+    "n_species": 11,
+    "n_genera": 3,
+    "order_english": "Cormorants, boobies & frigatebirds",
+    "family_english": "Boobies and Gannets",
+    "tooltip": "Order: Suliformes (Cormorants, boobies & frigatebirds)\nFamily: Sulidae (Boobies and Gannets)\nGenera: 3\nSpecies: 11",
+    "label": "Sulidae"
+  },
+  "Anhingidae": {
+    "order": "Suliformes",
+    "color": "#F77F00",
+    "n_species": 4,
+    "n_genera": 1,
+    "order_english": "Cormorants, boobies & frigatebirds",
+    "family_english": "Anhinga and Darters",
+    "tooltip": "Order: Suliformes (Cormorants, boobies & frigatebirds)\nFamily: Anhingidae (Anhinga and Darters)\nGenera: 1\nSpecies: 4",
+    "label": "Anhingidae"
+  },
+  "Phalacrocoracidae": {
+    "order": "Suliformes",
+    "color": "#F77F00",
+    "n_species": 34,
+    "n_genera": 7,
+    "order_english": "Cormorants, boobies & frigatebirds",
+    "family_english": "Cormorants and Shags",
+    "tooltip": "Order: Suliformes (Cormorants, boobies & frigatebirds)\nFamily: Phalacrocoracidae (Cormorants and Shags)\nGenera: 7\nSpecies: 34",
+    "label": "Phalacrocoracidae"
+  },
+  "Threskiornithidae": {
+    "order": "Pelecaniformes",
+    "color": "#FCBF49",
+    "n_species": 36,
+    "n_genera": 13,
+    "order_english": "Pelicans, herons & ibises",
+    "family_english": "Ibises and Spoonbills",
+    "tooltip": "Order: Pelecaniformes (Pelicans, herons & ibises)\nFamily: Threskiornithidae (Ibises and Spoonbills)\nGenera: 13\nSpecies: 36",
+    "label": "Threskiornithidae"
+  },
+  "Balaenicipitidae": {
+    "order": "Pelecaniformes",
+    "color": "#FCBF49",
+    "n_species": 1,
+    "n_genera": 1,
+    "order_english": "Pelicans, herons & ibises",
+    "family_english": "Shoebill",
+    "tooltip": "Order: Pelecaniformes (Pelicans, herons & ibises)\nFamily: Balaenicipitidae (Shoebill)\nGenera: 1\nSpecies: 1",
+    "label": "Balaenicipitidae"
+  },
+  "Scopidae": {
+    "order": "Pelecaniformes",
+    "color": "#FCBF49",
+    "n_species": 1,
+    "n_genera": 1,
+    "order_english": "Pelicans, herons & ibises",
+    "family_english": "Hamerkop",
+    "tooltip": "Order: Pelecaniformes (Pelicans, herons & ibises)\nFamily: Scopidae (Hamerkop)\nGenera: 1\nSpecies: 1",
+    "label": "Scopidae"
+  },
+  "Pelecanidae": {
+    "order": "Pelecaniformes",
+    "color": "#FCBF49",
+    "n_species": 8,
+    "n_genera": 1,
+    "order_english": "Pelicans, herons & ibises",
+    "family_english": "Pelicans",
+    "tooltip": "Order: Pelecaniformes (Pelicans, herons & ibises)\nFamily: Pelecanidae (Pelicans)\nGenera: 1\nSpecies: 8",
+    "label": "Pelecanidae"
+  },
+  "Ardeidae": {
+    "order": "Pelecaniformes",
+    "color": "#FCBF49",
+    "n_species": 74,
+    "n_genera": 18,
+    "order_english": "Pelicans, herons & ibises",
+    "family_english": "Herons, Egrets, and Bitterns",
+    "tooltip": "Order: Pelecaniformes (Pelicans, herons & ibises)\nFamily: Ardeidae (Herons, Egrets, and Bitterns)\nGenera: 18\nSpecies: 74",
+    "label": "Ardeidae"
+  },
+  "Caprimulgidae": {
+    "order": "Caprimulgiformes",
+    "color": "#84A98C",
+    "n_species": 98,
+    "n_genera": 22,
+    "order_english": "Nightjars, nighthawks & allies",
+    "family_english": "Nightjars and Nighthawks",
+    "tooltip": "Order: Caprimulgiformes (Nightjars, nighthawks & allies)\nFamily: Caprimulgidae (Nightjars and Nighthawks)\nGenera: 22\nSpecies: 98",
+    "label": "Caprimulgidae"
+  },
+  "Steatornithidae": {
+    "order": "Steatornithiformes",
+    "color": "#52B788",
+    "n_species": 1,
+    "n_genera": 1,
+    "order_english": "Oilbird",
+    "family_english": "Oilbird",
+    "tooltip": "Order: Steatornithiformes (Oilbird)\nFamily: Steatornithidae (Oilbird)\nGenera: 1\nSpecies: 1",
+    "label": "Steatornithidae"
+  },
+  "Nyctibiidae": {
+    "order": "Nyctibiiformes",
+    "color": "#2D6A4F",
+    "n_species": 7,
+    "n_genera": 2,
+    "order_english": "Potoos",
+    "family_english": "Potoos",
+    "tooltip": "Order: Nyctibiiformes (Potoos)\nFamily: Nyctibiidae (Potoos)\nGenera: 2\nSpecies: 7",
+    "label": "Nyctibiidae"
+  },
+  "Podargidae": {
+    "order": "Podargiformes",
+    "color": "#40916C",
+    "n_species": 16,
+    "n_genera": 3,
+    "order_english": "Frogmouths",
+    "family_english": "Frogmouths",
+    "tooltip": "Order: Podargiformes (Frogmouths)\nFamily: Podargidae (Frogmouths)\nGenera: 3\nSpecies: 16",
+    "label": "Podargidae"
+  },
+  "Aegothelidae": {
+    "order": "Aegotheliformes",
+    "color": "#74C69D",
+    "n_species": 10,
+    "n_genera": 1,
+    "order_english": "Owlet-nightjars",
+    "family_english": "Owlet-nightjars",
+    "tooltip": "Order: Aegotheliformes (Owlet-nightjars)\nFamily: Aegothelidae (Owlet-nightjars)\nGenera: 1\nSpecies: 10",
+    "label": "Aegothelidae"
+  },
+  "Hemiprocnidae": {
+    "order": "Apodiformes",
+    "color": "#74B3CE",
+    "n_species": 4,
+    "n_genera": 1,
+    "order_english": "Swifts & hummingbirds",
+    "family_english": "Treeswifts",
+    "tooltip": "Order: Apodiformes (Swifts & hummingbirds)\nFamily: Hemiprocnidae (Treeswifts)\nGenera: 1\nSpecies: 4",
+    "label": "Hemiprocnidae"
+  },
+  "Apodidae": {
+    "order": "Apodiformes",
+    "color": "#74B3CE",
+    "n_species": 105,
+    "n_genera": 19,
+    "order_english": "Swifts & hummingbirds",
+    "family_english": "Swifts",
+    "tooltip": "Order: Apodiformes (Swifts & hummingbirds)\nFamily: Apodidae (Swifts)\nGenera: 19\nSpecies: 105",
+    "label": "Apodidae"
+  },
+  "Trochilidae": {
+    "order": "Apodiformes",
+    "color": "#74B3CE",
+    "n_species": 363,
+    "n_genera": 112,
+    "order_english": "Swifts & hummingbirds",
+    "family_english": "Hummingbirds",
+    "tooltip": "Order: Apodiformes (Swifts & hummingbirds)\nFamily: Trochilidae (Hummingbirds)\nGenera: 112\nSpecies: 363",
+    "label": "Trochilidae"
+  },
+  "Tytonidae": {
+    "order": "Strigiformes",
+    "color": "#508CA4",
+    "n_species": 17,
+    "n_genera": 2,
+    "order_english": "Owls",
+    "family_english": "Bay Owls and Barn Owls",
+    "tooltip": "Order: Strigiformes (Owls)\nFamily: Tytonidae (Bay Owls and Barn Owls)\nGenera: 2\nSpecies: 17",
+    "label": "Tytonidae"
+  },
+  "Strigidae": {
+    "order": "Strigiformes",
+    "color": "#508CA4",
+    "n_species": 228,
+    "n_genera": 23,
+    "order_english": "Owls",
+    "family_english": "Owls",
+    "tooltip": "Order: Strigiformes (Owls)\nFamily: Strigidae (Owls)\nGenera: 23\nSpecies: 228",
+    "label": "Strigidae"
+  },
+  "Cathartidae": {
+    "order": "Cathartiformes",
+    "color": "#5C5C8A",
+    "n_species": 7,
+    "n_genera": 5,
+    "order_english": "New World vultures",
+    "family_english": "New World Vultures",
+    "tooltip": "Order: Cathartiformes (New World vultures)\nFamily: Cathartidae (New World Vultures)\nGenera: 5\nSpecies: 7",
+    "label": "Cathartidae"
+  },
+  "Sagittariidae": {
+    "order": "Accipitriformes",
+    "color": "#6B4226",
+    "n_species": 1,
+    "n_genera": 1,
+    "order_english": "Hawks, eagles & relatives",
+    "family_english": "Secretarybird",
+    "tooltip": "Order: Accipitriformes (Hawks, eagles & relatives)\nFamily: Sagittariidae (Secretarybird)\nGenera: 1\nSpecies: 1",
+    "label": "Sagittariidae"
+  },
+  "Pandionidae": {
+    "order": "Accipitriformes",
+    "color": "#6B4226",
+    "n_species": 1,
+    "n_genera": 1,
+    "order_english": "Hawks, eagles & relatives",
+    "family_english": "Osprey",
+    "tooltip": "Order: Accipitriformes (Hawks, eagles & relatives)\nFamily: Pandionidae (Osprey)\nGenera: 1\nSpecies: 1",
+    "label": "Pandionidae"
+  },
+  "Accipitridae": {
+    "order": "Accipitriformes",
+    "color": "#6B4226",
+    "n_species": 250,
+    "n_genera": 74,
+    "order_english": "Hawks, eagles & relatives",
+    "family_english": "Kites, Old World Vultures, Eagles, and Hawks",
+    "tooltip": "Order: Accipitriformes (Hawks, eagles & relatives)\nFamily: Accipitridae (Kites, Old World Vultures, Eagles, and Hawks)\nGenera: 74\nSpecies: 250",
+    "label": "Accipitridae"
+  },
+  "Coliidae": {
+    "order": "Coliiformes",
+    "color": "#A7754D",
+    "n_species": 6,
+    "n_genera": 2,
+    "order_english": "Mousebirds",
+    "family_english": "Mousebirds",
+    "tooltip": "Order: Coliiformes (Mousebirds)\nFamily: Coliidae (Mousebirds)\nGenera: 2\nSpecies: 6",
+    "label": "Coliidae"
+  },
+  "Leptosomidae": {
+    "order": "Leptosomiformes",
+    "color": "#CE796B",
+    "n_species": 1,
+    "n_genera": 1,
+    "order_english": "Cuckoo-roller",
+    "family_english": "Cuckoo-roller",
+    "tooltip": "Order: Leptosomiformes (Cuckoo-roller)\nFamily: Leptosomidae (Cuckoo-roller)\nGenera: 1\nSpecies: 1",
+    "label": "Leptosomidae"
+  },
+  "Trogonidae": {
+    "order": "Trogoniformes",
+    "color": "#C18C5D",
+    "n_species": 47,
+    "n_genera": 7,
+    "order_english": "Trogons & quetzals",
+    "family_english": "Trogons",
+    "tooltip": "Order: Trogoniformes (Trogons & quetzals)\nFamily: Trogonidae (Trogons)\nGenera: 7\nSpecies: 47",
+    "label": "Trogonidae"
+  },
+  "Upupidae": {
+    "order": "Bucerotiformes",
+    "color": "#43AA8B",
+    "n_species": 3,
+    "n_genera": 1,
+    "order_english": "Hornbills & hoopoes",
+    "family_english": "Hoopoes",
+    "tooltip": "Order: Bucerotiformes (Hornbills & hoopoes)\nFamily: Upupidae (Hoopoes)\nGenera: 1\nSpecies: 3",
+    "label": "Upupidae"
+  },
+  "Phoeniculidae": {
+    "order": "Bucerotiformes",
+    "color": "#43AA8B",
+    "n_species": 8,
+    "n_genera": 2,
+    "order_english": "Hornbills & hoopoes",
+    "family_english": "Wood Hoopoes and Scimitarbills",
+    "tooltip": "Order: Bucerotiformes (Hornbills & hoopoes)\nFamily: Phoeniculidae (Wood Hoopoes and Scimitarbills)\nGenera: 2\nSpecies: 8",
+    "label": "Phoeniculidae"
+  },
+  "Bucerotidae": {
+    "order": "Bucerotiformes",
+    "color": "#43AA8B",
+    "n_species": 64,
+    "n_genera": 16,
+    "order_english": "Hornbills & hoopoes",
+    "family_english": "Hornbills",
+    "tooltip": "Order: Bucerotiformes (Hornbills & hoopoes)\nFamily: Bucerotidae (Hornbills)\nGenera: 16\nSpecies: 64",
+    "label": "Bucerotidae"
+  },
+  "Brachypteraciidae": {
+    "order": "Coraciiformes",
+    "color": "#577590",
+    "n_species": 5,
+    "n_genera": 4,
+    "order_english": "Kingfishers, bee-eaters & rollers",
+    "family_english": "Ground Rollers",
+    "tooltip": "Order: Coraciiformes (Kingfishers, bee-eaters & rollers)\nFamily: Brachypteraciidae (Ground Rollers)\nGenera: 4\nSpecies: 5",
+    "label": "Brachypteraciidae"
+  },
+  "Coraciidae": {
+    "order": "Coraciiformes",
+    "color": "#577590",
+    "n_species": 13,
+    "n_genera": 2,
+    "order_english": "Kingfishers, bee-eaters & rollers",
+    "family_english": "Rollers",
+    "tooltip": "Order: Coraciiformes (Kingfishers, bee-eaters & rollers)\nFamily: Coraciidae (Rollers)\nGenera: 2\nSpecies: 13",
+    "label": "Coraciidae"
+  },
+  "Meropidae": {
+    "order": "Coraciiformes",
+    "color": "#577590",
+    "n_species": 31,
+    "n_genera": 3,
+    "order_english": "Kingfishers, bee-eaters & rollers",
+    "family_english": "Bee-eaters",
+    "tooltip": "Order: Coraciiformes (Kingfishers, bee-eaters & rollers)\nFamily: Meropidae (Bee-eaters)\nGenera: 3\nSpecies: 31",
+    "label": "Meropidae"
+  },
+  "Todidae": {
+    "order": "Coraciiformes",
+    "color": "#577590",
+    "n_species": 5,
+    "n_genera": 1,
+    "order_english": "Kingfishers, bee-eaters & rollers",
+    "family_english": "Todies",
+    "tooltip": "Order: Coraciiformes (Kingfishers, bee-eaters & rollers)\nFamily: Todidae (Todies)\nGenera: 1\nSpecies: 5",
+    "label": "Todidae"
+  },
+  "Momotidae": {
+    "order": "Coraciiformes",
+    "color": "#577590",
+    "n_species": 14,
+    "n_genera": 6,
+    "order_english": "Kingfishers, bee-eaters & rollers",
+    "family_english": "Motmots",
+    "tooltip": "Order: Coraciiformes (Kingfishers, bee-eaters & rollers)\nFamily: Momotidae (Motmots)\nGenera: 6\nSpecies: 14",
+    "label": "Momotidae"
+  },
+  "Alcedinidae": {
+    "order": "Coraciiformes",
+    "color": "#577590",
+    "n_species": 117,
+    "n_genera": 18,
+    "order_english": "Kingfishers, bee-eaters & rollers",
+    "family_english": "Kingfishers",
+    "tooltip": "Order: Coraciiformes (Kingfishers, bee-eaters & rollers)\nFamily: Alcedinidae (Kingfishers)\nGenera: 18\nSpecies: 117",
+    "label": "Alcedinidae"
+  },
+  "Galbulidae": {
+    "order": "Galbuliformes",
+    "color": "#E9C46A",
+    "n_species": 18,
+    "n_genera": 5,
+    "order_english": "Jacamars & puffbirds",
+    "family_english": "Jacamars",
+    "tooltip": "Order: Galbuliformes (Jacamars & puffbirds)\nFamily: Galbulidae (Jacamars)\nGenera: 5\nSpecies: 18",
+    "label": "Galbulidae"
+  },
+  "Bucconidae": {
+    "order": "Galbuliformes",
+    "color": "#E9C46A",
+    "n_species": 37,
+    "n_genera": 10,
+    "order_english": "Jacamars & puffbirds",
+    "family_english": "Puffbirds",
+    "tooltip": "Order: Galbuliformes (Jacamars & puffbirds)\nFamily: Bucconidae (Puffbirds)\nGenera: 10\nSpecies: 37",
+    "label": "Bucconidae"
+  },
+  "Megalaimidae": {
+    "order": "Piciformes",
+    "color": "#264653",
+    "n_species": 35,
+    "n_genera": 2,
+    "order_english": "Woodpeckers, barbets & toucans",
+    "family_english": "Asian Barbets",
+    "tooltip": "Order: Piciformes (Woodpeckers, barbets & toucans)\nFamily: Megalaimidae (Asian Barbets)\nGenera: 2\nSpecies: 35",
+    "label": "Megalaimidae"
+  },
+  "Lybiidae": {
+    "order": "Piciformes",
+    "color": "#264653",
+    "n_species": 43,
+    "n_genera": 10,
+    "order_english": "Woodpeckers, barbets & toucans",
+    "family_english": "African Barbets",
+    "tooltip": "Order: Piciformes (Woodpeckers, barbets & toucans)\nFamily: Lybiidae (African Barbets)\nGenera: 10\nSpecies: 43",
+    "label": "Lybiidae"
+  },
+  "Capitonidae": {
+    "order": "Piciformes",
+    "color": "#264653",
+    "n_species": 15,
+    "n_genera": 2,
+    "order_english": "Woodpeckers, barbets & toucans",
+    "family_english": "New World Barbets",
+    "tooltip": "Order: Piciformes (Woodpeckers, barbets & toucans)\nFamily: Capitonidae (New World Barbets)\nGenera: 2\nSpecies: 15",
+    "label": "Capitonidae"
+  },
+  "Semnornithidae": {
+    "order": "Piciformes",
+    "color": "#264653",
+    "n_species": 2,
+    "n_genera": 1,
+    "order_english": "Woodpeckers, barbets & toucans",
+    "family_english": "Prong-billed Barbet and Toucan Barbet",
+    "tooltip": "Order: Piciformes (Woodpeckers, barbets & toucans)\nFamily: Semnornithidae (Prong-billed Barbet and Toucan Barbet)\nGenera: 1\nSpecies: 2",
+    "label": "Semnornithidae"
+  },
+  "Ramphastidae": {
+    "order": "Piciformes",
+    "color": "#264653",
+    "n_species": 37,
+    "n_genera": 5,
+    "order_english": "Woodpeckers, barbets & toucans",
+    "family_english": "Toucans",
+    "tooltip": "Order: Piciformes (Woodpeckers, barbets & toucans)\nFamily: Ramphastidae (Toucans)\nGenera: 5\nSpecies: 37",
+    "label": "Ramphastidae"
+  },
+  "Indicatoridae": {
+    "order": "Piciformes",
+    "color": "#264653",
+    "n_species": 16,
+    "n_genera": 4,
+    "order_english": "Woodpeckers, barbets & toucans",
+    "family_english": "Honeyguides",
+    "tooltip": "Order: Piciformes (Woodpeckers, barbets & toucans)\nFamily: Indicatoridae (Honeyguides)\nGenera: 4\nSpecies: 16",
+    "label": "Indicatoridae"
+  },
+  "Picidae": {
+    "order": "Piciformes",
+    "color": "#264653",
+    "n_species": 237,
+    "n_genera": 36,
+    "order_english": "Woodpeckers, barbets & toucans",
+    "family_english": "Woodpeckers",
+    "tooltip": "Order: Piciformes (Woodpeckers, barbets & toucans)\nFamily: Picidae (Woodpeckers)\nGenera: 36\nSpecies: 237",
+    "label": "Picidae"
+  },
+  "Cariamidae": {
+    "order": "Cariamiformes",
+    "color": "#2B9348",
+    "n_species": 2,
+    "n_genera": 2,
+    "order_english": "Seriemas",
+    "family_english": "Seriemas",
+    "tooltip": "Order: Cariamiformes (Seriemas)\nFamily: Cariamidae (Seriemas)\nGenera: 2\nSpecies: 2",
+    "label": "Cariamidae"
+  },
+  "Falconidae": {
+    "order": "Falconiformes",
+    "color": "#80B918",
+    "n_species": 65,
+    "n_genera": 10,
+    "order_english": "Falcons & caracaras",
+    "family_english": "Falcons and Caracaras",
+    "tooltip": "Order: Falconiformes (Falcons & caracaras)\nFamily: Falconidae (Falcons and Caracaras)\nGenera: 10\nSpecies: 65",
+    "label": "Falconidae"
+  },
+  "Strigopidae": {
+    "order": "Psittaciformes",
+    "color": "#FF9F1C",
+    "n_species": 4,
+    "n_genera": 2,
+    "order_english": "Parrots & cockatoos",
+    "family_english": "New Zealand Parrots",
+    "tooltip": "Order: Psittaciformes (Parrots & cockatoos)\nFamily: Strigopidae (New Zealand Parrots)\nGenera: 2\nSpecies: 4",
+    "label": "Strigopidae"
+  },
+  "Cacatuidae": {
+    "order": "Psittaciformes",
+    "color": "#FF9F1C",
+    "n_species": 22,
+    "n_genera": 7,
+    "order_english": "Parrots & cockatoos",
+    "family_english": "Cockatoos",
+    "tooltip": "Order: Psittaciformes (Parrots & cockatoos)\nFamily: Cacatuidae (Cockatoos)\nGenera: 7\nSpecies: 22",
+    "label": "Cacatuidae"
+  },
+  "Psittacidae": {
+    "order": "Psittaciformes",
+    "color": "#FF9F1C",
+    "n_species": 180,
+    "n_genera": 37,
+    "order_english": "Parrots & cockatoos",
+    "family_english": "African and New World Parrots",
+    "tooltip": "Order: Psittaciformes (Parrots & cockatoos)\nFamily: Psittacidae (African and New World Parrots)\nGenera: 37\nSpecies: 180",
+    "label": "Psittacidae"
+  },
+  "Psittaculidae": {
+    "order": "Psittaciformes",
+    "color": "#FF9F1C",
+    "n_species": 200,
+    "n_genera": 48,
+    "order_english": "Parrots & cockatoos",
+    "family_english": "Old World Parrots",
+    "tooltip": "Order: Psittaciformes (Parrots & cockatoos)\nFamily: Psittaculidae (Old World Parrots)\nGenera: 48\nSpecies: 200",
+    "label": "Psittaculidae"
+  },
+  "Acanthisittidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 4,
+    "n_genera": 3,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "New Zealand Wrens",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Acanthisittidae (New Zealand Wrens)\nGenera: 3\nSpecies: 4",
+    "label": "Acanthisittidae"
+  },
+  "Philepittidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 4,
+    "n_genera": 2,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Asities",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Philepittidae (Asities)\nGenera: 2\nSpecies: 4",
+    "label": "Philepittidae"
+  },
+  "Eurylaimidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 10,
+    "n_genera": 7,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Grauer's Broadbill and Asian Broadbills",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Eurylaimidae (Grauer's Broadbill and Asian Broadbills)\nGenera: 7\nSpecies: 10",
+    "label": "Eurylaimidae"
+  },
+  "Calyptomenidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 6,
+    "n_genera": 2,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "African and Green Broadbills",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Calyptomenidae (African and Green Broadbills)\nGenera: 2\nSpecies: 6",
+    "label": "Calyptomenidae"
+  },
+  "Sapayoidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 1,
+    "n_genera": 1,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Sapayoa",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Sapayoidae (Sapayoa)\nGenera: 1\nSpecies: 1",
+    "label": "Sapayoidae"
+  },
+  "Pittidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 46,
+    "n_genera": 3,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Pittas",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Pittidae (Pittas)\nGenera: 3\nSpecies: 46",
+    "label": "Pittidae"
+  },
+  "Pipridae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 55,
+    "n_genera": 16,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Manakins",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Pipridae (Manakins)\nGenera: 16\nSpecies: 55",
+    "label": "Pipridae"
+  },
+  "Cotingidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 65,
+    "n_genera": 24,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Cotingas",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Cotingidae (Cotingas)\nGenera: 24\nSpecies: 65",
+    "label": "Cotingidae"
+  },
+  "Tityridae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 36,
+    "n_genera": 7,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Tityras, Becards, and Allies",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Tityridae (Tityras, Becards, and Allies)\nGenera: 7\nSpecies: 36",
+    "label": "Tityridae"
+  },
+  "Oxyruncidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 1,
+    "n_genera": 1,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Sharpbill",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Oxyruncidae (Sharpbill)\nGenera: 1\nSpecies: 1",
+    "label": "Oxyruncidae"
+  },
+  "Onychorhynchidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 7,
+    "n_genera": 3,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Royal Flycatchers and Allies",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Onychorhynchidae (Royal Flycatchers and Allies)\nGenera: 3\nSpecies: 7",
+    "label": "Onychorhynchidae"
+  },
+  "Tyrannidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 441,
+    "n_genera": 104,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Tyrant Flycatchers and Allies",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Tyrannidae (Tyrant Flycatchers and Allies)\nGenera: 104\nSpecies: 441",
+    "label": "Tyrannidae"
+  },
+  "Melanopareiidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 4,
+    "n_genera": 1,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Crescentchests",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Melanopareiidae (Crescentchests)\nGenera: 1\nSpecies: 4",
+    "label": "Melanopareiidae"
+  },
+  "Conopophagidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 12,
+    "n_genera": 2,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Gnateaters",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Conopophagidae (Gnateaters)\nGenera: 2\nSpecies: 12",
+    "label": "Conopophagidae"
+  },
+  "Thamnophilidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 239,
+    "n_genera": 63,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Antbirds, Antshrikes, Antwrens, and Antvireos",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Thamnophilidae (Antbirds, Antshrikes, Antwrens, and Antvireos)\nGenera: 63\nSpecies: 239",
+    "label": "Thamnophilidae"
+  },
+  "Grallariidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 70,
+    "n_genera": 5,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Antpittas",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Grallariidae (Antpittas)\nGenera: 5\nSpecies: 70",
+    "label": "Grallariidae"
+  },
+  "Rhinocryptidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 65,
+    "n_genera": 12,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Tapaculos",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Rhinocryptidae (Tapaculos)\nGenera: 12\nSpecies: 65",
+    "label": "Rhinocryptidae"
+  },
+  "Formicariidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 12,
+    "n_genera": 2,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Antthrushes",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Formicariidae (Antthrushes)\nGenera: 2\nSpecies: 12",
+    "label": "Formicariidae"
+  },
+  "Furnariidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 321,
+    "n_genera": 71,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Ovenbirds and Woodcreepers",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Furnariidae (Ovenbirds and Woodcreepers)\nGenera: 71\nSpecies: 321",
+    "label": "Furnariidae"
+  },
+  "Menuridae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 2,
+    "n_genera": 1,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Lyrebirds",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Menuridae (Lyrebirds)\nGenera: 1\nSpecies: 2",
+    "label": "Menuridae"
+  },
+  "Atrichornithidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 2,
+    "n_genera": 1,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Scrubbirds",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Atrichornithidae (Scrubbirds)\nGenera: 1\nSpecies: 2",
+    "label": "Atrichornithidae"
+  },
+  "Climacteridae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 7,
+    "n_genera": 2,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Australasian Treecreepers",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Climacteridae (Australasian Treecreepers)\nGenera: 2\nSpecies: 7",
+    "label": "Climacteridae"
+  },
+  "Ptilonorhynchidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 23,
+    "n_genera": 8,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Bowerbirds",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Ptilonorhynchidae (Bowerbirds)\nGenera: 8\nSpecies: 23",
+    "label": "Ptilonorhynchidae"
+  },
+  "Maluridae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 33,
+    "n_genera": 6,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Grasswrens, Fairywrens, and Emu-wrens",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Maluridae (Grasswrens, Fairywrens, and Emu-wrens)\nGenera: 6\nSpecies: 33",
+    "label": "Maluridae"
+  },
+  "Dasyornithidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 3,
+    "n_genera": 1,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Bristlebirds",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Dasyornithidae (Bristlebirds)\nGenera: 1\nSpecies: 3",
+    "label": "Dasyornithidae"
+  },
+  "Pardalotidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 4,
+    "n_genera": 1,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Pardalotes",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Pardalotidae (Pardalotes)\nGenera: 1\nSpecies: 4",
+    "label": "Pardalotidae"
+  },
+  "Acanthizidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 66,
+    "n_genera": 15,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Gerygones, Thornbills, Scrubwrens, and Allies",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Acanthizidae (Gerygones, Thornbills, Scrubwrens, and Allies)\nGenera: 15\nSpecies: 66",
+    "label": "Acanthizidae"
+  },
+  "Meliphagidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 195,
+    "n_genera": 51,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Honeyeaters",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Meliphagidae (Honeyeaters)\nGenera: 51\nSpecies: 195",
+    "label": "Meliphagidae"
+  },
+  "Orthonychidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 3,
+    "n_genera": 1,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Logrunner and Chowchilla",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Orthonychidae (Logrunner and Chowchilla)\nGenera: 1\nSpecies: 3",
+    "label": "Orthonychidae"
+  },
+  "Pomatostomidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 5,
+    "n_genera": 2,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Australasian Babblers",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Pomatostomidae (Australasian Babblers)\nGenera: 2\nSpecies: 5",
+    "label": "Pomatostomidae"
+  },
+  "Cinclosomatidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 12,
+    "n_genera": 2,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Jewel-babblers and Quail-thrushes",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Cinclosomatidae (Jewel-babblers and Quail-thrushes)\nGenera: 2\nSpecies: 12",
+    "label": "Cinclosomatidae"
+  },
+  "Campephagidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 107,
+    "n_genera": 11,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Cuckooshrikes",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Campephagidae (Cuckooshrikes)\nGenera: 11\nSpecies: 107",
+    "label": "Campephagidae"
+  },
+  "Mohouidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 3,
+    "n_genera": 1,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Whiteheads",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Mohouidae (Whiteheads)\nGenera: 1\nSpecies: 3",
+    "label": "Mohouidae"
+  },
+  "Machaerirhynchidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 2,
+    "n_genera": 1,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Boatbills",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Machaerirhynchidae (Boatbills)\nGenera: 1\nSpecies: 2",
+    "label": "Machaerirhynchidae"
+  },
+  "Artamidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 24,
+    "n_genera": 6,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Woodswallows, Bellmagpies, and Allies",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Artamidae (Woodswallows, Bellmagpies, and Allies)\nGenera: 6\nSpecies: 24",
+    "label": "Artamidae"
+  },
+  "Rhagologidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 1,
+    "n_genera": 1,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Berryhunter",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Rhagologidae (Berryhunter)\nGenera: 1\nSpecies: 1",
+    "label": "Rhagologidae"
+  },
+  "Pityriasidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 1,
+    "n_genera": 1,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Bristlehead",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Pityriasidae (Bristlehead)\nGenera: 1\nSpecies: 1",
+    "label": "Pityriasidae"
+  },
+  "Aegithinidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 4,
+    "n_genera": 1,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Ioras",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Aegithinidae (Ioras)\nGenera: 1\nSpecies: 4",
+    "label": "Aegithinidae"
+  },
+  "Malaconotidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 50,
+    "n_genera": 9,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Bushshrikes and Allies",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Malaconotidae (Bushshrikes and Allies)\nGenera: 9\nSpecies: 50",
+    "label": "Malaconotidae"
+  },
+  "Platysteiridae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 32,
+    "n_genera": 4,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Wattle-eyes and Batises",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Platysteiridae (Wattle-eyes and Batises)\nGenera: 4\nSpecies: 32",
+    "label": "Platysteiridae"
+  },
+  "Vangidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 40,
+    "n_genera": 21,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Vangas, Helmetshrikes, and Allies",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Vangidae (Vangas, Helmetshrikes, and Allies)\nGenera: 21\nSpecies: 40",
+    "label": "Vangidae"
+  },
+  "Neosittidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 3,
+    "n_genera": 1,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Sittellas",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Neosittidae (Sittellas)\nGenera: 1\nSpecies: 3",
+    "label": "Neosittidae"
+  },
+  "Psophodidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 5,
+    "n_genera": 2,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Whipbirds and Wedgebills",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Psophodidae (Whipbirds and Wedgebills)\nGenera: 2\nSpecies: 5",
+    "label": "Psophodidae"
+  },
+  "Eulacestomatidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 1,
+    "n_genera": 1,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Ploughbill",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Eulacestomatidae (Ploughbill)\nGenera: 1\nSpecies: 1",
+    "label": "Eulacestomatidae"
+  },
+  "Oreoicidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 3,
+    "n_genera": 3,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Australasian Bellbirds",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Oreoicidae (Australasian Bellbirds)\nGenera: 3\nSpecies: 3",
+    "label": "Oreoicidae"
+  },
+  "Falcunculidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 3,
+    "n_genera": 1,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Shriketits",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Falcunculidae (Shriketits)\nGenera: 1\nSpecies: 3",
+    "label": "Falcunculidae"
+  },
+  "Paramythiidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 3,
+    "n_genera": 2,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Tit Berrypecker and Crested Berrypeckers",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Paramythiidae (Tit Berrypecker and Crested Berrypeckers)\nGenera: 2\nSpecies: 3",
+    "label": "Paramythiidae"
+  },
+  "Vireonidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 64,
+    "n_genera": 8,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Shrike-babblers, Erpornis, and Vireos",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Vireonidae (Shrike-babblers, Erpornis, and Vireos)\nGenera: 8\nSpecies: 64",
+    "label": "Vireonidae"
+  },
+  "Oriolidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 41,
+    "n_genera": 4,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Old World Orioles",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Oriolidae (Old World Orioles)\nGenera: 4\nSpecies: 41",
+    "label": "Oriolidae"
+  },
+  "Pachycephalidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 61,
+    "n_genera": 5,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Whistlers and Allies",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Pachycephalidae (Whistlers and Allies)\nGenera: 5\nSpecies: 61",
+    "label": "Pachycephalidae"
+  },
+  "Rhipiduridae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 64,
+    "n_genera": 4,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Fantails and Silktails",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Rhipiduridae (Fantails and Silktails)\nGenera: 4\nSpecies: 64",
+    "label": "Rhipiduridae"
+  },
+  "Dicruridae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 28,
+    "n_genera": 1,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Drongos",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Dicruridae (Drongos)\nGenera: 1\nSpecies: 28",
+    "label": "Dicruridae"
+  },
+  "Monarchidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 105,
+    "n_genera": 15,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Monarch Flycatchers, Paradise Flycatchers, and Shrikebills",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Monarchidae (Monarch Flycatchers, Paradise Flycatchers, and Shrikebills)\nGenera: 15\nSpecies: 105",
+    "label": "Monarchidae"
+  },
+  "Corcoracidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 2,
+    "n_genera": 2,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "White-winged Chough and Apostlebird",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Corcoracidae (White-winged Chough and Apostlebird)\nGenera: 2\nSpecies: 2",
+    "label": "Corcoracidae"
+  },
+  "Ifritidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 1,
+    "n_genera": 1,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Ifrit",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Ifritidae (Ifrit)\nGenera: 1\nSpecies: 1",
+    "label": "Ifritidae"
+  },
+  "Paradisaeidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 44,
+    "n_genera": 17,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Birds-of-paradise",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Paradisaeidae (Birds-of-paradise)\nGenera: 17\nSpecies: 44",
+    "label": "Paradisaeidae"
+  },
+  "Melampittidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 2,
+    "n_genera": 2,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Melampittas",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Melampittidae (Melampittas)\nGenera: 2\nSpecies: 2",
+    "label": "Melampittidae"
+  },
+  "Platylophidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 1,
+    "n_genera": 1,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Jayshrike",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Platylophidae (Jayshrike)\nGenera: 1\nSpecies: 1",
+    "label": "Platylophidae"
+  },
+  "Laniidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 34,
+    "n_genera": 4,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Shrikes",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Laniidae (Shrikes)\nGenera: 4\nSpecies: 34",
+    "label": "Laniidae"
+  },
+  "Corvidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 135,
+    "n_genera": 22,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Crows, Jays, and Magpies",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Corvidae (Crows, Jays, and Magpies)\nGenera: 22\nSpecies: 135",
+    "label": "Corvidae"
+  },
+  "Cnemophilidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 3,
+    "n_genera": 2,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Satinbirds",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Cnemophilidae (Satinbirds)\nGenera: 2\nSpecies: 3",
+    "label": "Cnemophilidae"
+  },
+  "Melanocharitidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 12,
+    "n_genera": 3,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Longbills and Berrypeckers",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Melanocharitidae (Longbills and Berrypeckers)\nGenera: 3\nSpecies: 12",
+    "label": "Melanocharitidae"
+  },
+  "Notiomystidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 1,
+    "n_genera": 1,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Stitchbird",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Notiomystidae (Stitchbird)\nGenera: 1\nSpecies: 1",
+    "label": "Notiomystidae"
+  },
+  "Callaeidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 5,
+    "n_genera": 3,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "New Zealand Wattlebirds",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Callaeidae (New Zealand Wattlebirds)\nGenera: 3\nSpecies: 5",
+    "label": "Callaeidae"
+  },
+  "Eupetidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 1,
+    "n_genera": 1,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Rail-babbler",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Eupetidae (Rail-babbler)\nGenera: 1\nSpecies: 1",
+    "label": "Eupetidae"
+  },
+  "Chaetopidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 2,
+    "n_genera": 1,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Rockjumpers",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Chaetopidae (Rockjumpers)\nGenera: 1\nSpecies: 2",
+    "label": "Chaetopidae"
+  },
+  "Picathartidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 2,
+    "n_genera": 1,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Rockfowl",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Picathartidae (Rockfowl)\nGenera: 1\nSpecies: 2",
+    "label": "Picathartidae"
+  },
+  "Petroicidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 51,
+    "n_genera": 16,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Australasian Robins",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Petroicidae (Australasian Robins)\nGenera: 16\nSpecies: 51",
+    "label": "Petroicidae"
+  },
+  "Stenostiridae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 9,
+    "n_genera": 4,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Fairy Flycatchers",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Stenostiridae (Fairy Flycatchers)\nGenera: 4\nSpecies: 9",
+    "label": "Stenostiridae"
+  },
+  "Hyliotidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 4,
+    "n_genera": 1,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Hyliotas",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Hyliotidae (Hyliotas)\nGenera: 1\nSpecies: 4",
+    "label": "Hyliotidae"
+  },
+  "Remizidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 11,
+    "n_genera": 3,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Penduline Tits",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Remizidae (Penduline Tits)\nGenera: 3\nSpecies: 11",
+    "label": "Remizidae"
+  },
+  "Paridae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 62,
+    "n_genera": 13,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Tits, Chickadees, and Titmice",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Paridae (Tits, Chickadees, and Titmice)\nGenera: 13\nSpecies: 62",
+    "label": "Paridae"
+  },
+  "Panuridae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 1,
+    "n_genera": 1,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Reedling",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Panuridae (Reedling)\nGenera: 1\nSpecies: 1",
+    "label": "Panuridae"
+  },
+  "Alaudidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 98,
+    "n_genera": 24,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Larks",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Alaudidae (Larks)\nGenera: 24\nSpecies: 98",
+    "label": "Alaudidae"
+  },
+  "Nicatoridae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 3,
+    "n_genera": 1,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Nicators",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Nicatoridae (Nicators)\nGenera: 1\nSpecies: 3",
+    "label": "Nicatoridae"
+  },
+  "Macrosphenidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 18,
+    "n_genera": 6,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Longbills, Crombecs, and Allies",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Macrosphenidae (Longbills, Crombecs, and Allies)\nGenera: 6\nSpecies: 18",
+    "label": "Macrosphenidae"
+  },
+  "Cisticolidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 164,
+    "n_genera": 26,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Cisticolas and Allies",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Cisticolidae (Cisticolas and Allies)\nGenera: 26\nSpecies: 164",
+    "label": "Cisticolidae"
+  },
+  "Acrocephalidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 60,
+    "n_genera": 7,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Reed Warblers and Allies",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Acrocephalidae (Reed Warblers and Allies)\nGenera: 7\nSpecies: 60",
+    "label": "Acrocephalidae"
+  },
+  "Donacobiidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 1,
+    "n_genera": 1,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Donacobius",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Donacobiidae (Donacobius)\nGenera: 1\nSpecies: 1",
+    "label": "Donacobiidae"
+  },
+  "Bernieridae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 11,
+    "n_genera": 8,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Malagasy Warblers and Tetrakas",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Bernieridae (Malagasy Warblers and Tetrakas)\nGenera: 8\nSpecies: 11",
+    "label": "Bernieridae"
+  },
+  "Locustellidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 67,
+    "n_genera": 11,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Grasshopper Warblers, Grassbirds, and Allies",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Locustellidae (Grasshopper Warblers, Grassbirds, and Allies)\nGenera: 11\nSpecies: 67",
+    "label": "Locustellidae"
+  },
+  "Pnoepygidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 4,
+    "n_genera": 1,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Cupwings",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Pnoepygidae (Cupwings)\nGenera: 1\nSpecies: 4",
+    "label": "Pnoepygidae"
+  },
+  "Hirundinidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 92,
+    "n_genera": 21,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Swallows",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Hirundinidae (Swallows)\nGenera: 21\nSpecies: 92",
+    "label": "Hirundinidae"
+  },
+  "Hyliidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 2,
+    "n_genera": 2,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Hylias",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Hyliidae (Hylias)\nGenera: 2\nSpecies: 2",
+    "label": "Hyliidae"
+  },
+  "Aegithalidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 11,
+    "n_genera": 3,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Tit-warblers, Bushtits, and Long-tailed Tit",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Aegithalidae (Tit-warblers, Bushtits, and Long-tailed Tit)\nGenera: 3\nSpecies: 11",
+    "label": "Aegithalidae"
+  },
+  "Erythrocercidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 3,
+    "n_genera": 1,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Yellow Flycatchers",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Erythrocercidae (Yellow Flycatchers)\nGenera: 1\nSpecies: 3",
+    "label": "Erythrocercidae"
+  },
+  "Cettiidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 32,
+    "n_genera": 9,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Bush Warblers and Allies",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Cettiidae (Bush Warblers and Allies)\nGenera: 9\nSpecies: 32",
+    "label": "Cettiidae"
+  },
+  "Phylloscopidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 80,
+    "n_genera": 1,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Leaf Warblers",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Phylloscopidae (Leaf Warblers)\nGenera: 1\nSpecies: 80",
+    "label": "Phylloscopidae"
+  },
+  "Pycnonotidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 161,
+    "n_genera": 28,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Bulbuls",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Pycnonotidae (Bulbuls)\nGenera: 28\nSpecies: 161",
+    "label": "Pycnonotidae"
+  },
+  "Sylviidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 32,
+    "n_genera": 2,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Sylviid Warblers and Allies",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Sylviidae (Sylviid Warblers and Allies)\nGenera: 2\nSpecies: 32",
+    "label": "Sylviidae"
+  },
+  "Paradoxornithidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 38,
+    "n_genera": 9,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Parrotbills and Allies",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Paradoxornithidae (Parrotbills and Allies)\nGenera: 9\nSpecies: 38",
+    "label": "Paradoxornithidae"
+  },
+  "Zosteropidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 147,
+    "n_genera": 13,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "White-eyes, Yuhinas, and Allies",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Zosteropidae (White-eyes, Yuhinas, and Allies)\nGenera: 13\nSpecies: 147",
+    "label": "Zosteropidae"
+  },
+  "Timaliidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 58,
+    "n_genera": 10,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Tree Babblers, Scimitar Babblers, and Allies",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Timaliidae (Tree Babblers, Scimitar Babblers, and Allies)\nGenera: 10\nSpecies: 58",
+    "label": "Timaliidae"
+  },
+  "Pellorneidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 65,
+    "n_genera": 13,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Ground Babblers and Allies",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Pellorneidae (Ground Babblers and Allies)\nGenera: 13\nSpecies: 65",
+    "label": "Pellorneidae"
+  },
+  "Leiothrichidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 143,
+    "n_genera": 17,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Laughingthrushes and Allies",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Leiothrichidae (Laughingthrushes and Allies)\nGenera: 17\nSpecies: 143",
+    "label": "Leiothrichidae"
+  },
+  "Dulidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 1,
+    "n_genera": 1,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Palmchat",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Dulidae (Palmchat)\nGenera: 1\nSpecies: 1",
+    "label": "Dulidae"
+  },
+  "Bombycillidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 3,
+    "n_genera": 1,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Waxwings",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Bombycillidae (Waxwings)\nGenera: 1\nSpecies: 3",
+    "label": "Bombycillidae"
+  },
+  "Ptiliogonatidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 4,
+    "n_genera": 3,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Silky-flycatchers",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Ptiliogonatidae (Silky-flycatchers)\nGenera: 3\nSpecies: 4",
+    "label": "Ptiliogonatidae"
+  },
+  "Hylocitreidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 1,
+    "n_genera": 1,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Hylocitrea",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Hylocitreidae (Hylocitrea)\nGenera: 1\nSpecies: 1",
+    "label": "Hylocitreidae"
+  },
+  "Hypocoliidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 1,
+    "n_genera": 1,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Hypocolius",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Hypocoliidae (Hypocolius)\nGenera: 1\nSpecies: 1",
+    "label": "Hypocoliidae"
+  },
+  "Mohoidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 5,
+    "n_genera": 2,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Hawaiian Honeyeaters",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Mohoidae (Hawaiian Honeyeaters)\nGenera: 2\nSpecies: 5",
+    "label": "Mohoidae"
+  },
+  "Regulidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 6,
+    "n_genera": 2,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Kinglets",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Regulidae (Kinglets)\nGenera: 2\nSpecies: 6",
+    "label": "Regulidae"
+  },
+  "Tichodromidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 1,
+    "n_genera": 1,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Wallcreeper",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Tichodromidae (Wallcreeper)\nGenera: 1\nSpecies: 1",
+    "label": "Tichodromidae"
+  },
+  "Sittidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 29,
+    "n_genera": 1,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Nuthatches",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Sittidae (Nuthatches)\nGenera: 1\nSpecies: 29",
+    "label": "Sittidae"
+  },
+  "Salpornithidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 2,
+    "n_genera": 1,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Spotted Creepers",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Salpornithidae (Spotted Creepers)\nGenera: 1\nSpecies: 2",
+    "label": "Salpornithidae"
+  },
+  "Certhiidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 9,
+    "n_genera": 1,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Treecreepers",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Certhiidae (Treecreepers)\nGenera: 1\nSpecies: 9",
+    "label": "Certhiidae"
+  },
+  "Polioptilidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 20,
+    "n_genera": 3,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Gnatwrens and Gnatcatchers",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Polioptilidae (Gnatwrens and Gnatcatchers)\nGenera: 3\nSpecies: 20",
+    "label": "Polioptilidae"
+  },
+  "Troglodytidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 96,
+    "n_genera": 19,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Wrens",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Troglodytidae (Wrens)\nGenera: 19\nSpecies: 96",
+    "label": "Troglodytidae"
+  },
+  "Elachuridae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 1,
+    "n_genera": 1,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Elachura",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Elachuridae (Elachura)\nGenera: 1\nSpecies: 1",
+    "label": "Elachuridae"
+  },
+  "Buphagidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 2,
+    "n_genera": 1,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Oxpeckers",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Buphagidae (Oxpeckers)\nGenera: 1\nSpecies: 2",
+    "label": "Buphagidae"
+  },
+  "Mimidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 35,
+    "n_genera": 10,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Mockingbirds and Thrashers",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Mimidae (Mockingbirds and Thrashers)\nGenera: 10\nSpecies: 35",
+    "label": "Mimidae"
+  },
+  "Sturnidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 123,
+    "n_genera": 36,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Rhabdornis, Starlings, and Mynas",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Sturnidae (Rhabdornis, Starlings, and Mynas)\nGenera: 36\nSpecies: 123",
+    "label": "Sturnidae"
+  },
+  "Cinclidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 5,
+    "n_genera": 1,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Dippers",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Cinclidae (Dippers)\nGenera: 1\nSpecies: 5",
+    "label": "Cinclidae"
+  },
+  "Turdidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 194,
+    "n_genera": 17,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Thrushes and Allies",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Turdidae (Thrushes and Allies)\nGenera: 17\nSpecies: 194",
+    "label": "Turdidae"
+  },
+  "Muscicapidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 352,
+    "n_genera": 57,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Chats, Old World Flycatchers, and Allies",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Muscicapidae (Chats, Old World Flycatchers, and Allies)\nGenera: 57\nSpecies: 352",
+    "label": "Muscicapidae"
+  },
+  "Promeropidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 2,
+    "n_genera": 1,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Sugarbirds",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Promeropidae (Sugarbirds)\nGenera: 1\nSpecies: 2",
+    "label": "Promeropidae"
+  },
+  "Modulatricidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 3,
+    "n_genera": 3,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Dapple-throat and Allies",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Modulatricidae (Dapple-throat and Allies)\nGenera: 3\nSpecies: 3",
+    "label": "Modulatricidae"
+  },
+  "Dicaeidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 56,
+    "n_genera": 3,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Flowerpeckers",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Dicaeidae (Flowerpeckers)\nGenera: 3\nSpecies: 56",
+    "label": "Dicaeidae"
+  },
+  "Nectariniidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 151,
+    "n_genera": 16,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Spiderhunters and Sunbirds",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Nectariniidae (Spiderhunters and Sunbirds)\nGenera: 16\nSpecies: 151",
+    "label": "Nectariniidae"
+  },
+  "Chloropseidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 12,
+    "n_genera": 1,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Leafbirds",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Chloropseidae (Leafbirds)\nGenera: 1\nSpecies: 12",
+    "label": "Chloropseidae"
+  },
+  "Irenidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 3,
+    "n_genera": 1,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Fairy-bluebirds",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Irenidae (Fairy-bluebirds)\nGenera: 1\nSpecies: 3",
+    "label": "Irenidae"
+  },
+  "Peucedramidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 1,
+    "n_genera": 1,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Olive Warbler",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Peucedramidae (Olive Warbler)\nGenera: 1\nSpecies: 1",
+    "label": "Peucedramidae"
+  },
+  "Urocynchramidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 1,
+    "n_genera": 1,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Przevalski's Finch",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Urocynchramidae (Przevalski's Finch)\nGenera: 1\nSpecies: 1",
+    "label": "Urocynchramidae"
+  },
+  "Ploceidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 122,
+    "n_genera": 16,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Weavers and Allies",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Ploceidae (Weavers and Allies)\nGenera: 16\nSpecies: 122",
+    "label": "Ploceidae"
+  },
+  "Viduidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 20,
+    "n_genera": 2,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Whydahs and Indigobirds",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Viduidae (Whydahs and Indigobirds)\nGenera: 2\nSpecies: 20",
+    "label": "Viduidae"
+  },
+  "Estrildidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 138,
+    "n_genera": 39,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Munias, Parrotfinches, Waxbills, and Allies",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Estrildidae (Munias, Parrotfinches, Waxbills, and Allies)\nGenera: 39\nSpecies: 138",
+    "label": "Estrildidae"
+  },
+  "Prunellidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 12,
+    "n_genera": 1,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Accentors",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Prunellidae (Accentors)\nGenera: 1\nSpecies: 12",
+    "label": "Prunellidae"
+  },
+  "Passeridae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 43,
+    "n_genera": 8,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Snowfinches and Old World Sparrows",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Passeridae (Snowfinches and Old World Sparrows)\nGenera: 8\nSpecies: 43",
+    "label": "Passeridae"
+  },
+  "Motacillidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 70,
+    "n_genera": 6,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Wagtails and Pipits",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Motacillidae (Wagtails and Pipits)\nGenera: 6\nSpecies: 70",
+    "label": "Motacillidae"
+  },
+  "Fringillidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 236,
+    "n_genera": 50,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Finches, Euphonias, and Allies",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Fringillidae (Finches, Euphonias, and Allies)\nGenera: 50\nSpecies: 236",
+    "label": "Fringillidae"
+  },
+  "Rhodinocichlidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 1,
+    "n_genera": 1,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Thrush-tanager",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Rhodinocichlidae (Thrush-tanager)\nGenera: 1\nSpecies: 1",
+    "label": "Rhodinocichlidae"
+  },
+  "Calcariidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 6,
+    "n_genera": 3,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Longspurs and Snow Buntings",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Calcariidae (Longspurs and Snow Buntings)\nGenera: 3\nSpecies: 6",
+    "label": "Calcariidae"
+  },
+  "Emberizidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 44,
+    "n_genera": 1,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Old World Buntings",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Emberizidae (Old World Buntings)\nGenera: 1\nSpecies: 44",
+    "label": "Emberizidae"
+  },
+  "Passerellidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 138,
+    "n_genera": 30,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "New World Sparrows",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Passerellidae (New World Sparrows)\nGenera: 30\nSpecies: 138",
+    "label": "Passerellidae"
+  },
+  "Calyptophilidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 2,
+    "n_genera": 1,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Chat-tanagers",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Calyptophilidae (Chat-tanagers)\nGenera: 1\nSpecies: 2",
+    "label": "Calyptophilidae"
+  },
+  "Zeledoniidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 1,
+    "n_genera": 1,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Wrenthrush",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Zeledoniidae (Wrenthrush)\nGenera: 1\nSpecies: 1",
+    "label": "Zeledoniidae"
+  },
+  "Phaenicophilidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 4,
+    "n_genera": 3,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Hispaniolan Tanagers",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Phaenicophilidae (Hispaniolan Tanagers)\nGenera: 3\nSpecies: 4",
+    "label": "Phaenicophilidae"
+  },
+  "Nesospingidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 1,
+    "n_genera": 1,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Puerto Rican Tanager",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Nesospingidae (Puerto Rican Tanager)\nGenera: 1\nSpecies: 1",
+    "label": "Nesospingidae"
+  },
+  "Spindalidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 4,
+    "n_genera": 1,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Spindalises",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Spindalidae (Spindalises)\nGenera: 1\nSpecies: 4",
+    "label": "Spindalidae"
+  },
+  "Teretistridae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 2,
+    "n_genera": 1,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Cuban Warblers",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Teretistridae (Cuban Warblers)\nGenera: 1\nSpecies: 2",
+    "label": "Teretistridae"
+  },
+  "Icteridae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 108,
+    "n_genera": 31,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "New World Blackbirds, Troupials, and Allies",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Icteridae (New World Blackbirds, Troupials, and Allies)\nGenera: 31\nSpecies: 108",
+    "label": "Icteridae"
+  },
+  "Parulidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 116,
+    "n_genera": 18,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "New World Warblers",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Parulidae (New World Warblers)\nGenera: 18\nSpecies: 116",
+    "label": "Parulidae"
+  },
+  "Cardinalidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 52,
+    "n_genera": 14,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Cardinals and Allies",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Cardinalidae (Cardinals and Allies)\nGenera: 14\nSpecies: 52",
+    "label": "Cardinalidae"
+  },
+  "Mitrospingidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 4,
+    "n_genera": 3,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Mitrospingid Tanagers",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Mitrospingidae (Mitrospingid Tanagers)\nGenera: 3\nSpecies: 4",
+    "label": "Mitrospingidae"
+  },
+  "Thraupidae": {
+    "order": "Passeriformes",
+    "color": "#FFBF69",
+    "n_species": 390,
+    "n_genera": 107,
+    "order_english": "Perching birds / songbirds",
+    "family_english": "Tanagers and Allies",
+    "tooltip": "Order: Passeriformes (Perching birds / songbirds)\nFamily: Thraupidae (Tanagers and Allies)\nGenera: 107\nSpecies: 390",
+    "label": "Thraupidae"
+  }
+}

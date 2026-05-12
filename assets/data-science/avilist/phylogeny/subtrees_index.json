@@ -1,0 +1,1514 @@
+{
+  "Acanthisittidae": {
+    "file": "Acanthisittidae.json",
+    "n_species": 4,
+    "n_resolved": 4,
+    "n_genera": 3
+  },
+  "Acanthizidae": {
+    "file": "Acanthizidae.json",
+    "n_species": 66,
+    "n_resolved": 65,
+    "n_genera": 15
+  },
+  "Accipitridae": {
+    "file": "Accipitridae.json",
+    "n_species": 250,
+    "n_resolved": 200,
+    "n_genera": 74
+  },
+  "Acrocephalidae": {
+    "file": "Acrocephalidae.json",
+    "n_species": 60,
+    "n_resolved": 60,
+    "n_genera": 7
+  },
+  "Aegithalidae": {
+    "file": "Aegithalidae.json",
+    "n_species": 11,
+    "n_resolved": 10,
+    "n_genera": 3
+  },
+  "Aegithinidae": {
+    "file": "Aegithinidae.json",
+    "n_species": 4,
+    "n_resolved": 4,
+    "n_genera": 1
+  },
+  "Aegothelidae": {
+    "file": "Aegothelidae.json",
+    "n_species": 10,
+    "n_resolved": 9,
+    "n_genera": 1
+  },
+  "Alaudidae": {
+    "file": "Alaudidae.json",
+    "n_species": 98,
+    "n_resolved": 85,
+    "n_genera": 24
+  },
+  "Alcedinidae": {
+    "file": "Alcedinidae.json",
+    "n_species": 117,
+    "n_resolved": 116,
+    "n_genera": 18
+  },
+  "Alcidae": {
+    "file": "Alcidae.json",
+    "n_species": 25,
+    "n_resolved": 25,
+    "n_genera": 11
+  },
+  "Anatidae": {
+    "file": "Anatidae.json",
+    "n_species": 172,
+    "n_resolved": 166,
+    "n_genera": 53
+  },
+  "Anhimidae": {
+    "file": "Anhimidae.json",
+    "n_species": 3,
+    "n_resolved": 3,
+    "n_genera": 2
+  },
+  "Anhingidae": {
+    "file": "Anhingidae.json",
+    "n_species": 4,
+    "n_resolved": 4,
+    "n_genera": 1
+  },
+  "Anseranatidae": {
+    "file": "Anseranatidae.json",
+    "n_species": 1,
+    "n_resolved": 1,
+    "n_genera": 1
+  },
+  "Apodidae": {
+    "file": "Apodidae.json",
+    "n_species": 105,
+    "n_resolved": 105,
+    "n_genera": 19
+  },
+  "Apterygidae": {
+    "file": "Apterygidae.json",
+    "n_species": 5,
+    "n_resolved": 4,
+    "n_genera": 1
+  },
+  "Aramidae": {
+    "file": "Aramidae.json",
+    "n_species": 1,
+    "n_resolved": 1,
+    "n_genera": 1
+  },
+  "Ardeidae": {
+    "file": "Ardeidae.json",
+    "n_species": 74,
+    "n_resolved": 62,
+    "n_genera": 18
+  },
+  "Artamidae": {
+    "file": "Artamidae.json",
+    "n_species": 24,
+    "n_resolved": 24,
+    "n_genera": 6
+  },
+  "Atrichornithidae": {
+    "file": "Atrichornithidae.json",
+    "n_species": 2,
+    "n_resolved": 2,
+    "n_genera": 1
+  },
+  "Balaenicipitidae": {
+    "file": "Balaenicipitidae.json",
+    "n_species": 1,
+    "n_resolved": 1,
+    "n_genera": 1
+  },
+  "Bernieridae": {
+    "file": "Bernieridae.json",
+    "n_species": 11,
+    "n_resolved": 10,
+    "n_genera": 8
+  },
+  "Bombycillidae": {
+    "file": "Bombycillidae.json",
+    "n_species": 3,
+    "n_resolved": 3,
+    "n_genera": 1
+  },
+  "Brachypteraciidae": {
+    "file": "Brachypteraciidae.json",
+    "n_species": 5,
+    "n_resolved": 5,
+    "n_genera": 4
+  },
+  "Bucconidae": {
+    "file": "Bucconidae.json",
+    "n_species": 37,
+    "n_resolved": 37,
+    "n_genera": 10
+  },
+  "Bucerotidae": {
+    "file": "Bucerotidae.json",
+    "n_species": 64,
+    "n_resolved": 56,
+    "n_genera": 16
+  },
+  "Buphagidae": {
+    "file": "Buphagidae.json",
+    "n_species": 2,
+    "n_resolved": 2,
+    "n_genera": 1
+  },
+  "Burhinidae": {
+    "file": "Burhinidae.json",
+    "n_species": 10,
+    "n_resolved": 8,
+    "n_genera": 3
+  },
+  "Cacatuidae": {
+    "file": "Cacatuidae.json",
+    "n_species": 22,
+    "n_resolved": 19,
+    "n_genera": 7
+  },
+  "Calcariidae": {
+    "file": "Calcariidae.json",
+    "n_species": 6,
+    "n_resolved": 6,
+    "n_genera": 3
+  },
+  "Callaeidae": {
+    "file": "Callaeidae.json",
+    "n_species": 5,
+    "n_resolved": 5,
+    "n_genera": 3
+  },
+  "Calyptomenidae": {
+    "file": "Calyptomenidae.json",
+    "n_species": 6,
+    "n_resolved": 6,
+    "n_genera": 2
+  },
+  "Calyptophilidae": {
+    "file": "Calyptophilidae.json",
+    "n_species": 2,
+    "n_resolved": 2,
+    "n_genera": 1
+  },
+  "Campephagidae": {
+    "file": "Campephagidae.json",
+    "n_species": 107,
+    "n_resolved": 88,
+    "n_genera": 11
+  },
+  "Capitonidae": {
+    "file": "Capitonidae.json",
+    "n_species": 15,
+    "n_resolved": 15,
+    "n_genera": 2
+  },
+  "Caprimulgidae": {
+    "file": "Caprimulgidae.json",
+    "n_species": 98,
+    "n_resolved": 95,
+    "n_genera": 22
+  },
+  "Cardinalidae": {
+    "file": "Cardinalidae.json",
+    "n_species": 52,
+    "n_resolved": 47,
+    "n_genera": 14
+  },
+  "Cariamidae": {
+    "file": "Cariamidae.json",
+    "n_species": 2,
+    "n_resolved": 2,
+    "n_genera": 2
+  },
+  "Casuariidae": {
+    "file": "Casuariidae.json",
+    "n_species": 4,
+    "n_resolved": 4,
+    "n_genera": 2
+  },
+  "Cathartidae": {
+    "file": "Cathartidae.json",
+    "n_species": 7,
+    "n_resolved": 7,
+    "n_genera": 5
+  },
+  "Certhiidae": {
+    "file": "Certhiidae.json",
+    "n_species": 9,
+    "n_resolved": 9,
+    "n_genera": 1
+  },
+  "Cettiidae": {
+    "file": "Cettiidae.json",
+    "n_species": 32,
+    "n_resolved": 31,
+    "n_genera": 9
+  },
+  "Chaetopidae": {
+    "file": "Chaetopidae.json",
+    "n_species": 2,
+    "n_resolved": 2,
+    "n_genera": 1
+  },
+  "Charadriidae": {
+    "file": "Charadriidae.json",
+    "n_species": 69,
+    "n_resolved": 51,
+    "n_genera": 12
+  },
+  "Chionidae": {
+    "file": "Chionidae.json",
+    "n_species": 2,
+    "n_resolved": 2,
+    "n_genera": 1
+  },
+  "Chloropseidae": {
+    "file": "Chloropseidae.json",
+    "n_species": 12,
+    "n_resolved": 12,
+    "n_genera": 1
+  },
+  "Ciconiidae": {
+    "file": "Ciconiidae.json",
+    "n_species": 20,
+    "n_resolved": 20,
+    "n_genera": 6
+  },
+  "Cinclidae": {
+    "file": "Cinclidae.json",
+    "n_species": 5,
+    "n_resolved": 5,
+    "n_genera": 1
+  },
+  "Cinclosomatidae": {
+    "file": "Cinclosomatidae.json",
+    "n_species": 12,
+    "n_resolved": 12,
+    "n_genera": 2
+  },
+  "Cisticolidae": {
+    "file": "Cisticolidae.json",
+    "n_species": 164,
+    "n_resolved": 164,
+    "n_genera": 26
+  },
+  "Climacteridae": {
+    "file": "Climacteridae.json",
+    "n_species": 7,
+    "n_resolved": 7,
+    "n_genera": 2
+  },
+  "Cnemophilidae": {
+    "file": "Cnemophilidae.json",
+    "n_species": 3,
+    "n_resolved": 3,
+    "n_genera": 2
+  },
+  "Coliidae": {
+    "file": "Coliidae.json",
+    "n_species": 6,
+    "n_resolved": 6,
+    "n_genera": 2
+  },
+  "Columbidae": {
+    "file": "Columbidae.json",
+    "n_species": 350,
+    "n_resolved": 325,
+    "n_genera": 52
+  },
+  "Conopophagidae": {
+    "file": "Conopophagidae.json",
+    "n_species": 12,
+    "n_resolved": 12,
+    "n_genera": 2
+  },
+  "Coraciidae": {
+    "file": "Coraciidae.json",
+    "n_species": 13,
+    "n_resolved": 13,
+    "n_genera": 2
+  },
+  "Corcoracidae": {
+    "file": "Corcoracidae.json",
+    "n_species": 2,
+    "n_resolved": 2,
+    "n_genera": 2
+  },
+  "Corvidae": {
+    "file": "Corvidae.json",
+    "n_species": 135,
+    "n_resolved": 130,
+    "n_genera": 22
+  },
+  "Cotingidae": {
+    "file": "Cotingidae.json",
+    "n_species": 65,
+    "n_resolved": 64,
+    "n_genera": 24
+  },
+  "Cracidae": {
+    "file": "Cracidae.json",
+    "n_species": 57,
+    "n_resolved": 57,
+    "n_genera": 11
+  },
+  "Cuculidae": {
+    "file": "Cuculidae.json",
+    "n_species": 156,
+    "n_resolved": 151,
+    "n_genera": 36
+  },
+  "Dasyornithidae": {
+    "file": "Dasyornithidae.json",
+    "n_species": 3,
+    "n_resolved": 3,
+    "n_genera": 1
+  },
+  "Dicaeidae": {
+    "file": "Dicaeidae.json",
+    "n_species": 56,
+    "n_resolved": 50,
+    "n_genera": 3
+  },
+  "Dicruridae": {
+    "file": "Dicruridae.json",
+    "n_species": 28,
+    "n_resolved": 28,
+    "n_genera": 1
+  },
+  "Diomedeidae": {
+    "file": "Diomedeidae.json",
+    "n_species": 20,
+    "n_resolved": 20,
+    "n_genera": 4
+  },
+  "Donacobiidae": {
+    "file": "Donacobiidae.json",
+    "n_species": 1,
+    "n_resolved": 1,
+    "n_genera": 1
+  },
+  "Dromadidae": {
+    "file": "Dromadidae.json",
+    "n_species": 1,
+    "n_resolved": 1,
+    "n_genera": 1
+  },
+  "Dulidae": {
+    "file": "Dulidae.json",
+    "n_species": 1,
+    "n_resolved": 1,
+    "n_genera": 1
+  },
+  "Elachuridae": {
+    "file": "Elachuridae.json",
+    "n_species": 1,
+    "n_resolved": 1,
+    "n_genera": 1
+  },
+  "Emberizidae": {
+    "file": "Emberizidae.json",
+    "n_species": 44,
+    "n_resolved": 44,
+    "n_genera": 1
+  },
+  "Erythrocercidae": {
+    "file": "Erythrocercidae.json",
+    "n_species": 3,
+    "n_resolved": 3,
+    "n_genera": 1
+  },
+  "Estrildidae": {
+    "file": "Estrildidae.json",
+    "n_species": 138,
+    "n_resolved": 130,
+    "n_genera": 39
+  },
+  "Eulacestomatidae": {
+    "file": "Eulacestomatidae.json",
+    "n_species": 1,
+    "n_resolved": 1,
+    "n_genera": 1
+  },
+  "Eupetidae": {
+    "file": "Eupetidae.json",
+    "n_species": 1,
+    "n_resolved": 1,
+    "n_genera": 1
+  },
+  "Eurylaimidae": {
+    "file": "Eurylaimidae.json",
+    "n_species": 10,
+    "n_resolved": 10,
+    "n_genera": 7
+  },
+  "Eurypygidae": {
+    "file": "Eurypygidae.json",
+    "n_species": 1,
+    "n_resolved": 1,
+    "n_genera": 1
+  },
+  "Falconidae": {
+    "file": "Falconidae.json",
+    "n_species": 65,
+    "n_resolved": 59,
+    "n_genera": 10
+  },
+  "Falcunculidae": {
+    "file": "Falcunculidae.json",
+    "n_species": 3,
+    "n_resolved": 3,
+    "n_genera": 1
+  },
+  "Formicariidae": {
+    "file": "Formicariidae.json",
+    "n_species": 12,
+    "n_resolved": 12,
+    "n_genera": 2
+  },
+  "Fregatidae": {
+    "file": "Fregatidae.json",
+    "n_species": 5,
+    "n_resolved": 5,
+    "n_genera": 1
+  },
+  "Fringillidae": {
+    "file": "Fringillidae.json",
+    "n_species": 236,
+    "n_resolved": 234,
+    "n_genera": 50
+  },
+  "Furnariidae": {
+    "file": "Furnariidae.json",
+    "n_species": 321,
+    "n_resolved": 314,
+    "n_genera": 71
+  },
+  "Galbulidae": {
+    "file": "Galbulidae.json",
+    "n_species": 18,
+    "n_resolved": 18,
+    "n_genera": 5
+  },
+  "Gaviidae": {
+    "file": "Gaviidae.json",
+    "n_species": 5,
+    "n_resolved": 5,
+    "n_genera": 1
+  },
+  "Glareolidae": {
+    "file": "Glareolidae.json",
+    "n_species": 17,
+    "n_resolved": 16,
+    "n_genera": 4
+  },
+  "Grallariidae": {
+    "file": "Grallariidae.json",
+    "n_species": 70,
+    "n_resolved": 68,
+    "n_genera": 5
+  },
+  "Gruidae": {
+    "file": "Gruidae.json",
+    "n_species": 15,
+    "n_resolved": 15,
+    "n_genera": 4
+  },
+  "Haematopodidae": {
+    "file": "Haematopodidae.json",
+    "n_species": 12,
+    "n_resolved": 12,
+    "n_genera": 1
+  },
+  "Heliornithidae": {
+    "file": "Heliornithidae.json",
+    "n_species": 3,
+    "n_resolved": 3,
+    "n_genera": 3
+  },
+  "Hemiprocnidae": {
+    "file": "Hemiprocnidae.json",
+    "n_species": 4,
+    "n_resolved": 4,
+    "n_genera": 1
+  },
+  "Hirundinidae": {
+    "file": "Hirundinidae.json",
+    "n_species": 92,
+    "n_resolved": 90,
+    "n_genera": 21
+  },
+  "Hydrobatidae": {
+    "file": "Hydrobatidae.json",
+    "n_species": 18,
+    "n_resolved": 17,
+    "n_genera": 1
+  },
+  "Hyliidae": {
+    "file": "Hyliidae.json",
+    "n_species": 2,
+    "n_resolved": 2,
+    "n_genera": 2
+  },
+  "Hyliotidae": {
+    "file": "Hyliotidae.json",
+    "n_species": 4,
+    "n_resolved": 4,
+    "n_genera": 1
+  },
+  "Hylocitreidae": {
+    "file": "Hylocitreidae.json",
+    "n_species": 1,
+    "n_resolved": 1,
+    "n_genera": 1
+  },
+  "Hypocoliidae": {
+    "file": "Hypocoliidae.json",
+    "n_species": 1,
+    "n_resolved": 1,
+    "n_genera": 1
+  },
+  "Ibidorhynchidae": {
+    "file": "Ibidorhynchidae.json",
+    "n_species": 1,
+    "n_resolved": 1,
+    "n_genera": 1
+  },
+  "Icteridae": {
+    "file": "Icteridae.json",
+    "n_species": 108,
+    "n_resolved": 106,
+    "n_genera": 31
+  },
+  "Ifritidae": {
+    "file": "Ifritidae.json",
+    "n_species": 1,
+    "n_resolved": 1,
+    "n_genera": 1
+  },
+  "Indicatoridae": {
+    "file": "Indicatoridae.json",
+    "n_species": 16,
+    "n_resolved": 16,
+    "n_genera": 4
+  },
+  "Irenidae": {
+    "file": "Irenidae.json",
+    "n_species": 3,
+    "n_resolved": 3,
+    "n_genera": 1
+  },
+  "Jacanidae": {
+    "file": "Jacanidae.json",
+    "n_species": 8,
+    "n_resolved": 8,
+    "n_genera": 6
+  },
+  "Laniidae": {
+    "file": "Laniidae.json",
+    "n_species": 34,
+    "n_resolved": 33,
+    "n_genera": 4
+  },
+  "Laridae": {
+    "file": "Laridae.json",
+    "n_species": 105,
+    "n_resolved": 103,
+    "n_genera": 23
+  },
+  "Leiothrichidae": {
+    "file": "Leiothrichidae.json",
+    "n_species": 143,
+    "n_resolved": 131,
+    "n_genera": 17
+  },
+  "Leptosomidae": {
+    "file": "Leptosomidae.json",
+    "n_species": 1,
+    "n_resolved": 1,
+    "n_genera": 1
+  },
+  "Locustellidae": {
+    "file": "Locustellidae.json",
+    "n_species": 67,
+    "n_resolved": 58,
+    "n_genera": 11
+  },
+  "Lybiidae": {
+    "file": "Lybiidae.json",
+    "n_species": 43,
+    "n_resolved": 41,
+    "n_genera": 10
+  },
+  "Machaerirhynchidae": {
+    "file": "Machaerirhynchidae.json",
+    "n_species": 2,
+    "n_resolved": 2,
+    "n_genera": 1
+  },
+  "Macrosphenidae": {
+    "file": "Macrosphenidae.json",
+    "n_species": 18,
+    "n_resolved": 18,
+    "n_genera": 6
+  },
+  "Malaconotidae": {
+    "file": "Malaconotidae.json",
+    "n_species": 50,
+    "n_resolved": 50,
+    "n_genera": 9
+  },
+  "Maluridae": {
+    "file": "Maluridae.json",
+    "n_species": 33,
+    "n_resolved": 32,
+    "n_genera": 6
+  },
+  "Megalaimidae": {
+    "file": "Megalaimidae.json",
+    "n_species": 35,
+    "n_resolved": 35,
+    "n_genera": 2
+  },
+  "Megapodiidae": {
+    "file": "Megapodiidae.json",
+    "n_species": 21,
+    "n_resolved": 21,
+    "n_genera": 7
+  },
+  "Melampittidae": {
+    "file": "Melampittidae.json",
+    "n_species": 2,
+    "n_resolved": 2,
+    "n_genera": 2
+  },
+  "Melanocharitidae": {
+    "file": "Melanocharitidae.json",
+    "n_species": 12,
+    "n_resolved": 12,
+    "n_genera": 3
+  },
+  "Melanopareiidae": {
+    "file": "Melanopareiidae.json",
+    "n_species": 4,
+    "n_resolved": 4,
+    "n_genera": 1
+  },
+  "Meliphagidae": {
+    "file": "Meliphagidae.json",
+    "n_species": 195,
+    "n_resolved": 189,
+    "n_genera": 51
+  },
+  "Menuridae": {
+    "file": "Menuridae.json",
+    "n_species": 2,
+    "n_resolved": 2,
+    "n_genera": 1
+  },
+  "Meropidae": {
+    "file": "Meropidae.json",
+    "n_species": 31,
+    "n_resolved": 31,
+    "n_genera": 3
+  },
+  "Mesitornithidae": {
+    "file": "Mesitornithidae.json",
+    "n_species": 3,
+    "n_resolved": 3,
+    "n_genera": 2
+  },
+  "Mimidae": {
+    "file": "Mimidae.json",
+    "n_species": 35,
+    "n_resolved": 35,
+    "n_genera": 10
+  },
+  "Mitrospingidae": {
+    "file": "Mitrospingidae.json",
+    "n_species": 4,
+    "n_resolved": 4,
+    "n_genera": 3
+  },
+  "Modulatricidae": {
+    "file": "Modulatricidae.json",
+    "n_species": 3,
+    "n_resolved": 3,
+    "n_genera": 3
+  },
+  "Mohoidae": {
+    "file": "Mohoidae.json",
+    "n_species": 5,
+    "n_resolved": 5,
+    "n_genera": 2
+  },
+  "Mohouidae": {
+    "file": "Mohouidae.json",
+    "n_species": 3,
+    "n_resolved": 3,
+    "n_genera": 1
+  },
+  "Momotidae": {
+    "file": "Momotidae.json",
+    "n_species": 14,
+    "n_resolved": 14,
+    "n_genera": 6
+  },
+  "Monarchidae": {
+    "file": "Monarchidae.json",
+    "n_species": 105,
+    "n_resolved": 101,
+    "n_genera": 15
+  },
+  "Motacillidae": {
+    "file": "Motacillidae.json",
+    "n_species": 70,
+    "n_resolved": 68,
+    "n_genera": 6
+  },
+  "Muscicapidae": {
+    "file": "Muscicapidae.json",
+    "n_species": 352,
+    "n_resolved": 332,
+    "n_genera": 57
+  },
+  "Musophagidae": {
+    "file": "Musophagidae.json",
+    "n_species": 23,
+    "n_resolved": 18,
+    "n_genera": 5
+  },
+  "Nectariniidae": {
+    "file": "Nectariniidae.json",
+    "n_species": 151,
+    "n_resolved": 151,
+    "n_genera": 16
+  },
+  "Neosittidae": {
+    "file": "Neosittidae.json",
+    "n_species": 3,
+    "n_resolved": 3,
+    "n_genera": 1
+  },
+  "Nesospingidae": {
+    "file": "Nesospingidae.json",
+    "n_species": 1,
+    "n_resolved": 1,
+    "n_genera": 1
+  },
+  "Nicatoridae": {
+    "file": "Nicatoridae.json",
+    "n_species": 3,
+    "n_resolved": 3,
+    "n_genera": 1
+  },
+  "Notiomystidae": {
+    "file": "Notiomystidae.json",
+    "n_species": 1,
+    "n_resolved": 1,
+    "n_genera": 1
+  },
+  "Numididae": {
+    "file": "Numididae.json",
+    "n_species": 8,
+    "n_resolved": 8,
+    "n_genera": 4
+  },
+  "Nyctibiidae": {
+    "file": "Nyctibiidae.json",
+    "n_species": 7,
+    "n_resolved": 7,
+    "n_genera": 2
+  },
+  "Oceanitidae": {
+    "file": "Oceanitidae.json",
+    "n_species": 10,
+    "n_resolved": 10,
+    "n_genera": 5
+  },
+  "Odontophoridae": {
+    "file": "Odontophoridae.json",
+    "n_species": 34,
+    "n_resolved": 34,
+    "n_genera": 10
+  },
+  "Onychorhynchidae": {
+    "file": "Onychorhynchidae.json",
+    "n_species": 7,
+    "n_resolved": 7,
+    "n_genera": 3
+  },
+  "Opisthocomidae": {
+    "file": "Opisthocomidae.json",
+    "n_species": 1,
+    "n_resolved": 1,
+    "n_genera": 1
+  },
+  "Oreoicidae": {
+    "file": "Oreoicidae.json",
+    "n_species": 3,
+    "n_resolved": 3,
+    "n_genera": 3
+  },
+  "Oriolidae": {
+    "file": "Oriolidae.json",
+    "n_species": 41,
+    "n_resolved": 41,
+    "n_genera": 4
+  },
+  "Orthonychidae": {
+    "file": "Orthonychidae.json",
+    "n_species": 3,
+    "n_resolved": 3,
+    "n_genera": 1
+  },
+  "Otididae": {
+    "file": "Otididae.json",
+    "n_species": 26,
+    "n_resolved": 23,
+    "n_genera": 12
+  },
+  "Oxyruncidae": {
+    "file": "Oxyruncidae.json",
+    "n_species": 1,
+    "n_resolved": 1,
+    "n_genera": 1
+  },
+  "Pachycephalidae": {
+    "file": "Pachycephalidae.json",
+    "n_species": 61,
+    "n_resolved": 59,
+    "n_genera": 5
+  },
+  "Pandionidae": {
+    "file": "Pandionidae.json",
+    "n_species": 1,
+    "n_resolved": 1,
+    "n_genera": 1
+  },
+  "Panuridae": {
+    "file": "Panuridae.json",
+    "n_species": 1,
+    "n_resolved": 1,
+    "n_genera": 1
+  },
+  "Paradisaeidae": {
+    "file": "Paradisaeidae.json",
+    "n_species": 44,
+    "n_resolved": 43,
+    "n_genera": 17
+  },
+  "Paradoxornithidae": {
+    "file": "Paradoxornithidae.json",
+    "n_species": 38,
+    "n_resolved": 34,
+    "n_genera": 9
+  },
+  "Paramythiidae": {
+    "file": "Paramythiidae.json",
+    "n_species": 3,
+    "n_resolved": 3,
+    "n_genera": 2
+  },
+  "Pardalotidae": {
+    "file": "Pardalotidae.json",
+    "n_species": 4,
+    "n_resolved": 4,
+    "n_genera": 1
+  },
+  "Paridae": {
+    "file": "Paridae.json",
+    "n_species": 62,
+    "n_resolved": 62,
+    "n_genera": 13
+  },
+  "Parulidae": {
+    "file": "Parulidae.json",
+    "n_species": 116,
+    "n_resolved": 116,
+    "n_genera": 18
+  },
+  "Passerellidae": {
+    "file": "Passerellidae.json",
+    "n_species": 138,
+    "n_resolved": 132,
+    "n_genera": 30
+  },
+  "Passeridae": {
+    "file": "Passeridae.json",
+    "n_species": 43,
+    "n_resolved": 43,
+    "n_genera": 8
+  },
+  "Pedionomidae": {
+    "file": "Pedionomidae.json",
+    "n_species": 1,
+    "n_resolved": 1,
+    "n_genera": 1
+  },
+  "Pelecanidae": {
+    "file": "Pelecanidae.json",
+    "n_species": 8,
+    "n_resolved": 8,
+    "n_genera": 1
+  },
+  "Pellorneidae": {
+    "file": "Pellorneidae.json",
+    "n_species": 65,
+    "n_resolved": 61,
+    "n_genera": 13
+  },
+  "Petroicidae": {
+    "file": "Petroicidae.json",
+    "n_species": 51,
+    "n_resolved": 43,
+    "n_genera": 16
+  },
+  "Peucedramidae": {
+    "file": "Peucedramidae.json",
+    "n_species": 1,
+    "n_resolved": 1,
+    "n_genera": 1
+  },
+  "Phaenicophilidae": {
+    "file": "Phaenicophilidae.json",
+    "n_species": 4,
+    "n_resolved": 4,
+    "n_genera": 3
+  },
+  "Phaethontidae": {
+    "file": "Phaethontidae.json",
+    "n_species": 3,
+    "n_resolved": 3,
+    "n_genera": 1
+  },
+  "Phalacrocoracidae": {
+    "file": "Phalacrocoracidae.json",
+    "n_species": 34,
+    "n_resolved": 34,
+    "n_genera": 7
+  },
+  "Phasianidae": {
+    "file": "Phasianidae.json",
+    "n_species": 187,
+    "n_resolved": 179,
+    "n_genera": 54
+  },
+  "Philepittidae": {
+    "file": "Philepittidae.json",
+    "n_species": 4,
+    "n_resolved": 4,
+    "n_genera": 2
+  },
+  "Phoenicopteridae": {
+    "file": "Phoenicopteridae.json",
+    "n_species": 6,
+    "n_resolved": 6,
+    "n_genera": 3
+  },
+  "Phoeniculidae": {
+    "file": "Phoeniculidae.json",
+    "n_species": 8,
+    "n_resolved": 7,
+    "n_genera": 2
+  },
+  "Phylloscopidae": {
+    "file": "Phylloscopidae.json",
+    "n_species": 80,
+    "n_resolved": 79,
+    "n_genera": 1
+  },
+  "Picathartidae": {
+    "file": "Picathartidae.json",
+    "n_species": 2,
+    "n_resolved": 2,
+    "n_genera": 1
+  },
+  "Picidae": {
+    "file": "Picidae.json",
+    "n_species": 237,
+    "n_resolved": 232,
+    "n_genera": 36
+  },
+  "Pipridae": {
+    "file": "Pipridae.json",
+    "n_species": 55,
+    "n_resolved": 50,
+    "n_genera": 16
+  },
+  "Pittidae": {
+    "file": "Pittidae.json",
+    "n_species": 46,
+    "n_resolved": 40,
+    "n_genera": 3
+  },
+  "Pityriasidae": {
+    "file": "Pityriasidae.json",
+    "n_species": 1,
+    "n_resolved": 1,
+    "n_genera": 1
+  },
+  "Platylophidae": {
+    "file": "Platylophidae.json",
+    "n_species": 1,
+    "n_resolved": 1,
+    "n_genera": 1
+  },
+  "Platysteiridae": {
+    "file": "Platysteiridae.json",
+    "n_species": 32,
+    "n_resolved": 31,
+    "n_genera": 4
+  },
+  "Ploceidae": {
+    "file": "Ploceidae.json",
+    "n_species": 122,
+    "n_resolved": 122,
+    "n_genera": 16
+  },
+  "Pluvianellidae": {
+    "file": "Pluvianellidae.json",
+    "n_species": 1,
+    "n_resolved": 1,
+    "n_genera": 1
+  },
+  "Pluvianidae": {
+    "file": "Pluvianidae.json",
+    "n_species": 1,
+    "n_resolved": 1,
+    "n_genera": 1
+  },
+  "Pnoepygidae": {
+    "file": "Pnoepygidae.json",
+    "n_species": 4,
+    "n_resolved": 4,
+    "n_genera": 1
+  },
+  "Podargidae": {
+    "file": "Podargidae.json",
+    "n_species": 16,
+    "n_resolved": 16,
+    "n_genera": 3
+  },
+  "Podicipedidae": {
+    "file": "Podicipedidae.json",
+    "n_species": 22,
+    "n_resolved": 22,
+    "n_genera": 6
+  },
+  "Polioptilidae": {
+    "file": "Polioptilidae.json",
+    "n_species": 20,
+    "n_resolved": 19,
+    "n_genera": 3
+  },
+  "Pomatostomidae": {
+    "file": "Pomatostomidae.json",
+    "n_species": 5,
+    "n_resolved": 5,
+    "n_genera": 2
+  },
+  "Procellariidae": {
+    "file": "Procellariidae.json",
+    "n_species": 98,
+    "n_resolved": 98,
+    "n_genera": 16
+  },
+  "Promeropidae": {
+    "file": "Promeropidae.json",
+    "n_species": 2,
+    "n_resolved": 2,
+    "n_genera": 1
+  },
+  "Prunellidae": {
+    "file": "Prunellidae.json",
+    "n_species": 12,
+    "n_resolved": 12,
+    "n_genera": 1
+  },
+  "Psittacidae": {
+    "file": "Psittacidae.json",
+    "n_species": 180,
+    "n_resolved": 178,
+    "n_genera": 37
+  },
+  "Psittaculidae": {
+    "file": "Psittaculidae.json",
+    "n_species": 200,
+    "n_resolved": 179,
+    "n_genera": 48
+  },
+  "Psophiidae": {
+    "file": "Psophiidae.json",
+    "n_species": 3,
+    "n_resolved": 3,
+    "n_genera": 1
+  },
+  "Psophodidae": {
+    "file": "Psophodidae.json",
+    "n_species": 5,
+    "n_resolved": 5,
+    "n_genera": 2
+  },
+  "Pteroclidae": {
+    "file": "Pteroclidae.json",
+    "n_species": 16,
+    "n_resolved": 16,
+    "n_genera": 2
+  },
+  "Ptiliogonatidae": {
+    "file": "Ptiliogonatidae.json",
+    "n_species": 4,
+    "n_resolved": 4,
+    "n_genera": 3
+  },
+  "Ptilonorhynchidae": {
+    "file": "Ptilonorhynchidae.json",
+    "n_species": 23,
+    "n_resolved": 23,
+    "n_genera": 8
+  },
+  "Pycnonotidae": {
+    "file": "Pycnonotidae.json",
+    "n_species": 161,
+    "n_resolved": 138,
+    "n_genera": 28
+  },
+  "Rallidae": {
+    "file": "Rallidae.json",
+    "n_species": 148,
+    "n_resolved": 134,
+    "n_genera": 38
+  },
+  "Ramphastidae": {
+    "file": "Ramphastidae.json",
+    "n_species": 37,
+    "n_resolved": 37,
+    "n_genera": 5
+  },
+  "Recurvirostridae": {
+    "file": "Recurvirostridae.json",
+    "n_species": 9,
+    "n_resolved": 9,
+    "n_genera": 3
+  },
+  "Regulidae": {
+    "file": "Regulidae.json",
+    "n_species": 6,
+    "n_resolved": 5,
+    "n_genera": 2
+  },
+  "Remizidae": {
+    "file": "Remizidae.json",
+    "n_species": 11,
+    "n_resolved": 11,
+    "n_genera": 3
+  },
+  "Rhagologidae": {
+    "file": "Rhagologidae.json",
+    "n_species": 1,
+    "n_resolved": 1,
+    "n_genera": 1
+  },
+  "Rheidae": {
+    "file": "Rheidae.json",
+    "n_species": 2,
+    "n_resolved": 2,
+    "n_genera": 1
+  },
+  "Rhinocryptidae": {
+    "file": "Rhinocryptidae.json",
+    "n_species": 65,
+    "n_resolved": 65,
+    "n_genera": 12
+  },
+  "Rhipiduridae": {
+    "file": "Rhipiduridae.json",
+    "n_species": 64,
+    "n_resolved": 64,
+    "n_genera": 4
+  },
+  "Rhodinocichlidae": {
+    "file": "Rhodinocichlidae.json",
+    "n_species": 1,
+    "n_resolved": 1,
+    "n_genera": 1
+  },
+  "Rhynochetidae": {
+    "file": "Rhynochetidae.json",
+    "n_species": 1,
+    "n_resolved": 1,
+    "n_genera": 1
+  },
+  "Rostratulidae": {
+    "file": "Rostratulidae.json",
+    "n_species": 3,
+    "n_resolved": 3,
+    "n_genera": 2
+  },
+  "Sagittariidae": {
+    "file": "Sagittariidae.json",
+    "n_species": 1,
+    "n_resolved": 1,
+    "n_genera": 1
+  },
+  "Salpornithidae": {
+    "file": "Salpornithidae.json",
+    "n_species": 2,
+    "n_resolved": 2,
+    "n_genera": 1
+  },
+  "Sapayoidae": {
+    "file": "Sapayoidae.json",
+    "n_species": 1,
+    "n_resolved": 1,
+    "n_genera": 1
+  },
+  "Sarothruridae": {
+    "file": "Sarothruridae.json",
+    "n_species": 15,
+    "n_resolved": 15,
+    "n_genera": 3
+  },
+  "Scolopacidae": {
+    "file": "Scolopacidae.json",
+    "n_species": 98,
+    "n_resolved": 98,
+    "n_genera": 15
+  },
+  "Scopidae": {
+    "file": "Scopidae.json",
+    "n_species": 1,
+    "n_resolved": 1,
+    "n_genera": 1
+  },
+  "Semnornithidae": {
+    "file": "Semnornithidae.json",
+    "n_species": 2,
+    "n_resolved": 2,
+    "n_genera": 1
+  },
+  "Sittidae": {
+    "file": "Sittidae.json",
+    "n_species": 29,
+    "n_resolved": 29,
+    "n_genera": 1
+  },
+  "Spheniscidae": {
+    "file": "Spheniscidae.json",
+    "n_species": 19,
+    "n_resolved": 19,
+    "n_genera": 6
+  },
+  "Spindalidae": {
+    "file": "Spindalidae.json",
+    "n_species": 4,
+    "n_resolved": 4,
+    "n_genera": 1
+  },
+  "Steatornithidae": {
+    "file": "Steatornithidae.json",
+    "n_species": 1,
+    "n_resolved": 1,
+    "n_genera": 1
+  },
+  "Stenostiridae": {
+    "file": "Stenostiridae.json",
+    "n_species": 9,
+    "n_resolved": 9,
+    "n_genera": 4
+  },
+  "Stercorariidae": {
+    "file": "Stercorariidae.json",
+    "n_species": 7,
+    "n_resolved": 7,
+    "n_genera": 1
+  },
+  "Strigidae": {
+    "file": "Strigidae.json",
+    "n_species": 228,
+    "n_resolved": 216,
+    "n_genera": 23
+  },
+  "Strigopidae": {
+    "file": "Strigopidae.json",
+    "n_species": 4,
+    "n_resolved": 4,
+    "n_genera": 2
+  },
+  "Struthionidae": {
+    "file": "Struthionidae.json",
+    "n_species": 2,
+    "n_resolved": 2,
+    "n_genera": 1
+  },
+  "Sturnidae": {
+    "file": "Sturnidae.json",
+    "n_species": 123,
+    "n_resolved": 121,
+    "n_genera": 36
+  },
+  "Sulidae": {
+    "file": "Sulidae.json",
+    "n_species": 11,
+    "n_resolved": 11,
+    "n_genera": 3
+  },
+  "Sylviidae": {
+    "file": "Sylviidae.json",
+    "n_species": 32,
+    "n_resolved": 20,
+    "n_genera": 2
+  },
+  "Teretistridae": {
+    "file": "Teretistridae.json",
+    "n_species": 2,
+    "n_resolved": 2,
+    "n_genera": 1
+  },
+  "Thamnophilidae": {
+    "file": "Thamnophilidae.json",
+    "n_species": 239,
+    "n_resolved": 210,
+    "n_genera": 63
+  },
+  "Thinocoridae": {
+    "file": "Thinocoridae.json",
+    "n_species": 4,
+    "n_resolved": 4,
+    "n_genera": 2
+  },
+  "Thraupidae": {
+    "file": "Thraupidae.json",
+    "n_species": 390,
+    "n_resolved": 328,
+    "n_genera": 107
+  },
+  "Threskiornithidae": {
+    "file": "Threskiornithidae.json",
+    "n_species": 36,
+    "n_resolved": 36,
+    "n_genera": 13
+  },
+  "Tichodromidae": {
+    "file": "Tichodromidae.json",
+    "n_species": 1,
+    "n_resolved": 1,
+    "n_genera": 1
+  },
+  "Timaliidae": {
+    "file": "Timaliidae.json",
+    "n_species": 58,
+    "n_resolved": 54,
+    "n_genera": 10
+  },
+  "Tinamidae": {
+    "file": "Tinamidae.json",
+    "n_species": 46,
+    "n_resolved": 46,
+    "n_genera": 9
+  },
+  "Tityridae": {
+    "file": "Tityridae.json",
+    "n_species": 36,
+    "n_resolved": 36,
+    "n_genera": 7
+  },
+  "Todidae": {
+    "file": "Todidae.json",
+    "n_species": 5,
+    "n_resolved": 5,
+    "n_genera": 1
+  },
+  "Trochilidae": {
+    "file": "Trochilidae.json",
+    "n_species": 363,
+    "n_resolved": 319,
+    "n_genera": 112
+  },
+  "Troglodytidae": {
+    "file": "Troglodytidae.json",
+    "n_species": 96,
+    "n_resolved": 96,
+    "n_genera": 19
+  },
+  "Trogonidae": {
+    "file": "Trogonidae.json",
+    "n_species": 47,
+    "n_resolved": 47,
+    "n_genera": 7
+  },
+  "Turdidae": {
+    "file": "Turdidae.json",
+    "n_species": 194,
+    "n_resolved": 188,
+    "n_genera": 17
+  },
+  "Turnicidae": {
+    "file": "Turnicidae.json",
+    "n_species": 18,
+    "n_resolved": 18,
+    "n_genera": 2
+  },
+  "Tyrannidae": {
+    "file": "Tyrannidae.json",
+    "n_species": 441,
+    "n_resolved": 426,
+    "n_genera": 104
+  },
+  "Tytonidae": {
+    "file": "Tytonidae.json",
+    "n_species": 17,
+    "n_resolved": 17,
+    "n_genera": 2
+  },
+  "Upupidae": {
+    "file": "Upupidae.json",
+    "n_species": 3,
+    "n_resolved": 3,
+    "n_genera": 1
+  },
+  "Urocynchramidae": {
+    "file": "Urocynchramidae.json",
+    "n_species": 1,
+    "n_resolved": 1,
+    "n_genera": 1
+  },
+  "Vangidae": {
+    "file": "Vangidae.json",
+    "n_species": 40,
+    "n_resolved": 40,
+    "n_genera": 21
+  },
+  "Viduidae": {
+    "file": "Viduidae.json",
+    "n_species": 20,
+    "n_resolved": 20,
+    "n_genera": 2
+  },
+  "Vireonidae": {
+    "file": "Vireonidae.json",
+    "n_species": 64,
+    "n_resolved": 60,
+    "n_genera": 8
+  },
+  "Zeledoniidae": {
+    "file": "Zeledoniidae.json",
+    "n_species": 1,
+    "n_resolved": 1,
+    "n_genera": 1
+  },
+  "Zosteropidae": {
+    "file": "Zosteropidae.json",
+    "n_species": 147,
+    "n_resolved": 138,
+    "n_genera": 13
+  }
+}
