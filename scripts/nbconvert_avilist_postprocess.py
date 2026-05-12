@@ -3,7 +3,7 @@
 
 The analysis notebooks and phylogeny cache live in a separate clone of the
 ``ebird-avilist`` repository. This script runs from **robinwyeo.github.io** and
-writes ``_data_science/ebird-avilist.md`` plus static assets under ``assets/`` and
+writes ``_data_science/<stem>.md`` (see ``MD`` below) plus static assets under ``assets/`` and
 ``images/``.
 
 Workflow
@@ -50,14 +50,15 @@ AVILIST_ROOT = Path(
     os.environ.get("EBIRD_AVILIST_ROOT", REPO.parent / "ebird-avilist")
 ).resolve()
 NB = AVILIST_ROOT / "notebooks" / "avilist_birds_explore.ipynb"
-MD = REPO / "_data_science" / "ebird-avilist.md"
-NB_FILES = REPO / "_data_science" / "ebird-avilist_files"
+# Stem must match published URL slug; nbconvert writes ``{stem}.md`` and ``{stem}_files/``.
+MD = REPO / "_data_science" / "2026-03-01-ebird-avilist.md"
+NB_FILES = REPO / "_data_science" / f"{MD.stem}_files"
 PHY_DIR = AVILIST_ROOT / "data" / "phylogeny"
 
 # Jekyll collection front matter (nbconvert does not emit YAML).
 JEKYLL_FRONT_MATTER = """---
 title: "Exploring the consolidated AviList"
-date: 2026-05-12
+date: 2026-03-01
 tags:
   - AviList
   - birds
@@ -199,6 +200,20 @@ def _drop_nbconvert_phylo_output_duplicates(md: str) -> str:
     return "".join(out_lines)
 
 
+def _wrap_body_liquid_raw(md: str) -> str:
+    """Prevent Jekyll Liquid from parsing ``{{`` inside Plotly / Phylocanvas HTML+JS."""
+    if not md.startswith("---"):
+        return md
+    end = md.find("\n---\n", 3)
+    if end == -1:
+        return md
+    split = end + 5
+    head, body = md[:split], md[split:]
+    if body.lstrip().startswith("{% raw %}"):
+        return md
+    return head + "\n{% raw %}\n" + body.lstrip("\n") + "\n{% endraw %}\n"
+
+
 # ---------------------------------------------------------------------------
 # Main pipeline steps
 # ---------------------------------------------------------------------------
@@ -249,14 +264,13 @@ def patch_md() -> None:
         raw = process_outside_code_fences(raw)
 
     # Fix relative image paths from nbconvert artefacts
-    raw = raw.replace(
-        "ebird-avilist_files/",
-        "/images/data-science/avilist/",
-    )
+    for stem in (MD.stem, "ebird-avilist"):
+        raw = raw.replace(f"{stem}_files/", "/images/data-science/avilist/")
 
     # Replace tagged phylo code blocks with Phylocanvas.gl embeds
     raw = _replace_tagged_cells(raw)
     raw = _drop_nbconvert_phylo_output_duplicates(raw)
+    raw = _wrap_body_liquid_raw(raw)
 
     MD.write_text(raw, encoding="utf-8")
     print(f"[avilist] Patched markdown → {MD}")
