@@ -474,6 +474,46 @@ def _move_teaser_image_before_raw(md: str) -> str:
     )
 
 
+def _pre_raw_has_teaser_image(pre: str) -> bool:
+    return bool(re.search(rf"!\[[^\]]*\]\({re.escape(TEASER_IMAGE_URL)}\)", pre))
+
+
+def _remove_first_teaser_md_line(s: str, url: str) -> str:
+    return re.sub(
+        rf"^!\[[^\]]*\]\({re.escape(url)}\)\s*\n",
+        "",
+        s,
+        count=1,
+        flags=re.MULTILINE,
+    )
+
+
+def _ensure_teaser_line_before_raw(md: str) -> str:
+    """When the notebook puts ``## Date`` / ``tags:`` between the H1 and teaser image,
+    the listing excerpt would otherwise be the heading only. Force one
+    ``![…](teaser)`` line after front matter and drop the first duplicate inside
+    the raw-wrapped body.
+    """
+    if not md.lstrip().startswith("---"):
+        return md
+    end = md.find("\n---\n", 3)
+    if end == -1:
+        return md
+    head = md[: end + 5]
+    tail = md[end + 5 :]
+    m = re.search(r"\n\{\%\s*raw\s*\%\}\s*\n", tail)
+    if not m:
+        return md
+    pre = tail[: m.start()]
+    raw_open = tail[m.start() : m.end()]
+    inner_rest = tail[m.end() :]
+    if not _pre_raw_has_teaser_image(pre):
+        teaser = f"![AviList title image]({TEASER_IMAGE_URL})\n\n"
+        pre = (pre.rstrip() + "\n\n" + teaser) if pre.strip() else teaser
+    inner_rest = _remove_first_teaser_md_line(inner_rest, TEASER_IMAGE_URL)
+    return head + pre + raw_open + inner_rest
+
+
 def _make_figure_page(body_html: str) -> str:
     """Wrap a Plotly figure HTML fragment in a minimal full HTML page."""
     return (
@@ -650,6 +690,7 @@ def patch_md() -> None:
 
     raw = _wrap_body_liquid_raw(raw)
     raw = _move_teaser_image_before_raw(raw)
+    raw = _ensure_teaser_line_before_raw(raw)
 
     MD.write_text(raw, encoding="utf-8")
     print(f"[avilist] Patched markdown → {MD}")
