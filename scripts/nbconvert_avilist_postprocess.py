@@ -15,7 +15,10 @@ Workflow
    Phylocanvas.gl HTML embeds (loaded from the pre-built .nwk + .json cache).
 4. Copy the Newick + JSON cache files to ``assets/data-science/avilist/phylogeny/``
    so the JS loader can ``fetch()`` them if needed (currently the data is inlined).
-5. Write out the final ``.md`` file for Jekyll.
+5. Ensure YAML ``header.teaser`` points at the AviList title image (the post body
+   is wrapped in ``{% raw %}``, so the first in-body image is not used for archive
+   thumbnails without this field).
+6. Write out the final ``.md`` file for Jekyll.
 
 AviList repo path
 -----------------
@@ -65,12 +68,18 @@ tags:
   - taxonomy
   - conservation
 permalink: /data-science/ebird-avilist/
+header:
+  teaser: /images/data-science/avilist/AviList-title-image.png
 ---
 
 """
 ASSET_DIR  = REPO / "assets" / "data-science" / "avilist" / "phylogeny"
 FIGURE_DIR = REPO / "assets" / "data-science" / "avilist" / "figures"
 IMG_DIR    = REPO / "images" / "data-science" / "avilist"
+
+# Archive / grid layouts read this from YAML. The post body is wrapped in
+# ``{% raw %}`` so the first in-body ``![...](...)`` is not a reliable teaser.
+TEASER_IMAGE_URL = "/images/data-science/avilist/AviList-title-image.png"
 
 # Public URL bases used by the fetch()-based embeds at runtime.
 _PHYLO_ASSET_URL_BASE   = "/assets/data-science/avilist/phylogeny"
@@ -89,6 +98,29 @@ from _nbconvert_shared import (
 # AviList package (phylo.py) lives in the ebird-avilist repo clone.
 sys.path.insert(0, str(AVILIST_ROOT / "python"))
 from phylo import phylocanvas_html
+
+# ---------------------------------------------------------------------------
+# Helpers: Jekyll front matter (archive teaser image)
+# ---------------------------------------------------------------------------
+
+
+def _ensure_front_matter_teaser(raw: str) -> str:
+    """Ensure ``header.teaser`` is set so /data-science/ index thumbnails work."""
+    stripped = raw.lstrip()
+    if not stripped.startswith("---"):
+        return raw
+    lead_ws = raw[: len(raw) - len(stripped)]
+    try:
+        end = stripped.index("\n---\n", 3)
+    except ValueError:
+        return raw
+    fm_inner = stripped[4:end]
+    rest = stripped[end + 5 :]
+    if re.search(r"(?m)^\s*teaser:\s+\S", fm_inner):
+        return raw
+    merged = fm_inner.rstrip() + f"\nheader:\n  teaser: {TEASER_IMAGE_URL}\n"
+    return f"{lead_ws}---\n{merged}\n---\n{rest}"
+
 
 # ---------------------------------------------------------------------------
 # Helpers: notebook cell inspection
@@ -395,12 +427,21 @@ def copy_assets() -> None:
 
     print(f"[avilist] Copied phylogeny assets → {ASSET_DIR}")
 
+    title_src = AVILIST_ROOT / "assets" / "data-science" / "avilist" / "AviList-title-image.png"
+    if title_src.is_file():
+        IMG_DIR.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(title_src, IMG_DIR / title_src.name)
+        print(f"[avilist] Copied teaser image → {IMG_DIR / title_src.name}")
+    else:
+        print(f"[avilist] NOTE: no teaser source at {title_src} (add in ebird-avilist repo)")
+
 
 def patch_md() -> None:
     """Load the markdown, apply all transformations, and write it back."""
     raw = MD.read_text(encoding="utf-8")
     if not raw.lstrip().startswith("---"):
         raw = JEKYLL_FRONT_MATTER + raw
+    raw = _ensure_front_matter_teaser(raw)
     raw = dedent_nbconvert_table_output(raw)
 
     # Math escaping (outside code fences)
