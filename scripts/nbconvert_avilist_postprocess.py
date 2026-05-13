@@ -68,8 +68,13 @@ permalink: /data-science/ebird-avilist/
 ---
 
 """
-ASSET_DIR = REPO / "assets" / "data-science" / "avilist" / "phylogeny"
-IMG_DIR = REPO / "images" / "data-science" / "avilist"
+ASSET_DIR  = REPO / "assets" / "data-science" / "avilist" / "phylogeny"
+FIGURE_DIR = REPO / "assets" / "data-science" / "avilist" / "figures"
+IMG_DIR    = REPO / "images" / "data-science" / "avilist"
+
+# Public URL bases used by the fetch()-based embeds at runtime.
+_PHYLO_ASSET_URL_BASE   = "/assets/data-science/avilist/phylogeny"
+_FIGURE_ASSET_URL_BASE  = "/assets/data-science/avilist/figures"
 
 # The post-process script lives in scripts/, which is sibling to the repo root.
 sys.path.insert(0, str(REPO / "scripts"))
@@ -108,17 +113,38 @@ def _build_phylocanvas_embed(
     *,
     drilldown: bool = False,
     subtrees_url_base: str | None = None,
+    # Asset URL base for the external-data fetch() mode (S1).
+    # When set, Newick + meta are fetched at browser runtime rather than inlined.
+    asset_url_base: str | None = _PHYLO_ASSET_URL_BASE,
 ) -> str:
-    """Return a self-contained HTML block for one Phylocanvas.gl tree (Jekyll)."""
-    newick = nwk_file.read_text(encoding="utf-8").strip()
-    meta   = json.loads(meta_file.read_text(encoding="utf-8"))
-    if newick.endswith(";"):
-        newick = newick[:-1]
+    """Return a self-contained HTML block for one Phylocanvas.gl tree (Jekyll).
+
+    With *asset_url_base* set (the default), the emitted ``<script>`` fetches
+    the Newick and meta JSON at render time instead of inlining them.  This
+    keeps the Jekyll post small enough for the GitHub Pages build to succeed.
+    """
+    # Always load meta in Python (needed for legend, FAMILY_SEARCH_ROWS, etc.).
+    meta = json.loads(meta_file.read_text(encoding="utf-8"))
+
+    # Derive public fetch() URLs from the asset_url_base.
+    if asset_url_base:
+        external_nwk_url  = f"{asset_url_base}/{nwk_file.name}"
+        external_meta_url = f"{asset_url_base}/{meta_file.name}"
+        # Newick is fetched at runtime — pass empty string; only meta matters here.
+        newick = ""
+    else:
+        newick = nwk_file.read_text(encoding="utf-8").strip()
+        if newick.endswith(";"):
+            newick = newick[:-1]
+        external_nwk_url  = None
+        external_meta_url = None
 
     html = phylocanvas_html(
         newick, meta, container_id, height, tree_type,
         drilldown=drilldown,
         subtrees_url_base=subtrees_url_base,
+        external_nwk_url=external_nwk_url,
+        external_meta_url=external_meta_url,
     )
 
     if fallback_img and fallback_img.exists():
@@ -182,21 +208,39 @@ def _replace_tagged_cells(md: str) -> str:
 
 
 def _drop_nbconvert_phylo_output_duplicates(md: str) -> str:
-    """Remove nbconvert-preserved HTML *output* after we inlined Phylocanvas HTML.
+    """Remove the entire ``display_phylocanvas()`` output preserved by nbconvert.
 
-    For tagged phylo cells, ``nbconvert`` emits the code fence plus a separate
-    line of escaped HTML from ``display()`` — we replace the fence with
-    ``phylocanvas_html()`` output, so the extra line duplicates the widget.
+    For tagged phylo cells ``_replace_tagged_cells()`` inserts a new
+    fetch-based ``phylocanvas_html()`` embed in place of the Python code fence.
+    However, nbconvert also emits the *cell outputs* (the ``display_phylocanvas()``
+    iframe with all data inlined as ``&quot;``-encoded HTML) as a separate HTML
+    block.  That block is now redundant — and enormous (the inline subtrees can be
+    4+ MB on a single line).
+
+    Start sentinel: a line containing ``"Legend — bird orders"`` and ``"&quot;"``
+    and longer than 2 KB — the opening wrapper div + legend + start of the
+    ``<iframe srcdoc="...">``.
+
+    End sentinel: a line containing ``</iframe></div>`` — closes the srcdoc
+    attribute and the ``display_phylocanvas()`` outer wrapper.
     """
     out_lines: list[str] = []
+    dropping = False
     for line in md.splitlines(keepends=True):
-        if (
-            "Legend — bird orders" in line
-            and "&quot;" in line
-            and len(line) > 2000
-        ):
-            continue
-        out_lines.append(line)
+        if not dropping:
+            if (
+                "Legend — bird orders" in line
+                and "&quot;" in line
+                and len(line) > 2000
+            ):
+                dropping = True
+                if "</iframe></div>" in line:
+                    dropping = False
+                continue
+            out_lines.append(line)
+        else:
+            if "</iframe></div>" in line:
+                dropping = False
     return "".join(out_lines)
 
 
@@ -214,6 +258,112 @@ def _wrap_body_liquid_raw(md: str) -> str:
     return head + "\n{% raw %}\n" + body.lstrip("\n") + "\n{% endraw %}\n"
 
 
+def _make_figure_page(body_html: str) -> str:
+    """Wrap a Plotly figure HTML fragment in a minimal full HTML page."""
+    return (
+        '<!DOCTYPE html>\n'
+        '<html><head>\n'
+        '<meta charset="utf-8">\n'
+        '<meta name="viewport" content="width=device-width,initial-scale=1">\n'
+        '<style>html,body{margin:0;padding:0;background:#fff;'
+        'font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;}</style>\n'
+        '</head>\n'
+        f'<body>\n{body_html}\n</body>\n'
+        '</html>\n'
+    )
+
+
+def _make_iframe(div_id: str, iframe_width: int, iframe_height: int) -> str:
+    return (
+        f'<iframe src="{_FIGURE_ASSET_URL_BASE}/{div_id}.html"'
+        f' style="width:min({iframe_width}px,100%);height:{iframe_height}px;'
+        f'border:none;border-radius:8px;display:block;margin:1em auto;"'
+        f' loading="lazy"></iframe>\n'
+    )
+
+
+def _externalize_plotly_figures(md: str) -> str:
+    """Replace inline Plotly figure blobs with ``<iframe>`` embeds.
+
+    Handles two known patterns produced by ``avilist_birds_explore.ipynb``:
+
+    1. **Sunburst** — wrapped in a ``sunburst_panzoom_viewport()`` div.  The
+       panzoom outer ``<div id="sunburst-avilist-vp">`` opens before the Plotly
+       CDN script, and the block ends with ``})();\\n</script></div>`` (the
+       panzoom JS IIFE closing + outer div close).
+
+    2. **Choropleth** — wrapped in a ``<div class="geo-family-picker">`` block
+       followed by the Plotly CDN + div + init script + a family-picker IIFE
+       ending with ``})();\\n</script>``.
+
+    Each block is written to ``assets/data-science/avilist/figures/<id>.html``
+    as a self-contained page and replaced in the post body with a small
+    ``<iframe>`` tag.  The asset files live under ``assets/`` so Jekyll serves
+    them verbatim (no Liquid processing).
+
+    .. note::
+        nbconvert emits the Python *source code* of display cells as markdown
+        code fences.  Because those Python strings contain the same HTML markers
+        (e.g. ``<div class="geo-family-picker">``), the regexes must **not**
+        match content that is inside a code fence.  This function masks out all
+        fenced code blocks before running the patterns, then restores them.
+    """
+    FIGURE_DIR.mkdir(parents=True, exist_ok=True)
+
+    # ── Mask code fences so patterns don't match Python source literals ────
+    _fence_store: list[str] = []
+
+    def _mask(m: re.Match) -> str:
+        idx = len(_fence_store)
+        _fence_store.append(m.group(0))
+        return f"\x00FENCE{idx}\x00"
+
+    masked = re.sub(r"```[\s\S]*?```", _mask, md)
+    result = masked
+
+    # ── 1. Sunburst panzoom block ──────────────────────────────────────────
+    # The panzoom wrapper ends with  })();\n</script></div>  where the final
+    # </div> closes <div id="sunburst-avilist-vp">.
+    sunburst_re = re.compile(
+        r'<div\s+id="sunburst-avilist-vp"[\s\S]*?\}\)\(\);\n</script></div>',
+        re.DOTALL,
+    )
+    m = sunburst_re.search(result)
+    if m:
+        block = m.group(0)
+        page  = _make_figure_page(block)
+        dest  = FIGURE_DIR / "sunburst-avilist.html"
+        dest.write_text(page, encoding="utf-8")
+        print(f"[avilist] Externalized sunburst → {dest.name} ({len(page)//1024} KB)")
+        result = result[:m.start()] + _make_iframe("sunburst-avilist", 900, 980) + result[m.end():]
+    else:
+        print("[avilist] WARNING: sunburst panzoom block not found — skipping externalization")
+
+    # ── 2. Choropleth + family-picker block ────────────────────────────────
+    # Starts at <div class="geo-family-picker"> and ends after the
+    # family-picker IIFE  })();\n</script>  that follows the Plotly init.
+    choropleth_re = re.compile(
+        r'<div\s+class="geo-family-picker"[\s\S]*?\}\)\(\);\n</script>',
+        re.DOTALL,
+    )
+    m = choropleth_re.search(result)
+    if m:
+        block = m.group(0)
+        page  = _make_figure_page(block)
+        dest  = FIGURE_DIR / "geo-choropleth.html"
+        dest.write_text(page, encoding="utf-8")
+        print(f"[avilist] Externalized choropleth → {dest.name} ({len(page)//1024} KB)")
+        result = result[:m.start()] + _make_iframe("geo-choropleth", 900, 700) + result[m.end():]
+    else:
+        print("[avilist] WARNING: geo-choropleth family-picker block not found — skipping")
+
+    # ── Restore masked code fences ─────────────────────────────────────────
+    for idx, fence_text in enumerate(_fence_store):
+        result = result.replace(f"\x00FENCE{idx}\x00", fence_text, 1)
+
+    return result
+
+
 # ---------------------------------------------------------------------------
 # Main pipeline steps
 # ---------------------------------------------------------------------------
@@ -221,6 +371,7 @@ def _wrap_body_liquid_raw(md: str) -> str:
 def copy_assets() -> None:
     """Copy Newick + JSON files (and family subtrees) to the Jekyll assets directory."""
     ASSET_DIR.mkdir(parents=True, exist_ok=True)
+    FIGURE_DIR.mkdir(parents=True, exist_ok=True)
     for fname in ("order_tree.nwk", "order_meta.json",
                   "family_tree.nwk", "family_meta.json"):
         src = PHY_DIR / fname
@@ -267,9 +418,13 @@ def patch_md() -> None:
     for stem in (MD.stem, "ebird-avilist"):
         raw = raw.replace(f"{stem}_files/", "/images/data-science/avilist/")
 
-    # Replace tagged phylo code blocks with Phylocanvas.gl embeds
+    # Replace tagged phylo code blocks with Phylocanvas.gl embeds (fetch-based).
     raw = _replace_tagged_cells(raw)
     raw = _drop_nbconvert_phylo_output_duplicates(raw)
+
+    # Externalize Plotly figure blobs to assets/ and replace with <iframe> tags.
+    raw = _externalize_plotly_figures(raw)
+
     raw = _wrap_body_liquid_raw(raw)
 
     MD.write_text(raw, encoding="utf-8")
