@@ -15,9 +15,10 @@ Workflow
    Phylocanvas.gl HTML embeds (loaded from the pre-built .nwk + .json cache).
 4. Copy the Newick + JSON cache files to ``assets/data-science/avilist/phylogeny/``
    so the JS loader can ``fetch()`` them if needed (currently the data is inlined).
-5. Ensure YAML ``header.teaser`` points at the AviList title image (the post body
-   is wrapped in ``{% raw %}``, so the first in-body image is not used for archive
-   thumbnails without this field).
+5. Set YAML ``header.teaser`` for themes that honor it, and place the same
+   title ``![...](...)`` **after front matter but before** ``{% raw %}`` so the
+   ``/data-science/`` index excerpt (first body paragraph) is an ``<img>``, like
+   other posts (AcademicPages does not use ``header.teaser`` for that listing).
 6. Write out the final ``.md`` file for Jekyll.
 
 AviList repo path
@@ -77,8 +78,9 @@ ASSET_DIR  = REPO / "assets" / "data-science" / "avilist" / "phylogeny"
 FIGURE_DIR = REPO / "assets" / "data-science" / "avilist" / "figures"
 IMG_DIR    = REPO / "images" / "data-science" / "avilist"
 
-# Archive / grid layouts read this from YAML. The post body is wrapped in
-# ``{% raw %}`` so the first in-body ``![...](...)`` is not a reliable teaser.
+# Listing page excerpt uses the first markdown block after front matter, not
+# ``header.teaser``. The title figure must sit *outside* ``{% raw %}`` (before
+# the in-post H1) so the archive shows the image.
 TEASER_IMAGE_URL = "/images/data-science/avilist/AviList-title-image.png"
 
 # Public URL bases used by the fetch()-based embeds at runtime.
@@ -290,6 +292,35 @@ def _wrap_body_liquid_raw(md: str) -> str:
     return head + "\n{% raw %}\n" + body.lstrip("\n") + "\n{% endraw %}\n"
 
 
+_RAW_BLOCK_RE = re.compile(r"\n\{\%\s*raw\s*\%\}\n", re.IGNORECASE)
+
+
+def _move_teaser_image_before_raw(md: str) -> str:
+    """AcademicPages /data-science/ index uses auto-excerpt (first body block).
+
+    If the first lines inside ``{% raw %}`` are an H1 then the title figure, move
+    that figure to after front matter and before ``{% raw %}`` (same pattern as
+    other collection posts). ``header.teaser`` alone does not populate the list.
+    """
+    m = _RAW_BLOCK_RE.search(md)
+    if not m:
+        return md
+    body = md[m.end() :]
+    url_esc = re.escape(TEASER_IMAGE_URL)
+    inner = re.compile(rf"(?P<h># [^\n]+\n\n)(?P<img>!\[[^\]]*\]\({url_esc}\)\n)")
+    m2 = inner.match(body)
+    if not m2:
+        return md
+    return (
+        md[: m.start()]
+        + "\n"
+        + m2.group("img")
+        + md[m.start() : m.end()]
+        + m2.group("h")
+        + body[m2.end() :]
+    )
+
+
 def _make_figure_page(body_html: str) -> str:
     """Wrap a Plotly figure HTML fragment in a minimal full HTML page."""
     return (
@@ -467,6 +498,7 @@ def patch_md() -> None:
     raw = _externalize_plotly_figures(raw)
 
     raw = _wrap_body_liquid_raw(raw)
+    raw = _move_teaser_image_before_raw(raw)
 
     MD.write_text(raw, encoding="utf-8")
     print(f"[avilist] Patched markdown → {MD}")
