@@ -55,14 +55,15 @@ AVILIST_ROOT = Path(
     os.environ.get("EBIRD_AVILIST_ROOT", REPO.parent / "ebird-avilist")
 ).resolve()
 NB = AVILIST_ROOT / "notebooks" / "avilist_birds_explore.ipynb"
-# Stem must match published URL slug; nbconvert writes ``{stem}.md`` and ``{stem}_files/``.
-MD = REPO / "_data_science" / "2026-03-01-ebird-avilist.md"
+# Filename ``YYYY-MM-DD-*.md`` sets Jekyll's collection document date on GitHub Pages;
+# ``permalink`` controls the public URL. nbconvert writes ``{stem}.md`` and ``{stem}_files/``.
+MD = REPO / "_data_science" / "2026-05-12-ebird-avilist.md"
 NB_FILES = REPO / "_data_science" / f"{MD.stem}_files"
 PHY_DIR = AVILIST_ROOT / "data" / "phylogeny"
 
 # Fallbacks if the first markdown cell omits a field (ISO date only).
-_DEFAULT_TITLE = "Exploring the consolidated AviList"
-_DEFAULT_DATE = "2026-03-01"
+_DEFAULT_TITLE = "Exploring bird diversity with AviList"
+_DEFAULT_DATE = "2026-05-12"
 _DEFAULT_TAGS = ["AviList", "birds", "taxonomy", "conservation"]
 _PERMALINK = "/data-science/ebird-avilist/"
 
@@ -207,7 +208,9 @@ def _strip_lead_cell_meta_from_body(raw: str) -> str:
     Jekyll YAML front matter by :func:`_apply_notebook_front_matter` — leaving
     them in the body causes them to render as a stray H2 + bullet list above
     the post intro. This pass strips them when they sit immediately under the
-    lead H1, leaving the title heading itself untouched.
+    lead H1, leaving the title heading itself untouched (the layout also prints
+    ``page.title``; use :func:`_strip_duplicate_page_title_heading_in_raw` to
+    drop that duplicate H1 when needed).
     """
 
     def _repl(m: re.Match) -> str:
@@ -297,6 +300,7 @@ def _build_phylocanvas_embed(
     html = phylocanvas_html(
         newick, meta, container_id, height, tree_type,
         drilldown=drilldown,
+        family_hover=True,
         subtrees_url_base=subtrees_url_base,
         external_nwk_url=external_nwk_url,
         external_meta_url=external_meta_url,
@@ -512,6 +516,44 @@ def _remove_first_teaser_md_line(s: str, url: str) -> str:
         count=1,
         flags=re.MULTILINE,
     )
+
+
+def _parse_front_matter_title(md: str) -> str | None:
+    """Return the ``title:`` string value from YAML front matter, if present."""
+    if not md.lstrip().startswith("---"):
+        return None
+    end = md.find("\n---\n", 3)
+    if end == -1:
+        return None
+    inner = md[3:end]
+    for line in inner.splitlines():
+        stripped = line.strip()
+        if not stripped.startswith("title:"):
+            continue
+        val = stripped.split(":", 1)[1].strip()
+        if len(val) >= 2 and val[0] == val[-1] and val[0] in "\"'":
+            q = val[0]
+            core = val[1:-1]
+            return core.replace("\\" + q, q).replace("\\\\", "\\")
+        return val
+    return None
+
+
+def _strip_duplicate_page_title_heading_in_raw(md: str) -> str:
+    """Remove ``# …`` immediately inside ``{% raw %}`` when it matches YAML ``title``."""
+    yaml_title = _parse_front_matter_title(md)
+    if not yaml_title:
+        return md
+    m_raw = re.search(r"\n\{\%\s*raw\s*\%\}\s*\n", md)
+    if not m_raw:
+        return md
+    tail = md[m_raw.end() :]
+    m_h1 = re.match(r"#\s+([^\n]+)\s*\n+", tail)
+    if not m_h1:
+        return md
+    if m_h1.group(1).strip() != yaml_title.strip():
+        return md
+    return md[: m_raw.end()] + tail[m_h1.end() :]
 
 
 def _ensure_teaser_line_before_raw(md: str) -> str:
@@ -750,8 +792,9 @@ def patch_md() -> None:
     else:
         raw = process_outside_code_fences(raw)
 
-    # Fix relative image paths from nbconvert artefacts
-    for stem in (MD.stem, "ebird-avilist"):
+    # Fix relative image paths from nbconvert artefacts (older notebook runs used
+    # ``2026-03-01-ebird-avilist`` as the output stem).
+    for stem in (MD.stem, "ebird-avilist", "2026-03-01-ebird-avilist"):
         raw = raw.replace(f"{stem}_files/", "/images/data-science/avilist/")
 
     # Replace tagged phylo code blocks with Phylocanvas.gl embeds (fetch-based).
@@ -767,6 +810,7 @@ def patch_md() -> None:
     raw = _wrap_body_liquid_raw(raw)
     raw = _move_teaser_image_before_raw(raw)
     raw = _ensure_teaser_line_before_raw(raw)
+    raw = _strip_duplicate_page_title_heading_in_raw(raw)
 
     MD.write_text(raw, encoding="utf-8")
     print(f"[avilist] Patched markdown → {MD}")
