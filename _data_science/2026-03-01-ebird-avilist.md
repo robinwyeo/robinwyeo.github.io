@@ -1,20 +1,21 @@
 ---
-title: "Exploring bird diversity with the new harmonized AviList"
-date: 2026-03-01
+title: "Exploring bird diversity with AviList"
+date: 2026-05-12
 tags:
   - AviList
+  - ornithology
   - birds
   - taxonomy
   - conservation
 permalink: /data-science/ebird-avilist/
 header:
-  teaser: /images/data-science/avilist/AviList-title-image.png
+  teaser: /images/data-science/avilist/title.png
 ---
 
-![AviList title image](/images/data-science/avilist/AviList-title-image.png)
+![AviList title image](/images/data-science/avilist/title.png)
 
 {% raw %}
-# Exploring bird diversity with the new harmonized AviList
+# Exploring bird diversity with AviList
 
 
 Bird taxonomy dates back to 1758 when Carl Linnaeus, the "father of modern taxonomy", recognized 554 species of birds in the tenth edition of *Systema Naturae*. Since then the birds (which in taxonomy are represented by the class *Ave*) have become, by far, the most thoroughly described and well-characterized taxonomic class on the planet with over 10,000 species described. Furthermore, there is good reason to believe that the current species count is vanishingly close to the true global count unlike the current counts for other terrestrial vertebrate groups - mammals (6495 sp), reptiles (11,440 sp), and amphibians (8301 sp) - which are known to be severely undercounted. Despite how well studied they are, there has not always been global consensus on how to classify the various species, genuses, and even orders of birds. Over the last 50 or so years, modern bird taxonomy has been simultaneously described by 4 comprehensive (yet often conflicting) checklists, the two most popular of which are the [Clements Checklist of Birds of the World](https://www.birds.cornell.edu/clementschecklist) (used by the Cornell Lab of Ornithology) and the [International Ornithological Community (IOC) World Bird List](https://www.worldbirdnames.org/new/). 
@@ -575,11 +576,13 @@ display(HTML(sunburst_panzoom_viewport(fig_html, SUNBURST_GD_ID, 560, 560)))
 ```
 
 
-<div class="sunburst-panzoom-root" style="width:100%;display:flex;justify-content:center;align-items:center;box-sizing:border-box;padding:6px 0"><iframe src="/assets/data-science/avilist/figures/sunburst-avilist.html" style="width:min(900px,100%);height:980px;border:none;border-radius:8px;display:block;margin:1em auto;" loading="lazy"></iframe>
-</div>
+
 
 
 </details>
+
+<div class="sunburst-panzoom-root" style="width:100%;display:flex;justify-content:center;align-items:center;box-sizing:border-box;padding:6px 0"><iframe src="/assets/data-science/avilist/figures/sunburst-avilist.html" style="width:min(900px,100%);height:980px;border:none;border-radius:8px;display:block;margin:1em auto;" loading="lazy"></iframe>
+</div>
 
 
 ## 3) Evolution
@@ -605,7 +608,7 @@ Below I've generated an interactive evolutionary tree rendered with **[Phylocanv
 
 
 <div style="font-family:sans-serif;"><details style="background:#f6f8fa;border:1px solid #d0d7de;border-radius:6px;padding:8px 14px;margin-bottom:6px;"><summary style="font-size:12px;font-weight:600;color:#24292f;cursor:pointer;">Legend — bird orders (click to expand)</summary><div style="padding-top:8px;line-height:1.9;"><span style="display:inline-flex;align-items:center;margin:3px 10px 3px 0;"><span style="width:10px;height:10px;border-radius:50%;background:#6B4226;flex-shrink:0;margin-right:5px;"></span><span style="font-size:10px;color:#24292f;">Accipitriformes</span></span><span style="display:inline-flex;align-items:center;margin:3px 10px 3px 0;"><span style="width:10px;height:10px;border-radius:50%;background:#74C69D;flex-shrink:0;margin-right:5px;"></span><span style="font-size:10px;color:#24292f;">Aegotheliformes</span></span><span style="display:inline-flex;align-items:center;margin:3px 10px 3px 0;"><span style="width:10px;height:10px;border-radius:50%;background:#F72585;flex-shrink:0;margin-right:5px;"></span><span style="font-size:10px;color:#24292f;">Anseriformes</span></span><span style="display:inline-flex;align-items:center;margin:3px 10px 3px 0;"><span style="width:10px;height:10px;border-radius:50%;background:#74B3CE;flex-shrink:0;margin-right:5px;"></span><span style="font-size:10px;color:#24292f;">Apodiformes</span></span><span style="display:inline-flex;align-items:center;margin:3px 10px 3px 0;"><span style="width:10px;height:10px;border-radius:50%;background:#2A9D8F;flex-shrink:0;margin-right:5px;"></span><span style="font-size:10px;color:#24292f;">Apterygiformes</span></span><span style="display:inline-flex;align-items:center;margin:3px 10px 3px 0;"><span style="width:10px;height:10px;border-radius:50%;background:#43AA8B;flex-shrink:0;margin-right:5px;"></span><span style="font-size:10px;color:#24292f;">Bucerotiformes</span></span><span style="display:inline-flex;align-items:center;margin:3px 10px 3px 0;"><span style="width:10px;height:10px;border-radius:50%;background:#84A98C;flex-shrink:0;margin-right:5px;"></span><span style="font-size:10px;color:#24292f;">Caprimulgiformes</span></span><span style="display:inline-flex;align-items:center;margin:3px 10px 3px 0;"><span style="width:10px;height:10px;border-radius:50%;background:#2B9348;flex-shrink:0;margin-right:5px;"></span><span style="font-size:10px;color:#24292f;">Cariamiformes</span></span><span style="display:inline-flex;align-items:center;margin:3px 10px 3px 0;"><span style="width:10px;height:10px;border-radius:50%;background:#F4A261;flex-shrink:0;margin-right:5px;"></span><span style="font-size:10px;color:#24292f;">Casuariiformes</span></span><span style="display:inline-flex;align-items:center;margin:3px 10px 3px 0;"><span style="width:10px;height:10px;border-radius:50%;background:#5C5C8A;flex-shrink:0;margin-right:5px;"></span><span style="font-size:10px;color:#24292f;">Cathartiformes</span></span><span style="display:inline-flex;align-items:center;margin:3px 10px 3px 0;"><span style="width:10px;height:10px;border-radius:50%;background:#AE2012;flex-shrink:0;margin-right:5px;"></span><span style="font-size:10px;color:#24292f;">Charadriiformes</span></span><span style="display:inline-flex;align-items:center;margin:3px 10px 3px 0;"><span style="width:10px;height:10px;border-radius:50%;background:#D62828;flex-shrink:0;margin-right:5px;"></span><span style="font-size:10px;color:#24292f;">Ciconiiformes</span></span><span style="display:inline-flex;align-items:center;margin:3px 10px 3px 0;"><span style="width:10px;height:10px;border-radius:50%;background:#A7754D;flex-shrink:0;margin-right:5px;"></span><span style="font-size:10px;color:#24292f;">Coliiformes</span></span><span style="display:inline-flex;align-items:center;margin:3px 10px 3px 0;"><span style="width:10px;height:10px;border-radius:50%;background:#D00000;flex-shrink:0;margin-right:5px;"></span><span style="font-size:10px;color:#24292f;">Columbiformes</span></span><span style="display:inline-flex;align-items:center;margin:3px 10px 3px 0;"><span style="width:10px;height:10px;border-radius:50%;background:#577590;flex-shrink:0;margin-right:5px;"></span><span style="font-size:10px;color:#24292f;">Coraciiformes</span></span><span style="display:inline-flex;align-items:center;margin:3px 10px 3px 0;"><span style="width:10px;height:10px;border-radius:50%;background:#8338EC;flex-shrink:0;margin-right:5px;"></span><span style="font-size:10px;color:#24292f;">Cuculiformes</span></span><span style="display:inline-flex;align-items:center;margin:3px 10px 3px 0;"><span style="width:10px;height:10px;border-radius:50%;background:#CA6702;flex-shrink:0;margin-right:5px;"></span><span style="font-size:10px;color:#24292f;">Eurypygiformes</span></span><span style="display:inline-flex;align-items:center;margin:3px 10px 3px 0;"><span style="width:10px;height:10px;border-radius:50%;background:#80B918;flex-shrink:0;margin-right:5px;"></span><span style="font-size:10px;color:#24292f;">Falconiformes</span></span><span style="display:inline-flex;align-items:center;margin:3px 10px 3px 0;"><span style="width:10px;height:10px;border-radius:50%;background:#E9C46A;flex-shrink:0;margin-right:5px;"></span><span style="font-size:10px;color:#24292f;">Galbuliformes</span></span><span style="display:inline-flex;align-items:center;margin:3px 10px 3px 0;"><span style="width:10px;height:10px;border-radius:50%;background:#4CC9F0;flex-shrink:0;margin-right:5px;"></span><span style="font-size:10px;color:#24292f;">Galliformes</span></span><span style="display:inline-flex;align-items:center;margin:3px 10px 3px 0;"><span style="width:10px;height:10px;border-radius:50%;background:#94D2BD;flex-shrink:0;margin-right:5px;"></span><span style="font-size:10px;color:#24292f;">Gaviiformes</span></span><span style="display:inline-flex;align-items:center;margin:3px 10px 3px 0;"><span style="width:10px;height:10px;border-radius:50%;background:#9B2226;flex-shrink:0;margin-right:5px;"></span><span style="font-size:10px;color:#24292f;">Gruiformes</span></span><span style="display:inline-flex;align-items:center;margin:3px 10px 3px 0;"><span style="width:10px;height:10px;border-radius:50%;background:#CE796B;flex-shrink:0;margin-right:5px;"></span><span style="font-size:10px;color:#24292f;">Leptosomiformes</span></span><span style="display:inline-flex;align-items:center;margin:3px 10px 3px 0;"><span style="width:10px;height:10px;border-radius:50%;background:#FFBE0B;flex-shrink:0;margin-right:5px;"></span><span style="font-size:10px;color:#24292f;">Mesitornithiformes</span></span><span style="display:inline-flex;align-items:center;margin:3px 10px 3px 0;"><span style="width:10px;height:10px;border-radius:50%;background:#3A86FF;flex-shrink:0;margin-right:5px;"></span><span style="font-size:10px;color:#24292f;">Musophagiformes</span></span><span style="display:inline-flex;align-items:center;margin:3px 10px 3px 0;"><span style="width:10px;height:10px;border-radius:50%;background:#2D6A4F;flex-shrink:0;margin-right:5px;"></span><span style="font-size:10px;color:#24292f;">Nyctibiiformes</span></span><span style="display:inline-flex;align-items:center;margin:3px 10px 3px 0;"><span style="width:10px;height:10px;border-radius:50%;background:#023E8A;flex-shrink:0;margin-right:5px;"></span><span style="font-size:10px;color:#24292f;">Opisthocomiformes</span></span><span style="display:inline-flex;align-items:center;margin:3px 10px 3px 0;"><span style="width:10px;height:10px;border-radius:50%;background:#FF006E;flex-shrink:0;margin-right:5px;"></span><span style="font-size:10px;color:#24292f;">Otidiformes</span></span><span style="display:inline-flex;align-items:center;margin:3px 10px 3px 0;"><span style="width:10px;height:10px;border-radius:50%;background:#FFBF69;flex-shrink:0;margin-right:5px;"></span><span style="font-size:10px;color:#24292f;">Passeriformes</span></span><span style="display:inline-flex;align-items:center;margin:3px 10px 3px 0;"><span style="width:10px;height:10px;border-radius:50%;background:#FCBF49;flex-shrink:0;margin-right:5px;"></span><span style="font-size:10px;color:#24292f;">Pelecaniformes</span></span><span style="display:inline-flex;align-items:center;margin:3px 10px 3px 0;"><span style="width:10px;height:10px;border-radius:50%;background:#EE9B00;flex-shrink:0;margin-right:5px;"></span><span style="font-size:10px;color:#24292f;">Phaethontiformes</span></span><span style="display:inline-flex;align-items:center;margin:3px 10px 3px 0;"><span style="width:10px;height:10px;border-radius:50%;background:#06D6A0;flex-shrink:0;margin-right:5px;"></span><span style="font-size:10px;color:#24292f;">Phoenicopteriformes</span></span><span style="display:inline-flex;align-items:center;margin:3px 10px 3px 0;"><span style="width:10px;height:10px;border-radius:50%;background:#264653;flex-shrink:0;margin-right:5px;"></span><span style="font-size:10px;color:#24292f;">Piciformes</span></span><span style="display:inline-flex;align-items:center;margin:3px 10px 3px 0;"><span style="width:10px;height:10px;border-radius:50%;background:#40916C;flex-shrink:0;margin-right:5px;"></span><span style="font-size:10px;color:#24292f;">Podargiformes</span></span><span style="display:inline-flex;align-items:center;margin:3px 10px 3px 0;"><span style="width:10px;height:10px;border-radius:50%;background:#FB8500;flex-shrink:0;margin-right:5px;"></span><span style="font-size:10px;color:#24292f;">Podicipediformes</span></span><span style="display:inline-flex;align-items:center;margin:3px 10px 3px 0;"><span style="width:10px;height:10px;border-radius:50%;background:#005F73;flex-shrink:0;margin-right:5px;"></span><span style="font-size:10px;color:#24292f;">Procellariiformes</span></span><span style="display:inline-flex;align-items:center;margin:3px 10px 3px 0;"><span style="width:10px;height:10px;border-radius:50%;background:#FF9F1C;flex-shrink:0;margin-right:5px;"></span><span style="font-size:10px;color:#24292f;">Psittaciformes</span></span><span style="display:inline-flex;align-items:center;margin:3px 10px 3px 0;"><span style="width:10px;height:10px;border-radius:50%;background:#38B000;flex-shrink:0;margin-right:5px;"></span><span style="font-size:10px;color:#24292f;">Pterocliformes</span></span><span style="display:inline-flex;align-items:center;margin:3px 10px 3px 0;"><span style="width:10px;height:10px;border-radius:50%;background:#457B9D;flex-shrink:0;margin-right:5px;"></span><span style="font-size:10px;color:#24292f;">Rheiformes</span></span><span style="display:inline-flex;align-items:center;margin:3px 10px 3px 0;"><span style="width:10px;height:10px;border-radius:50%;background:#0A9396;flex-shrink:0;margin-right:5px;"></span><span style="font-size:10px;color:#24292f;">Sphenisciformes</span></span><span style="display:inline-flex;align-items:center;margin:3px 10px 3px 0;"><span style="width:10px;height:10px;border-radius:50%;background:#52B788;flex-shrink:0;margin-right:5px;"></span><span style="font-size:10px;color:#24292f;">Steatornithiformes</span></span><span style="display:inline-flex;align-items:center;margin:3px 10px 3px 0;"><span style="width:10px;height:10px;border-radius:50%;background:#508CA4;flex-shrink:0;margin-right:5px;"></span><span style="font-size:10px;color:#24292f;">Strigiformes</span></span><span style="display:inline-flex;align-items:center;margin:3px 10px 3px 0;"><span style="width:10px;height:10px;border-radius:50%;background:#E63946;flex-shrink:0;margin-right:5px;"></span><span style="font-size:10px;color:#24292f;">Struthioniformes</span></span><span style="display:inline-flex;align-items:center;margin:3px 10px 3px 0;"><span style="width:10px;height:10px;border-radius:50%;background:#F77F00;flex-shrink:0;margin-right:5px;"></span><span style="font-size:10px;color:#24292f;">Suliformes</span></span><span style="display:inline-flex;align-items:center;margin:3px 10px 3px 0;"><span style="width:10px;height:10px;border-radius:50%;background:#6A4C93;flex-shrink:0;margin-right:5px;"></span><span style="font-size:10px;color:#24292f;">Tinamiformes</span></span><span style="display:inline-flex;align-items:center;margin:3px 10px 3px 0;"><span style="width:10px;height:10px;border-radius:50%;background:#C18C5D;flex-shrink:0;margin-right:5px;"></span><span style="font-size:10px;color:#24292f;">Trogoniformes</span></span></div></details><!-- phylocanvas-static-embed -->
-<iframe srcdoc="&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;style&gt;html,body{margin:0;padding:0;background:#ffffff;font-family:sans-serif;}}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;div style=&quot;display:flex;justify-content:space-between;align-items:center;padding:6px 10px;background:#f6f8fa;border:1px solid #d0d7de;border-bottom:none;border-radius:6px 6px 0 0;gap:10px;box-sizing:border-box;&quot;&gt;&lt;span id=&quot;avilist-fam-tree-dd-title&quot; style=&quot;font:13px/1.4 system-ui,Segoe UI,sans-serif;color:#24292f;flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;&quot;&gt;All bird families (252) — click a family to see its species&lt;/span&gt;&lt;button id=&quot;avilist-fam-tree-dd-back&quot; hidden style=&quot;flex-shrink:0;padding:3px 10px;font-size:12px;cursor:pointer;border:1px solid #d0d7de;border-radius:5px;background:#fff;color:#24292f;&quot;&gt;← Back to family tree&lt;/button&gt;&lt;/div&gt;&lt;div id=&quot;avilist-fam-tree-fam-search-wrap&quot; class=&quot;phylo-family-picker&quot; style=&quot;font-family:system-ui,Segoe UI,sans-serif;margin:0 0 8px 0;position:relative;max-width:min(560px,96vw);&quot;&gt;&lt;label for=&quot;avilist-fam-tree-fam-search&quot; style=&quot;display:block;font-size:0.82rem;font-weight:600;color:#24292f;margin-bottom:4px;&quot;&gt;Family &lt;span style=&quot;font-weight:400;color:#57606a;&quot;&gt;(type to filter, ↑↓ Enter — &lt;span style=&quot;white-space:nowrap;&quot;&gt;All families&lt;/span&gt; / &lt;span style=&quot;white-space:nowrap;&quot;&gt;Undo&lt;/span&gt; buttons, &lt;span style=&quot;white-space:nowrap;&quot;&gt;⌘/Ctrl+Z&lt;/span&gt; undo)&lt;/span&gt;&lt;/label&gt;&lt;div style=&quot;display:flex;gap:8px;align-items:center;width:100%;&quot;&gt;&lt;div style=&quot;flex:1;min-width:0;position:relative;&quot;&gt;&lt;input id=&quot;avilist-fam-tree-fam-search&quot; type=&quot;text&quot; placeholder=&quot;e.g. Paridae, Thraupidae, Parrot…&quot; autocomplete=&quot;off&quot; spellcheck=&quot;false&quot; role=&quot;combobox&quot; aria-autocomplete=&quot;list&quot; aria-controls=&quot;avilist-fam-tree-fam-suggest&quot; aria-expanded=&quot;false&quot; style=&quot;width:100%;box-sizing:border-box;padding:8px 10px;border:1px solid #d0d7de;border-radius:6px;font-size:14px;outline:none;&quot; /&gt;&lt;div id=&quot;avilist-fam-tree-fam-suggest&quot; role=&quot;listbox&quot; aria-label=&quot;Family suggestions&quot; style=&quot;display:none;position:absolute;left:0;right:0;z-index:100;margin-top:4px;max-height:min(320px,42vh);overflow-y:auto;background:#fff;border:1px solid #d0d7de;border-radius:6px;box-shadow:0 12px 28px rgba(31,35,40,0.18);&quot;&gt;&lt;/div&gt;&lt;/div&gt;&lt;div style=&quot;display:flex;flex-direction:column;gap:5px;flex-shrink:0;&quot;&gt;&lt;button type=&quot;button&quot; id=&quot;avilist-fam-tree-fam-search-all&quot; aria-label=&quot;Show all families, clear highlight&quot; style=&quot;display:inline-flex;align-items:center;justify-content:center;padding:8px 11px;font-size:12px;font-weight:600;line-height:1.2;cursor:pointer;border:1px solid #d0d7de;border-radius:6px;background:#f6f8fa;color:#24292f;white-space:nowrap;font-family:inherit;box-sizing:border-box;&quot;&gt;All families&lt;/button&gt;&lt;button type=&quot;button&quot; id=&quot;avilist-fam-tree-fam-search-undo&quot; aria-label=&quot;Undo last family selection&quot; style=&quot;display:inline-flex;align-items:center;justify-content:center;padding:8px 11px;font-size:12px;font-weight:600;line-height:1.2;cursor:pointer;border:1px solid #d0d7de;border-radius:6px;background:#f6f8fa;color:#24292f;white-space:nowrap;font-family:inherit;box-sizing:border-box;background:#fff;&quot;&gt;Undo&lt;/button&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div id=&quot;avilist-fam-tree&quot; style=&quot;position:relative;width:100%;height:760px;&quot;&gt;&lt;div id=&quot;avilist-fam-tree-pc&quot; style=&quot;width:100%;height:100%;background:#ffffff;overflow:hidden;&quot;&gt;&lt;/div&gt;&lt;canvas id=&quot;avilist-fam-tree-path-overlay&quot; width=&quot;8&quot; height=&quot;8&quot; style=&quot;position:absolute;left:0;top:0;width:100%;height:100%;pointer-events:none;z-index:3;&quot;&gt;&lt;/canvas&gt;&lt;/div&gt;&lt;script src=&quot;https://unpkg.com/@phylocanvas/phylocanvas.gl@1/dist/bundle.min.js&quot;&gt;&lt;/script&gt;&lt;script&gt;(function () {
+<iframe srcdoc="&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;style&gt;html,body{margin:0;padding:0;background:#ffffff;font-family:sans-serif;}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;div style=&quot;display:flex;justify-content:space-between;align-items:center;padding:6px 10px;background:#f6f8fa;border:1px solid #d0d7de;border-bottom:none;border-radius:6px 6px 0 0;gap:10px;box-sizing:border-box;&quot;&gt;&lt;span id=&quot;avilist-fam-tree-dd-title&quot; style=&quot;font:13px/1.4 system-ui,Segoe UI,sans-serif;color:#24292f;flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;&quot;&gt;All bird families (252) — click a family to see its species&lt;/span&gt;&lt;button id=&quot;avilist-fam-tree-dd-back&quot; hidden style=&quot;flex-shrink:0;padding:3px 10px;font-size:12px;cursor:pointer;border:1px solid #d0d7de;border-radius:5px;background:#fff;color:#24292f;&quot;&gt;← Back to family tree&lt;/button&gt;&lt;/div&gt;&lt;div id=&quot;avilist-fam-tree-fam-search-wrap&quot; class=&quot;phylo-family-picker&quot; style=&quot;font-family:system-ui,Segoe UI,sans-serif;margin:0 0 8px 0;position:relative;max-width:min(560px,96vw);&quot;&gt;&lt;label for=&quot;avilist-fam-tree-fam-search&quot; style=&quot;display:block;font-size:0.82rem;font-weight:600;color:#24292f;margin-bottom:4px;&quot;&gt;Family &lt;span style=&quot;font-weight:400;color:#57606a;&quot;&gt;(type to filter, ↑↓ Enter — &lt;span style=&quot;white-space:nowrap;&quot;&gt;All families&lt;/span&gt; / &lt;span style=&quot;white-space:nowrap;&quot;&gt;Undo&lt;/span&gt; buttons, &lt;span style=&quot;white-space:nowrap;&quot;&gt;⌘/Ctrl+Z&lt;/span&gt; undo)&lt;/span&gt;&lt;/label&gt;&lt;div style=&quot;display:flex;gap:8px;align-items:center;width:100%;&quot;&gt;&lt;div style=&quot;flex:1;min-width:0;position:relative;&quot;&gt;&lt;input id=&quot;avilist-fam-tree-fam-search&quot; type=&quot;text&quot; placeholder=&quot;e.g. Paridae, Thraupidae, Parrot…&quot; autocomplete=&quot;off&quot; spellcheck=&quot;false&quot; role=&quot;combobox&quot; aria-autocomplete=&quot;list&quot; aria-controls=&quot;avilist-fam-tree-fam-suggest&quot; aria-expanded=&quot;false&quot; style=&quot;width:100%;box-sizing:border-box;padding:8px 10px;border:1px solid #d0d7de;border-radius:6px;font-size:14px;outline:none;&quot; /&gt;&lt;div id=&quot;avilist-fam-tree-fam-suggest&quot; role=&quot;listbox&quot; aria-label=&quot;Family suggestions&quot; style=&quot;display:none;position:absolute;left:0;right:0;z-index:100;margin-top:4px;max-height:min(320px,42vh);overflow-y:auto;background:#fff;border:1px solid #d0d7de;border-radius:6px;box-shadow:0 12px 28px rgba(31,35,40,0.18);&quot;&gt;&lt;/div&gt;&lt;/div&gt;&lt;div style=&quot;display:flex;flex-direction:column;gap:5px;flex-shrink:0;&quot;&gt;&lt;button type=&quot;button&quot; id=&quot;avilist-fam-tree-fam-search-all&quot; aria-label=&quot;Show all families, clear highlight&quot; style=&quot;display:inline-flex;align-items:center;justify-content:center;padding:8px 11px;font-size:12px;font-weight:600;line-height:1.2;cursor:pointer;border:1px solid #d0d7de;border-radius:6px;background:#f6f8fa;color:#24292f;white-space:nowrap;font-family:inherit;box-sizing:border-box;&quot;&gt;All families&lt;/button&gt;&lt;button type=&quot;button&quot; id=&quot;avilist-fam-tree-fam-search-undo&quot; aria-label=&quot;Undo last family selection&quot; style=&quot;display:inline-flex;align-items:center;justify-content:center;padding:8px 11px;font-size:12px;font-weight:600;line-height:1.2;cursor:pointer;border:1px solid #d0d7de;border-radius:6px;background:#f6f8fa;color:#24292f;white-space:nowrap;font-family:inherit;box-sizing:border-box;background:#fff;&quot;&gt;Undo&lt;/button&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div id=&quot;avilist-fam-tree&quot; style=&quot;position:relative;width:100%;height:760px;&quot;&gt;&lt;div id=&quot;avilist-fam-tree-pc&quot; style=&quot;width:100%;height:100%;background:#ffffff;overflow:hidden;&quot;&gt;&lt;/div&gt;&lt;canvas id=&quot;avilist-fam-tree-path-overlay&quot; width=&quot;8&quot; height=&quot;8&quot; style=&quot;position:absolute;left:0;top:0;width:100%;height:100%;pointer-events:none;z-index:3;&quot;&gt;&lt;/canvas&gt;&lt;/div&gt;&lt;script src=&quot;https://unpkg.com/@phylocanvas/phylocanvas.gl@1/dist/bundle.min.js&quot;&gt;&lt;/script&gt;&lt;script&gt;(function () {
   var CONTAINER_ID = &quot;avilist-fam-tree&quot;;
   var NEWICK;
   var META;
@@ -623,7 +626,7 @@ Below I've generated an interactive evolutionary tree rendered with **[Phylocanv
   var DD_SP_TYPE   = window.phylocanvas ? window.phylocanvas.TreeTypes[&quot;Rectangular&quot;] : &quot;Rectangular&quot;;
   var FAMILY_SEARCH_ROWS = [{&quot;display&quot;:&quot;Acanthisittidae (New Zealand Wrens)&quot;,&quot;tip&quot;:&quot;Acanthisittidae&quot;},{&quot;display&quot;:&quot;Acanthizidae (Gerygones, Thornbills, Scrubwrens, and Allies)&quot;,&quot;tip&quot;:&quot;Acanthizidae&quot;},{&quot;display&quot;:&quot;Accipitridae (Kites, Old World Vultures, Eagles, and Hawks)&quot;,&quot;tip&quot;:&quot;Accipitridae&quot;},{&quot;display&quot;:&quot;Acrocephalidae (Reed Warblers and Allies)&quot;,&quot;tip&quot;:&quot;Acrocephalidae&quot;},{&quot;display&quot;:&quot;Aegithalidae (Tit-warblers, Bushtits, and Long-tailed Tit)&quot;,&quot;tip&quot;:&quot;Aegithalidae&quot;},{&quot;display&quot;:&quot;Aegithinidae (Ioras)&quot;,&quot;tip&quot;:&quot;Aegithinidae&quot;},{&quot;display&quot;:&quot;Aegothelidae (Owlet-nightjars)&quot;,&quot;tip&quot;:&quot;Aegothelidae&quot;},{&quot;display&quot;:&quot;Alaudidae (Larks)&quot;,&quot;tip&quot;:&quot;Alaudidae&quot;},{&quot;display&quot;:&quot;Alcedinidae (Kingfishers)&quot;,&quot;tip&quot;:&quot;Alcedinidae&quot;},{&quot;display&quot;:&quot;Alcidae (Auks, Puffins, and Murres)&quot;,&quot;tip&quot;:&quot;Alcidae&quot;},{&quot;display&quot;:&quot;Anatidae (Ducks, Swans, and Geese)&quot;,&quot;tip&quot;:&quot;Anatidae&quot;},{&quot;display&quot;:&quot;Anhimidae (Screamers)&quot;,&quot;tip&quot;:&quot;Anhimidae&quot;},{&quot;display&quot;:&quot;Anhingidae (Anhinga and Darters)&quot;,&quot;tip&quot;:&quot;Anhingidae&quot;},{&quot;display&quot;:&quot;Anseranatidae (Magpie Goose)&quot;,&quot;tip&quot;:&quot;Anseranatidae&quot;},{&quot;display&quot;:&quot;Apodidae (Swifts)&quot;,&quot;tip&quot;:&quot;Apodidae&quot;},{&quot;display&quot;:&quot;Apterygidae (Kiwis)&quot;,&quot;tip&quot;:&quot;Apterygidae&quot;},{&quot;display&quot;:&quot;Aramidae (Limpkin)&quot;,&quot;tip&quot;:&quot;Aramidae&quot;},{&quot;display&quot;:&quot;Ardeidae (Herons, Egrets, and Bitterns)&quot;,&quot;tip&quot;:&quot;Ardeidae&quot;},{&quot;display&quot;:&quot;Artamidae (Woodswallows, Bellmagpies, and Allies)&quot;,&quot;tip&quot;:&quot;Artamidae&quot;},{&quot;display&quot;:&quot;Atrichornithidae (Scrubbirds)&quot;,&quot;tip&quot;:&quot;Atrichornithidae&quot;},{&quot;display&quot;:&quot;Balaenicipitidae (Shoebill)&quot;,&quot;tip&quot;:&quot;Balaenicipitidae&quot;},{&quot;display&quot;:&quot;Bernieridae (Malagasy Warblers and Tetrakas)&quot;,&quot;tip&quot;:&quot;Bernieridae&quot;},{&quot;display&quot;:&quot;Bombycillidae (Waxwings)&quot;,&quot;tip&quot;:&quot;Bombycillidae&quot;},{&quot;display&quot;:&quot;Brachypteraciidae (Ground Rollers)&quot;,&quot;tip&quot;:&quot;Brachypteraciidae&quot;},{&quot;display&quot;:&quot;Bucconidae (Puffbirds)&quot;,&quot;tip&quot;:&quot;Bucconidae&quot;},{&quot;display&quot;:&quot;Bucerotidae (Hornbills)&quot;,&quot;tip&quot;:&quot;Bucerotidae&quot;},{&quot;display&quot;:&quot;Buphagidae (Oxpeckers)&quot;,&quot;tip&quot;:&quot;Buphagidae&quot;},{&quot;display&quot;:&quot;Burhinidae (Thick-knees and Stone-curlews)&quot;,&quot;tip&quot;:&quot;Burhinidae&quot;},{&quot;display&quot;:&quot;Cacatuidae (Cockatoos)&quot;,&quot;tip&quot;:&quot;Cacatuidae&quot;},{&quot;display&quot;:&quot;Calcariidae (Longspurs and Snow Buntings)&quot;,&quot;tip&quot;:&quot;Calcariidae&quot;},{&quot;display&quot;:&quot;Callaeidae (New Zealand Wattlebirds)&quot;,&quot;tip&quot;:&quot;Callaeidae&quot;},{&quot;display&quot;:&quot;Calyptomenidae (African and Green Broadbills)&quot;,&quot;tip&quot;:&quot;Calyptomenidae&quot;},{&quot;display&quot;:&quot;Calyptophilidae (Chat-tanagers)&quot;,&quot;tip&quot;:&quot;Calyptophilidae&quot;},{&quot;display&quot;:&quot;Campephagidae (Cuckooshrikes)&quot;,&quot;tip&quot;:&quot;Campephagidae&quot;},{&quot;display&quot;:&quot;Capitonidae (New World Barbets)&quot;,&quot;tip&quot;:&quot;Capitonidae&quot;},{&quot;display&quot;:&quot;Caprimulgidae (Nightjars and Nighthawks)&quot;,&quot;tip&quot;:&quot;Caprimulgidae&quot;},{&quot;display&quot;:&quot;Cardinalidae (Cardinals and Allies)&quot;,&quot;tip&quot;:&quot;Cardinalidae&quot;},{&quot;display&quot;:&quot;Cariamidae (Seriemas)&quot;,&quot;tip&quot;:&quot;Cariamidae&quot;},{&quot;display&quot;:&quot;Casuariidae (Emu and Cassowaries)&quot;,&quot;tip&quot;:&quot;Casuariidae&quot;},{&quot;display&quot;:&quot;Cathartidae (New World Vultures)&quot;,&quot;tip&quot;:&quot;Cathartidae&quot;},{&quot;display&quot;:&quot;Certhiidae (Treecreepers)&quot;,&quot;tip&quot;:&quot;Certhiidae&quot;},{&quot;display&quot;:&quot;Cettiidae (Bush Warblers and Allies)&quot;,&quot;tip&quot;:&quot;Cettiidae&quot;},{&quot;display&quot;:&quot;Chaetopidae (Rockjumpers)&quot;,&quot;tip&quot;:&quot;Chaetopidae&quot;},{&quot;display&quot;:&quot;Charadriidae (Plovers and Lapwings)&quot;,&quot;tip&quot;:&quot;Charadriidae&quot;},{&quot;display&quot;:&quot;Chionidae (Sheathbills)&quot;,&quot;tip&quot;:&quot;Chionidae&quot;},{&quot;display&quot;:&quot;Chloropseidae (Leafbirds)&quot;,&quot;tip&quot;:&quot;Chloropseidae&quot;},{&quot;display&quot;:&quot;Ciconiidae (Storks)&quot;,&quot;tip&quot;:&quot;Ciconiidae&quot;},{&quot;display&quot;:&quot;Cinclidae (Dippers)&quot;,&quot;tip&quot;:&quot;Cinclidae&quot;},{&quot;display&quot;:&quot;Cinclosomatidae (Jewel-babblers and Quail-thrushes)&quot;,&quot;tip&quot;:&quot;Cinclosomatidae&quot;},{&quot;display&quot;:&quot;Cisticolidae (Cisticolas and Allies)&quot;,&quot;tip&quot;:&quot;Cisticolidae&quot;},{&quot;display&quot;:&quot;Climacteridae (Australasian Treecreepers)&quot;,&quot;tip&quot;:&quot;Climacteridae&quot;},{&quot;display&quot;:&quot;Cnemophilidae (Satinbirds)&quot;,&quot;tip&quot;:&quot;Cnemophilidae&quot;},{&quot;display&quot;:&quot;Coliidae (Mousebirds)&quot;,&quot;tip&quot;:&quot;Coliidae&quot;},{&quot;display&quot;:&quot;Columbidae (Doves and Pigeons)&quot;,&quot;tip&quot;:&quot;Columbidae&quot;},{&quot;display&quot;:&quot;Conopophagidae (Gnateaters)&quot;,&quot;tip&quot;:&quot;Conopophagidae&quot;},{&quot;display&quot;:&quot;Coraciidae (Rollers)&quot;,&quot;tip&quot;:&quot;Coraciidae&quot;},{&quot;display&quot;:&quot;Corcoracidae (White-winged Chough and Apostlebird)&quot;,&quot;tip&quot;:&quot;Corcoracidae&quot;},{&quot;display&quot;:&quot;Corvidae (Crows, Jays, and Magpies)&quot;,&quot;tip&quot;:&quot;Corvidae&quot;},{&quot;display&quot;:&quot;Cotingidae (Cotingas)&quot;,&quot;tip&quot;:&quot;Cotingidae&quot;},{&quot;display&quot;:&quot;Cracidae (Guans, Curassows, and Chachalacas)&quot;,&quot;tip&quot;:&quot;Cracidae&quot;},{&quot;display&quot;:&quot;Cuculidae (Cuckoos)&quot;,&quot;tip&quot;:&quot;Cuculidae&quot;},{&quot;display&quot;:&quot;Dasyornithidae (Bristlebirds)&quot;,&quot;tip&quot;:&quot;Dasyornithidae&quot;},{&quot;display&quot;:&quot;Dicaeidae (Flowerpeckers)&quot;,&quot;tip&quot;:&quot;Dicaeidae&quot;},{&quot;display&quot;:&quot;Dicruridae (Drongos)&quot;,&quot;tip&quot;:&quot;Dicruridae&quot;},{&quot;display&quot;:&quot;Diomedeidae (Albatrosses)&quot;,&quot;tip&quot;:&quot;Diomedeidae&quot;},{&quot;display&quot;:&quot;Donacobiidae (Donacobius)&quot;,&quot;tip&quot;:&quot;Donacobiidae&quot;},{&quot;display&quot;:&quot;Dromadidae (Crab-Plover)&quot;,&quot;tip&quot;:&quot;Dromadidae&quot;},{&quot;display&quot;:&quot;Dulidae (Palmchat)&quot;,&quot;tip&quot;:&quot;Dulidae&quot;},{&quot;display&quot;:&quot;Elachuridae (Elachura)&quot;,&quot;tip&quot;:&quot;Elachuridae&quot;},{&quot;display&quot;:&quot;Emberizidae (Old World Buntings)&quot;,&quot;tip&quot;:&quot;Emberizidae&quot;},{&quot;display&quot;:&quot;Erythrocercidae (Yellow Flycatchers)&quot;,&quot;tip&quot;:&quot;Erythrocercidae&quot;},{&quot;display&quot;:&quot;Estrildidae (Munias, Parrotfinches, Waxbills, and Allies)&quot;,&quot;tip&quot;:&quot;Estrildidae&quot;},{&quot;display&quot;:&quot;Eulacestomatidae (Ploughbill)&quot;,&quot;tip&quot;:&quot;Eulacestomatidae&quot;},{&quot;display&quot;:&quot;Eupetidae (Rail-babbler)&quot;,&quot;tip&quot;:&quot;Eupetidae&quot;},{&quot;display&quot;:&quot;Eurylaimidae (Grauer&#x27;s Broadbill and Asian Broadbills)&quot;,&quot;tip&quot;:&quot;Eurylaimidae&quot;},{&quot;display&quot;:&quot;Eurypygidae (Sunbittern)&quot;,&quot;tip&quot;:&quot;Eurypygidae&quot;},{&quot;display&quot;:&quot;Falconidae (Falcons and Caracaras)&quot;,&quot;tip&quot;:&quot;Falconidae&quot;},{&quot;display&quot;:&quot;Falcunculidae (Shriketits)&quot;,&quot;tip&quot;:&quot;Falcunculidae&quot;},{&quot;display&quot;:&quot;Formicariidae (Antthrushes)&quot;,&quot;tip&quot;:&quot;Formicariidae&quot;},{&quot;display&quot;:&quot;Fregatidae (Frigatebirds)&quot;,&quot;tip&quot;:&quot;Fregatidae&quot;},{&quot;display&quot;:&quot;Fringillidae (Finches, Euphonias, and Allies)&quot;,&quot;tip&quot;:&quot;Fringillidae&quot;},{&quot;display&quot;:&quot;Furnariidae (Ovenbirds and Woodcreepers)&quot;,&quot;tip&quot;:&quot;Furnariidae&quot;},{&quot;display&quot;:&quot;Galbulidae (Jacamars)&quot;,&quot;tip&quot;:&quot;Galbulidae&quot;},{&quot;display&quot;:&quot;Gaviidae (Loons)&quot;,&quot;tip&quot;:&quot;Gaviidae&quot;},{&quot;display&quot;:&quot;Glareolidae (Coursers and Pratincoles)&quot;,&quot;tip&quot;:&quot;Glareolidae&quot;},{&quot;display&quot;:&quot;Grallariidae (Antpittas)&quot;,&quot;tip&quot;:&quot;Grallariidae&quot;},{&quot;display&quot;:&quot;Gruidae (Cranes)&quot;,&quot;tip&quot;:&quot;Gruidae&quot;},{&quot;display&quot;:&quot;Haematopodidae (Oystercatchers)&quot;,&quot;tip&quot;:&quot;Haematopodidae&quot;},{&quot;display&quot;:&quot;Heliornithidae (Finfoots)&quot;,&quot;tip&quot;:&quot;Heliornithidae&quot;},{&quot;display&quot;:&quot;Hemiprocnidae (Treeswifts)&quot;,&quot;tip&quot;:&quot;Hemiprocnidae&quot;},{&quot;display&quot;:&quot;Hirundinidae (Swallows)&quot;,&quot;tip&quot;:&quot;Hirundinidae&quot;},{&quot;display&quot;:&quot;Hydrobatidae (Northern Storm Petrels)&quot;,&quot;tip&quot;:&quot;Hydrobatidae&quot;},{&quot;display&quot;:&quot;Hyliidae (Hylias)&quot;,&quot;tip&quot;:&quot;Hyliidae&quot;},{&quot;display&quot;:&quot;Hyliotidae (Hyliotas)&quot;,&quot;tip&quot;:&quot;Hyliotidae&quot;},{&quot;display&quot;:&quot;Hylocitreidae (Hylocitrea)&quot;,&quot;tip&quot;:&quot;Hylocitreidae&quot;},{&quot;display&quot;:&quot;Hypocoliidae (Hypocolius)&quot;,&quot;tip&quot;:&quot;Hypocoliidae&quot;},{&quot;display&quot;:&quot;Ibidorhynchidae (Ibisbill)&quot;,&quot;tip&quot;:&quot;Ibidorhynchidae&quot;},{&quot;display&quot;:&quot;Icteridae (New World Blackbirds, Troupials, and Allies)&quot;,&quot;tip&quot;:&quot;Icteridae&quot;},{&quot;display&quot;:&quot;Ifritidae (Ifrit)&quot;,&quot;tip&quot;:&quot;Ifritidae&quot;},{&quot;display&quot;:&quot;Indicatoridae (Honeyguides)&quot;,&quot;tip&quot;:&quot;Indicatoridae&quot;},{&quot;display&quot;:&quot;Irenidae (Fairy-bluebirds)&quot;,&quot;tip&quot;:&quot;Irenidae&quot;},{&quot;display&quot;:&quot;Jacanidae (Jacanas)&quot;,&quot;tip&quot;:&quot;Jacanidae&quot;},{&quot;display&quot;:&quot;Laniidae (Shrikes)&quot;,&quot;tip&quot;:&quot;Laniidae&quot;},{&quot;display&quot;:&quot;Laridae (Skimmers, Noddies, Terns, and Gulls)&quot;,&quot;tip&quot;:&quot;Laridae&quot;},{&quot;display&quot;:&quot;Leiothrichidae (Laughingthrushes and Allies)&quot;,&quot;tip&quot;:&quot;Leiothrichidae&quot;},{&quot;display&quot;:&quot;Leptosomidae (Cuckoo-roller)&quot;,&quot;tip&quot;:&quot;Leptosomidae&quot;},{&quot;display&quot;:&quot;Locustellidae (Grasshopper Warblers, Grassbirds, and Allies)&quot;,&quot;tip&quot;:&quot;Locustellidae&quot;},{&quot;display&quot;:&quot;Lybiidae (African Barbets)&quot;,&quot;tip&quot;:&quot;Lybiidae&quot;},{&quot;display&quot;:&quot;Machaerirhynchidae (Boatbills)&quot;,&quot;tip&quot;:&quot;Machaerirhynchidae&quot;},{&quot;display&quot;:&quot;Macrosphenidae (Longbills, Crombecs, and Allies)&quot;,&quot;tip&quot;:&quot;Macrosphenidae&quot;},{&quot;display&quot;:&quot;Malaconotidae (Bushshrikes and Allies)&quot;,&quot;tip&quot;:&quot;Malaconotidae&quot;},{&quot;display&quot;:&quot;Maluridae (Grasswrens, Fairywrens, and Emu-wrens)&quot;,&quot;tip&quot;:&quot;Maluridae&quot;},{&quot;display&quot;:&quot;Megalaimidae (Asian Barbets)&quot;,&quot;tip&quot;:&quot;Megalaimidae&quot;},{&quot;display&quot;:&quot;Megapodiidae (Megapodes)&quot;,&quot;tip&quot;:&quot;Megapodiidae&quot;},{&quot;display&quot;:&quot;Melampittidae (Melampittas)&quot;,&quot;tip&quot;:&quot;Melampittidae&quot;},{&quot;display&quot;:&quot;Melanocharitidae (Longbills and Berrypeckers)&quot;,&quot;tip&quot;:&quot;Melanocharitidae&quot;},{&quot;display&quot;:&quot;Melanopareiidae (Crescentchests)&quot;,&quot;tip&quot;:&quot;Melanopareiidae&quot;},{&quot;display&quot;:&quot;Meliphagidae (Honeyeaters)&quot;,&quot;tip&quot;:&quot;Meliphagidae&quot;},{&quot;display&quot;:&quot;Menuridae (Lyrebirds)&quot;,&quot;tip&quot;:&quot;Menuridae&quot;},{&quot;display&quot;:&quot;Meropidae (Bee-eaters)&quot;,&quot;tip&quot;:&quot;Meropidae&quot;},{&quot;display&quot;:&quot;Mesitornithidae (Mesites)&quot;,&quot;tip&quot;:&quot;Mesitornithidae&quot;},{&quot;display&quot;:&quot;Mimidae (Mockingbirds and Thrashers)&quot;,&quot;tip&quot;:&quot;Mimidae&quot;},{&quot;display&quot;:&quot;Mitrospingidae (Mitrospingid Tanagers)&quot;,&quot;tip&quot;:&quot;Mitrospingidae&quot;},{&quot;display&quot;:&quot;Modulatricidae (Dapple-throat and Allies)&quot;,&quot;tip&quot;:&quot;Modulatricidae&quot;},{&quot;display&quot;:&quot;Mohoidae (Hawaiian Honeyeaters)&quot;,&quot;tip&quot;:&quot;Mohoidae&quot;},{&quot;display&quot;:&quot;Mohouidae (Whiteheads)&quot;,&quot;tip&quot;:&quot;Mohouidae&quot;},{&quot;display&quot;:&quot;Momotidae (Motmots)&quot;,&quot;tip&quot;:&quot;Momotidae&quot;},{&quot;display&quot;:&quot;Monarchidae (Monarch Flycatchers, Paradise Flycatchers, and Shrikebills)&quot;,&quot;tip&quot;:&quot;Monarchidae&quot;},{&quot;display&quot;:&quot;Motacillidae (Wagtails and Pipits)&quot;,&quot;tip&quot;:&quot;Motacillidae&quot;},{&quot;display&quot;:&quot;Muscicapidae (Chats, Old World Flycatchers, and Allies)&quot;,&quot;tip&quot;:&quot;Muscicapidae&quot;},{&quot;display&quot;:&quot;Musophagidae (Turacos)&quot;,&quot;tip&quot;:&quot;Musophagidae&quot;},{&quot;display&quot;:&quot;Nectariniidae (Spiderhunters and Sunbirds)&quot;,&quot;tip&quot;:&quot;Nectariniidae&quot;},{&quot;display&quot;:&quot;Neosittidae (Sittellas)&quot;,&quot;tip&quot;:&quot;Neosittidae&quot;},{&quot;display&quot;:&quot;Nesospingidae (Puerto Rican Tanager)&quot;,&quot;tip&quot;:&quot;Nesospingidae&quot;},{&quot;display&quot;:&quot;Nicatoridae (Nicators)&quot;,&quot;tip&quot;:&quot;Nicatoridae&quot;},{&quot;display&quot;:&quot;Notiomystidae (Stitchbird)&quot;,&quot;tip&quot;:&quot;Notiomystidae&quot;},{&quot;display&quot;:&quot;Numididae (Guineafowl)&quot;,&quot;tip&quot;:&quot;Numididae&quot;},{&quot;display&quot;:&quot;Nyctibiidae (Potoos)&quot;,&quot;tip&quot;:&quot;Nyctibiidae&quot;},{&quot;display&quot;:&quot;Oceanitidae (Southern Storm Petrels)&quot;,&quot;tip&quot;:&quot;Oceanitidae&quot;},{&quot;display&quot;:&quot;Odontophoridae (New World Quail)&quot;,&quot;tip&quot;:&quot;Odontophoridae&quot;},{&quot;display&quot;:&quot;Onychorhynchidae (Royal Flycatchers and Allies)&quot;,&quot;tip&quot;:&quot;Onychorhynchidae&quot;},{&quot;display&quot;:&quot;Opisthocomidae (Hoatzin)&quot;,&quot;tip&quot;:&quot;Opisthocomidae&quot;},{&quot;display&quot;:&quot;Oreoicidae (Australasian Bellbirds)&quot;,&quot;tip&quot;:&quot;Oreoicidae&quot;},{&quot;display&quot;:&quot;Oriolidae (Old World Orioles)&quot;,&quot;tip&quot;:&quot;Oriolidae&quot;},{&quot;display&quot;:&quot;Orthonychidae (Logrunner and Chowchilla)&quot;,&quot;tip&quot;:&quot;Orthonychidae&quot;},{&quot;display&quot;:&quot;Otididae (Bustards)&quot;,&quot;tip&quot;:&quot;Otididae&quot;},{&quot;display&quot;:&quot;Oxyruncidae (Sharpbill)&quot;,&quot;tip&quot;:&quot;Oxyruncidae&quot;},{&quot;display&quot;:&quot;Pachycephalidae (Whistlers and Allies)&quot;,&quot;tip&quot;:&quot;Pachycephalidae&quot;},{&quot;display&quot;:&quot;Pandionidae (Osprey)&quot;,&quot;tip&quot;:&quot;Pandionidae&quot;},{&quot;display&quot;:&quot;Panuridae (Reedling)&quot;,&quot;tip&quot;:&quot;Panuridae&quot;},{&quot;display&quot;:&quot;Paradisaeidae (Birds-of-paradise)&quot;,&quot;tip&quot;:&quot;Paradisaeidae&quot;},{&quot;display&quot;:&quot;Paradoxornithidae (Parrotbills and Allies)&quot;,&quot;tip&quot;:&quot;Paradoxornithidae&quot;},{&quot;display&quot;:&quot;Paramythiidae (Tit Berrypecker and Crested Berrypeckers)&quot;,&quot;tip&quot;:&quot;Paramythiidae&quot;},{&quot;display&quot;:&quot;Pardalotidae (Pardalotes)&quot;,&quot;tip&quot;:&quot;Pardalotidae&quot;},{&quot;display&quot;:&quot;Paridae (Tits, Chickadees, and Titmice)&quot;,&quot;tip&quot;:&quot;Paridae&quot;},{&quot;display&quot;:&quot;Parulidae (New World Warblers)&quot;,&quot;tip&quot;:&quot;Parulidae&quot;},{&quot;display&quot;:&quot;Passerellidae (New World Sparrows)&quot;,&quot;tip&quot;:&quot;Passerellidae&quot;},{&quot;display&quot;:&quot;Passeridae (Snowfinches and Old World Sparrows)&quot;,&quot;tip&quot;:&quot;Passeridae&quot;},{&quot;display&quot;:&quot;Pedionomidae (Plains-wanderer)&quot;,&quot;tip&quot;:&quot;Pedionomidae&quot;},{&quot;display&quot;:&quot;Pelecanidae (Pelicans)&quot;,&quot;tip&quot;:&quot;Pelecanidae&quot;},{&quot;display&quot;:&quot;Pellorneidae (Ground Babblers and Allies)&quot;,&quot;tip&quot;:&quot;Pellorneidae&quot;},{&quot;display&quot;:&quot;Petroicidae (Australasian Robins)&quot;,&quot;tip&quot;:&quot;Petroicidae&quot;},{&quot;display&quot;:&quot;Peucedramidae (Olive Warbler)&quot;,&quot;tip&quot;:&quot;Peucedramidae&quot;},{&quot;display&quot;:&quot;Phaenicophilidae (Hispaniolan Tanagers)&quot;,&quot;tip&quot;:&quot;Phaenicophilidae&quot;},{&quot;display&quot;:&quot;Phaethontidae (Tropicbirds)&quot;,&quot;tip&quot;:&quot;Phaethontidae&quot;},{&quot;display&quot;:&quot;Phalacrocoracidae (Cormorants and Shags)&quot;,&quot;tip&quot;:&quot;Phalacrocoracidae&quot;},{&quot;display&quot;:&quot;Phasianidae (Partridges, Pheasants, Grouse, and Allies)&quot;,&quot;tip&quot;:&quot;Phasianidae&quot;},{&quot;display&quot;:&quot;Philepittidae (Asities)&quot;,&quot;tip&quot;:&quot;Philepittidae&quot;},{&quot;display&quot;:&quot;Phoenicopteridae (Flamingos)&quot;,&quot;tip&quot;:&quot;Phoenicopteridae&quot;},{&quot;display&quot;:&quot;Phoeniculidae (Wood Hoopoes and Scimitarbills)&quot;,&quot;tip&quot;:&quot;Phoeniculidae&quot;},{&quot;display&quot;:&quot;Phylloscopidae (Leaf Warblers)&quot;,&quot;tip&quot;:&quot;Phylloscopidae&quot;},{&quot;display&quot;:&quot;Picathartidae (Rockfowl)&quot;,&quot;tip&quot;:&quot;Picathartidae&quot;},{&quot;display&quot;:&quot;Picidae (Woodpeckers)&quot;,&quot;tip&quot;:&quot;Picidae&quot;},{&quot;display&quot;:&quot;Pipridae (Manakins)&quot;,&quot;tip&quot;:&quot;Pipridae&quot;},{&quot;display&quot;:&quot;Pittidae (Pittas)&quot;,&quot;tip&quot;:&quot;Pittidae&quot;},{&quot;display&quot;:&quot;Pityriasidae (Bristlehead)&quot;,&quot;tip&quot;:&quot;Pityriasidae&quot;},{&quot;display&quot;:&quot;Platylophidae (Jayshrike)&quot;,&quot;tip&quot;:&quot;Platylophidae&quot;},{&quot;display&quot;:&quot;Platysteiridae (Wattle-eyes and Batises)&quot;,&quot;tip&quot;:&quot;Platysteiridae&quot;},{&quot;display&quot;:&quot;Ploceidae (Weavers and Allies)&quot;,&quot;tip&quot;:&quot;Ploceidae&quot;},{&quot;display&quot;:&quot;Pluvianellidae (Magellanic Plover)&quot;,&quot;tip&quot;:&quot;Pluvianellidae&quot;},{&quot;display&quot;:&quot;Pluvianidae (Egyptian Plover)&quot;,&quot;tip&quot;:&quot;Pluvianidae&quot;},{&quot;display&quot;:&quot;Pnoepygidae (Cupwings)&quot;,&quot;tip&quot;:&quot;Pnoepygidae&quot;},{&quot;display&quot;:&quot;Podargidae (Frogmouths)&quot;,&quot;tip&quot;:&quot;Podargidae&quot;},{&quot;display&quot;:&quot;Podicipedidae (Grebes)&quot;,&quot;tip&quot;:&quot;Podicipedidae&quot;},{&quot;display&quot;:&quot;Polioptilidae (Gnatwrens and Gnatcatchers)&quot;,&quot;tip&quot;:&quot;Polioptilidae&quot;},{&quot;display&quot;:&quot;Pomatostomidae (Australasian Babblers)&quot;,&quot;tip&quot;:&quot;Pomatostomidae&quot;},{&quot;display&quot;:&quot;Procellariidae (Petrels, Shearwaters, and Diving Petrels)&quot;,&quot;tip&quot;:&quot;Procellariidae&quot;},{&quot;display&quot;:&quot;Promeropidae (Sugarbirds)&quot;,&quot;tip&quot;:&quot;Promeropidae&quot;},{&quot;display&quot;:&quot;Prunellidae (Accentors)&quot;,&quot;tip&quot;:&quot;Prunellidae&quot;},{&quot;display&quot;:&quot;Psittacidae (African and New World Parrots)&quot;,&quot;tip&quot;:&quot;Psittacidae&quot;},{&quot;display&quot;:&quot;Psittaculidae (Old World Parrots)&quot;,&quot;tip&quot;:&quot;Psittaculidae&quot;},{&quot;display&quot;:&quot;Psophiidae (Trumpeters)&quot;,&quot;tip&quot;:&quot;Psophiidae&quot;},{&quot;display&quot;:&quot;Psophodidae (Whipbirds and Wedgebills)&quot;,&quot;tip&quot;:&quot;Psophodidae&quot;},{&quot;display&quot;:&quot;Pteroclidae (Sandgrouse)&quot;,&quot;tip&quot;:&quot;Pteroclidae&quot;},{&quot;display&quot;:&quot;Ptiliogonatidae (Silky-flycatchers)&quot;,&quot;tip&quot;:&quot;Ptiliogonatidae&quot;},{&quot;display&quot;:&quot;Ptilonorhynchidae (Bowerbirds)&quot;,&quot;tip&quot;:&quot;Ptilonorhynchidae&quot;},{&quot;display&quot;:&quot;Pycnonotidae (Bulbuls)&quot;,&quot;tip&quot;:&quot;Pycnonotidae&quot;},{&quot;display&quot;:&quot;Rallidae (Rails, Gallinules, and Coots)&quot;,&quot;tip&quot;:&quot;Rallidae&quot;},{&quot;display&quot;:&quot;Ramphastidae (Toucans)&quot;,&quot;tip&quot;:&quot;Ramphastidae&quot;},{&quot;display&quot;:&quot;Recurvirostridae (Stilts and Avocets)&quot;,&quot;tip&quot;:&quot;Recurvirostridae&quot;},{&quot;display&quot;:&quot;Regulidae (Kinglets)&quot;,&quot;tip&quot;:&quot;Regulidae&quot;},{&quot;display&quot;:&quot;Remizidae (Penduline Tits)&quot;,&quot;tip&quot;:&quot;Remizidae&quot;},{&quot;display&quot;:&quot;Rhagologidae (Berryhunter)&quot;,&quot;tip&quot;:&quot;Rhagologidae&quot;},{&quot;display&quot;:&quot;Rheidae (Rheas)&quot;,&quot;tip&quot;:&quot;Rheidae&quot;},{&quot;display&quot;:&quot;Rhinocryptidae (Tapaculos)&quot;,&quot;tip&quot;:&quot;Rhinocryptidae&quot;},{&quot;display&quot;:&quot;Rhipiduridae (Fantails and Silktails)&quot;,&quot;tip&quot;:&quot;Rhipiduridae&quot;},{&quot;display&quot;:&quot;Rhodinocichlidae (Thrush-tanager)&quot;,&quot;tip&quot;:&quot;Rhodinocichlidae&quot;},{&quot;display&quot;:&quot;Rhynochetidae (Kagu)&quot;,&quot;tip&quot;:&quot;Rhynochetidae&quot;},{&quot;display&quot;:&quot;Rostratulidae (Painted-Snipes)&quot;,&quot;tip&quot;:&quot;Rostratulidae&quot;},{&quot;display&quot;:&quot;Sagittariidae (Secretarybird)&quot;,&quot;tip&quot;:&quot;Sagittariidae&quot;},{&quot;display&quot;:&quot;Salpornithidae (Spotted Creepers)&quot;,&quot;tip&quot;:&quot;Salpornithidae&quot;},{&quot;display&quot;:&quot;Sapayoidae (Sapayoa)&quot;,&quot;tip&quot;:&quot;Sapayoidae&quot;},{&quot;display&quot;:&quot;Sarothruridae (Flufftails)&quot;,&quot;tip&quot;:&quot;Sarothruridae&quot;},{&quot;display&quot;:&quot;Scolopacidae (Sandpipers and Allies)&quot;,&quot;tip&quot;:&quot;Scolopacidae&quot;},{&quot;display&quot;:&quot;Scopidae (Hamerkop)&quot;,&quot;tip&quot;:&quot;Scopidae&quot;},{&quot;display&quot;:&quot;Semnornithidae (Prong-billed Barbet and Toucan Barbet)&quot;,&quot;tip&quot;:&quot;Semnornithidae&quot;},{&quot;display&quot;:&quot;Sittidae (Nuthatches)&quot;,&quot;tip&quot;:&quot;Sittidae&quot;},{&quot;display&quot;:&quot;Spheniscidae (Penguins)&quot;,&quot;tip&quot;:&quot;Spheniscidae&quot;},{&quot;display&quot;:&quot;Spindalidae (Spindalises)&quot;,&quot;tip&quot;:&quot;Spindalidae&quot;},{&quot;display&quot;:&quot;Steatornithidae (Oilbird)&quot;,&quot;tip&quot;:&quot;Steatornithidae&quot;},{&quot;display&quot;:&quot;Stenostiridae (Fairy Flycatchers)&quot;,&quot;tip&quot;:&quot;Stenostiridae&quot;},{&quot;display&quot;:&quot;Stercorariidae (Jaegers and Skuas)&quot;,&quot;tip&quot;:&quot;Stercorariidae&quot;},{&quot;display&quot;:&quot;Strigidae (Owls)&quot;,&quot;tip&quot;:&quot;Strigidae&quot;},{&quot;display&quot;:&quot;Strigopidae (New Zealand Parrots)&quot;,&quot;tip&quot;:&quot;Strigopidae&quot;},{&quot;display&quot;:&quot;Struthionidae (Ostriches)&quot;,&quot;tip&quot;:&quot;Struthionidae&quot;},{&quot;display&quot;:&quot;Sturnidae (Rhabdornis, Starlings, and Mynas)&quot;,&quot;tip&quot;:&quot;Sturnidae&quot;},{&quot;display&quot;:&quot;Sulidae (Boobies and Gannets)&quot;,&quot;tip&quot;:&quot;Sulidae&quot;},{&quot;display&quot;:&quot;Sylviidae (Sylviid Warblers and Allies)&quot;,&quot;tip&quot;:&quot;Sylviidae&quot;},{&quot;display&quot;:&quot;Teretistridae (Cuban Warblers)&quot;,&quot;tip&quot;:&quot;Teretistridae&quot;},{&quot;display&quot;:&quot;Thamnophilidae (Antbirds, Antshrikes, Antwrens, and Antvireos)&quot;,&quot;tip&quot;:&quot;Thamnophilidae&quot;},{&quot;display&quot;:&quot;Thinocoridae (Seedsnipes)&quot;,&quot;tip&quot;:&quot;Thinocoridae&quot;},{&quot;display&quot;:&quot;Thraupidae (Tanagers and Allies)&quot;,&quot;tip&quot;:&quot;Thraupidae&quot;},{&quot;display&quot;:&quot;Threskiornithidae (Ibises and Spoonbills)&quot;,&quot;tip&quot;:&quot;Threskiornithidae&quot;},{&quot;display&quot;:&quot;Tichodromidae (Wallcreeper)&quot;,&quot;tip&quot;:&quot;Tichodromidae&quot;},{&quot;display&quot;:&quot;Timaliidae (Tree Babblers, Scimitar Babblers, and Allies)&quot;,&quot;tip&quot;:&quot;Timaliidae&quot;},{&quot;display&quot;:&quot;Tinamidae (Tinamous)&quot;,&quot;tip&quot;:&quot;Tinamidae&quot;},{&quot;display&quot;:&quot;Tityridae (Tityras, Becards, and Allies)&quot;,&quot;tip&quot;:&quot;Tityridae&quot;},{&quot;display&quot;:&quot;Todidae (Todies)&quot;,&quot;tip&quot;:&quot;Todidae&quot;},{&quot;display&quot;:&quot;Trochilidae (Hummingbirds)&quot;,&quot;tip&quot;:&quot;Trochilidae&quot;},{&quot;display&quot;:&quot;Troglodytidae (Wrens)&quot;,&quot;tip&quot;:&quot;Troglodytidae&quot;},{&quot;display&quot;:&quot;Trogonidae (Trogons)&quot;,&quot;tip&quot;:&quot;Trogonidae&quot;},{&quot;display&quot;:&quot;Turdidae (Thrushes and Allies)&quot;,&quot;tip&quot;:&quot;Turdidae&quot;},{&quot;display&quot;:&quot;Turnicidae (Buttonquail)&quot;,&quot;tip&quot;:&quot;Turnicidae&quot;},{&quot;display&quot;:&quot;Tyrannidae (Tyrant Flycatchers and Allies)&quot;,&quot;tip&quot;:&quot;Tyrannidae&quot;},{&quot;display&quot;:&quot;Tytonidae (Bay Owls and Barn Owls)&quot;,&quot;tip&quot;:&quot;Tytonidae&quot;},{&quot;display&quot;:&quot;Upupidae (Hoopoes)&quot;,&quot;tip&quot;:&quot;Upupidae&quot;},{&quot;display&quot;:&quot;Urocynchramidae (Przevalski&#x27;s Finch)&quot;,&quot;tip&quot;:&quot;Urocynchramidae&quot;},{&quot;display&quot;:&quot;Vangidae (Vangas, Helmetshrikes, and Allies)&quot;,&quot;tip&quot;:&quot;Vangidae&quot;},{&quot;display&quot;:&quot;Viduidae (Whydahs and Indigobirds)&quot;,&quot;tip&quot;:&quot;Viduidae&quot;},{&quot;display&quot;:&quot;Vireonidae (Shrike-babblers, Erpornis, and Vireos)&quot;,&quot;tip&quot;:&quot;Vireonidae&quot;},{&quot;display&quot;:&quot;Zeledoniidae (Wrenthrush)&quot;,&quot;tip&quot;:&quot;Zeledoniidae&quot;},{&quot;display&quot;:&quot;Zosteropidae (White-eyes, Yuhinas, and Allies)&quot;,&quot;tip&quot;:&quot;Zosteropidae&quot;}];
 
-  // Shared mutable state — updated whenever the active tree changes.
+  
   var _currentTree  = null;
   var _inFamilyMode = true;
   var _activeMeta   = META;
@@ -635,7 +638,7 @@ Below I've generated an interactive evolutionary tree rendered with **[Phylocanv
   var _pathTimer    = null;
   var _pathNodes    = [];
   var _familyPayload = null;
-  /** Tip key last highlighted on the family tree (&quot;&quot; = none); used for search undo. */
+  
   var _lastAppliedFamilyTip = &quot;&quot;;
   var _famNavHistory = [];
 
@@ -651,7 +654,7 @@ Below I've generated an interactive evolutionary tree rendered with **[Phylocanv
         label: (m.label !== undefined &amp;&amp; m.label !== null &amp;&amp; m.label !== &quot;&quot;) ? m.label : tip,
       };
       s[tip] = style;
-      // Newick leaves use underscores; AviList meta keys use spaces in binomials.
+      
       var us = tip.replace(/ /g, &quot;_&quot;);
       if (us !== tip) s[us] = style;
     });
@@ -666,7 +669,7 @@ Below I've generated an interactive evolutionary tree rendered with **[Phylocanv
     return null;
   }
 
-  // ── Shared tooltip (one DOM element reused for both tree modes) ─────────────
+  
   var _tipEl = null;
   function _ensureTip() {
     if (_tipEl) return _tipEl;
@@ -695,7 +698,7 @@ Below I've generated an interactive evolutionary tree rendered with **[Phylocanv
     tip.style.top  = Math.max(6, Math.min(ev.clientY + pad, window.innerHeight - h - 6)) + &quot;px&quot;;
   }
 
-  // ── Hover handler — bound once, always uses _currentTree / _activeMeta ──────
+  
   var _hoverBound = false;
   function _onHoverMove(ev) {
     var canvas = _container &amp;&amp; _container.querySelector(&quot;canvas&quot;);
@@ -723,7 +726,7 @@ Below I've generated an interactive evolutionary tree rendered with **[Phylocanv
     container.addEventListener(&quot;pointermove&quot;,  _onHoverMove);
   }
 
-  // ── Resize handler — bound once, always uses _currentTree ──────────────────
+  
   var _resizeBound = false;
   function _onResize() {
     if (!_currentTree) return;
@@ -744,7 +747,7 @@ Below I've generated an interactive evolutionary tree rendered with **[Phylocanv
     }
   }
 
-  // ── Drilldown click detection (bound once) ──────────────────────────────────
+  
   var _ddBound    = false;
   var _ddPtrStart = null;
   function _bindDrilldown(container) {
@@ -759,7 +762,7 @@ Below I've generated an interactive evolutionary tree rendered with **[Phylocanv
       var dx = ev.clientX - _ddPtrStart.x;
       var dy = ev.clientY - _ddPtrStart.y;
       _ddPtrStart = null;
-      if (dx * dx + dy * dy &gt; 64) return;   // &gt; 8 px drag — pan gesture, not click
+      if (dx * dx + dy * dy &gt; 64) return;   
       if (!_currentTree || !_currentTree.deck) return;
       var canvas = container.querySelector(&quot;canvas&quot;);
       if (!canvas) return;
@@ -778,7 +781,7 @@ Below I've generated an interactive evolutionary tree rendered with **[Phylocanv
     });
   }
 
-  // ── Family search + root→tip path overlay (drilldown / family tree only) ───
+  
   var _famSearchBound = false;
   function _sizeTargetEl() {
     return (DRILLDOWN &amp;&amp; _outerWrap) ? _outerWrap : _container;
@@ -841,7 +844,7 @@ Below I've generated an interactive evolutionary tree rendered with **[Phylocanv
     }
     return out;
   }
-  /** Phylocanvas TreeTypes values are short strings (e.g. Circular → &quot;cr&quot;). */
+  
   function _treeTypeIs(name) {
     var TT = window.phylocanvas &amp;&amp; window.phylocanvas.TreeTypes;
     var tt = null;
@@ -868,7 +871,7 @@ Below I've generated an interactive evolutionary tree rendered with **[Phylocanv
     if (rx == null || ry == null) return null;
     return Math.atan2(n.y - ry, n.x - rx);
   }
-  /** Inner end of child radial on circular trees: (cx,cy) or layout from parent ring + child angle. */
+  
   function _circInnerJunction(n, p, rx, ry) {
     var ix = n.cx, iy = n.cy;
     if (ix != null &amp;&amp; iy != null &amp;&amp; isFinite(ix) &amp;&amp; isFinite(iy)) {
@@ -880,7 +883,7 @@ Below I've generated an interactive evolutionary tree rendered with **[Phylocanv
     if (pr &lt; 1e-4) return [rx, ry];
     return [rx + pr * Math.cos(na), ry + pr * Math.sin(na)];
   }
-  /** Build world-space polyline that follows Phylocanvas branch geometry (not chord shortcuts). */
+  
   function _worldPathAlongBranches(chain) {
     if (!chain || chain.length &lt; 2)
       return chain &amp;&amp; chain.length ? [[chain[0].x, chain[0].y]] : [];
@@ -1008,8 +1011,8 @@ Below I've generated an interactive evolutionary tree rendered with **[Phylocanv
   }
   function _findLeafNodeForTip(tip) {
     if (!_currentTree || !tip) return null;
-    // Phylocanvas.gl does not ship getLeafLabels / getLeafIds on the public bundle;
-    // resolve tips via getGraphAfterLayout().leaves (same graph the renderer uses).
+    
+    
     var g = null;
     try {
       if (typeof _currentTree.getGraphAfterLayout === &quot;function&quot;)
@@ -1231,7 +1234,7 @@ Below I've generated an interactive evolutionary tree rendered with **[Phylocanv
             ev.preventDefault();
             selectAndApply(built.rows[0]);
           } else if (q &amp;&amp; built.rows.length &gt; 0) {
-            // Non-empty query: apply best-ranked suggestion (same order as the list).
+            
             ev.preventDefault();
             selectAndApply(built.rows[0]);
           }
@@ -1258,17 +1261,17 @@ Below I've generated an interactive evolutionary tree rendered with **[Phylocanv
     var w = el.clientWidth || el.offsetWidth || 0;
     if (w &lt; 32) w = el.getBoundingClientRect().width || 0;
     if (w &lt; 32) w = window.innerWidth || 0;
-    // Match iframe min-width (display_phylocanvas): avoid forcing 560px when the embed is narrow.
+    
     return Math.max(w, 280);
   }
 
-  // Wait until the container has a non-zero width before constructing the
-  // PhylocanvasGL instance — otherwise the WebGL canvas renders 0×H and
-  // shows up as a black rectangle.
+  
+  
+  
   function whenSized(el, cb, tries) {
     tries = tries || 0;
     var w = el.clientWidth || el.offsetWidth || 0;
-    // srcdoc / nested iframes sometimes report 0 width until layout; use inner window as floor.
+    
     if (w &lt; 32) {
       var iw = window.innerWidth || 0;
       if (iw &gt;= 32) w = Math.min(Math.max(400, iw - 24), 920);
@@ -1278,7 +1281,7 @@ Below I've generated an interactive evolutionary tree rendered with **[Phylocanv
     requestAnimationFrame(function () { whenSized(el, cb, tries + 1); });
   }
 
-  // ── Core tree factory ───────────────────────────────────────────────────────
+  
   function _makeTree(newick, meta, treeType, showLeafLabels) {
     return new window.phylocanvas.PhylocanvasGL(_container, {
       size:               { width: containerWidth(_sizeTargetEl()), height: HEIGHT },
@@ -1297,7 +1300,7 @@ Below I've generated an interactive evolutionary tree rendered with **[Phylocanv
     });
   }
 
-  // ── Drilldown: enter a family&#x27;s species tree ────────────────────────────────
+  
   function _enterFamily(family) {
     _clearFamilyPathHighlight();
     _famNavHistory.length = 0;
@@ -1331,7 +1334,7 @@ Below I've generated an interactive evolutionary tree rendered with **[Phylocanv
     }
   }
 
-  // ── Drilldown: return to the family tree ────────────────────────────────────
+  
   function _enterFamilyTree() {
     try { _currentTree.destroy(); } catch (e) {}
     _activeMeta  = META;
@@ -1354,7 +1357,7 @@ Below I've generated an interactive evolutionary tree rendered with **[Phylocanv
     }
   }
 
-  // ── Initial render ──────────────────────────────────────────────────────────
+  
   function renderTree() {
     try {
       if (DRILLDOWN) {
@@ -1372,8 +1375,8 @@ Below I've generated an interactive evolutionary tree rendered with **[Phylocanv
           return;
         }
       }
-      // Family search UI only needs the DOM (same pattern as the choropleth picker); bind before
-      // Phylocanvas loads so focus/type suggestions work even if WebGL init is delayed.
+      
+      
       if (DRILLDOWN) {
         _bindFamilySearch();
       }
@@ -1381,7 +1384,7 @@ Below I've generated an interactive evolutionary tree rendered with **[Phylocanv
         console.error(&quot;[phylo] Phylocanvas.gl not loaded&quot;);
         return;
       }
-      // Re-resolve DD_SP_TYPE now that phylocanvas is loaded
+      
       DD_SP_TYPE = window.phylocanvas.TreeTypes[&quot;Rectangular&quot;] || &quot;Rectangular&quot;;
       whenSized(_sizeTargetEl(), function () {
         _activeMeta  = META;
@@ -1594,25 +1597,7 @@ fig_html = pio.to_html(fig, include_plotlyjs="cdn", full_html=False, div_id=DIV_
 
 payload_json = json.dumps(labels_to_z)
 
-```
 
-    [eBird choropleth] ISO3 without ISO-2 map: 0 | API/network failures: 0
-      eBird codes not in taxonomy table: 2,078 | on list but not in AviList (binomial): 380
-      eBird list × country dropped (not in AviList Range_countries when parsed): 29,162
-
-
-
-
-<iframe src="/assets/data-science/avilist/figures/geo-choropleth.html" style="width:min(900px,100%);height:700px;border:none;border-radius:8px;display:block;margin:1em auto;" loading="lazy"></iframe>
-
-
-
-
-</details>
-
-
-
-```python
 display(
     HTML(
         f"""
@@ -1808,8 +1793,24 @@ display(
     )
 )
 
-
 ```
+
+    [eBird choropleth] ISO3 without ISO-2 map: 0 | API/network failures: 0
+      eBird codes not in taxonomy table: 2,078 | on list but not in AviList (binomial): 380
+      eBird list × country dropped (not in AviList Range_countries when parsed): 29,162
+
+
+
+
+
+
+
+
+
+</details>
+
+<iframe src="/assets/data-science/avilist/figures/geo-choropleth.html" style="width:min(900px,100%);height:700px;border:none;border-radius:8px;display:block;margin:1em auto;" loading="lazy"></iframe>
+
 
 Visualizing the geographic distribution of bird families can reveal some amazing insights into how birds evolved and disperesed across the globe since the K-Pg extinction event when diversification really "took off" (my wife Sara insisted I include this joke in my writeup). At this time the Earth's continents were in the process of breaking apart from the supercontinents of Laurasia (north) and Gondwana (south) into the landmasses we recognize today. As tectonic plates shifted, the Atlantic Ocean widened and created an insurmountable barrier, isolating bird lineages into the Old World (Europe, Asia, Africa, and Australasia) and New World (North and South America). Geographically isolated by the Atlantic, the ancestors of modern bird species underwent "adaptive radiation" evolving to fill the specific ecological niches available to them. While this did create specialization, the Old World and the New World often contained very similar ecological niches (e.g., tropical rainforests, arid deserts, temperate woodlands) leading to a phenomonen known as **convergent evolution** in which evolutionarily distant and completely unrelated species evolved the exact same evolutionary adaptations to take advantage of similarities in their ecological niches (such as seed-eating or nectar-sipping).
 
@@ -1862,7 +1863,7 @@ plt.show()
 
 
     
-![png](/images/data-science/avilist/2026-03-01-ebird-avilist_50_1.png)
+![png](/images/data-science/avilist/2026-03-01-ebird-avilist_49_1.png)
     
 
 
@@ -1920,7 +1921,7 @@ plt.show()
 
 
     
-![png](/images/data-science/avilist/2026-03-01-ebird-avilist_56_1.png)
+![png](/images/data-science/avilist/2026-03-01-ebird-avilist_55_1.png)
     
 
 
@@ -1977,7 +1978,7 @@ plt.show()
 
 
     
-![png](/images/data-science/avilist/2026-03-01-ebird-avilist_62_1.png)
+![png](/images/data-science/avilist/2026-03-01-ebird-avilist_61_1.png)
     
 
 

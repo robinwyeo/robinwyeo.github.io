@@ -75,7 +75,7 @@ IMG_DIR    = REPO / "images" / "data-science" / "avilist"
 # Listing page excerpt uses the first markdown block after front matter, not
 # ``header.teaser``. The title figure must sit *outside* ``{% raw %}`` (before
 # the in-post H1) so the archive shows the image.
-TEASER_IMAGE_URL = "/images/data-science/avilist/AviList-title-image.png"
+TEASER_IMAGE_URL = "/images/data-science/avilist/title.png"
 
 # Public URL bases used by the fetch()-based embeds at runtime.
 _PHYLO_ASSET_URL_BASE   = "/assets/data-science/avilist/phylogeny"
@@ -188,6 +188,32 @@ def _format_front_matter_inner(meta: dict[str, object]) -> str:
         ]
     )
     return "\n".join(parts)
+
+
+_LEAD_META_BLOCK_RE = re.compile(
+    r'(^|\n)'
+    r'(?P<title>\#\s+[^\n]+\n)'
+    r'(?P<date>\#\#\s+Date:\s*[^\n]+\n)?'
+    r'(?P<tags>tags:\s*\n(?:[ \t]+-[^\n]+\n)+)?',
+    flags=re.IGNORECASE,
+)
+
+
+def _strip_lead_cell_meta_from_body(raw: str) -> str:
+    """Remove the ``## Date: …`` and ``tags:`` markup from the body markdown.
+
+    Those lines are authored in the notebook lead markdown cell so the post
+    metadata travels with the source, but they're already extracted into the
+    Jekyll YAML front matter by :func:`_apply_notebook_front_matter` — leaving
+    them in the body causes them to render as a stray H2 + bullet list above
+    the post intro. This pass strips them when they sit immediately under the
+    lead H1, leaving the title heading itself untouched.
+    """
+
+    def _repl(m: re.Match) -> str:
+        return m.group(1) + m.group("title")
+
+    return _LEAD_META_BLOCK_RE.sub(_repl, raw, count=1)
 
 
 def _apply_notebook_front_matter(raw: str) -> str:
@@ -538,6 +564,52 @@ def _make_iframe(div_id: str, iframe_width: int, iframe_height: int) -> str:
     )
 
 
+_FIGURE_IFRAME_BLOCK_RE = re.compile(
+    # Variant 1 — sunburst panzoom wrapper around the externalized iframe.
+    r'<div\s+class="sunburst-panzoom-root"[^>]*>'
+    r'<iframe\s+src="/assets/data-science/avilist/figures/[^"]+"[^>]*></iframe>'
+    r'\s*\n</div>'
+    r'|'
+    # Variant 2 — bare iframe (e.g. choropleth + family picker).
+    r'<iframe\s+src="/assets/data-science/avilist/figures/[^"]+"[^>]*></iframe>',
+    re.DOTALL,
+)
+
+_DETAILS_BLOCK_RE = re.compile(
+    r'<details\s+markdown="1"\s+class="avilist-setup-code">[\s\S]*?</details>',
+    re.DOTALL,
+)
+
+
+def _lift_externalized_figures_outside_details(md: str) -> str:
+    """Pull externalized figure iframes out of their enclosing setup-code ``<details>``.
+
+    ``_externalize_plotly_figures()`` replaces inline Plotly blobs with
+    ``<iframe src="…/figures/…">`` tags.  When the surrounding code cell is
+    wrapped by a ``<details markdown="1" class="avilist-setup-code">`` block via
+    the notebook's markdown cells, the iframe ends up inside the collapsible —
+    which hides the interactive chart by default along with the source code.
+    This pass detects those iframes (optionally with a wrapping ``<div>``) and
+    re-emits them immediately after the closing ``</details>``, so the code stays
+    collapsed but the chart is visible.
+    """
+
+    def _rewrite_details(m: re.Match) -> str:
+        block = m.group(0)
+        figures: list[str] = []
+
+        def _extract(fm: re.Match) -> str:
+            figures.append(fm.group(0))
+            return ""
+
+        cleaned = _FIGURE_IFRAME_BLOCK_RE.sub(_extract, block)
+        if not figures:
+            return block
+        return cleaned + "\n\n" + "\n\n".join(figures)
+
+    return _DETAILS_BLOCK_RE.sub(_rewrite_details, md)
+
+
 def _externalize_plotly_figures(md: str) -> str:
     """Replace inline Plotly figure blobs with ``<iframe>`` embeds.
 
@@ -651,7 +723,7 @@ def copy_assets() -> None:
 
     print(f"[avilist] Copied phylogeny assets → {ASSET_DIR}")
 
-    title_src = AVILIST_ROOT / "assets" / "data-science" / "avilist" / "AviList-title-image.png"
+    title_src = AVILIST_ROOT / "assets" / "data-science" / "avilist" / "title.png"
     if title_src.is_file():
         IMG_DIR.mkdir(parents=True, exist_ok=True)
         shutil.copy2(title_src, IMG_DIR / title_src.name)
@@ -664,6 +736,7 @@ def patch_md() -> None:
     """Load the markdown, apply all transformations, and write it back."""
     raw = MD.read_text(encoding="utf-8")
     raw = _apply_notebook_front_matter(raw)
+    raw = _strip_lead_cell_meta_from_body(raw)
     raw = dedent_nbconvert_table_output(raw)
 
     # Math escaping (outside code fences)
@@ -687,6 +760,9 @@ def patch_md() -> None:
 
     # Externalize Plotly figure blobs to assets/ and replace with <iframe> tags.
     raw = _externalize_plotly_figures(raw)
+    # Move those iframes out of their surrounding setup-code <details> blocks so
+    # the chart is visible by default while the source code remains collapsed.
+    raw = _lift_externalized_figures_outside_details(raw)
 
     raw = _wrap_body_liquid_raw(raw)
     raw = _move_teaser_image_before_raw(raw)
