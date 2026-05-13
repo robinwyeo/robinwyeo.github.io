@@ -15,10 +15,11 @@ Workflow
    Phylocanvas.gl HTML embeds (loaded from the pre-built .nwk + .json cache).
 4. Copy the Newick + JSON cache files to ``assets/data-science/avilist/phylogeny/``
    so the JS loader can ``fetch()`` them if needed (currently the data is inlined).
-5. Set YAML ``header.teaser`` for themes that honor it, and place the same
-   title ``![...](...)`` **after front matter but before** ``{% raw %}`` so the
-   ``/data-science/`` index excerpt (first body paragraph) is an ``<img>``, like
-   other posts (AcademicPages does not use ``header.teaser`` for that listing).
+5. Build YAML front matter from the **first markdown cell** of the notebook
+   (page ``#`` title, ``## Date: YYYY-MM-DD``, and a ``tags:`` / ``- tag`` list),
+   plus fixed ``permalink`` and ``header.teaser``. Place the title
+   ``![...](...)`` **after front matter but before** ``{% raw %}`` so the
+   ``/data-science/`` index excerpt is an ``<img>``.
 6. Write out the final ``.md`` file for Jekyll.
 
 AviList repo path
@@ -59,21 +60,14 @@ MD = REPO / "_data_science" / "2026-03-01-ebird-avilist.md"
 NB_FILES = REPO / "_data_science" / f"{MD.stem}_files"
 PHY_DIR = AVILIST_ROOT / "data" / "phylogeny"
 
-# Jekyll collection front matter (nbconvert does not emit YAML).
-JEKYLL_FRONT_MATTER = """---
-title: "Exploring the consolidated AviList"
-date: 2026-03-01
-tags:
-  - AviList
-  - birds
-  - taxonomy
-  - conservation
-permalink: /data-science/ebird-avilist/
-header:
-  teaser: /images/data-science/avilist/AviList-title-image.png
----
+# Fallbacks if the first markdown cell omits a field (ISO date only).
+_DEFAULT_TITLE = "Exploring the consolidated AviList"
+_DEFAULT_DATE = "2026-03-01"
+_DEFAULT_TAGS = ["AviList", "birds", "taxonomy", "conservation"]
+_PERMALINK = "/data-science/ebird-avilist/"
 
-"""
+_ISO_DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
+
 ASSET_DIR  = REPO / "assets" / "data-science" / "avilist" / "phylogeny"
 FIGURE_DIR = REPO / "assets" / "data-science" / "avilist" / "figures"
 IMG_DIR    = REPO / "images" / "data-science" / "avilist"
@@ -102,26 +96,126 @@ sys.path.insert(0, str(AVILIST_ROOT / "python"))
 from phylo import phylocanvas_html
 
 # ---------------------------------------------------------------------------
-# Helpers: Jekyll front matter (archive teaser image)
+# Helpers: Jekyll front matter from the notebook lead cell
 # ---------------------------------------------------------------------------
 
 
-def _ensure_front_matter_teaser(raw: str) -> str:
-    """Ensure ``header.teaser`` is set so /data-science/ index thumbnails work."""
+def _yaml_double_quoted(s: str) -> str:
+    return '"' + s.replace("\\", "\\\\").replace('"', '\\"') + '"'
+
+
+def _yaml_tag_entry(tag: str) -> str:
+    tag = str(tag).strip()
+    if _ISO_DATE_RE.match(tag) or re.fullmatch(r"[\w.-]+", tag):
+        return f"  - {tag}"
+    return f"  - {_yaml_double_quoted(tag)}"
+
+
+def _parse_lead_markdown_metadata(nb: dict) -> dict[str, object]:
+    """Parse ``title``, ``date`` (YYYY-MM-DD), and ``tags`` from the first markdown cell."""
+    first_md = ""
+    for cell in nb.get("cells", []):
+        if cell.get("cell_type") == "markdown":
+            first_md = cell_to_str(cell)
+            break
+    out: dict[str, object] = {}
+    if not first_md.strip():
+        return out
+
+    lines = first_md.splitlines()
+    for line in lines:
+        s = line.strip()
+        m = re.match(r"^#\s+(.+)$", s)
+        if m and not s.startswith("##"):
+            out["title"] = m.group(1).strip()
+            break
+
+    for line in lines:
+        m = re.match(r"^##\s+Date:\s*(.+?)\s*$", line.strip(), flags=re.I)
+        if not m:
+            continue
+        cand = m.group(1).strip()
+        if _ISO_DATE_RE.match(cand):
+            out["date"] = cand
+        else:
+            print(
+                f"[avilist] WARN: lead-cell Date must be ISO YYYY-MM-DD; "
+                f"got {cand!r} — using default date"
+            )
+        break
+
+    tag_list: list[str] = []
+    for i, line in enumerate(lines):
+        if line.strip() != "tags:" and not line.strip().startswith("tags:"):
+            continue
+        j = i + 1
+        while j < len(lines):
+            bare = lines[j].strip()
+            if not bare:
+                j += 1
+                continue
+            mt = re.match(r"^-\s+(.+)$", bare)
+            if mt:
+                tag_list.append(mt.group(1).strip().strip("'\""))
+                j += 1
+                continue
+            break
+        break
+    if tag_list:
+        out["tags"] = tag_list
+
+    return out
+
+
+def _format_front_matter_inner(meta: dict[str, object]) -> str:
+    title = str(meta.get("title") or _DEFAULT_TITLE)
+    date = str(meta.get("date") or _DEFAULT_DATE)
+    tags_obj = meta.get("tags")
+    tags = tags_obj if isinstance(tags_obj, list) and tags_obj else list(_DEFAULT_TAGS)
+
+    parts = [
+        f"title: {_yaml_double_quoted(title)}",
+        f"date: {date}",
+        "tags:",
+    ]
+    for t in tags:
+        parts.append(_yaml_tag_entry(str(t)))
+    parts.extend(
+        [
+            f"permalink: {_PERMALINK}",
+            "header:",
+            f"  teaser: {TEASER_IMAGE_URL}",
+        ]
+    )
+    return "\n".join(parts)
+
+
+def _apply_notebook_front_matter(raw: str) -> str:
+    """Replace or prepend Jekyll YAML from the AviList notebook lead markdown cell."""
+    nb = _load_nb()
+    meta = _parse_lead_markdown_metadata(nb)
+    inner = _format_front_matter_inner(meta)
+    title = str(meta.get("title") or _DEFAULT_TITLE)
+    date = str(meta.get("date") or _DEFAULT_DATE)
+    tags = meta.get("tags") if isinstance(meta.get("tags"), list) else None
+    ntags = len(tags) if tags else len(_DEFAULT_TAGS)
+    print(
+        f"[avilist] YAML from notebook lead cell: date={date!r}, "
+        f"{ntags} tag(s), title={title[:60]!r}{'…' if len(title) > 60 else ''}"
+    )
+    block = f"---\n{inner}\n---\n"
+
+    if not raw.lstrip().startswith("---"):
+        return block + raw
+
     stripped = raw.lstrip()
-    if not stripped.startswith("---"):
-        return raw
     lead_ws = raw[: len(raw) - len(stripped)]
     try:
         end = stripped.index("\n---\n", 3)
     except ValueError:
-        return raw
-    fm_inner = stripped[4:end]
+        return block + raw
     rest = stripped[end + 5 :]
-    if re.search(r"(?m)^\s*teaser:\s+\S", fm_inner):
-        return raw
-    merged = fm_inner.rstrip() + f"\nheader:\n  teaser: {TEASER_IMAGE_URL}\n"
-    return f"{lead_ws}---\n{merged}\n---\n{rest}"
+    return lead_ws + block + rest
 
 
 # ---------------------------------------------------------------------------
@@ -278,6 +372,63 @@ def _drop_nbconvert_phylo_output_duplicates(md: str) -> str:
     return "".join(out_lines)
 
 
+def _strip_first_balanced_raw_block(t: str) -> str | None:
+    """If *t* starts with ``{% raw %}``, remove that tag and its matching ``{% endraw %}``.
+
+    Returns the inner markdown plus any text after the closing tag, or ``None``
+    if *t* does not start with a raw block or tags are unbalanced.
+    """
+    m_open = re.match(r"^\{\%\s*raw\s*\%\}\s*\n", t, flags=re.IGNORECASE)
+    if not m_open:
+        return None
+    start_inner = m_open.end()
+    depth = 1
+    pos = start_inner
+    ro = re.compile(r"\{%\s*raw\s*%\}")
+    rc = re.compile(r"\{%\s*endraw\s*%\}")
+    while depth > 0:
+        mo = ro.search(t, pos)
+        mc = rc.search(t, pos)
+        if mc is None:
+            return None
+        if mo is not None and mo.start() < mc.start():
+            depth += 1
+            pos = mo.end()
+        else:
+            depth -= 1
+            if depth == 0:
+                inner = t[start_inner : mc.start()]
+                return inner + t[mc.end() :]
+            pos = mc.end()
+    return None
+
+
+def _normalize_leading_raw_wrappers(body: str) -> str:
+    """Collapse accidental nested ``{% raw %}`` wrappers (e.g. from re-running ``md-only``).
+
+    Strips balanced raw blocks from the start of the body, and also from
+    immediately after a leading markdown title image ``![...](...)``, until no
+    more leading raw blocks remain.
+    """
+    b = body
+    while True:
+        t = b.lstrip("\n")
+        lead = b[: len(b) - len(t)]
+        stripped = _strip_first_balanced_raw_block(t)
+        if stripped is not None:
+            b = lead + stripped
+            continue
+        m = re.match(r"^(!\[[^\]]*\]\([^)]*\)\s*(?:\n\s*)*\n)", t)
+        if not m:
+            return b
+        prefix, rest = m.group(0), t[len(m.group(0)) :]
+        stripped = _strip_first_balanced_raw_block(rest)
+        if stripped is None:
+            return b
+        b = lead + prefix + stripped
+        continue
+
+
 def _wrap_body_liquid_raw(md: str) -> str:
     """Prevent Jekyll Liquid from parsing ``{{`` inside Plotly / Phylocanvas HTML+JS."""
     if not md.startswith("---"):
@@ -287,8 +438,9 @@ def _wrap_body_liquid_raw(md: str) -> str:
         return md
     split = end + 5
     head, body = md[:split], md[split:]
+    body = _normalize_leading_raw_wrappers(body)
     if body.lstrip().startswith("{% raw %}"):
-        return md
+        return head + body
     return head + "\n{% raw %}\n" + body.lstrip("\n") + "\n{% endraw %}\n"
 
 
@@ -470,9 +622,7 @@ def copy_assets() -> None:
 def patch_md() -> None:
     """Load the markdown, apply all transformations, and write it back."""
     raw = MD.read_text(encoding="utf-8")
-    if not raw.lstrip().startswith("---"):
-        raw = JEKYLL_FRONT_MATTER + raw
-    raw = _ensure_front_matter_teaser(raw)
+    raw = _apply_notebook_front_matter(raw)
     raw = dedent_nbconvert_table_output(raw)
 
     # Math escaping (outside code fences)
