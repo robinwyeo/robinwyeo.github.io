@@ -22,6 +22,10 @@ Workflow
    ``/data-science/`` index excerpt is an ``<img>``.
 6. Write out the final ``.md`` file for Jekyll.
 
+After each full run, nbconvert images are copied from ``{MD.stem}_files/`` into
+``images/data-science/avilist/``; any older ``YYYY-MM-DD-ebird-avilist_*.png``
+files from a previous post filename are removed so duplicates do not accumulate.
+
 AviList repo path
 -----------------
 Default: sibling directory ``../ebird-avilist`` next to this website repo.
@@ -68,6 +72,14 @@ _DEFAULT_TAGS = ["AviList", "birds", "taxonomy", "conservation"]
 _PERMALINK = "/data-science/ebird-avilist/"
 
 _ISO_DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
+
+# nbconvert writes ``{notebook_output_stem}_{cell}_{output}.png`` into ``{stem}_files/``.
+# When ``MD`` is renamed (new date prefix), old ``YYYY-MM-DD-ebird-avilist_*.png`` files
+# would otherwise accumulate next to the new ones — prune after each sync.
+_AVILIST_NBCONVERT_PNG_RE = re.compile(
+    r"^(?P<doc_stem>\d{4}-\d{2}-\d{2}-ebird-avilist)_\d+_\d+\.png$"
+)
+_LEGACY_NBCONVERT_PNG_RE = re.compile(r"^ebird-avilist_\d+_\d+\.png$")
 
 ASSET_DIR  = REPO / "assets" / "data-science" / "avilist" / "phylogeny"
 FIGURE_DIR = REPO / "assets" / "data-science" / "avilist" / "figures"
@@ -617,6 +629,13 @@ _FIGURE_IFRAME_BLOCK_RE = re.compile(
     re.DOTALL,
 )
 
+# nbconvert Matplotlib cells emit ``![alt](url)`` on its own line after the code fence;
+# keep these outside collapsed ``<details>`` like externalized Plotly iframes.
+_MARKDOWN_PNG_EMBED_RE = re.compile(
+    r'(?:\r?\n[ \t]*)+\r?\n[ \t]*!\[[^\]]*\]\([^)]+\)[ \t]*(?=\r?\n)',
+    re.MULTILINE,
+)
+
 _DETAILS_BLOCK_RE = re.compile(
     r'<details\s+markdown="1"\s+class="avilist-setup-code">[\s\S]*?</details>',
     re.DOTALL,
@@ -624,7 +643,7 @@ _DETAILS_BLOCK_RE = re.compile(
 
 
 def _lift_externalized_figures_outside_details(md: str) -> str:
-    """Pull externalized figure iframes out of their enclosing setup-code ``<details>``.
+    """Pull externalized figures out of their enclosing setup-code ``<details>``.
 
     ``_externalize_plotly_figures()`` replaces inline Plotly blobs with
     ``<iframe src="…/figures/…">`` tags.  When the surrounding code cell is
@@ -634,6 +653,10 @@ def _lift_externalized_figures_outside_details(md: str) -> str:
     This pass detects those iframes (optionally with a wrapping ``<div>``) and
     re-emits them immediately after the closing ``</details>``, so the code stays
     collapsed but the chart is visible.
+
+    The same pass lifts nbconvert **markdown PNG** embeds (``![…](…)``) so
+    Matplotlib figures stay visible when a whole notebook cell is wrapped in
+    ``avilist-setup-code`` details.
     """
 
     def _rewrite_details(m: re.Match) -> str:
@@ -645,6 +668,7 @@ def _lift_externalized_figures_outside_details(md: str) -> str:
             return ""
 
         cleaned = _FIGURE_IFRAME_BLOCK_RE.sub(_extract, block)
+        cleaned = _MARKDOWN_PNG_EMBED_RE.sub(_extract, cleaned)
         if not figures:
             return block
         return cleaned + "\n\n" + "\n\n".join(figures)
@@ -705,7 +729,9 @@ def _externalize_plotly_figures(md: str) -> str:
         dest  = FIGURE_DIR / "sunburst-avilist.html"
         dest.write_text(page, encoding="utf-8")
         print(f"[avilist] Externalized sunburst → {dest.name} ({len(page)//1024} KB)")
-        result = result[:m.start()] + _make_iframe("sunburst-avilist", 900, 980) + result[m.end():]
+        # ~560px Plotly graph + square viewport; avoid a tall iframe (was 980px) that
+        # leaves a large blank band before the next section on the Jekyll page.
+        result = result[:m.start()] + _make_iframe("sunburst-avilist", 900, 620) + result[m.end():]
     else:
         print("[avilist] WARNING: sunburst panzoom block not found — skipping externalization")
 
@@ -773,6 +799,8 @@ def copy_assets() -> None:
     else:
         print(f"[avilist] NOTE: no teaser source at {title_src} (add in ebird-avilist repo)")
 
+    _prune_stale_avilist_nbconvert_pngs()
+
 
 def patch_md() -> None:
     """Load the markdown, apply all transformations, and write it back."""
@@ -816,6 +844,24 @@ def patch_md() -> None:
     print(f"[avilist] Patched markdown → {MD}")
 
 
+def _prune_stale_avilist_nbconvert_pngs() -> None:
+    """Remove nbconvert figure PNGs from a previous ``MD`` output stem (same notebook, new filename)."""
+    current = MD.stem
+    removed = 0
+    for p in IMG_DIR.glob("*.png"):
+        name = p.name
+        if _LEGACY_NBCONVERT_PNG_RE.match(name):
+            p.unlink(missing_ok=True)
+            removed += 1
+            continue
+        m = _AVILIST_NBCONVERT_PNG_RE.match(name)
+        if m and m.group("doc_stem") != current:
+            p.unlink(missing_ok=True)
+            removed += 1
+    if removed:
+        print(f"[avilist] Removed {removed} stale nbconvert PNG(s) under {IMG_DIR.name}/")
+
+
 def sync_images() -> None:
     """Move nbconvert image artefacts into the standard images directory."""
     if not NB_FILES.is_dir():
@@ -824,6 +870,7 @@ def sync_images() -> None:
     for p in NB_FILES.glob("*.png"):
         shutil.copy2(p, IMG_DIR / p.name)
     shutil.rmtree(NB_FILES, ignore_errors=True)
+    _prune_stale_avilist_nbconvert_pngs()
     print(f"[avilist] Synced images → {IMG_DIR}")
 
 

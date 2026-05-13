@@ -82,7 +82,6 @@ if (_py / "birds_nb.py").is_file():
 
 from birds_nb import (
     CONTINENT_DISPLAY,
-    collapse_sunburst_genera_by_family,
     family_label,
     genus_label,
     order_label,
@@ -499,8 +498,6 @@ sb_df = (
     .agg(n_species=("Scientific_name", "size"), Family_English_name=("Family_English_name", "first"), Genus_common_example=("Genus_common_example", "first"))
     .reset_index()
 )
-# Fewer sunburst sectors → lighter SVG; counts stay exact in aggregated "Other genera" wedges.
-sb_df = collapse_sunburst_genera_by_family(sb_df, max_genera_per_family=40)
 sb_df["Order_plot"] = sb_df["Order"].map(order_label)
 sb_df["Family_plot"] = [family_label(f, e) for f, e in zip(sb_df["Family"], sb_df["Family_English_name"])]
 sb_df["Genus_plot"] = [genus_label(g, h) for g, h in zip(sb_df["Genus"], sb_df["Genus_common_example"])]
@@ -578,7 +575,7 @@ display(HTML(sunburst_panzoom_viewport(fig_html, SUNBURST_GD_ID, 560, 560)))
 
 </details>
 
-<div class="sunburst-panzoom-root" style="width:100%;display:flex;justify-content:center;align-items:center;box-sizing:border-box;padding:6px 0"><iframe src="/assets/data-science/avilist/figures/sunburst-avilist.html" style="width:min(900px,100%);height:980px;border:none;border-radius:8px;display:block;margin:1em auto;" loading="lazy"></iframe>
+<div class="sunburst-panzoom-root" style="width:100%;display:flex;justify-content:center;align-items:center;box-sizing:border-box;padding:6px 0"><iframe src="/assets/data-science/avilist/figures/sunburst-avilist.html" style="width:min(900px,100%);height:620px;border:none;border-radius:8px;display:block;margin:1em auto;" loading="lazy"></iframe>
 </div>
 
 
@@ -588,13 +585,13 @@ display(HTML(sunburst_panzoom_viewport(fig_html, SUNBURST_GD_ID, 560, 560)))
 
 Before we dive into the evolutionary relationships between modern bird lineages, let's step back and discuss a bit of background on how birds evolved in the first place (for further reading, please see these excellent reviews on which I based this summary: [Wu et al., 2025](https://academic.oup.com/nsr/article/12/7/nwaf238/8158921), [Field et al., 2025](https://royalsocietypublishing.org/rsbl/article/21/1/20240500/116002/Whence-the-birds-200-years-of-dinosaurs-avian), and [Claramunt & Cracraft, 2015](https://www.science.org/doi/10.1126/sciadv.1501005)). One of the most exciting recent insights in paleontology and ornithology is the discovery/confirmation that birds really are in fact **modern dinosaurs**; as Field et al. write, _"Among the most revolutionary insights emerging from 200 years of research on dinosaurs is that the clade Dinosauria is represented by approximately 11 000 living species of birds"_.
 
-![Evolution timeline](/images/data-science/avilist/stiller_timeline.png)
-<br>
-_Source: Stiller et al., 2024_
-
 I should mention that bird evolution is a highly debated and contentious field, and while there is, as of yet, no real consensus among experts, evidence over the last 30 years is starting to paint a clearer picture. During the Mesozoic era (252-66 Ma), also known as the "age of the dinosaurs", the skies were populated by a variety of winged and feathered creatures (such as _Enantiornithes_ and _Hesperornithiformes_) that we now understand to be "stem birds"; although morpholigcally similar to modern birds, these were in fact an evolutionary offshoot, and it was not until the end of this geologic period that "crown birds", scientifically known as **Neornithes** which encompass every known living bird today, began to emerge.
 
 Evidence suggests that the most recent common ancestor of modern birds inhabited South America around 95 million years ago (Ma). Approximately 66 Ma, the Chicxulub asteroid impact triggered the Cretaceous-Paleogene (K-Pg) mass extinction wiping out ~75% of all plant and animal species on Earth, including all non-avian dinosaurs, flying pterosaurs, and the diverse "stem bird" lineages. However the ancestors of modern birds (ground-dwelling Neornithes) survived this mass extinction event and rapidly began diversifying to populate this post-extinction world, a period of time referred to as the "Big Bang of avian evolution". Birds used two main dispersion routes as they rapidly evolved and reclaimed the skies: reaching the Old World through North America, and reaching Australia and Zealandia through Antarctica.
+
+![Evolution timeline](/images/data-science/avilist/stiller_timeline.png)
+<br>
+_Source: Stiller et al., 2024_
 
 
 ### Evolutionary tree of modern bird species
@@ -1852,9 +1849,9 @@ plt.show()
 
 ```
 
-    /var/folders/99/lcs5c5z50pv845b2s0_pvzw40000gn/T/ipykernel_2227/2168864800.py:15: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+    /var/folders/99/lcs5c5z50pv845b2s0_pvzw40000gn/T/ipykernel_50870/3795033845.py:15: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
       fc_z = fc_top.sub(fc_top.mean(1), 0).div(fc_top.std(1).replace(0, np.nan), 0).fillna(0)
-    /var/folders/99/lcs5c5z50pv845b2s0_pvzw40000gn/T/ipykernel_2227/2168864800.py:15: Pandas4Warning: Starting with pandas version 4.0 all arguments of std will be keyword-only.
+    /var/folders/99/lcs5c5z50pv845b2s0_pvzw40000gn/T/ipykernel_50870/3795033845.py:15: Pandas4Warning: Starting with pandas version 4.0 all arguments of std will be keyword-only.
       fc_z = fc_top.sub(fc_top.mean(1), 0).div(fc_top.std(1).replace(0, np.nan), 0).fillna(0)
 
 
@@ -1912,7 +1909,7 @@ plt.show()
 
 ```
 
-    /var/folders/99/lcs5c5z50pv845b2s0_pvzw40000gn/T/ipykernel_2227/13489930.py:6: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+    /var/folders/99/lcs5c5z50pv845b2s0_pvzw40000gn/T/ipykernel_50870/13489930.py:6: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
       iucn_by_order["total"] = iucn_by_order.sum(1)
 
 
