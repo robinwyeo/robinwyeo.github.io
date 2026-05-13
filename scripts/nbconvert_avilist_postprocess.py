@@ -197,8 +197,9 @@ def _apply_notebook_front_matter(raw: str) -> str:
     inner = _format_front_matter_inner(meta)
     title = str(meta.get("title") or _DEFAULT_TITLE)
     date = str(meta.get("date") or _DEFAULT_DATE)
-    tags = meta.get("tags") if isinstance(meta.get("tags"), list) else None
-    ntags = len(tags) if tags else len(_DEFAULT_TAGS)
+    tags_obj = meta.get("tags")
+    tags_eff = tags_obj if isinstance(tags_obj, list) and tags_obj else list(_DEFAULT_TAGS)
+    ntags = len(tags_eff)
     print(
         f"[avilist] YAML from notebook lead cell: date={date!r}, "
         f"{ntags} tag(s), title={title[:60]!r}{'…' if len(title) > 60 else ''}"
