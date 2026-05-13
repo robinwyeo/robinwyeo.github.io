@@ -1,5 +1,5 @@
 ---
-title: "Exploring the consolidated AviList"
+title: "Exploring bird diversity with the new harmonized AviList"
 date: 2026-03-01
 tags:
   - AviList
@@ -15,6 +15,7 @@ header:
 
 {% raw %}
 # Exploring bird diversity with the new harmonized AviList
+
 
 Bird taxonomy dates back to 1758 when Carl Linnaeus, the "father of modern taxonomy", recognized 554 species of birds in the tenth edition of *Systema Naturae*. Since then the birds (which in taxonomy are represented by the class *Ave*) have become, by far, the most thoroughly described and well-characterized taxonomic class on the planet with over 10,000 species described. Furthermore, there is good reason to believe that the current species count is vanishingly close to the true global count unlike the current counts for other terrestrial vertebrate groups - mammals (6495 sp), reptiles (11,440 sp), and amphibians (8301 sp) - which are known to be severely undercounted. Despite how well studied they are, there has not always been global consensus on how to classify the various species, genuses, and even orders of birds. Over the last 50 or so years, modern bird taxonomy has been simultaneously described by 4 comprehensive (yet often conflicting) checklists, the two most popular of which are the [Clements Checklist of Birds of the World](https://www.birds.cornell.edu/clementschecklist) (used by the Cornell Lab of Ornithology) and the [International Ornithological Community (IOC) World Bird List](https://www.worldbirdnames.org/new/). 
 
@@ -298,8 +299,8 @@ recent
       <td>Caprimulgus ritae</td>
       <td>Timor Nightjar</td>
       <td>Caprimulgidae</td>
-      <td>2024.0</td>
-      <td>King, BF; Sangster, G; Trainor, CR; Irestedt, M; Prawiradilaga, DM; Ericson, PGP, 2024</td>
+      <td>2024</td>
+      <td>King, BF et al.</td>
       <td>Timor, Rote, and Wetar (eastern Lesser Sundas)</td>
     </tr>
     <tr>
@@ -307,8 +308,8 @@ recent
       <td>Zosterops paruhbesar</td>
       <td>Wangi-wangi White-eye</td>
       <td>Zosteropidae</td>
-      <td>2023.0</td>
-      <td>Irham, M; Prawiradilaga, DM; Menner, JK; O'Connell, DP; Kelly, DJ; Analuddin, K; Karya, A; Meads, M; Marples, NM; Rh...</td>
+      <td>2023</td>
+      <td>Irham, M et al.</td>
       <td>Wangi-wangi, Wakatobi (Tukangbesi) Islands, off southeastern Sulawesi</td>
     </tr>
     <tr>
@@ -316,8 +317,8 @@ recent
       <td>Zosterops meratusensis</td>
       <td>Meratus White-eye</td>
       <td>Zosteropidae</td>
-      <td>2022.0</td>
-      <td>Irham, M; Haryoko, T; Shakya, SB; Mitchell, SL; Burner, RC; Bocos, C; Eaton, JA; Rheindt, FE; Suparno; Sheldon, FH; ...</td>
+      <td>2022</td>
+      <td>Irham, M et al.</td>
       <td>Meratus Mountains, South Kalimantan, southeastern Borneo</td>
     </tr>
     <tr>
@@ -325,8 +326,8 @@ recent
       <td>Otus bikegila</td>
       <td>Principe Scops Owl</td>
       <td>Strigidae</td>
-      <td>2022.0</td>
-      <td>Melo, M; Freitas, B; Verbelen, P; da Costa, SR; Pereira, H; Fuchs, J; Sangster, G; Correia, MN; de Lima, RF; Crottin...</td>
+      <td>2022</td>
+      <td>Melo, M et al.</td>
       <td>Príncipe Island (Gulf of Guinea)</td>
     </tr>
     <tr>
@@ -334,8 +335,8 @@ recent
       <td>Cyornis kadayangensis</td>
       <td>Meratus Blue Flycatcher</td>
       <td>Muscicapidae</td>
-      <td>2022.0</td>
-      <td>Irham, M; Haryoko, T; Shakya, SB; Mitchell, SL; Burner, RC; Bocos, C; Eaton, JA; Rheindt, FE; Suparno; Sheldon, FH; ...</td>
+      <td>2022</td>
+      <td>Irham, M et al.</td>
       <td>Meratus Mountains, South Kalimantan, southeastern Borneo</td>
     </tr>
   </tbody>
@@ -488,6 +489,11 @@ It turns out that most bird genera are tiny — and hundreds are monotypic (a si
 
 Using an interactive **sunburst** plot gives us a nice way to explore the AviList: each ring is a finer rank (Order → Family → Genus), and wedge size corresponds to species count. Click a wedge to drill into that branch and click the center ring of the plot to jump back toward the full tree.
 
+<details markdown="1" class="avilist-setup-code">
+<summary>Show code — interactive sunburst</summary>
+
+
+
 
 ```python
 sb_df = (
@@ -508,8 +514,8 @@ fig = px.sunburst(
     color="Order",
     color_discrete_sequence=px.colors.qualitative.Bold,
     title="Sunburst Order→Family→Genus",
-    width=900,
-    height=900,
+    width=560,
+    height=560,
 )
 
 trace = fig.data[0]
@@ -554,22 +560,26 @@ fig.update_traces(
 
 fig.update_layout(
     dragmode="pan",
-    margin=dict(t=65, l=30, r=30, b=30),
+    margin=dict(t=55, l=24, r=24, b=24),
     uirevision="sunburst-aves",
     # Disable layout tween on drill-down / restyle (snappier than Plotly's default ~500ms).
-    transition=dict(duration=0),
+    transition=dict(duration=0, easing="linear"),
 )
-# responsive=True lets the graph div grow wider than the pan-zoom frame (900px), clipping the plot on static sites.
+# responsive=True lets the graph div outgrow the pan-zoom frame, clipping the plot on static sites.
 _cfg = {"scrollZoom": True, "displayModeBar": True, "doubleClick": "reset", "responsive": False}
 SUNBURST_GD_ID = "sunburst-avilist"
 fig_html = pio.to_html(fig, include_plotlyjs="cdn", full_html=False, config=_cfg, div_id=SUNBURST_GD_ID)
-display(HTML(sunburst_panzoom_viewport(fig_html, SUNBURST_GD_ID, 900, 900)))
+
+display(HTML(sunburst_panzoom_viewport(fig_html, SUNBURST_GD_ID, 560, 560)))
 
 ```
 
 
-<iframe src="/assets/data-science/avilist/figures/sunburst-avilist.html" style="width:min(900px,100%);height:980px;border:none;border-radius:8px;display:block;margin:1em auto;" loading="lazy"></iframe>
+<div class="sunburst-panzoom-root" style="width:100%;display:flex;justify-content:center;align-items:center;box-sizing:border-box;padding:6px 0"><iframe src="/assets/data-science/avilist/figures/sunburst-avilist.html" style="width:min(900px,100%);height:980px;border:none;border-radius:8px;display:block;margin:1em auto;" loading="lazy"></iframe>
+</div>
 
+
+</details>
 
 
 ## 3) Evolution
@@ -1247,7 +1257,9 @@ Below I've generated an interactive evolutionary tree rendered with **[Phylocanv
   function containerWidth(el) {
     var w = el.clientWidth || el.offsetWidth || 0;
     if (w &lt; 32) w = el.getBoundingClientRect().width || 0;
-    return Math.max(w, 560);
+    if (w &lt; 32) w = window.innerWidth || 0;
+    // Match iframe min-width (display_phylocanvas): avoid forcing 560px when the embed is narrow.
+    return Math.max(w, 280);
   }
 
   // Wait until the container has a non-zero width before constructing the
@@ -1256,6 +1268,11 @@ Below I've generated an interactive evolutionary tree rendered with **[Phylocanv
   function whenSized(el, cb, tries) {
     tries = tries || 0;
     var w = el.clientWidth || el.offsetWidth || 0;
+    // srcdoc / nested iframes sometimes report 0 width until layout; use inner window as floor.
+    if (w &lt; 32) {
+      var iw = window.innerWidth || 0;
+      if (iw &gt;= 32) w = Math.min(Math.max(400, iw - 24), 920);
+    }
     if (w &gt;= 32) { cb(w); return; }
     if (tries &gt; 60) { cb(containerWidth(el)); return; }
     requestAnimationFrame(function () { whenSized(el, cb, tries + 1); });
@@ -1355,6 +1372,11 @@ Below I've generated an interactive evolutionary tree rendered with **[Phylocanv
           return;
         }
       }
+      // Family search UI only needs the DOM (same pattern as the choropleth picker); bind before
+      // Phylocanvas loads so focus/type suggestions work even if WebGL init is delayed.
+      if (DRILLDOWN) {
+        _bindFamilySearch();
+      }
       if (!window.phylocanvas || !window.phylocanvas.PhylocanvasGL) {
         console.error(&quot;[phylo] Phylocanvas.gl not loaded&quot;);
         return;
@@ -1373,7 +1395,6 @@ Below I've generated an interactive evolutionary tree rendered with **[Phylocanv
           if (backEl) {
             backEl.addEventListener(&quot;click&quot;, function () { _enterFamilyTree(); });
           }
-          _bindFamilySearch();
           _resizePathOverlay();
         }
       });
@@ -1426,7 +1447,7 @@ Below I've generated an interactive evolutionary tree rendered with **[Phylocanv
   }).catch(function(err){
     console.error(&quot;[phylo] Failed to load tree data:&quot;, err);
   });
-})();&lt;/script&gt;&lt;/body&gt;&lt;/html&gt;" sandbox="allow-scripts allow-same-origin" scrolling="no" style="width:100%;min-width:560px;height:985px;border:none;border-radius:8px;border:1px solid #d0d7de;background:#ffffff;display:block;"></iframe></div>
+})();&lt;/script&gt;&lt;/body&gt;&lt;/html&gt;" sandbox="allow-scripts allow-same-origin" scrolling="no" style="width:100%;min-width:280px;height:985px;border:none;border-radius:8px;border:1px solid #d0d7de;background:#ffffff;display:block;"></iframe></div>
 
 
     [phylo] Using cached family tree (family_tree.nwk)
@@ -1451,8 +1472,9 @@ Having visualized the evolutionary relationship between modern bird lineages, I 
 
 Below, you can see each country colored by species richness and then use ther search bar to narrow the results to your favorite bird family to see how certain bird lineages are restricted to specific geographic areas.
 
-<details style="background:#f6f8fa;border:1px solid #d0d7de;border-radius:6px;margin:1rem 0;overflow:hidden;">
-<summary style="padding:10px 14px;cursor:pointer;font-weight:600;font-size:0.9rem;color:#24292f;user-select:none;">Show code — choropleth &amp; family picker</summary>
+<details markdown="1" class="avilist-setup-code">
+<summary>Show code — choropleth &amp; family picker</summary>
+
 
 
 
@@ -1572,6 +1594,25 @@ fig_html = pio.to_html(fig, include_plotlyjs="cdn", full_html=False, div_id=DIV_
 
 payload_json = json.dumps(labels_to_z)
 
+```
+
+    [eBird choropleth] ISO3 without ISO-2 map: 0 | API/network failures: 0
+      eBird codes not in taxonomy table: 2,078 | on list but not in AviList (binomial): 380
+      eBird list × country dropped (not in AviList Range_countries when parsed): 29,162
+
+
+
+
+<iframe src="/assets/data-science/avilist/figures/geo-choropleth.html" style="width:min(900px,100%);height:700px;border:none;border-radius:8px;display:block;margin:1em auto;" loading="lazy"></iframe>
+
+
+
+
+</details>
+
+
+
+```python
 display(
     HTML(
         f"""
@@ -1770,21 +1811,6 @@ display(
 
 ```
 
-    [eBird choropleth] ISO3 without ISO-2 map: 0 | API/network failures: 0
-      eBird codes not in taxonomy table: 2,078 | on list but not in AviList (binomial): 380
-      eBird list × country dropped (not in AviList Range_countries when parsed): 29,162
-
-
-
-
-<iframe src="/assets/data-science/avilist/figures/geo-choropleth.html" style="width:min(900px,100%);height:700px;border:none;border-radius:8px;display:block;margin:1em auto;" loading="lazy"></iframe>
-
-
-
-
-</details>
-
-
 Visualizing the geographic distribution of bird families can reveal some amazing insights into how birds evolved and disperesed across the globe since the K-Pg extinction event when diversification really "took off" (my wife Sara insisted I include this joke in my writeup). At this time the Earth's continents were in the process of breaking apart from the supercontinents of Laurasia (north) and Gondwana (south) into the landmasses we recognize today. As tectonic plates shifted, the Atlantic Ocean widened and created an insurmountable barrier, isolating bird lineages into the Old World (Europe, Asia, Africa, and Australasia) and New World (North and South America). Geographically isolated by the Atlantic, the ancestors of modern bird species underwent "adaptive radiation" evolving to fill the specific ecological niches available to them. While this did create specialization, the Old World and the New World often contained very similar ecological niches (e.g., tropical rainforests, arid deserts, temperate woodlands) leading to a phenomonen known as **convergent evolution** in which evolutionarily distant and completely unrelated species evolved the exact same evolutionary adaptations to take advantage of similarities in their ecological niches (such as seed-eating or nectar-sipping).
 
 ![hummingbird sunbird](/images/data-science/avilist/hummingbird_sunbird.png)
@@ -1836,7 +1862,7 @@ plt.show()
 
 
     
-![png](/images/data-science/avilist/2026-03-01-ebird-avilist_47_1.png)
+![png](/images/data-science/avilist/2026-03-01-ebird-avilist_50_1.png)
     
 
 
@@ -1894,7 +1920,7 @@ plt.show()
 
 
     
-![png](/images/data-science/avilist/2026-03-01-ebird-avilist_53_1.png)
+![png](/images/data-science/avilist/2026-03-01-ebird-avilist_56_1.png)
     
 
 
@@ -1951,7 +1977,7 @@ plt.show()
 
 
     
-![png](/images/data-science/avilist/2026-03-01-ebird-avilist_59_1.png)
+![png](/images/data-science/avilist/2026-03-01-ebird-avilist_62_1.png)
     
 
 
