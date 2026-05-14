@@ -11,8 +11,8 @@ permalink: /data-science/ebird-avilist/
 header:
   teaser: /images/data-science/avilist/title.png
 ---
-![AviList title image](/images/data-science/avilist/title.png)
 
+![AviList title image](/images/data-science/avilist/title.png)
 
 {% raw %}
 Bird taxonomy dates back to 1758 when Carl Linnaeus, the "father of modern taxonomy", recognized 554 species of birds in the tenth edition of *Systema Naturae*. Since then the birds (which in taxonomy are represented by the class *Ave*) have become, by far, the most thoroughly described and well-characterized taxonomic class on the planet with over 10,000 species described. Furthermore, there is good reason to believe that the current species count is vanishingly close to the true global count unlike the current counts for other terrestrial vertebrate groups - mammals (6495 sp), reptiles (11,440 sp), and amphibians (8301 sp) - which are known to be severely undercounted. Despite how well studied they are, there has not always been global consensus on how to classify the various species, genuses, and even orders of birds. Over the last 50 or so years, modern bird taxonomy has been simultaneously described by 4 comprehensive (yet often conflicting) checklists, the two most popular of which are the [Clements Checklist of Birds of the World](https://www.birds.cornell.edu/clementschecklist) (used by the Cornell Lab of Ornithology) and the [International Ornithological Community (IOC) World Bird List](https://www.worldbirdnames.org/new/). 
@@ -550,8 +550,8 @@ fig = px.sunburst(
     color="Order",
     color_discrete_sequence=px.colors.qualitative.Bold,
     title="Sunburst Order→Family→Genus",
-    width=560,
-    height=560,
+    width=900,
+    height=900,
 )
 
 trace = fig.data[0]
@@ -603,6 +603,7 @@ fig.update_traces(
 fig.update_layout(
     dragmode="pan",
     margin=dict(t=55, l=24, r=24, b=24),
+    uniformtext=dict(minsize=11, mode="hide"),
     uirevision="sunburst-aves",
     # Disable layout tween on drill-down / restyle (snappier than Plotly's default ~500ms).
     transition=dict(duration=0, easing="linear"),
@@ -612,7 +613,7 @@ _cfg = {"scrollZoom": True, "displayModeBar": True, "doubleClick": "reset", "res
 SUNBURST_GD_ID = "sunburst-avilist"
 fig_html = pio.to_html(fig, include_plotlyjs="cdn", full_html=False, config=_cfg, div_id=SUNBURST_GD_ID)
 
-display(HTML(sunburst_panzoom_viewport(fig_html, SUNBURST_GD_ID, 560, 560)))
+display(HTML(sunburst_panzoom_viewport(fig_html, SUNBURST_GD_ID, 900, 900)))
 
 ```
 
@@ -622,7 +623,7 @@ display(HTML(sunburst_panzoom_viewport(fig_html, SUNBURST_GD_ID, 560, 560)))
 
 </details>
 
-<div class="sunburst-panzoom-root" style="width:100%;display:flex;justify-content:center;align-items:center;box-sizing:border-box;padding:6px 0"><iframe src="/assets/data-science/avilist/figures/sunburst-avilist.html" style="width:min(900px,100%);height:620px;border:none;border-radius:8px;display:block;margin:1em auto;" loading="lazy"></iframe>
+<div class="sunburst-panzoom-root" style="width:100%;display:flex;justify-content:center;align-items:center;box-sizing:border-box;padding:6px 0"><iframe src="/assets/data-science/avilist/figures/sunburst-avilist.html" style="width:min(900px,100%);height:1000px;border:none;border-radius:8px;display:block;margin:1em auto;" loading="lazy"></iframe>
 </div>
 
 
@@ -1900,9 +1901,9 @@ plt.show()
 
 ```
 
-    /var/folders/99/lcs5c5z50pv845b2s0_pvzw40000gn/T/ipykernel_60449/3795033845.py:15: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+    /var/folders/99/lcs5c5z50pv845b2s0_pvzw40000gn/T/ipykernel_64064/3795033845.py:15: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
       fc_z = fc_top.sub(fc_top.mean(1), 0).div(fc_top.std(1).replace(0, np.nan), 0).fillna(0)
-    /var/folders/99/lcs5c5z50pv845b2s0_pvzw40000gn/T/ipykernel_60449/3795033845.py:15: Pandas4Warning: Starting with pandas version 4.0 all arguments of std will be keyword-only.
+    /var/folders/99/lcs5c5z50pv845b2s0_pvzw40000gn/T/ipykernel_64064/3795033845.py:15: Pandas4Warning: Starting with pandas version 4.0 all arguments of std will be keyword-only.
       fc_z = fc_top.sub(fc_top.mean(1), 0).div(fc_top.std(1).replace(0, np.nan), 0).fillna(0)
 
 
@@ -1966,7 +1967,7 @@ plt.show()
 
 ```
 
-    /var/folders/99/lcs5c5z50pv845b2s0_pvzw40000gn/T/ipykernel_60449/13489930.py:6: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+    /var/folders/99/lcs5c5z50pv845b2s0_pvzw40000gn/T/ipykernel_64064/13489930.py:6: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
       iucn_by_order["total"] = iucn_by_order.sum(1)
 
 
@@ -2053,9 +2054,5 @@ So what can you and I do to help promote bird conservation and protect brids thr
 As with most of these data science posts, my main goals was to develop a deeper intuition for the subject matter and build some tools to help myself (and others) explore this rich dataset.
 
 Hopefully you learned something and maybe even got excited about birding along the way.
-
-
-
-
 
 {% endraw %}

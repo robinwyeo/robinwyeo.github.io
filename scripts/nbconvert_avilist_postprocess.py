@@ -828,9 +828,8 @@ def _externalize_plotly_figures(md: str) -> str:
         dest  = FIGURE_DIR / "sunburst-avilist.html"
         dest.write_text(page, encoding="utf-8")
         print(f"[avilist] Externalized sunburst → {dest.name} ({len(page)//1024} KB)")
-        # ~560px Plotly graph + square viewport; avoid a tall iframe (was 980px) that
-        # leaves a large blank band before the next section on the Jekyll page.
-        result = result[:m.start()] + _make_iframe("sunburst-avilist", 900, 620) + result[m.end():]
+        # Square sunburst (~900px) + title/margins; iframe height avoids a large blank band below the figure.
+        result = result[:m.start()] + _make_iframe("sunburst-avilist", 900, 1000) + result[m.end():]
     else:
         print("[avilist] WARNING: sunburst panzoom block not found — skipping externalization")
 
