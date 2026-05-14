@@ -6,20 +6,20 @@
 
 main:
 
+  - title: "(Data) Science"
+    url: /data-science/
+
+  - title: "Bird Photography"
+    url: /portfolio/
+
   - title: "Travel Blog"
     url: /year-archive/
-    
-  - title: "Bird Photography"
-    url: /portfolio/ 
 
   - title: "Publications"
     url: /publications/
 
-  - title: "(Data) Science"
-    url: /data-science/
-
   - title: "Talks/Posters"
-    url: /talks/    
-    
+    url: /talks/
+
   - title: "CV"
     url: /cv/
