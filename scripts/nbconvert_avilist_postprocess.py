@@ -604,7 +604,7 @@ def _make_figure_page(body_html: str) -> str:
         '<html><head>\n'
         '<meta charset="utf-8">\n'
         '<meta name="viewport" content="width=device-width,initial-scale=1">\n'
-        '<style>html,body{margin:0;padding:0;background:#fff;'
+        '<style>html,body{height:100%;margin:0;padding:0;background:#fff;'
         'font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;}</style>\n'
         '</head>\n'
         f'<body>\n{body_html}\n</body>\n'
