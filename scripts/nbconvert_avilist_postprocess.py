@@ -627,13 +627,17 @@ SUNBURST_IFRAME_HEIGHT = 908
 
 
 def _sunburst_iframe_canonical() -> str:
-    """Tight vertical margins on the post page (iframe is shorter than the old 940px chrome)."""
+    """Wrap the iframe so we can tighten the following section ``h2`` (global theme uses 2em margin-top)."""
 
-    return (
+    inner = (
         f'<iframe src="{_FIGURE_ASSET_URL_BASE}/sunburst-avilist.html"'
         f' style="width:min({SUNBURST_IFRAME_WIDTH}px,100%);height:{SUNBURST_IFRAME_HEIGHT}px;'
-        f'border:none;border-radius:8px;display:block;margin:0.25rem auto;"'
-        f' loading="lazy"></iframe>\n'
+        f'border:none;border-radius:8px;display:block;margin:0 auto;"'
+        f' loading="lazy"></iframe>'
+    )
+    return (
+        '<div class="avilist-sunburst-wrap" style="margin:0.25rem auto 0;line-height:0;'
+        f'max-width:{SUNBURST_IFRAME_WIDTH}px;width:100%;">{inner}</div>\n'
     )
 
 
@@ -644,7 +648,11 @@ _STRIP_SUNBURST_PANZOOM_ROOT_RE = re.compile(
     re.IGNORECASE | re.DOTALL,
 )
 
-_SUNBURST_IFRAME_ANY_RE = re.compile(
+_SUNBURST_EMBED_ANY_RE = re.compile(
+    # Do not use ``\s*`` after ``</iframe>`` — it can eat blank lines before the next ``##`` heading.
+    r'(?:<div\s+class="avilist-sunburst-wrap"[^>]*>\s*'
+    r'<iframe\s[^>]*sunburst-avilist\.html[^>]*>\s*</iframe>\s*</div>)'
+    r"|"
     r'<iframe\s[^>]*sunburst-avilist\.html[^>]*>\s*</iframe>',
     re.IGNORECASE | re.DOTALL,
 )
@@ -657,13 +665,29 @@ def _strip_sunburst_panzoom_root(md: str) -> str:
 
 
 def _normalize_sunburst_iframe(md: str) -> str:
-    """Ensure the sunburst embed uses the canonical iframe tag (height, margins)."""
+    """Ensure the sunburst embed uses the canonical wrapped iframe (height, margins)."""
 
     canonical = _sunburst_iframe_canonical().rstrip("\n")
-    return _SUNBURST_IFRAME_ANY_RE.sub(canonical, md)
+    return _SUNBURST_EMBED_ANY_RE.sub(canonical, md)
+
+
+def _collapse_blank_lines_after_sunburst_wrap(md: str) -> str:
+    """Avoid an empty ``<p>`` between the wrap and the next ``##`` (would break the ``+ h2`` margin rule)."""
+
+    return re.sub(
+        r'(<div class="avilist-sunburst-wrap"[^>]*>[\s\S]*?</div>)\s*\n{2,}(?=\s*##\s)',
+        r"\1\n",
+        md,
+        count=1,
+    )
 
 
 _FIGURE_IFRAME_BLOCK_RE = re.compile(
+    # Sunburst: wrapped embed (lift whole block out of ``<details>``).
+    r'<div\s+class="avilist-sunburst-wrap"[^>]*>\s*'
+    r'<iframe\s+src="/assets/data-science/avilist/figures/sunburst-avilist\.html"[^>]*></iframe>\s*'
+    r"</div>"
+    r"|"
     # Variant 1 — sunburst panzoom wrapper around the externalized iframe.
     r'<div\s+class="sunburst-panzoom-root"[^>]*>'
     r'<iframe\s+src="/assets/data-science/avilist/figures/[^"]+"[^>]*></iframe>'
@@ -900,6 +924,7 @@ def _externalize_plotly_figures(md: str) -> str:
 
     result = _strip_sunburst_panzoom_root(result)
     result = _normalize_sunburst_iframe(result)
+    result = _collapse_blank_lines_after_sunburst_wrap(result)
 
     # ── Restore masked code fences ─────────────────────────────────────────
     for idx, fence_text in enumerate(_fence_store):
@@ -984,6 +1009,7 @@ def patch_md() -> None:
     # Move those iframes out of their surrounding setup-code <details> blocks so
     # the chart is visible by default while the source code remains collapsed.
     raw = _lift_externalized_figures_outside_details(raw)
+    raw = _collapse_blank_lines_after_sunburst_wrap(raw)
 
     raw = _wrap_body_liquid_raw(raw)
     raw = _move_teaser_image_before_raw(raw)

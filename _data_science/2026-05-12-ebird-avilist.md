@@ -11,8 +11,8 @@ permalink: /data-science/ebird-avilist/
 header:
   teaser: /images/data-science/avilist/title.png
 ---
-
 ![AviList title image](/images/data-science/avilist/title.png)
+
 
 {% raw %}
 Bird taxonomy dates back to 1758 when Carl Linnaeus, the "father of modern taxonomy", recognized 554 species of birds in the tenth edition of *Systema Naturae*. Since then the birds (which in taxonomy are represented by the class *Ave*) have become, by far, the most thoroughly described and well-characterized taxonomic class on the planet with over 10,000 species described. Furthermore, there is good reason to believe that the current species count is vanishingly close to the true global count unlike the current counts for other terrestrial vertebrate groups - mammals (6495 sp), reptiles (11,440 sp), and amphibians (8301 sp) - which are known to be severely undercounted. Despite how well studied they are, there has not always been global consensus on how to classify the various species, genuses, and even orders of birds. Over the last 50 or so years, modern bird taxonomy has been simultaneously described by 4 comprehensive (yet often conflicting) checklists, the two most popular of which are the [Clements Checklist of Birds of the World](https://www.birds.cornell.edu/clementschecklist) (used by the Cornell Lab of Ornithology) and the [International Ornithological Community (IOC) World Bird List](https://www.worldbirdnames.org/new/). 
@@ -630,9 +630,7 @@ display(HTML(sunburst_panzoom_viewport(fig_html, SUNBURST_GD_ID, 900, 900)))
 
 </details>
 
-<iframe src="/assets/data-science/avilist/figures/sunburst-avilist.html" style="width:min(900px,100%);height:908px;border:none;border-radius:8px;display:block;margin:0.25rem auto;" loading="lazy"></iframe>
-
-
+<div class="avilist-sunburst-wrap" style="margin:0.25rem auto 0;line-height:0;max-width:900px;width:100%;"><iframe src="/assets/data-science/avilist/figures/sunburst-avilist.html" style="width:min(900px,100%);height:908px;border:none;border-radius:8px;display:block;margin:0 auto;" loading="lazy"></iframe></div>
 ## 3) Evolution
 
 ### Some evolutionary context: birds in the Mesozoic era
@@ -2077,5 +2075,9 @@ So what can you and I do to help promote bird conservation and protect brids thr
 As with most of these data science posts, my main goals was to develop a deeper intuition for the subject matter and build some tools to help myself (and others) explore this rich dataset.
 
 Hopefully you learned something and maybe even got excited about birding along the way.
+
+
+
+
 
 {% endraw %}

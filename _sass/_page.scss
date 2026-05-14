@@ -55,6 +55,11 @@
     border-bottom: 1px solid $border-color;
   }
 
+  /* AviList post: theme ``h2`` uses 2em margin-top — too much after the tall sunburst iframe. */
+  .avilist-sunburst-wrap + h2 {
+    margin-top: 0.65em;
+  }
+
   p, li, dl {
     font-size: 1em;
   }
