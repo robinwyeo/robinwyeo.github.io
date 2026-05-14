@@ -15,6 +15,9 @@ Workflow
    Phylocanvas.gl HTML embeds (loaded from the pre-built .nwk + .json cache).
 4. Copy the Newick + JSON cache files to ``assets/data-science/avilist/phylogeny/``
    so the JS loader can ``fetch()`` them if needed (currently the data is inlined).
+4½. Wrap every **bare** nbconvert `` ```python `` cell in
+   ``<details markdown="1" class="avilist-setup-code">`` (same pattern as setup
+   cells) so re-exports keep code collapsed without hand-editing the Markdown.
 5. Build YAML front matter from the **first markdown cell** of the notebook
    (page ``#`` title, ``## Date: YYYY-MM-DD``, and a ``tags:`` / ``- tag`` list),
    plus fixed ``permalink`` and ``header.teaser``. Place the title
@@ -676,6 +679,102 @@ def _lift_externalized_figures_outside_details(md: str) -> str:
     return _DETAILS_BLOCK_RE.sub(_rewrite_details, md)
 
 
+_AVILIST_SETUP_DETAILS_OPEN = '<details markdown="1" class="avilist-setup-code">'
+_AVILIST_SETUP_DETAILS_CLOSE = "</details>"
+# Summary line matches the hand-authored setup blocks (blank lines before the fence).
+_AVILIST_CODE_SUMMARY_BLOCK = "<summary>Show code</summary>\n\n\n"
+_ATX_HEADING_LINE_RE = re.compile(r"^#{1,6}\s")
+
+
+def _line_is_atx_heading(line: str) -> bool:
+    """True for a Markdown ATX heading at column 0 (nbconvert cell text uses indentation)."""
+    if not line or line[0] in " \t" or line.startswith("    "):
+        return False
+    return bool(_ATX_HEADING_LINE_RE.match(line))
+
+
+def _wrap_bare_python_fences_in_avilist_details(md: str) -> str:
+    """Wrap each bare `` ```python `` fence + following cell output in collapsible details.
+
+    Jupyter / nbconvert emits Python cells as plain fenced blocks.  Authors can
+    optionally wrap cells in ``<details class="avilist-setup-code">`` inside the
+    notebook markdown — but on a plain re-export those wrappers are absent.
+    This pass restores the same HTML structure used for setup cells so the
+    published post stays readable.
+
+    Idempotent: fences that already sit inside an ``avilist-setup-code`` details
+    block (net open/close depth before the opening `` ```python `` line) are left
+    untouched.
+
+    Cell output is everything after the closing `` ``` `` until the first line
+    that looks like (a) a Markdown image ``![…](…)``, (b) an ATX heading
+    ``# …`` at column 0, (c) the next fenced code block, or (d) another
+    ``avilist-setup-code`` details opener.  Matplotlib PNG lines are left
+    *outside* the details so they stay visible when collapsed; Plotly blobs are
+    kept inside until :func:`_externalize_plotly_figures` and
+    :func:`_lift_externalized_figures_outside_details` run next.
+    """
+    lines = md.splitlines(keepends=True)
+    out: list[str] = []
+    i, n = 0, len(lines)
+    depth = 0
+    n_wrapped = 0
+
+    while i < n:
+        line = lines[i]
+        st = line.strip()
+        if st == _AVILIST_SETUP_DETAILS_OPEN:
+            depth += 1
+            out.append(line)
+            i += 1
+            continue
+        if st == _AVILIST_SETUP_DETAILS_CLOSE:
+            depth = max(0, depth - 1)
+            out.append(line)
+            i += 1
+            continue
+
+        if st == "```python" and depth == 0:
+            n_wrapped += 1
+            out.append(_AVILIST_SETUP_DETAILS_OPEN + "\n")
+            out.append(_AVILIST_CODE_SUMMARY_BLOCK)
+            out.append(line)
+            i += 1
+            while i < n and lines[i].strip() != "```":
+                out.append(lines[i])
+                i += 1
+            if i >= n:
+                sys.stderr.write("[avilist] ERROR: unclosed ```python fence while wrapping details\n")
+                break
+            out.append(lines[i])
+            i += 1
+
+            tail: list[str] = []
+            while i < n:
+                L = lines[i]
+                lst = L.strip()
+                if lst.startswith("![") and "](" in lst:
+                    break
+                if _line_is_atx_heading(L):
+                    break
+                if lst.startswith("```"):
+                    break
+                if lst == _AVILIST_SETUP_DETAILS_OPEN:
+                    break
+                tail.append(L)
+                i += 1
+            out.extend(tail)
+            out.append(_AVILIST_SETUP_DETAILS_CLOSE + "\n\n")
+            continue
+
+        out.append(line)
+        i += 1
+
+    if n_wrapped:
+        print(f"[avilist] Wrapped {n_wrapped} bare python code fence(s) in collapse details")
+    return "".join(out)
+
+
 def _externalize_plotly_figures(md: str) -> str:
     """Replace inline Plotly figure blobs with ``<iframe>`` embeds.
 
@@ -828,6 +927,8 @@ def patch_md() -> None:
     # Replace tagged phylo code blocks with Phylocanvas.gl embeds (fetch-based).
     raw = _replace_tagged_cells(raw)
     raw = _drop_nbconvert_phylo_output_duplicates(raw)
+    # Re-apply collapsible wrappers around nbconvert code cells (idempotent if already wrapped).
+    raw = _wrap_bare_python_fences_in_avilist_details(raw)
 
     # Externalize Plotly figure blobs to assets/ and replace with <iframe> tags.
     raw = _externalize_plotly_figures(raw)

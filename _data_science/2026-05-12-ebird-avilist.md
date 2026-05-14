@@ -11,8 +11,8 @@ permalink: /data-science/ebird-avilist/
 header:
   teaser: /images/data-science/avilist/title.png
 ---
-
 ![AviList title image](/images/data-science/avilist/title.png)
+
 
 {% raw %}
 Bird taxonomy dates back to 1758 when Carl Linnaeus, the "father of modern taxonomy", recognized 554 species of birds in the tenth edition of *Systema Naturae*. Since then the birds (which in taxonomy are represented by the class *Ave*) have become, by far, the most thoroughly described and well-characterized taxonomic class on the planet with over 10,000 species described. Furthermore, there is good reason to believe that the current species count is vanishingly close to the true global count unlike the current counts for other terrestrial vertebrate groups - mammals (6495 sp), reptiles (11,440 sp), and amphibians (8301 sp) - which are known to be severely undercounted. Despite how well studied they are, there has not always been global consensus on how to classify the various species, genuses, and even orders of birds. Over the last 50 or so years, modern bird taxonomy has been simultaneously described by 4 comprehensive (yet often conflicting) checklists, the two most popular of which are the [Clements Checklist of Birds of the World](https://www.birds.cornell.edu/clementschecklist) (used by the Cornell Lab of Ornithology) and the [International Ornithological Community (IOC) World Bird List](https://www.worldbirdnames.org/new/). 
@@ -23,9 +23,8 @@ Back in 2018, ornithologists representing all the world's major zoogeographic re
 <br>
 _Photo I took of an Indochinese Roller (Coracias affinis) at Angkor Wat in 2024_
 
-Having spent a good chunk of 2025 birding in Southeast Asia and South America, I was excited to dig into this new checklist when I returned from sabbatical and see what I could learn about bird taxonomy, evolution, geography, and conservation. So, I downloaded the [AviList v2025 checklist (11 Jun, extended)](https://www.avilist.org/checklist/v2025/) and decided to generate this data science writeup using Jupyter Notebook to better understand it.
+Having spent a good chunk of 2025 birding in Southeast Asia and South America, I was excited to dig into this new checklist when I returned from sabbatical and see what I could learn about bird taxonomy, evolution, geography, and conservation. So, I downloaded the [AviList v2025 checklist (11 Jun, extended)](https://www.avilist.org/checklist/v2025/) and decided to generate this data science writeup using Jupyter Notebook to better understand it. I've organized this notebook into the following sections:
 
-Outline:
 1. **History**
 2. **Taxonomy**
 3. **Evolution**
@@ -213,6 +212,10 @@ In this section we're going to jump in and start exploring the AviList, starting
 Based ont the plots below, the golden age of bird identification was the 19<sup>th</sup> century in which the number of identified birds worldwide exploded from ~2000 to ~10,000. Although the subsequent 20<sup>th</sup> and 21<sup>st</sup> centuries saw a rise in the popularity of recreational birding, the global species count would only rise another ~10% between 1900 and the present (supporting the view that there remain less and less undiscovered species).
 
 
+<details markdown="1" class="avilist-setup-code">
+<summary>Show code</summary>
+
+
 ```python
 year_df = df_species.dropna(subset=["Description_year"]).copy()
 year_df["decade"] = (year_df["Description_year"] // 10 * 10).astype(int)
@@ -229,11 +232,17 @@ plt.show()
 
 
     
+</details>
+
 ![png](/images/data-science/avilist/2026-05-12-ebird-avilist_14_0.png)
     
 
 
 This is not to say that there remain no undiscovered bird species; I extracted the 5 latest species that wwere added to the AviList and printed them below. As you can see, ornithologists and recreational birders are still discovering new species (though interestingly all 5 of the latest discoveries were found in the Malay Archipelago).
+
+
+<details markdown="1" class="avilist-setup-code">
+<summary>Show code</summary>
 
 
 ```python
@@ -342,9 +351,15 @@ recent
 
 
 
+</details>
+
 ### Who were the most prolific discoverers?
 
 Our old friend Car Linnaeus easily takes the top spot for discovering over 700 bird species; in fact Linnaeus described ~280 new species in 1758 alone. If you've ever gone birding, getting ~280 new lifers in a year is already pretty respectable so it's crazy to think that Linnaeus managed to **discover** ~280 previously unknown species in a year!
+
+
+<details markdown="1" class="avilist-setup-code">
+<summary>Show code</summary>
 
 
 ```python
@@ -364,6 +379,8 @@ plt.show()
 
 
     
+</details>
+
 ![png](/images/data-science/avilist/2026-05-12-ebird-avilist_18_0.png)
     
 
@@ -373,6 +390,10 @@ A fun part of looking over this plot is recognizing the names of some of the exp
 ## 2) Taxonomy
 
 Now let's jump into the bird list itself! To explore this yourself, you can visit this hyperlink **[AviList v2025 checklist (11 Jun, extended)](https://www.avilist.org/checklist/v2025/)** to download the ~33,000 row excel spreadsheet and take a look at the raw data.
+
+
+<details markdown="1" class="avilist-setup-code">
+<summary>Show code</summary>
 
 
 ```python
@@ -391,6 +412,8 @@ plt.show()
 
 
     
+</details>
+
 ![png](/images/data-science/avilist/2026-05-12-ebird-avilist_21_0.png)
     
 
@@ -400,6 +423,10 @@ The newly harmonized AviList has **46 orders, 252 families, 2376 genuses, and 11
 ### Species richness rankings
 
 Just knowing how many species there are isn't particularly exciting, I want to use the AviList to gain a better understand of species diversity and distribution. So beloww we'll separate out the top Orders and Families by species count.
+
+
+<details markdown="1" class="avilist-setup-code">
+<summary>Show code</summary>
 
 
 ```python
@@ -416,6 +443,8 @@ plt.show()
 
 
     
+</details>
+
 ![png](/images/data-science/avilist/2026-05-12-ebird-avilist_24_0.png)
     
 
@@ -428,6 +457,10 @@ A natural question follows: **why are there so many passerines**? For some reaso
 - that dispersion to the Wallacean islands in the Malay Archipelago (30-40 Ma) from where they evolved in Australia ~47 Ma provided frequent opportunity for speciation (similar to Darwin's finches)
 
 So the next time a song sparrow is perching and singing a melody at your birdfeeder, take a moment to appreciate that these two adaptations were likely among the key reasons that perching songbirds dominate bird diversity!
+
+
+<details markdown="1" class="avilist-setup-code">
+<summary>Show code</summary>
 
 
 ```python
@@ -445,6 +478,8 @@ plt.show()
 
 
     
+</details>
+
 ![png](/images/data-science/avilist/2026-05-12-ebird-avilist_26_0.png)
     
 
@@ -454,6 +489,10 @@ I next looked at the top 30 bird families by species count which is not nearly a
 ### Genus size distribution
 
 One taxonomic rung up from species are genera, and I was curious to ask whether most bird genera contain many different species or whether they only have a handful.
+
+
+<details markdown="1" class="avilist-setup-code">
+<summary>Show code</summary>
 
 
 ```python
@@ -476,6 +515,8 @@ plt.show()
 
 
     
+</details>
+
 ![png](/images/data-science/avilist/2026-05-12-ebird-avilist_29_0.png)
     
 
@@ -551,6 +592,12 @@ fig.update_traces(
         "n_species: %{customdata[3]}"
         "<extra></extra>"
     ),
+)
+fig.update_traces(
+    maxdepth=2,
+    insidetextorientation="radial",
+    textfont=dict(size=11),
+    sort=False,
 )
 
 fig.update_layout(
@@ -1819,6 +1866,10 @@ A classic example of convergent evolution in ornithology is given by the distant
 Given that some families show pretty extreme geographic isolation (e.g. hummingbirds in the Americas and nowhere else), I was curious to visualize this for the top 40 species-rich bird families. Relying only on AviList metadata, I calculated a *Family × Continent* species count, then computed a **z-score per family** across continents where a positive z-score (red) means over-represented on that continent relative to its global distribution and a negative z-score (blue) means under-represented.
 
 
+<details markdown="1" class="avilist-setup-code">
+<summary>Show code</summary>
+
+
 ```python
 fc = (
     df_species[["Family", "Range_continents"]].explode("Range_continents")
@@ -1849,14 +1900,16 @@ plt.show()
 
 ```
 
-    /var/folders/99/lcs5c5z50pv845b2s0_pvzw40000gn/T/ipykernel_50870/3795033845.py:15: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+    /var/folders/99/lcs5c5z50pv845b2s0_pvzw40000gn/T/ipykernel_60449/3795033845.py:15: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
       fc_z = fc_top.sub(fc_top.mean(1), 0).div(fc_top.std(1).replace(0, np.nan), 0).fillna(0)
-    /var/folders/99/lcs5c5z50pv845b2s0_pvzw40000gn/T/ipykernel_50870/3795033845.py:15: Pandas4Warning: Starting with pandas version 4.0 all arguments of std will be keyword-only.
+    /var/folders/99/lcs5c5z50pv845b2s0_pvzw40000gn/T/ipykernel_60449/3795033845.py:15: Pandas4Warning: Starting with pandas version 4.0 all arguments of std will be keyword-only.
       fc_z = fc_top.sub(fc_top.mean(1), 0).div(fc_top.std(1).replace(0, np.nan), 0).fillna(0)
 
 
 
     
+</details>
+
 ![png](/images/data-science/avilist/2026-05-12-ebird-avilist_49_1.png)
     
 
@@ -1872,6 +1925,10 @@ I was curious about what the AviList's metadata could tell me about the conserva
 ### Which orders are the most threatened?
 
 Below I generated stacked bar plots representing every bird order (ranked by species count) and then colored percent of species by IUCN status.
+
+
+<details markdown="1" class="avilist-setup-code">
+<summary>Show code</summary>
 
 
 ```python
@@ -1909,12 +1966,14 @@ plt.show()
 
 ```
 
-    /var/folders/99/lcs5c5z50pv845b2s0_pvzw40000gn/T/ipykernel_50870/13489930.py:6: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+    /var/folders/99/lcs5c5z50pv845b2s0_pvzw40000gn/T/ipykernel_60449/13489930.py:6: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
       iucn_by_order["total"] = iucn_by_order.sum(1)
 
 
 
     
+</details>
+
 ![png](/images/data-science/avilist/2026-05-12-ebird-avilist_55_1.png)
     
 
@@ -1953,6 +2012,10 @@ Because I chose to plot the above visualization as percentage of total species w
 This becomes clear when we instead plot extinctions by order and see that the number of extinct passerines overwhelms the next most extinction-prone orders.
 
 
+<details markdown="1" class="avilist-setup-code">
+<summary>Show code</summary>
+
+
 ```python
 extinct = df_species[df_species["is_extinct"]].copy()
 print(f"{len(extinct)} extinct / possibly extinct")
@@ -1972,6 +2035,8 @@ plt.show()
 
 
     
+</details>
+
 ![png](/images/data-science/avilist/2026-05-12-ebird-avilist_61_1.png)
     
 
@@ -1988,5 +2053,9 @@ So what can you and I do to help promote bird conservation and protect brids thr
 As with most of these data science posts, my main goals was to develop a deeper intuition for the subject matter and build some tools to help myself (and others) explore this rich dataset.
 
 Hopefully you learned something and maybe even got excited about birding along the way.
+
+
+
+
 
 {% endraw %}
