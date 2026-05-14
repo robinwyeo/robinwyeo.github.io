@@ -604,7 +604,7 @@ def _make_figure_page(body_html: str) -> str:
         '<html><head>\n'
         '<meta charset="utf-8">\n'
         '<meta name="viewport" content="width=device-width,initial-scale=1">\n'
-        '<style>html,body{height:100%;margin:0;padding:0;background:#fff;'
+        '<style>html,body{margin:0;padding:0;background:#fff;'
         'font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;}</style>\n'
         '</head>\n'
         f'<body>\n{body_html}\n</body>\n'
@@ -616,9 +616,39 @@ def _make_iframe(div_id: str, iframe_width: int, iframe_height: int) -> str:
     return (
         f'<iframe src="{_FIGURE_ASSET_URL_BASE}/{div_id}.html"'
         f' style="width:min({iframe_width}px,100%);height:{iframe_height}px;'
-        f'border:none;border-radius:8px;display:block;margin:1em auto;"'
+        f'border:none;border-radius:8px;display:block;margin:0.5rem auto;"'
         f' loading="lazy"></iframe>\n'
     )
+
+
+# Sunburst: ~900px Plotly box + small chrome; must stay in sync with birds_nb.sunburst_panzoom_viewport padding.
+SUNBURST_IFRAME_WIDTH = 900
+SUNBURST_IFRAME_HEIGHT = 940
+
+_STRIP_SUNBURST_PANZOOM_ROOT_RE = re.compile(
+    r'<div\s+class="sunburst-panzoom-root"[^>]*>\s*'
+    r'(<iframe\s+[^>]*sunburst-avilist\.html[^>]*></iframe>)\s*'
+    r"</div>",
+    re.IGNORECASE | re.DOTALL,
+)
+
+_SUNBURST_IFRAME_ANY_RE = re.compile(
+    r'<iframe\s[^>]*sunburst-avilist\.html[^>]*>\s*</iframe>',
+    re.IGNORECASE | re.DOTALL,
+)
+
+
+def _strip_sunburst_panzoom_root(md: str) -> str:
+    """Remove the notebook-time wrapper that used ``min-height:100vh`` (dead space on the Jekyll page)."""
+
+    return _STRIP_SUNBURST_PANZOOM_ROOT_RE.sub(r"\1", md)
+
+
+def _normalize_sunburst_iframe(md: str) -> str:
+    """Ensure the sunburst embed uses the canonical iframe tag (height, margins)."""
+
+    canonical = _make_iframe("sunburst-avilist", SUNBURST_IFRAME_WIDTH, SUNBURST_IFRAME_HEIGHT).rstrip("\n")
+    return _SUNBURST_IFRAME_ANY_RE.sub(canonical, md)
 
 
 _FIGURE_IFRAME_BLOCK_RE = re.compile(
@@ -828,10 +858,15 @@ def _externalize_plotly_figures(md: str) -> str:
         dest  = FIGURE_DIR / "sunburst-avilist.html"
         dest.write_text(page, encoding="utf-8")
         print(f"[avilist] Externalized sunburst → {dest.name} ({len(page)//1024} KB)")
-        # Square sunburst (~900px) + title/margins; iframe height avoids a large blank band below the figure.
-        result = result[:m.start()] + _make_iframe("sunburst-avilist", 900, 1200) + result[m.end():]
+        # Tight iframe: ~900px plot + slim root padding (see birds_nb.sunburst_panzoom_viewport).
+        result = (
+            result[: m.start()]
+            + _make_iframe("sunburst-avilist", SUNBURST_IFRAME_WIDTH, SUNBURST_IFRAME_HEIGHT)
+            + result[m.end() :]
+        )
     else:
-        print("[avilist] WARNING: sunburst panzoom block not found — skipping externalization")
+        if "sunburst-avilist-vp" in result:
+            print("[avilist] WARNING: sunburst panzoom block not found — skipping externalization")
 
     # ── 2. Choropleth + family-picker block ────────────────────────────────
     # Starts at <div class="geo-family-picker"> and ends after the
@@ -850,6 +885,9 @@ def _externalize_plotly_figures(md: str) -> str:
         result = result[:m.start()] + _make_iframe("geo-choropleth", 900, 700) + result[m.end():]
     else:
         print("[avilist] WARNING: geo-choropleth family-picker block not found — skipping")
+
+    result = _strip_sunburst_panzoom_root(result)
+    result = _normalize_sunburst_iframe(result)
 
     # ── Restore masked code fences ─────────────────────────────────────────
     for idx, fence_text in enumerate(_fence_store):

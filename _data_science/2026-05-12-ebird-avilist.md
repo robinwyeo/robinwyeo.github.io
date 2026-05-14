@@ -630,8 +630,7 @@ display(HTML(sunburst_panzoom_viewport(fig_html, SUNBURST_GD_ID, 900, 900)))
 
 </details>
 
-<div class="sunburst-panzoom-root" style="width:100%;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;box-sizing:border-box;padding:6px 0 32px 0"><iframe src="/assets/data-science/avilist/figures/sunburst-avilist.html" style="width:min(900px,100%);height:1200px;border:none;border-radius:8px;display:block;margin:1em auto;" loading="lazy"></iframe>
-</div>
+<iframe src="/assets/data-science/avilist/figures/sunburst-avilist.html" style="width:min(900px,100%);height:940px;border:none;border-radius:8px;display:block;margin:0.5rem auto;" loading="lazy"></iframe>
 
 
 ## 3) Evolution
@@ -1858,7 +1857,7 @@ display(
 
 </details>
 
-<iframe src="/assets/data-science/avilist/figures/geo-choropleth.html" style="width:min(900px,100%);height:700px;border:none;border-radius:8px;display:block;margin:1em auto;" loading="lazy"></iframe>
+<iframe src="/assets/data-science/avilist/figures/geo-choropleth.html" style="width:min(900px,100%);height:700px;border:none;border-radius:8px;display:block;margin:0.5rem auto;" loading="lazy"></iframe>
 
 
 Visualizing the geographic distribution of bird families can reveal some amazing insights into how birds evolved and disperesed across the globe since the K-Pg extinction event when diversification really "took off" (my wife Sara insisted I include this joke in my writeup). At this time the Earth's continents were in the process of breaking apart from the supercontinents of Laurasia (north) and Gondwana (south) into the landmasses we recognize today. As tectonic plates shifted, the Atlantic Ocean widened and created an insurmountable barrier, isolating bird lineages into the Old World (Europe, Asia, Africa, and Australasia) and New World (North and South America). Geographically isolated by the Atlantic, the ancestors of modern bird species underwent "adaptive radiation" evolving to fill the specific ecological niches available to them. While this did create specialization, the Old World and the New World often contained very similar ecological niches (e.g., tropical rainforests, arid deserts, temperate woodlands) leading to a phenomonen known as **convergent evolution** in which evolutionarily distant and completely unrelated species evolved the exact same evolutionary adaptations to take advantage of similarities in their ecological niches (such as seed-eating or nectar-sipping).
@@ -1908,9 +1907,9 @@ plt.show()
 
 ```
 
-    /var/folders/99/lcs5c5z50pv845b2s0_pvzw40000gn/T/ipykernel_74170/3795033845.py:15: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+    /var/folders/99/lcs5c5z50pv845b2s0_pvzw40000gn/T/ipykernel_77386/3795033845.py:15: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
       fc_z = fc_top.sub(fc_top.mean(1), 0).div(fc_top.std(1).replace(0, np.nan), 0).fillna(0)
-    /var/folders/99/lcs5c5z50pv845b2s0_pvzw40000gn/T/ipykernel_74170/3795033845.py:15: Pandas4Warning: Starting with pandas version 4.0 all arguments of std will be keyword-only.
+    /var/folders/99/lcs5c5z50pv845b2s0_pvzw40000gn/T/ipykernel_77386/3795033845.py:15: Pandas4Warning: Starting with pandas version 4.0 all arguments of std will be keyword-only.
       fc_z = fc_top.sub(fc_top.mean(1), 0).div(fc_top.std(1).replace(0, np.nan), 0).fillna(0)
 
 
@@ -1974,7 +1973,7 @@ plt.show()
 
 ```
 
-    /var/folders/99/lcs5c5z50pv845b2s0_pvzw40000gn/T/ipykernel_74170/13489930.py:6: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+    /var/folders/99/lcs5c5z50pv845b2s0_pvzw40000gn/T/ipykernel_77386/13489930.py:6: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
       iucn_by_order["total"] = iucn_by_order.sum(1)
 
 
