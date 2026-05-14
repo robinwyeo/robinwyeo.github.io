@@ -829,7 +829,7 @@ def _externalize_plotly_figures(md: str) -> str:
         dest.write_text(page, encoding="utf-8")
         print(f"[avilist] Externalized sunburst → {dest.name} ({len(page)//1024} KB)")
         # Square sunburst (~900px) + title/margins; iframe height avoids a large blank band below the figure.
-        result = result[:m.start()] + _make_iframe("sunburst-avilist", 900, 1000) + result[m.end():]
+        result = result[:m.start()] + _make_iframe("sunburst-avilist", 900, 1040) + result[m.end():]
     else:
         print("[avilist] WARNING: sunburst panzoom block not found — skipping externalization")
 

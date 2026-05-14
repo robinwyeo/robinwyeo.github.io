@@ -588,8 +588,7 @@ fig.update_traces(
     hovertemplate=(
         "Order: %{customdata[0]}<br>"
         "Family: %{customdata[1]}<br>"
-        "Genus: %{customdata[2]}<br>"
-        "n_species: %{customdata[3]}"
+        "Genus: %{customdata[2]} · %{customdata[3]} species"
         "<extra></extra>"
     ),
 )
@@ -602,8 +601,14 @@ fig.update_traces(
 
 fig.update_layout(
     dragmode="pan",
-    margin=dict(t=55, l=24, r=24, b=24),
-    uniformtext=dict(minsize=11, mode="hide"),
+    margin=dict(t=55, l=24, r=24, b=40),
+    hoverlabel=dict(
+        align="left",
+        bgcolor="rgba(255,255,255,0.98)",
+        bordercolor="#444",
+        font=dict(size=13),
+        namelength=-1,
+    ),
     uirevision="sunburst-aves",
     # Disable layout tween on drill-down / restyle (snappier than Plotly's default ~500ms).
     transition=dict(duration=0, easing="linear"),
@@ -623,7 +628,7 @@ display(HTML(sunburst_panzoom_viewport(fig_html, SUNBURST_GD_ID, 900, 900)))
 
 </details>
 
-<div class="sunburst-panzoom-root" style="width:100%;display:flex;justify-content:center;align-items:center;box-sizing:border-box;padding:6px 0"><iframe src="/assets/data-science/avilist/figures/sunburst-avilist.html" style="width:min(900px,100%);height:1000px;border:none;border-radius:8px;display:block;margin:1em auto;" loading="lazy"></iframe>
+<div class="sunburst-panzoom-root" style="width:100%;display:flex;justify-content:center;align-items:center;box-sizing:border-box;padding:6px 0 32px 0"><iframe src="/assets/data-science/avilist/figures/sunburst-avilist.html" style="width:min(900px,100%);height:1040px;border:none;border-radius:8px;display:block;margin:1em auto;" loading="lazy"></iframe>
 </div>
 
 
@@ -1901,9 +1906,9 @@ plt.show()
 
 ```
 
-    /var/folders/99/lcs5c5z50pv845b2s0_pvzw40000gn/T/ipykernel_64064/3795033845.py:15: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+    /var/folders/99/lcs5c5z50pv845b2s0_pvzw40000gn/T/ipykernel_68425/3795033845.py:15: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
       fc_z = fc_top.sub(fc_top.mean(1), 0).div(fc_top.std(1).replace(0, np.nan), 0).fillna(0)
-    /var/folders/99/lcs5c5z50pv845b2s0_pvzw40000gn/T/ipykernel_64064/3795033845.py:15: Pandas4Warning: Starting with pandas version 4.0 all arguments of std will be keyword-only.
+    /var/folders/99/lcs5c5z50pv845b2s0_pvzw40000gn/T/ipykernel_68425/3795033845.py:15: Pandas4Warning: Starting with pandas version 4.0 all arguments of std will be keyword-only.
       fc_z = fc_top.sub(fc_top.mean(1), 0).div(fc_top.std(1).replace(0, np.nan), 0).fillna(0)
 
 
@@ -1967,7 +1972,7 @@ plt.show()
 
 ```
 
-    /var/folders/99/lcs5c5z50pv845b2s0_pvzw40000gn/T/ipykernel_64064/13489930.py:6: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+    /var/folders/99/lcs5c5z50pv845b2s0_pvzw40000gn/T/ipykernel_68425/13489930.py:6: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
       iucn_by_order["total"] = iucn_by_order.sum(1)
 
 
