@@ -603,7 +603,7 @@ fig.update_traces(
 
 fig.update_layout(
     dragmode="pan",
-    margin=dict(t=55, l=24, r=24, b=40),
+    margin=dict(t=40, l=22, r=22, b=28),
     hoverlabel=dict(
         align="left",
         bgcolor="rgba(255,255,255,0.98)",
@@ -630,7 +630,7 @@ display(HTML(sunburst_panzoom_viewport(fig_html, SUNBURST_GD_ID, 900, 900)))
 
 </details>
 
-<iframe src="/assets/data-science/avilist/figures/sunburst-avilist.html" style="width:min(900px,100%);height:940px;border:none;border-radius:8px;display:block;margin:0.5rem auto;" loading="lazy"></iframe>
+<iframe src="/assets/data-science/avilist/figures/sunburst-avilist.html" style="width:min(900px,100%);height:908px;border:none;border-radius:8px;display:block;margin:0.25rem auto;" loading="lazy"></iframe>
 
 
 ## 3) Evolution
@@ -639,7 +639,7 @@ display(HTML(sunburst_panzoom_viewport(fig_html, SUNBURST_GD_ID, 900, 900)))
 
 Before we dive into the evolutionary relationships between modern bird lineages, let's step back and discuss a bit of background on how birds evolved in the first place (for further reading, please see these excellent reviews on which I based this summary: [Wu et al., 2025](https://academic.oup.com/nsr/article/12/7/nwaf238/8158921), [Field et al., 2025](https://royalsocietypublishing.org/rsbl/article/21/1/20240500/116002/Whence-the-birds-200-years-of-dinosaurs-avian), and [Claramunt & Cracraft, 2015](https://www.science.org/doi/10.1126/sciadv.1501005)). One of the most exciting recent insights in paleontology and ornithology is the discovery/confirmation that birds really are in fact **modern dinosaurs**; as Field et al. write, _"Among the most revolutionary insights emerging from 200 years of research on dinosaurs is that the clade Dinosauria is represented by approximately 11 000 living species of birds"_.
 
-I should mention that bird evolution is a highly debated and contentious field, and while there is, as of yet, no real consensus among experts, evidence over the last 30 years is starting to paint a clearer picture. During the Mesozoic era (252-66 Ma), also known as the "age of the dinosaurs", the skies were populated by a variety of winged and feathered creatures (such as _Enantiornithes_ and _Hesperornithiformes_) that we now understand to be "stem birds"; although morpholigcally similar to modern birds, these were in fact an evolutionary offshoot, and it was not until the end of this geologic period that "crown birds", scientifically known as **Neornithes** which encompass every known living bird today, began to emerge.
+I should mention that bird evolution is a highly debated and contentious field, and while there is, as of yet, no real consensus among experts, evidence over the last 30 years is starting to paint a clearer picture. During the Mesozoic era (252-66 Ma), also known as the "age of the dinosaurs", the skies were populated by a variety of winged and feathered creatures (such as _Enantiornithes_ and _Hesperornithiformes_) that we now understand to be "stem birds"; although morphologically similar to modern birds, these were in fact an evolutionary offshoot, and it was not until the end of this geologic period that "crown birds", scientifically known as **Neornithes** which encompass every known living bird today, began to emerge.
 
 Evidence suggests that the most recent common ancestor of modern birds inhabited South America around 95 million years ago (Ma). Approximately 66 Ma, the Chicxulub asteroid impact triggered the Cretaceous-Paleogene (K-Pg) mass extinction wiping out ~75% of all plant and animal species on Earth, including all non-avian dinosaurs, flying pterosaurs, and the diverse "stem bird" lineages. However the ancestors of modern birds (ground-dwelling Neornithes) survived this mass extinction event and rapidly began diversifying to populate this post-extinction world, a period of time referred to as the "Big Bang of avian evolution". Birds used two main dispersion routes as they rapidly evolved and reclaimed the skies: reaching the Old World through North America, and reaching Australia and Zealandia through Antarctica.
 
@@ -690,15 +690,25 @@ Below I've generated an interactive evolutionary tree rendered with **[Phylocanv
   var _lastAppliedFamilyTip = &quot;&quot;;
   var _famNavHistory = [];
 
+  function _metaUsesCompletionRing(meta) {
+    for (var k in meta) {
+      if (meta[k] &amp;&amp; meta[k].inner_fill) return true;
+    }
+    return false;
+  }
+
   function buildStyles(meta) {
     var s = {};
     Object.keys(meta).forEach(function (tip) {
       var m = meta[tip];
+      var ring = m.color || &quot;#aaaaaa&quot;;
+      var fill = (m.inner_fill &amp;&amp; m.inner_fill.length &gt;= 3) ? m.inner_fill : ring;
+      var stroke = m.inner_fill ? ring : ring;
       var style = {
-        fillColour:   m.color || &quot;#aaaaaa&quot;,
-        strokeColour: m.color || &quot;#aaaaaa&quot;,
+        fillColour:   fill,
+        strokeColour: stroke,
         shape: &quot;circle&quot;,
-        size:  5,
+        size:  m.inner_fill ? 6 : 5,
         label: (m.label !== undefined &amp;&amp; m.label !== null &amp;&amp; m.label !== &quot;&quot;) ? m.label : tip,
       };
       s[tip] = style;
@@ -1331,7 +1341,8 @@ Below I've generated an interactive evolutionary tree rendered with **[Phylocanv
 
   
   function _makeTree(newick, meta, treeType, showLeafLabels) {
-    return new window.phylocanvas.PhylocanvasGL(_container, {
+    var ringInner = _metaUsesCompletionRing(meta);
+    var props = {
       size:               { width: containerWidth(_sizeTargetEl()), height: HEIGHT },
       source:             newick,
       type:               window.phylocanvas.TreeTypes[treeType],
@@ -1345,7 +1356,13 @@ Below I've generated an interactive evolutionary tree rendered with **[Phylocanv
       showBranchLengths:  false,
       interactive:        true,
       styles:             buildStyles(meta),
-    });
+    };
+    if (ringInner) {
+      props.showShapeBorders = true;
+      props.shapeBorderWidth = 3;
+      props.shapeBorderAlpha = 1;
+    }
+    return new window.phylocanvas.PhylocanvasGL(_container, props);
   }
 
   
@@ -1907,9 +1924,9 @@ plt.show()
 
 ```
 
-    /var/folders/99/lcs5c5z50pv845b2s0_pvzw40000gn/T/ipykernel_77386/3795033845.py:15: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+    /var/folders/99/lcs5c5z50pv845b2s0_pvzw40000gn/T/ipykernel_80023/3795033845.py:15: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
       fc_z = fc_top.sub(fc_top.mean(1), 0).div(fc_top.std(1).replace(0, np.nan), 0).fillna(0)
-    /var/folders/99/lcs5c5z50pv845b2s0_pvzw40000gn/T/ipykernel_77386/3795033845.py:15: Pandas4Warning: Starting with pandas version 4.0 all arguments of std will be keyword-only.
+    /var/folders/99/lcs5c5z50pv845b2s0_pvzw40000gn/T/ipykernel_80023/3795033845.py:15: Pandas4Warning: Starting with pandas version 4.0 all arguments of std will be keyword-only.
       fc_z = fc_top.sub(fc_top.mean(1), 0).div(fc_top.std(1).replace(0, np.nan), 0).fillna(0)
 
 
@@ -1973,7 +1990,7 @@ plt.show()
 
 ```
 
-    /var/folders/99/lcs5c5z50pv845b2s0_pvzw40000gn/T/ipykernel_77386/13489930.py:6: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+    /var/folders/99/lcs5c5z50pv845b2s0_pvzw40000gn/T/ipykernel_80023/13489930.py:6: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
       iucn_by_order["total"] = iucn_by_order.sum(1)
 
 

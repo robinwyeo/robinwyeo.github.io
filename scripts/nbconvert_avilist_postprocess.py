@@ -621,9 +621,21 @@ def _make_iframe(div_id: str, iframe_width: int, iframe_height: int) -> str:
     )
 
 
-# Sunburst: ~900px Plotly box + small chrome; must stay in sync with birds_nb.sunburst_panzoom_viewport padding.
+# Sunburst: 900px Plotly box + ``birds_nb`` root padding (2+6px); keep iframe height in sync.
 SUNBURST_IFRAME_WIDTH = 900
-SUNBURST_IFRAME_HEIGHT = 940
+SUNBURST_IFRAME_HEIGHT = 908
+
+
+def _sunburst_iframe_canonical() -> str:
+    """Tight vertical margins on the post page (iframe is shorter than the old 940px chrome)."""
+
+    return (
+        f'<iframe src="{_FIGURE_ASSET_URL_BASE}/sunburst-avilist.html"'
+        f' style="width:min({SUNBURST_IFRAME_WIDTH}px,100%);height:{SUNBURST_IFRAME_HEIGHT}px;'
+        f'border:none;border-radius:8px;display:block;margin:0.25rem auto;"'
+        f' loading="lazy"></iframe>\n'
+    )
+
 
 _STRIP_SUNBURST_PANZOOM_ROOT_RE = re.compile(
     r'<div\s+class="sunburst-panzoom-root"[^>]*>\s*'
@@ -647,7 +659,7 @@ def _strip_sunburst_panzoom_root(md: str) -> str:
 def _normalize_sunburst_iframe(md: str) -> str:
     """Ensure the sunburst embed uses the canonical iframe tag (height, margins)."""
 
-    canonical = _make_iframe("sunburst-avilist", SUNBURST_IFRAME_WIDTH, SUNBURST_IFRAME_HEIGHT).rstrip("\n")
+    canonical = _sunburst_iframe_canonical().rstrip("\n")
     return _SUNBURST_IFRAME_ANY_RE.sub(canonical, md)
 
 
@@ -861,7 +873,7 @@ def _externalize_plotly_figures(md: str) -> str:
         # Tight iframe: ~900px plot + slim root padding (see birds_nb.sunburst_panzoom_viewport).
         result = (
             result[: m.start()]
-            + _make_iframe("sunburst-avilist", SUNBURST_IFRAME_WIDTH, SUNBURST_IFRAME_HEIGHT)
+            + _sunburst_iframe_canonical()
             + result[m.end() :]
         )
     else:
