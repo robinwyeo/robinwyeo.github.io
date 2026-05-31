@@ -22,13 +22,42 @@ Under the hood it's a [Streamlit](https://streamlit.io/) app written in Python (
 
 ## Try it
 
+<div style="display: flex; align-items: center; gap: 0.6em; margin-bottom: 0.75em;">
+  <label for="ticker-input" style="font-weight: 600; white-space: nowrap; font-size: 1em;">Ticker:</label>
+  <input
+    id="ticker-input"
+    type="text"
+    placeholder="e.g. AAPL"
+    maxlength="10"
+    style="padding: 0.45em 0.75em; border: 1px solid #ccc; border-radius: 4px; font-size: 1em; width: 120px; text-transform: uppercase; font-family: monospace;"
+  />
+  <button
+    onclick="loadTicker()"
+    style="padding: 0.45em 1.1em; background: #0066cc; color: #fff; border: none; border-radius: 4px; font-size: 1em; cursor: pointer;">
+    Load
+  </button>
+</div>
+
 <iframe
+  id="stock-dashboard"
   src="https://robinwyeo-stock-metrics.streamlit.app/?embed=true"
   title="Stock factor scoring & analyst aggregation dashboard"
   style="width: 100%; height: 900px; border: 1px solid #e1e1e1; border-radius: 6px;"
   loading="lazy"
   allow="clipboard-write">
 </iframe>
+
+<script>
+function loadTicker() {
+  var t = document.getElementById('ticker-input').value.trim().toUpperCase();
+  if (!t) return;
+  document.getElementById('stock-dashboard').src =
+    'https://robinwyeo-stock-metrics.streamlit.app/?embed=true&ticker=' + encodeURIComponent(t);
+}
+document.getElementById('ticker-input').addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') loadTicker();
+});
+</script>
 
 <p style="text-align: center; margin-top: 0.75em;">
   <a href="https://robinwyeo-stock-metrics.streamlit.app" target="_blank" rel="noopener">
