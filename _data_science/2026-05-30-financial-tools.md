@@ -12,8 +12,6 @@ header:
   teaser: /images/data-science/financial-tools/title.png
 ---
 
-![Stock metrics dashboard](/images/data-science/financial-tools/title.png)
-
 I recently built a stock analysis dashboard and thought I'd host it on my website. Obvious disclaimer - I am not a professional financial analyst and really built this tool to help myself better understand the underlying metrics of stocks for personal investment, and to aggregate data in a central location.
 
 The dashboard takes any ticker and scores it across a broad set of factors — **value**, **momentum**, **quality**, **low volatility**, **financial strength**, and more — then ranks each one against the rest of the S&P 500. Each factor is really just a question I'd want answered before buying: am I paying a sensible price (value)? Is the business actually any good (quality, ROIC)? How durable is it (balance sheet strength, Altman Z, Piotroski F-Score)? All of that gets blended into a single **composite score from 0–100** (the model treats `70+` as its rough "good buy" bar), and on top of the factors it pulls in aggregated Wall Street analyst ratings, average price targets, and the implied upside versus today's price.
