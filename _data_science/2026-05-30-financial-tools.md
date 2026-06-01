@@ -12,11 +12,9 @@ header:
   teaser: /images/data-science/financial-tools/title.png
 ---
 
-I recently built a stock analysis dashboard and thought I'd host it on my website. Obvious disclaimer - I am not a professional financial analyst and really built this tool to help myself better understand the underlying metrics of stocks for personal investment, and to aggregate data in a central location.
+I built this dashboard to understand the metrics behind a stock before buying, and to keep that data in one place. Quick disclaimer: I'm not a professional financial analyst and this isn't investment advice.
 
-The dashboard takes any ticker and scores it across a broad set of factors — **value**, **momentum**, **quality**, **low volatility**, **financial strength**, and more — then ranks each one against the rest of the S&P 500. Each factor is really just a question I'd want answered before buying: am I paying a sensible price (value)? Is the business actually any good (quality, ROIC)? How durable is it (balance sheet strength, Altman Z, Piotroski F-Score)? All of that gets blended into a single **composite score from 0–100** (the model treats `70+` as its rough "good buy" bar), and on top of the factors it pulls in aggregated Wall Street analyst ratings, average price targets, and the implied upside versus today's price.
-
-Under the hood it's a [Streamlit](https://streamlit.io/) app written in Python ([source on GitHub](https://github.com/robinwyeo/financial-tools)), pulling market data from `yfinance`. Rather than just describe it, I've embedded the live dashboard right here so you can poke at it yourself.
+Give it any ticker and it scores the company across **15 research-backed factors**, ranks each against the S&P 500, blends them into a single **0–100 composite score**, and layers on aggregated Wall Street analyst views. It's a [Streamlit](https://streamlit.io/) app written in Python ([source on GitHub](https://github.com/robinwyeo/financial-tools)) using market data from `yfinance`. I've embedded it below so you can try it yourself.
 
 ## Try it
 
@@ -65,27 +63,50 @@ document.getElementById('ticker-input').addEventListener('keydown', function(e) 
 
 > The app runs on Streamlit Community Cloud's free tier, so if it has been idle it may take ~30 seconds to wake up on first load. For the best experience (especially on mobile) use the "open in a new tab" link above.
 
-## How to use it
+## How to read it
 
-1. **Enter a ticker** (e.g. `AAPL`, `MSFT`, `NVDA`) to pull its factor scorecard, analyst consensus, price targets, and implied upside.
-2. **Read the composite score** — a 0–100 blend of the factor ranks. `70+` is the default "good buy" bar in the model.
-3. **Drill into the factors** — each factor shows the stock's percentile rank versus the universe, with plain-language help text explaining what it measures.
-4. **Check the price history** chart over ranges from one month to all-time.
-5. **ETFs** are supported too, with basic fund info (no factor scoring, since factors are company-level).
+Everything in the dashboard is **relative**. Each factor is computed cross-sectionally as a **percentile rank against the S&P 500** (sector-adjusted where possible), so a score answers "how does this stack up against peers?" rather than leaning on an arbitrary absolute cutoff. Across the board, **higher always means more favorable** — the tool flips "bad-direction" metrics so that green is always good.
 
-## What's under the hood
+### Composite Score
 
-The model goes well beyond a single P/E ratio. The factor families include:
+A single **0–100** number that blends all available factor ranks into one verdict. A `90` means the stock looks better than ~90% of the S&P 500 once every factor is weighed together. The model treats **composite ≥ 70 and implied upside ≥ 15%** as its rough "good buy" bar.
 
-- **Value** and **GARP** (Peter Lynch's PEG idea) — am I paying a reasonable price for the earnings/growth?
-- **Momentum (12-1)** — trailing 12-month return excluding the most recent month.
-- **Quality / Profitability** and **Capital Efficiency (ROIC)** — how good is the business itself?
-- **Financial Strength (Piotroski F-Score)**, **Balance Sheet Strength**, and **Distress Risk (Altman Z)** — how durable is it?
-- **Low Volatility**, **Investment (asset growth)**, **Earnings Revisions**, **Earnings Quality (accruals)**, **Shareholder Yield**, **Graham Number Value**, and **Downside Protection**.
+### Factor Scorecard
 
-Each metric is computed cross-sectionally — i.e. as a **percentile rank against the S&P 500 universe** (sector-adjusted when enabled) — so a score answers "how does this compare to peers?" rather than relying on an arbitrary absolute threshold. The analyst layer aggregates published recommendations into a consensus label and compares the average 12-month price target to today's price to get implied upside.
+Each factor is shown as a percentile rank and color-coded: <span style="color:#e74c3c">**red (0–30, weak)**</span>, <span style="color:#f1c40f">**yellow (31–70, middling)**</span>, <span style="color:#2ecc71">**green (71–100, strong)**</span>. The 15 factors group into six themes, each answering a different question:
 
-A companion GitHub Actions job refreshes the universe snapshot daily and can email alerts for watchlist names that clear the good-buy threshold, but that piece runs server-side and isn't part of this embedded dashboard.
+**Value — am I paying a sensible price?**
+- **Value** — earnings, book-value, and cash-flow multiples vs peers.
+- **GARP** — Peter Lynch's PEG idea; growth relative to what you pay for it.
+- **Graham Number Value** — Benjamin Graham's classic value checks.
+
+**Quality — is the business actually good?**
+- **Quality / Profitability** — margins and returns on assets and equity.
+- **Capital Efficiency (ROIC)** — operating profit earned per dollar of invested capital.
+- **Financial Strength (Piotroski F-Score)** — a 9-point profitability, leverage, and liquidity checklist.
+- **Earnings Quality (Accruals)** — how much of reported profit is backed by real cash.
+
+**Trend — is sentiment moving the right way?**
+- **Momentum (12-1)** — trailing 12-month return, excluding the most recent month.
+- **Earnings Revisions** — whether analyst estimates are trending up or down.
+
+**Risk — how bumpy is the ride?**
+- **Low Volatility** — how steady the price has been.
+- **Downside Protection** — severity of past drawdowns and bad-day moves (Howard Marks–style).
+
+**Solvency — can it survive a downturn?**
+- **Balance Sheet Strength** — cash cushion vs debt load.
+- **Distress Risk (Altman Z)** — the classic 5-ratio bankruptcy-risk model.
+
+**Capital Allocation — how well does it use cash?**
+- **Shareholder Yield** — dividends plus net buybacks as a share of market cap.
+- **Investment (Asset Growth)** — rewards disciplined rather than empire-building asset growth.
+
+### Analyst Consensus
+
+The analyst layer aggregates published Wall Street ratings into a single **consensus label** (Buy / Hold / Sell), shows the **average 12-month price target**, and computes **implied upside** — how far that target sits above or below today's price. Supporting **key stats** (current price, market cap, P/E, dividend yield, and 52-week range) round out the snapshot, alongside a **candlestick price-history chart** spanning one month to all-time.
+
+ETFs are supported too, with basic fund info — but no factor scoring, since these factors are company-level.
 
 ## Caveats
 
