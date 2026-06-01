@@ -19,6 +19,8 @@
         <img src=
           {% if teaser contains "://" %}
             "{{ teaser }}"
+          {% elsif teaser contains "/images/" %}
+            "{{ base_path }}{{ teaser }}"
           {% else %}
             "{{ teaser | prepend: "/images/" | prepend: base_path }}"
           {% endif %}
@@ -45,6 +47,20 @@
         {% elsif post.date %}
          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> {{ site.data.ui-text[site.locale].date_label | default: "Published:" }}</strong> <time datetime="{{ post.date | default: "1900-01-01" | date_to_xmlschema }}">{{ post.date | default: "1900-01-01" | date: "%B %d, %Y" }}</time></p>
         {% endif %}
+
+    {% if include.type != "grid" and teaser %}
+      <div class="archive__item-teaser">
+        <img src=
+          {% if teaser contains "://" %}
+            "{{ teaser }}"
+          {% elsif teaser contains "/images/" %}
+            "{{ base_path }}{{ teaser }}"
+          {% else %}
+            "{{ teaser | prepend: "/images/" | prepend: base_path }}"
+          {% endif %}
+          alt="">
+      </div>
+    {% endif %}
 
     {% if post.excerpt and site.read_more != 'enabled' %}
     <p class="archive__item-excerpt" itemprop="description">{{ post.excerpt | markdownify }}</p>
