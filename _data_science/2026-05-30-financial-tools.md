@@ -1,5 +1,5 @@
 ---
-title: "A stock factor scoring & analyst aggregation dashboard"
+title: "A financial analysis dashboard for evaluating stocks "
 date: 2026-05-30
 tags:
   - finance
@@ -14,7 +14,7 @@ header:
 
 I built this dashboard to understand the metrics behind a stock before buying, and to keep that data in one place. Quick disclaimer: I'm not a professional financial analyst and this isn't investment advice.
 
-Give it any ticker and it scores the company across **15 research-backed factors**, ranks each against the S&P 500, blends them into a single **0–100 composite score**, and layers on aggregated Wall Street analyst views. It's a [Streamlit](https://streamlit.io/) app written in Python ([source on GitHub](https://github.com/robinwyeo/financial-tools)) using market data from `yfinance`. I've embedded it below so you can try it yourself.
+Give it any ticker and it scores the company across **15 research-backed factors**, ranks each against the S&P 500, blends them into a single **0–100 composite score**, and layers on aggregated Wall Street analyst views. It's a [Streamlit](https://streamlit.io/) app written in Python (see my [GitHub repo](https://github.com/robinwyeo/financial-tools) for source code) using market data from `yfinance`. I've embedded it below so you can try it yourself.
 
 ## Try it
 
@@ -65,48 +65,42 @@ document.getElementById('ticker-input').addEventListener('keydown', function(e) 
 
 ## How to read it
 
-Everything in the dashboard is **relative**. Each factor is computed cross-sectionally as a **percentile rank against the S&P 500** (sector-adjusted where possible), so a score answers "how does this stack up against peers?" rather than leaning on an arbitrary absolute cutoff. Across the board, **higher always means more favorable** — the tool flips "bad-direction" metrics so that green is always good.
+Everything in the dashboard is normalized to be **relative**. Each factor is computed cross-sectionally as a **percentile rank against the S&P 500** (sector-adjusted where possible), so a score answers "how does this stack up against other companies in the S&P500?" rather than leaning on an arbitrary absolute cutoff. Across the board, **higher always means more favorable** — the tool flips "bad-direction" metrics so that green is always good.
 
 ### Composite Score
 
-A single **0–100** number that blends all available factor ranks into one verdict. A `90` means the stock looks better than ~90% of the S&P 500 once every factor is weighed together. The model treats **composite ≥ 70 and implied upside ≥ 15%** as its rough "good buy" bar.
+A single **0–100** number that blends all available factor ranks into one verdict. A `90` means the stock looks better than ~90% of the S&P 500 once every factor is weighed together. The model treats **composite ≥ 60 and implied upside ≥ 15%** as its rough "good buy" bar.
 
 ### Factor Scorecard
 
-Each factor is shown as a percentile rank and color-coded: <span style="color:#e74c3c">**red (0–30, weak)**</span>, <span style="color:#f1c40f">**yellow (31–70, middling)**</span>, <span style="color:#2ecc71">**green (71–100, strong)**</span>. The 15 factors group into six themes, each answering a different question:
+The scorecard lays out all **15 factors** in four categories (two columns in the UI). Each row shows a percentile rank bar and color-coded dot: <span style="color:#e74c3c">**red (0–30, weak)**</span>, <span style="color:#f1c40f">**yellow (31–70, middling)**</span>, <span style="color:#2ecc71">**green (71–100, strong)**</span>. Factors without enough data show **N/A** in gray.
 
-**Value — am I paying a sensible price?**
+**Valuation — am I paying a sensible price?**
 - **Value** — earnings, book-value, and cash-flow multiples vs peers.
 - **GARP** — Peter Lynch's PEG idea; growth relative to what you pay for it.
 - **Graham Number Value** — Benjamin Graham's classic value checks.
+- **Shareholder Yield** — dividends plus net buybacks as a share of market cap.
 
-**Quality — is the business actually good?**
+**Quality & Profitability — is the business actually good?**
 - **Quality / Profitability** — margins and returns on assets and equity.
 - **Capital Efficiency (ROIC)** — operating profit earned per dollar of invested capital.
-- **Financial Strength (Piotroski F-Score)** — a 9-point profitability, leverage, and liquidity checklist.
 - **Earnings Quality (Accruals)** — how much of reported profit is backed by real cash.
 
-**Trend — is sentiment moving the right way?**
+**Financial Health — can it survive and deploy capital wisely?**
+- **Financial Strength (Piotroski F-Score)** — a 9-point profitability, leverage, and liquidity checklist.
+- **Balance Sheet Strength** — cash cushion vs debt load.
+- **Distress Risk (Altman Z)** — the classic 5-ratio bankruptcy-risk model.
+- **Investment (Asset Growth)** — rewards disciplined rather than empire-building asset growth.
+
+**Market & Sentiment — how is the stock behaving in the market?**
 - **Momentum (12-1)** — trailing 12-month return, excluding the most recent month.
 - **Earnings Revisions** — whether analyst estimates are trending up or down.
-
-**Risk — how bumpy is the ride?**
 - **Low Volatility** — how steady the price has been.
 - **Downside Protection** — severity of past drawdowns and bad-day moves (Howard Marks–style).
 
-**Solvency — can it survive a downturn?**
-- **Balance Sheet Strength** — cash cushion vs debt load.
-- **Distress Risk (Altman Z)** — the classic 5-ratio bankruptcy-risk model.
-
-**Capital Allocation — how well does it use cash?**
-- **Shareholder Yield** — dividends plus net buybacks as a share of market cap.
-- **Investment (Asset Growth)** — rewards disciplined rather than empire-building asset growth.
-
 ### Analyst Consensus
 
-The analyst layer aggregates published Wall Street ratings into a single **consensus label** (Buy / Hold / Sell), shows the **average 12-month price target**, and computes **implied upside** — how far that target sits above or below today's price. Supporting **key stats** (current price, market cap, P/E, dividend yield, and 52-week range) round out the snapshot, alongside a **candlestick price-history chart** spanning one month to all-time.
-
-ETFs are supported too, with basic fund info — but no factor scoring, since these factors are company-level.
+The analyst layer aggregates published Wall Street ratings into a single **consensus label** (Buy / Hold / Sell), shows the **average 12-month price target**, and computes **implied upside** — how far that target sits above or below today's price.
 
 ## Caveats
 
