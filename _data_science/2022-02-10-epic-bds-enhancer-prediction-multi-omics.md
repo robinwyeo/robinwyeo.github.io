@@ -8,6 +8,8 @@ tags:
   - ChromHMM
   - multi-omics
 permalink: /data-science/epic-enhancer-prediction-multi-omics/
+header:
+  teaser: /images/data-science/epic-enhancer-2022/Enhancer_Title_Image.png
 ---
 
 ![Title](/images/data-science/epic-enhancer-2022/Enhancer_Title_Image.png)

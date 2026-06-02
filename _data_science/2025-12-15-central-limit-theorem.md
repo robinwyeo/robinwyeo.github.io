@@ -4,6 +4,8 @@ date: 2025-12-15
 tags:
   - Central Limit Theorem
 permalink: /data-science/central-limit-theorem/
+header:
+  teaser: /images/data-science/central-limit-theorem/IllustrationCentralTheorem.png
 ---
 
 ![CLT title image](/images/data-science/central-limit-theorem/IllustrationCentralTheorem.png)

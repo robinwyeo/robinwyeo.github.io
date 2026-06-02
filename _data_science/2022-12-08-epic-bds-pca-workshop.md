@@ -6,6 +6,8 @@ tags:
   - R
   - workshop
 permalink: /data-science/pca-workshop/
+header:
+  teaser: /images/data-science/pca/pca_concept.png
 ---
 
 ![PCA Concept](/images/data-science/pca/pca_concept.png)

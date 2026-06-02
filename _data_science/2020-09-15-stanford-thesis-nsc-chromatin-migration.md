@@ -7,6 +7,8 @@ tags:
   - ATAC-seq
   - chromatin
 permalink: /data-science/nsc-chromatin-migration-thesis/
+header:
+  teaser: /images/data-science/thesis/NSC-Thesis-title-image.png
 ---
 
 ![Title Image](/images/data-science/thesis/NSC-Thesis-title-image.png)
