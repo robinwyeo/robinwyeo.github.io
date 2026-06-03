@@ -1,6 +1,6 @@
 ---
 title: "An introduction to the Central Limit Theorem"
-date: 2025-12-15
+date: 2025-11-20
 tags:
   - Central Limit Theorem
 permalink: /data-science/central-limit-theorem/
