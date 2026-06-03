@@ -14,7 +14,7 @@ header:
 
 I built this dashboard to better understand investment fundamentals and as a tool to evalaute US stocks before considering a purchase. Some background reading I found informative when deciding on what tools to include in this dashboard include Benjamin Graham's [The Intelligent Investor](https://www.goodreads.com/book/show/106835.The_Intelligent_Investor), Howard Mark's [The Most Important Thing: Uncommon Sense for the Thoughtful Investor](https://www.goodreads.com/book/show/10454418-the-most-important-thing), and Peter Lynch's [One Up on Wall Street](https://www.goodreads.com/book/show/762462.One_Up_On_Wall_Street).
 
-Give it any ticker and it scores the company across **15 research-backed factors**, ranks each against the S&P 500, blends them into a single **0–100 composite score**, rates whether the current price looks like a **bargain**, and layers on aggregated Wall Street analyst views. It's a [Streamlit](https://streamlit.io/) app written in Python (see my [GitHub repo](https://github.com/robinwyeo/financial-tools) for source code) using market data from `yfinance`. I've embedded it below so you can try it yourself (though it works slightly better in full screen).
+Give it any ticker and it scores the company across **15 research-backed factors**, ranks each against the S&P 500, blends them into a single 0–100 composite score, rates whether the current price looks like a bargain, and layers on aggregated Wall Street analyst views. It's a [Streamlit](https://streamlit.io/) app written in Python (see my [GitHub repo](https://github.com/robinwyeo/financial-tools) for source code) using market data from `yfinance`. I've embedded it below so you can try it yourself (though it works slightly better in full screen).
 
 ## Try it
 
@@ -65,11 +65,11 @@ document.getElementById('ticker-input').addEventListener('keydown', function(e) 
 
 ### Composite Score
 
-A single **relative 0–100** number that blends all available factor ranks into one verdict. A `90` means the stock looks better than ~90% of the S&P 500 once every factor is added together as a weighted sum. Unlike the bargain score, the composite score is a **relative** rank — it does not, by itself, say whether today's price is cheap.
+A single **relative 0–100** number that blends all available factor ranks into one verdict. A `90` means the stock looks better than ~90% of the S&P 500 once every factor is added together as a weighted sum. Unlike the bargain score, the composite score is a relative rank — it does not, by itself, say whether today's price is cheap.
 
 ### Factor Scorecard
 
-The scorecard lays out all **15 factors** in four categories: **Valuation**, **Quality/Profitability**, **Financial Health**, and **Market/Sentiment**. Each factor is computed cross-sectionally as a **percentile rank against the S&P 500** (sector-adjusted where possible), so a score answers "how does this stack up against other companies in the S&P500?" rather than leaning on an arbitrary absolute cutoff. Each row shows a percentile rank bar and color-coded dot: <span style="color:#e74c3c">**red (0–30, weak)**</span>, <span style="color:#f1c40f">**yellow (31–70, middling)**</span>, <span style="color:#2ecc71">**green (71–100, strong)**</span>. Factors without enough data show **N/A** in gray.
+The scorecard lays out all 15 factors in four categories: **Valuation**, **Quality/Profitability**, **Financial Health**, and **Market/Sentiment**. Each factor is computed cross-sectionally as a **percentile rank against the S&P 500** (sector-adjusted where possible), so a score answers "how does this stack up against other companies in the S&P500?" rather than leaning on an arbitrary absolute cutoff. Each row shows a percentile rank bar and color-coded dot: <span style="color:#e74c3c">**red (0–30, weak)**</span>, <span style="color:#f1c40f">**yellow (31–70, middling)**</span>, <span style="color:#2ecc71">**green (71–100, strong)**</span>. Factors without enough data show **N/A** in gray.
 
 **Valuation — am I paying a sensible price?**
 - **Value** — earnings, book-value, and cash-flow multiples vs peers.
@@ -96,7 +96,7 @@ The scorecard lays out all **15 factors** in four categories: **Valuation**, **Q
 
 ### Bargain Score
 
-Sitting next to the composite gauge, the **Bargain Score** answers a different question: *is the stock priced like a deal right now?*. It is an **absolute 0–100** score built from fixed thresholds (not a percentile vs the S&P 500), so higher always means more of a bargain. The model blends five inputs, reweighting over whichever are available:
+Sitting next to the composite gauge, the Bargain Score answers a different question: *is the stock priced like a deal right now?*. It is an **absolute 0–100** score built from fixed thresholds (not a percentile vs the S&P 500), so higher always means more of a bargain. The model blends five inputs, reweighting over whichever are available:
 
 - **Margin of safety** — how far the price sits below Benjamin Graham's intrinsic-value estimate.
 - **Discount from all-time high** — how much the stock has pulled back from its peak.
@@ -104,11 +104,11 @@ Sitting next to the composite gauge, the **Bargain Score** answers a different q
 - **RSI oversold** — whether recent selling has pushed the 14-day RSI into oversold territory.
 - **Analyst upside** — how far the consensus price target sits above today's price.
 
-The label summarizes the score: **Bargain** (≥ 50), **Fair** (26–49), or **Expensive** (&lt; 25).
+The label summarizes the score: Bargain (≥ 50), Fair (26–49), or Expensive (&lt; 25).
 
 ### Good-buy signal
 
-The dashboard flags a name as a rough **"good buy"** only when **all** of these pass (and the analyst consensus is not Sell):
+The dashboard flags a name as a rough **"good buy"** only when all of these pass (and the analyst consensus is not Sell):
 
 | Criterion | Threshold |
 | :--- | :--- |
@@ -120,8 +120,8 @@ A strong business on factors alone is not enough if the price is stretched; conv
 
 ### Analyst Consensus
 
-The analyst layer aggregates published Wall Street ratings into a single **consensus label** (Buy / Hold / Sell), shows the **low, mean, and high 12-month price targets**, and computes **implied upside** — how far that target sits above or below today's price. Implied upside feeds both the Bargain Score and the good-buy check (≥ 15%).
+The analyst layer aggregates published Wall Street ratings into a single consensus label (Buy / Hold / Sell), shows the low, mean, and high 12-month price targets, and computes implied upside — how far that target sits above or below today's price. Implied upside feeds both the Bargain Score and the good-buy check (≥ 15%).
 
 ## Caveats
 
-This is a personal research tool, **not investment advice**. Factor scores and analyst targets are noisy, backward-looking inputs, and the model can be wrong. Data comes from a free third-party source and may be delayed or occasionally incomplete.
+This is a personal research tool, not investment advice. Factor scores and analyst targets are noisy, backward-looking inputs, and the model can be wrong. Data comes from a free third-party source and may be delayed or occasionally incomplete.
