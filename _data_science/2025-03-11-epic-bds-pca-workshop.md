@@ -1,6 +1,6 @@
 ---
 title: "Principal Component Analysis (PCA) Workshop"
-date: 2022-12-08
+date: 2025-03-11
 tags:
   - PCA
   - R

@@ -1,6 +1,6 @@
 ---
 title: "Transcriptional enhancer prediction through multi-omics integration"
-date: 2022-02-10
+date: 2025-07-02
 tags:
   - enhancers
   - EPIC
