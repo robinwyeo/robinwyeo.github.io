@@ -1,6 +1,6 @@
 ---
 title: "Chromatin accessibility dynamics underlie a decline in neural stem cell migratory ability with age"
-date: 2020-09-15
+date: 2024-10-14
 tags:
   - thesis
   - neural stem cells
