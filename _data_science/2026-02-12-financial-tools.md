@@ -73,36 +73,95 @@ The scorecard lays out all 15 factors in four categories: **Valuation**, **Quali
 
 **Valuation — am I paying a sensible price?**
 - **Value** — earnings, book-value, and cash-flow multiples vs peers.
+
+  $$\frac{P}{E}, \quad \frac{P}{B}, \quad \frac{P}{\text{FCF}}$$
+
 - **GARP** — Peter Lynch's PEG idea; growth relative to what you pay for it.
+
+  $$\text{PEG} = \frac{P/E}{\text{EPS Growth Rate (\%)}}$$
+
 - **Graham Number Value** — Benjamin Graham's classic value checks.
+
+  $$G = \sqrt{22.5 \times \text{EPS} \times \text{BVPS}}$$
+
 - **Shareholder Yield** — dividends plus net buybacks as a share of market cap.
+
+  $$\text{Shareholder Yield} = \frac{\text{Dividends} + \text{Net Buybacks}}{\text{Market Cap}}$$
 
 **Quality & Profitability — is the business actually good?**
 - **Quality / Profitability** — margins and returns on assets and equity.
+
+  $$\text{ROE} = \frac{\text{Net Income}}{\text{Equity}}, \quad \text{ROA} = \frac{\text{Net Income}}{\text{Total Assets}}$$
+
 - **Capital Efficiency (ROIC)** — operating profit earned per dollar of invested capital.
+
+  $$\text{ROIC} = \frac{\text{NOPAT}}{\text{Invested Capital}}, \quad \text{NOPAT} = \text{EBIT} \times (1 - t)$$
+
 - **Earnings Quality (Accruals)** — how much of reported profit is backed by real cash.
+
+  $$\text{Accrual Ratio} = \frac{\text{Net Income} - \text{Operating Cash Flow}}{\text{Total Assets}}$$
 
 **Financial Health — can it survive and deploy capital wisely?**
 - **Financial Strength (Piotroski F-Score)** — a 9-point profitability, leverage, and liquidity checklist.
+
+  $$F = \sum_{i=1}^{9} f_i, \quad f_i \in \{0,\,1\}$$
+
 - **Balance Sheet Strength** — cash cushion vs debt load.
+
+  $$\text{Current Ratio} = \frac{\text{Current Assets}}{\text{Current Liabilities}}, \quad \frac{D}{E} = \frac{\text{Total Debt}}{\text{Equity}}$$
+
 - **Distress Risk (Altman Z)** — the classic 5-ratio bankruptcy-risk model.
+
+  $$Z = 1.2\,X_1 + 1.4\,X_2 + 3.3\,X_3 + 0.6\,X_4 + 1.0\,X_5$$
+
+  $$X_1 = \frac{\text{Working Capital}}{\text{Total Assets}},\quad X_2 = \frac{\text{Retained Earnings}}{\text{Total Assets}},\quad X_3 = \frac{\text{EBIT}}{\text{Total Assets}}$$
+
+  $$X_4 = \frac{\text{Market Cap}}{\text{Total Liabilities}},\quad X_5 = \frac{\text{Revenue}}{\text{Total Assets}}$$
+
 - **Investment (Asset Growth)** — rewards disciplined rather than empire-building asset growth.
+
+  $$\text{Asset Growth} = \frac{\text{Total Assets}_t - \text{Total Assets}_{t-1}}{\text{Total Assets}_{t-1}}$$
 
 **Market & Sentiment — how is the stock behaving in the market?**
 - **Momentum (12-1)** — trailing 12-month return, excluding the most recent month.
+
+  $$\text{Mom}_{12\text{-}1} = \frac{P_{t-1} - P_{t-12}}{P_{t-12}}$$
+
 - **Earnings Revisions** — whether analyst estimates are trending up or down.
+
+  $$\text{Revision} = \frac{\hat{E}_{\text{current}} - \hat{E}_{\text{prior}}}{\lvert\hat{E}_{\text{prior}}\rvert}$$
+
 - **Low Volatility** — how steady the price has been.
+
+  $$\sigma_{\text{annual}} = \sigma_{\text{daily}} \times \sqrt{252}$$
+
 - **Downside Protection** — severity of past drawdowns and bad-day moves (Howard Marks–style).
+
+  $$\text{MDD} = \max_{t}\!\left(\frac{P_{\text{peak},t} - P_t}{P_{\text{peak},t}}\right)$$
 
 ### Bargain Score
 
 Sitting next to the composite gauge, the Bargain Score answers a different question: *is the stock priced like a deal right now?*. It is an **absolute 0–100** score built from fixed thresholds (not a percentile vs the S&P 500), so higher always means more of a bargain. The model blends five inputs, reweighting over whichever are available:
 
 - **Margin of safety** — how far the price sits below Benjamin Graham's intrinsic-value estimate.
+
+  $$G = \sqrt{22.5 \times \text{EPS} \times \text{BVPS}}, \quad \text{MoS} = \frac{G - P}{G}$$
+
 - **Discount from all-time high** — how much the stock has pulled back from its peak.
+
+  $$\text{ATH Discount} = \frac{P_{\text{ATH}} - P}{P_{\text{ATH}}}$$
+
 - **Discount from 52-week high** — shorter-term drawdown from the yearly peak.
+
+  $$\text{52W Discount} = \frac{P_{52\text{W}} - P}{P_{52\text{W}}}$$
+
 - **RSI oversold** — whether recent selling has pushed the 14-day RSI into oversold territory.
+
+  $$\text{RSI} = 100 - \frac{100}{1 + RS}, \quad RS = \frac{\overline{\text{Gain}}_{14}}{\overline{\text{Loss}}_{14}}$$
+
 - **Analyst upside** — how far the consensus price target sits above today's price.
+
+  $$\text{Upside} = \frac{P_{\text{target}} - P}{P}$$
 
 The label summarizes the score: Bargain (≥ 50), Fair (26–49), or Expensive (&lt; 25).
 
