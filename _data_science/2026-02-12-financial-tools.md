@@ -112,11 +112,22 @@ The dashboard flags a name as a rough **"good buy"** only when all of these pass
 
 | Criterion | Threshold |
 | :--- | :--- |
-| Composite | ≥ 50 |
+| Composite | ≥ 50.9 |
 | Analyst upside | ≥ 15% |
-| Bargain | ≥ 50 |
+| Bargain | ≥ 43.2 |
+| Consensus | Not Sell |
 
 A strong business on factors alone is not enough if the price is stretched; conversely, a deep discount does not qualify if fundamentals or analyst targets do not clear the bar.
+
+### How the weights and thresholds were set
+
+The factor weights, bargain weights, and good-buy thresholds were not chosen by hand. A historical backtest on S&P 500 constituents from **2010–2026** uses SEC EDGAR point-in-time fundamentals and price history to replay a quarterly strategy: invest **$20k** equally across the **top 5** composite-ranked stocks each quarter, hold, and compare return on deployed capital against the same **$20k/quarter SPY** schedule.
+
+**Factor weights** are tuned with **5-fold time-series cross-validation**. Each candidate weight set runs that DCA strategy independently in every fold; the winner is the one with the best `mean(excess ROI) − std(excess ROI)` across folds — rewarding consistency across regimes, not a lucky spike in one period. The current weights (momentum and low-volatility/downside-protection heavy) come from this search.
+
+**Good-buy thresholds** are calibrated separately by bucketing composite and bargain scores against historical forward returns and picking cutoffs where excess return turns reliably positive. **Bargain weights** are tuned to maximize the rank correlation between the bargain score and next-quarter returns.
+
+All live parameters are in [`config.yaml`](https://github.com/robinwyeo/financial-tools/blob/main/config.yaml); the dashboard sidebar shows the current values.
 
 ### Analyst Consensus
 
